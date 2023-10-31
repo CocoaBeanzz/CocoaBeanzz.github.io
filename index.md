@@ -2,6 +2,8 @@
 title: CocoaSounds
 ---
 
+![alt text](https://github.com/CocoaBeanzz/CocoaSounds-Blog/blob/main/me_painting_5_12_23_SMALL?raw=true)
+
 # Welcome!
 Welcome to my blog! Here I will post updates on my various musical projects. 
 

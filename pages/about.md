@@ -5,6 +5,8 @@ permalink: /about/
 weight: 3
 ---
 
+![alt text](https://github.com/CocoaBeanzz/CocoaSounds-Blog/blob/main/me_painting_5_12_23_SMALL?raw=true)
+
 # **About Me**
 
 Hey, I'm **{{ site.author.name }}** ,<br>
