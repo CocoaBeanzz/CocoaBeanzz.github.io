@@ -1,1 +1,1 @@
-https://cocoabeanzz.github.io/CocoaSounds-Blog/
+https://cocoabeanzz.github.io/CocoaSounds/

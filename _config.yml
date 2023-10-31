@@ -2,7 +2,7 @@
 title               : CocoaSounds
 description         : >-
                       Breaking new ground in the world of sound.
-baseurl             : "/CocoaSounds-Blog"                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+baseurl             : "/CocoaSounds"                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : CocoaBeanzz/CocoaBeanzz.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : YoussefRaafatNasry/portfolYOU
 open_new_tab        : true                             # Opens external URLs in new tab (works for posts, projects and navbar only)
@@ -30,7 +30,7 @@ readme_index:
 ### Author Info ###
 author:
   name              : K Preston
-  image             : https://media.licdn.com/dms/image/D5603AQHc7a-5QQyP2A/profile-displayphoto-shrink_800_800/0/1686858993481?e=1700697600&v=beta&t=Tl7-VP195VhVWR4QA0irZE3c240YHgizXZ3Svh9LWXY
+  image             : https://github.com/CocoaBeanzz/CocoaSounds/blob/main/_media/me_painting_5_12_23_SMALL.png?raw=true
 # behance           : your_username
 # dribbble          : your_username
   email             : k.preston@digipen.edu
