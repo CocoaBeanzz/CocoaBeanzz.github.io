@@ -5,7 +5,7 @@ permalink: /about/
 weight: 3
 ---
 
-![alt text](https://github.com/CocoaBeanzz/CocoaSounds-Blog/blob/main/me_painting_5_12_23_SMALL?raw=true)
+![alt text](https://github.com/CocoaBeanzz/CocoaSounds-Blog/blob/main/_media/me_painting_5_12_23_SMALL.png?raw=true)
 
 # **About Me**
 
