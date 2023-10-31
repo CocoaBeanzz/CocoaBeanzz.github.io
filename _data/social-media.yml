@@ -57,7 +57,7 @@ soundcloud:
   color : ff8800
 
 spotify:
-  url   : https://open.spotify.com/user/
+  url   : https://open.spotify.com/artist/
   icon  : fab fa-spotify
   color : 1db954
 
