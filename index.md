@@ -1,6 +1,3 @@
----
-title: CocoaSounds
----
 
 ![Portrait](https://github.com/CocoaBeanzz/CocoaSounds/blob/main/_media/me_painting_5_12_23_SMALL.png?raw=true)
 
