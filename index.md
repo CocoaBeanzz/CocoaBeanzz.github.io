@@ -1,8 +1,19 @@
+<div class="row">
+<div class="col">
+    <!-- Fine Circle Responsive Image -->
+    <div id="container" class="my-2">
+      <div id="dummy"></div>
+      <div id="element">
+        <img src="{{ "/docs/assets/images/site/me_painting_5_12_23_SMALL.png" }}" alt="{{ Portrait }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+      </div>
+    </div>
+</div>
 
-![Portrait](https://github.com/CocoaBeanzz/CocoaSounds/blob/main/_media/me_painting_5_12_23_SMALL.png?raw=true)
-
-# Welcome!
-Welcome to my blog! Here I will post updates on my various musical projects. 
+<div class="col">
+<img src="/docs/assets/images/site/title.png" width="1000" alt="">
+<b>Welcome to my blog!</b> Here I will post updates on my various musical projects. 
+</div>
+</div>
 
 ## Check Out My Music!
 ### Musical Portfolio:

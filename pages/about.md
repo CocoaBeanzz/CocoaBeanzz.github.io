@@ -5,12 +5,26 @@ permalink: /about/
 weight: 3
 ---
 
-![Portrait](https://github.com/CocoaBeanzz/CocoaBeanzz.github.io/blob/main/_media/me_painting_5_12_23_SMALL.png?raw=true)
+<div class="row">
+<div class="col">
+    <!-- Fine Circle Responsive Image -->
+    <div id="container" class="my-2">
+      <div id="dummy"></div>
+      <div id="element">
+        <img src="{{ "/docs/assets/images/site/me_painting_5_12_23_SMALL.png" }}" alt="{{ Portrait }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+      </div>
+    </div>
+</div>
+
+<div class="col">
+
+Hey, I'm K.<br>
+I'm a musician, composer, audio programmer, synthesizer designer, student, and general creative hobbyist. This is my blog for my music-related projects. 
+
+</div>
+</div>
 
 # **About Me**
-
-Hey, I'm **{{ site.author.name }}** ,<br>
-I'm a musician, composer, audio programmer, synthesizer designer, student, and general creative hobbyist. This is my blog for my music-related projects. 
 
 <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
