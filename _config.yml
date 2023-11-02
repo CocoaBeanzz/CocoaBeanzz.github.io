@@ -1,5 +1,5 @@
 ### Site Settings ###
-title               : CocoaBeanzz - K Preston
+title               : K Preston
 description         : >-
                       Breaking new ground in the world of sound.
 baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
@@ -30,7 +30,7 @@ readme_index:
 ### Author Info ###
 author:
   name              : K Preston
-  image             : https://github.com/CocoaBeanzz/CocoaBeanzz.github.io/blob/main/_media/me_painting_5_12_23_SMALL.png?raw=true
+  image             : /docs/assets/images/site/me_painting_5_12_23_SMALL.png
 # behance           : your_username
 # dribbble          : your_username
   email             : k.preston@digipen.edu

@@ -1,5 +1,5 @@
 
-![Portrait](https://github.com/CocoaBeanzz/CocoaSounds/blob/main/_media/me_painting_5_12_23_SMALL.png?raw=true)
+![Portrait]("/docs/assets/images/site/me_painting_5_12_23_SMALL.png")
 
 # Welcome!
 Welcome to my blog! Here I will post updates on my various musical projects. 
