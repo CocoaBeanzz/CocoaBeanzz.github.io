@@ -11,15 +11,17 @@ weight: 3
     <div id="container" class="my-2">
       <div id="dummy"></div>
       <div id="element">
-        <img src="{{ "/docs/assets/images/site/me_painting_5_12_23_SMALL.png" }}" alt="{{ Portrait }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+        <img src="{{ "/docs/assets/images/site/231103-headshot-7-square.jpg" }}" alt="{{ Portrait }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
       </div>
     </div>
 </div>
 
 <div class="col">
 
-Hey, I'm K.<br>
-I'm a musician, composer, audio programmer, synthesizer designer, student, and general creative hobbyist. This is my blog for my music-related projects. 
+Hey, I'm K.<br><br>
+I'm a musician, composer, audio programmer, synthesizer designer, student, and general creative enthusiast. <br><br>
+My projects blend my artistic and technical passions to bring forth new sonic experiences, be it through the sound of a video game, a cinematic score, an inspired album, or new tools to help other musicians realize their artistic visions.<br><br>
+Let's make something amazing together.
 
 </div>
 </div>
