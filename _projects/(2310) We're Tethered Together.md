@@ -33,13 +33,14 @@ Will you escape... or become another offering?<br><br>
 
 
 ## Videos
-{% include elements/video.html id="NpqWGw-UvPU" %}
+{% include elements/video.html id="5X4RejHW7ls" %}
+{% include elements/video.html id="YywT4pMFLoM" %}
 
 ## Soundtrack
 (Ambient, Horror, Acoustic, Electronic)\
 Instruments: Piano, Synthesizer
 
-<div><iframe width="100%" height="400" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1493781013&color=%23ff92b0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe></div>
+<div><iframe width="100%" height="400" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1715670969&color=%23ff92b0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe></div>
 
 ## Gallery
 {% assign prefix="/docs/assets/images/projects/were-tethered-together/wtt-" -%}
