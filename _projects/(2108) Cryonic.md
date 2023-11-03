@@ -21,5 +21,5 @@ A lone researcher ventures into the tundra to investigate space-time anomalies. 
 
 ## Soundtrack
 (Ambient, Acoustic, Electronic)\
-Instruments: Piano, String Ensemble, Orchestra, Synthesizer
+Instruments: Piano, String Quartet, Orchestra, Synthesizer
 <iframe width="100%" height="400" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1289648479&color=%2300bcff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
