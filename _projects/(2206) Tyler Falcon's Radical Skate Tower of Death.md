@@ -17,15 +17,14 @@ Become the raddest skater in all the land, by conquering Tyler Falcon's ultimate
 </div>
 </div>
 
+## Videos
+{% include elements/video.html id="dCYJHapo2KU" %}
 
 ## Soundtrack
 (Electronica, Synthwave, Synthpop)\
 Instruments: Synthesizer, Vocals, Guitar
 
 <iframe width="100%" height="700" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1490867065&color=%23ff1c9f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-
-## Videos
-{% include elements/video.html id="dCYJHapo2KU" %}
 
 ## Gallery
 {% assign prefix="/docs/assets/images/projects/tfrstod/tfrstod-" -%}

@@ -25,14 +25,14 @@ Corbyn LaMar\
 Caleb Kissinger\
 K Preston
 
+## Videos
+{% include elements/video.html id="791LNASUr7I" %}
+
 ## Soundtrack
 (Acoustic, Folk, Electronic)\
 Instruments: Guitar, Vocal, Piano, Cello, Synthesizer
 
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1680881013&color=%23ff7e1c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-
-## Videos
-{% include elements/video.html id="791LNASUr7I" %}
 
 ## Gallery
 {% assign prefix="/docs/assets/images/projects/nowhere-to-grow/ntg-" -%}

@@ -27,8 +27,9 @@ I'm a musician, composer, audio programmer, synthesizer designer, student, and g
 # **About Me**
 
 <div class="row">
-{% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
-{% include about/skills.html title="Other Skills" source=site.data.other-skills %}
+{% include about/skills.html title="Languages" source=site.data.languages %}
+{% include about/skills.html title="Packages" source=site.data.packages %}
+{% include about/skills.html title="Software" source=site.data.software %}
 </div>
 
 <div class="row">
