@@ -1,14 +1,22 @@
 ---
 name: Rave Wizards
+tools: [C, Custom Engine, FMOD Core]
 image: https://i1.sndcdn.com/artworks-J2SOChjNyxAoex07-BrWz5w-t500x500.jpg
 description: Fast-paced arcade rhythm wizard duel.
 ---
 
 # Rave Wizards
-
 (Arcade, Rhythm)
 
+<div class="row">
+<div class="col">
+<img src="https://i1.sndcdn.com/artworks-J2SOChjNyxAoex07-BrWz5w-t500x500.jpg" alt="Title Image">
+</div>
+<div class="col">
 Two wizards engage in a high-energy dance battle. Match your movement to the beat as you dance and dodge to outsmart your opponent. Keep up the pace as the music drives faster with each round.
+</div>
+</div>
+
 
 ## Soundtrack
 (Electronic)\

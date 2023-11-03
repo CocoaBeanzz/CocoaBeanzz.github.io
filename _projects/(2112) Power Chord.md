@@ -1,14 +1,21 @@
 ---
 name: Power Chord
-image: https://i1.sndcdn.com/artworks-km5eR8rzr10h8gH8-Nf1YhA-t500x500.jpg
+tools: [C, Custom Engine, FMOD Core]
+image: /docs/assets/images/projects/power-chord/edits/album-crop.jpg
 description: Banish bad riffs and learn music theory in this roguelike rhythm shooter.
 ---
 
 # Power Chord
-
 (Roguelike, Rhythm, Bullet Hell)
 
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/power-chord/edits/album-crop.jpg" alt="Title Image">
+</div>
+<div class="col">
 Banish bad riffs and learn music theory in this roguelike rhythm shooter.
+</div>
+</div>
 
 ## Soundtrack
 (Jazz, Rock, Acoustic, Electronic)\

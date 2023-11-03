@@ -1,5 +1,6 @@
 ---
 name: We're Tethered Together
+tools: [C#, Unity]
 image: "/docs/assets/images/projects/were-tethered-together/edited/wtt-1-crop.png"
 description: Charming and creepy atmospheric puzzle platformer.
 ---
@@ -12,15 +13,24 @@ description: Charming and creepy atmospheric puzzle platformer.
 
 {% include elements/steam-widget.html id="2578110" %}
 
-Cast into an ancient crypt, survive the horrors that dwell below, and ascend from despair with your unexpected companion in this 2D puzzle platformer. Take risks to evade the petrifying gaze from beyond the dark.
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/were-tethered-together/edited/wtt-1-crop.png" alt="Title Image">
+</div>
+<div class="col">
 
-Offered as sacrifice, you play as a character desperately seeking escape from a dark presence lurking within the catacombs. Trapped below, danger lurks in a world frozen by fear.
+Cast into an ancient crypt, survive the horrors that dwell below, and ascend from despair with your unexpected companion in this 2D puzzle platformer. Take risks to evade the petrifying gaze from beyond the dark.<br><br>
 
-With the help of a mysterious guide, you're not alone on your journey. To survive this perilous trial, use your wits to platform, swing, and sneak as you endure treacherous forces at every turn.
+Offered as sacrifice, you play as a character desperately seeking escape from a dark presence lurking within the catacombs. Trapped below, danger lurks in a world frozen by fear.<br><br>
 
-Originally created as a submission for the Brackey's Game Jam 2022 and ranked 14th place, "We're Tethered Together" has been redeveloped from the ground up.
+With the help of a mysterious guide, you're not alone on your journey. To survive this perilous trial, use your wits to platform, swing, and sneak as you endure treacherous forces at every turn.<br><br>
 
-Will you escape... or become another offering?
+Originally created as a submission for the Brackey's Game Jam 2022 and ranked 14th place, "We're Tethered Together" has been redeveloped from the ground up.<br><br>
+
+Will you escape... or become another offering?<br><br>
+</div>
+</div>
+
 
 ## Videos
 {% include elements/video.html id="NpqWGw-UvPU" %}

@@ -1,16 +1,23 @@
 ---
 name: Cryonic
-image: https://i1.sndcdn.com/artworks-E03ulhxV5ErjqHyj-CdBAcw-t500x500.jpg
+tools: [GameMaker]
+image: /docs/assets/images/projects/cryonic/edits/album-crop.jpg
 description: Time-traveling arctic combat game.
 ---
 
 # Cryonic
-
 (Turn-based, Science Fiction, Adventure)
 
 [Available for Free on itch.io](https://curioshade.itch.io/cryonic)
 
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/cryonic/edits/album-crop.jpg" alt="Title Image">
+</div>
+<div class="col">
 A lone researcher ventures into the tundra to investigate space-time anomalies. Armed with an experimental time-shifting revolver, they must recall clones of their past self to combat invaders from these twisted timelines.
+</div>
+</div>
 
 ## Soundtrack
 (Ambient, Acoustic, Electronic)\

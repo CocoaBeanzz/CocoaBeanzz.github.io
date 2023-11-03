@@ -1,14 +1,22 @@
 ---
 name: Xenaria's Curse
-image: https://i1.sndcdn.com/artworks-PTaUQATgCqrDpqGM-GYO1kg-t500x500.jpg
+tools: [C#, Unity]
+image: /docs/assets/images/projects/xenarias-curse/edits/album-crop.jpg
 description: Wave defense arcade shooter.
 ---
 
 # Xenaria's Curse
-
 (Arcade, Bullet Hell)
 
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/xenarias-curse/edits/album-crop.jpg" alt="Title Image">
+</div>
+<div class="col">
+
 A pirate wizard fends off waves of possessed souls to ascend the mountain and escape Xenaria's Curse.
+</div>
+</div>
 
 ## Soundtrack
 (Chiptune, Electronic)\
