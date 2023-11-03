@@ -1,20 +1,29 @@
 ---
 name: Bashful Baker
+tools: [C#, Unity]
 image: /docs/assets/images/projects/bashful-baker/edited/bb-9-crop.png
 description: Pixel-style baking and stealth exploration game.
 ---
 
 # Bashful Baker
-
 (Baking, Stealth, Social)
 
 [Available for Free on itch.io](https://therealmagicalporpoise.itch.io/bashfulbaker)
 
-Welcome to Jeb's Jollies!
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/bashful-baker/edited/bb-9-crop.png" alt="Title Image">
+</div>
+<div class="col">
+Welcome to Jeb's Jollies!<br><br>
 
-Dane is the newly hired delivery-boy for the small town bakery, Jeb's Jollies. Dane is tasked with delivering Jebediah's baked goods to the various inhabitants of the town.
+Dane is the newly hired delivery-boy for the small town bakery, Jeb's Jollies. Dane is tasked with delivering Jebediah's baked goods to the various inhabitants of the town.<br><br>
 
 Bashful Baker is a pixel-style baking and stealth exploration game where the player learns to bake cookies, deliver cookies, and about the stories of each person in the small town. Explore, collect ingredients, avoid confrontation, and make new friends while playing Bashful Baker!
+</div>
+</div>
+
+
 
 ## Videos
 {% include elements/video.html id="uT2WEDLfZyI" %}

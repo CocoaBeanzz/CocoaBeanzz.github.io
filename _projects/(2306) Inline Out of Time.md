@@ -1,14 +1,41 @@
 ---
 name: "Inline: Out of Time"
+tools: [C++, Custom Engine, FMOD Core]
 image: "/docs/assets/images/projects/inline-out-of-time/inline-5.png"
 description: Time-attack speedrunning platformer.
 ---
 
-# Inline: Out of Time
-
+<div class="row">
+<div class="col">
+<img  src="/docs/assets/images/projects/inline-out-of-time/inline-logo.png" width="500" alt="Title Image" align="left">
+</div>
+<div class="col">
+</div>
+</div>
 (Platformer, Speedrunning, Arcade)
 
+<img src="/docs/assets/images/projects/inline-out-of-time/inline-endsplash.png" alt="Title Image">
+
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/inline-out-of-time/inline-5.png" alt="Title Image">
+</div>
+<div class="col">
+<div class="row">
 Inline: Out of Time is a 2D time-attack action platformer where you play as a roller-skating delivery person in a retro-futuristic 90s inspired city. You must complete your delivery routes as fast as possible to appease your corporate overlord, while still finding time to enjoy the sights of the city and your tunes.
+</div>
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/inline-out-of-time/inline-mc-idle.gif" style="width:60px;" alt="Player">
+</div>
+<div class="col">
+</div>
+<div class="col">
+<img src="/docs/assets/images/projects/inline-out-of-time/inline-yuna.png" alt="Yuna">
+</div>
+</div>
+</div>
+</div>
 
 ## Soundtrack
 (Electronica, Hip Hop, Techno)\
