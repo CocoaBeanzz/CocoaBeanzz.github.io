@@ -1,7 +1,8 @@
 
 <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
     {% for post in site.posts %}
-
-    {% include blog/post-card.html %}
-    {% endfor %}
-</div>
+    <div class="col pl-1 pr-1 pb-1 pt-1">
+        {% include blog/post-card.html %}
+    </div>
+        {% endfor %}
+    </div>
