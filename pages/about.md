@@ -25,6 +25,8 @@ Let's make something amazing together.
 
 </div>
 </div>
+<br>
+<br>
 <hr>
 
 # **Skills**
