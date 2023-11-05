@@ -48,14 +48,17 @@ Instruments: Synthesizer, Vocals, Guitar
 ## Gallery
 {% assign prefix="/docs/assets/images/projects/inline-out-of-time/inline-" -%}
 {% assign filetype=".png" -%}
-<img src="{{prefix}}1{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}2{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}3{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}4{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}5{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}6{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}7{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}8{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}9{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}10{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}menu{{filetype}}" alt="Screenshot">
+{% capture carousel_images %}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{{prefix}}7{{filetype}}
+{{prefix}}8{{filetype}}
+{{prefix}}9{{filetype}}
+{{prefix}}10{{filetype}}
+{{prefix}}menu{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
