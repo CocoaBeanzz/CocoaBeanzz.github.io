@@ -29,7 +29,9 @@ Instruments: Synthesizer, Vocals, Guitar
 ## Gallery
 {% assign prefix="/docs/assets/images/projects/tfrstod/tfrstod-" -%}
 {% assign filetype=".png" -%}
-<img src="{{prefix}}1{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}2{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}3{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}menu{{filetype}}" alt="Screenshot">
+{% capture carousel_images %}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}

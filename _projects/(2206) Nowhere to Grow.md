@@ -37,8 +37,11 @@ Instruments: Guitar, Vocal, Piano, Cello, Synthesizer
 ## Gallery
 {% assign prefix="/docs/assets/images/projects/nowhere-to-grow/ntg-" -%}
 {% assign filetype=".png" -%}
-<img src="{{prefix}}1{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}2{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}3{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}4{{filetype}}" alt="Screenshot">
-<img src="{{prefix}}5{{filetype}}" alt="Screenshot">
+{% capture carousel_images %}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
