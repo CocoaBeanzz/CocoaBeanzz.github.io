@@ -1,12 +1,7 @@
-<div class="row">
+
+<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
     {% for post in site.posts %}
 
-    <!-- New row each 4 posts -->
-    {{ forloop.counter }}
-    {% if forloop.counter|divisibleby:5 %}
+    {% include blog/post-card.html %}
+    {% endfor %}
 </div>
-<div class="row">
-    {% endif %}
-        {% include blog/post-card.html %}
-        {% endfor %}
-    </div>

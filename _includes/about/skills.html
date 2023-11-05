@@ -1,0 +1,23 @@
+
+    <h2 class="mb-2" style="font-size: calc(clamp(0em, 2vw, 2em))">{{ include.title }}</h2>
+
+    {% for skill in include.source %}
+
+    <div class="row justify-content-between align-items-center">
+        <div class="col-10">
+            <p class="mb-1" style="font-size: calc(clamp(0.6em, 1vw, 1em))">{{ skill.name }}</p>
+        </div>
+    </div>
+
+    <div class="progress mb-3 bg-themed" style="height: 5px;">
+        <div class="progress-bar bg-{{ skill.color | default: "primary" }} wow animated slideInLeft"
+             data-wow-delay="{{ forloop.index | divided_by: 10.0 }}"
+             role="progressbar"
+             style="width: {{ skill.percentage }}%;"
+             aria-valuenow="{{ skill.percentage }}"
+             aria-valuemin="0"
+             aria-valuemax="100">
+        </div>
+    </div>
+
+    {% endfor %}
