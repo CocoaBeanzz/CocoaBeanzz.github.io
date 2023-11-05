@@ -33,17 +33,9 @@
     {% endfor %}
 
 <!-- Local Projects -->
-<div class="row">
+<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
     {% for project in site.projects reversed %}
-
-    <!-- New row each 3 projects -->
-    {{ forloop.counter }}
-    {% if forloop.counter|divisibleby:4 %}
-</div>
-    <div class="row">
-        {% endif %}
-
-        <div class="col-sm-4">
+        <div class="col">
 
             {%- assign project_type  = "local" -%}
             {%- assign project_id    = project.name | slugify -%}
@@ -62,8 +54,5 @@
 
             {% include projects/project-card.html %}
         </div>
-
     {% endfor %}
 </div>
-
-    <!--</div>-->

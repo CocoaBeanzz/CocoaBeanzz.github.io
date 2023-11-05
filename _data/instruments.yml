@@ -1,0 +1,31 @@
+- name: Piano
+  percentage: 95
+  color: info
+
+- name: Synthesizer
+  percentage: 90
+  color: secondary
+
+- name: Clarinet
+  percentage: 90
+  color: primary
+
+- name: Saxophone
+  percentage: 85
+  color: success
+
+- name: Guitar
+  percentage: 70
+  color: danger
+
+- name: Drums
+  percentage: 70
+  color: warning
+
+- name: Vocals
+  percentage: 50
+  color: light
+
+- name: Bass Guitar
+  percentage: 40
+  color: danger
