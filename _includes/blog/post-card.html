@@ -34,12 +34,14 @@
                 <div class="card-body {{ text_style }}" style="padding: 3px; ">
                     <h5 class="card-title mb-2" style="font-size: calc(clamp(1.1em, 1.8em - 0.6vw, 3em));">{{ post.title }}</h5>
                     <p class="card-text">
-                        {% for tag in post.tags %}
-                        <span class="badge {{ badge_style }}" style="font-size: calc(clamp(0.1em, 1.6em - 0.6vw, 1em)); padding: calc(clamp(0.06em, 0.1em - 0.02vw, 0.08em)) calc(0.4em - 0.1vw); ">{{ tag }}</span>
-                        {% endfor %}
+                        {%- if hidetags != 'true' -%}
+                            {% for tag in post.tags %}
+                            <span class="badge {{ badge_style }}" style="font-size: calc(clamp(0.1em, 1.6em - 0.6vw, 1em)); padding: calc(clamp(0.06em, 0.1em - 0.02vw, 0.08em)) calc(0.4em - 0.1vw); ">{{ tag }}</span>
+                            {% endfor %}
+                        {%- endif -%}
                     </p>
                     {%- if post.image -%}
-                    <img id="beans" class="card-img-top" src="{{ post.image }}" alt="Post Image" style="max-width: 100%; height: auto; display: block; width: 70%; margin: auto; ">
+                    <img id="{{ post_url }}" class="card-img-top" src="{{ post.image }}" alt="Post Image" style="max-width: 100%; height: auto; display: block; width: 70%; margin: auto; ">
                     {%- endif -%}
                     <p class="card-text pt-3">
                         {%- if post.description -%}
