@@ -35,23 +35,7 @@
 <!-- Local Projects -->
 <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
     {% for project in site.projects reversed %}
-        <div class="col">
-
-            {%- assign project_type  = "local" -%}
-            {%- assign project_id    = project.name | slugify -%}
-            {%- assign project_img   = project.image -%}
-            {%- assign project_name  = project.name -%}
-            {%- assign project_desc  = project.description -%}
-            {%- assign project_tools = project.tools -%}
-
-            {%- if project.external_url -%}
-            {%- assign project_url = project.external_url -%}
-            {%- assign external    = true -%}
-            {%- else -%}
-            {%- assign project_url = project.url | relative_url -%}
-            {%- assign external    = false -%}
-            {%- endif -%}
-
+        <div class="col pl-1 pr-1 pb-1 pt-1">
             {% include projects/project-card.html %}
         </div>
     {% endfor %}
