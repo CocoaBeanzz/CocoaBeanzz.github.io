@@ -6,13 +6,23 @@ description: Time-attack speedrunning platformer.
 ---
 
 <div class="row">
-<div class="col">
-<img  src="/docs/assets/images/projects/inline-out-of-time/inline-logo.png" width="500" alt="Title Image" align="left">
-</div>
-<div class="col">
-</div>
-</div>
+<div class="col" style="min-width:300px; ">
+<img  src="/docs/assets/images/projects/inline-out-of-time/inline-logo.png" width="100%" alt="Title Image" align="left">
+<br>
 (Platformer, Speedrunning, Arcade)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Videos
+Soundtrack
+Gallery
+Blog Posts
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <img src="/docs/assets/images/projects/inline-out-of-time/inline-endsplash.png" alt="Title Image">
 
@@ -36,6 +46,7 @@ Inline: Out of Time is a 2D time-attack action platformer where you play as a ro
 </div>
 </div>
 </div>
+
 
 ## Videos
 {% include elements/video.html id="p-EAY_UiTBI" %}
@@ -62,3 +73,25 @@ Instruments: Synthesizer, Vocals, Guitar
 {{prefix}}menu{{filetype}}
 {% endcapture %}
 {% include elements/carousel.html %}
+
+## Blog Posts
+{% assign tagfilter="Inline: Out of Time" -%}
+<div style="max-width: 1fr">
+    <div class="row">
+        <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            {% for post in site.posts %}
+                {% for tag in post.tags %}
+                    {%- if tag == tagfilter -%}
+                        <div class="col pl-1 pr-1">
+                            {% include blog/post-card.html %}
+
+                            {%- if forloop.index0 == 3 -%}
+                                {%- break -%}
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

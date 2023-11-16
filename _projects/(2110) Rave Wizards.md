@@ -5,8 +5,20 @@ image: https://i1.sndcdn.com/artworks-J2SOChjNyxAoex07-BrWz5w-t500x500.jpg
 description: Fast-paced arcade rhythm wizard duel.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Rave Wizards
 (Arcade, Rhythm)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Soundtrack
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">

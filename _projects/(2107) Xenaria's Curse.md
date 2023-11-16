@@ -5,8 +5,20 @@ image: /docs/assets/images/projects/xenarias-curse/edits/album-crop.jpg
 description: Wave defense arcade shooter.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Xenaria's Curse
 (Arcade, Bullet Hell)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Soundtrack
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">

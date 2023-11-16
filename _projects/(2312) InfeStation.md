@@ -5,10 +5,23 @@ image: "/docs/assets/images/projects/infestation/edited/infestation-1-square.png
 description: Horror shooter on a derelict space station.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px; " markdown="1">
 # InfeStation
 (Horror, Action, FPS)
 
 #### [ Currently in Development ]
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Gallery
+Blog Posts
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">
@@ -59,3 +72,25 @@ Raj Saini
 {{prefix}}3{{filetype}}
 {% endcapture %}
 {% include elements/carousel.html %}
+
+## Blog Posts
+{% assign tagfilter="InfeStation" -%}
+<div style="max-width: 1fr">
+    <div class="row">
+        <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            {% for post in site.posts %}
+                {% for tag in post.tags %}
+                    {%- if tag == tagfilter -%}
+                        <div class="col pl-1 pr-1">
+                            {% include blog/post-card.html %}
+
+                            {%- if forloop.index0 == 3 -%}
+                                {%- break -%}
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

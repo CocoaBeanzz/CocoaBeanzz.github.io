@@ -4,8 +4,23 @@ tools: [C, Custom Engine, FMOD Core]
 image: /docs/assets/images/projects/nowhere-to-grow/edits/album-crop.jpg
 description: Artistic storytelling puzzle platformer.
 ---
+
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Nowhere to Grow
 (Platformer, Puzzle, Story-driven)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Videos
+Soundtrack
+Gallery
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">

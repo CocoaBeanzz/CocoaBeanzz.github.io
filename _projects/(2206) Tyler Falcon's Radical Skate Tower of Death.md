@@ -5,8 +5,22 @@ image: https://i1.sndcdn.com/artworks-HHCMstr4iKQHSyzz-7uEWAg-t500x500.jpg
 description: Retrofuturistic skateboarding precision platformer.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Tyler Falcon's Radical Skate Tower of Death
 (Platformer, Speedrunning, Arcade)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Videos
+Soundtrack
+Gallery
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">
