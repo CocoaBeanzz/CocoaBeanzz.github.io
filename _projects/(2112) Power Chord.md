@@ -5,8 +5,21 @@ image: /docs/assets/images/projects/power-chord/edits/album-crop.jpg
 description: Banish bad riffs and learn music theory in this roguelike rhythm shooter.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Power Chord
 (Roguelike, Rhythm, Bullet Hell)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Soundtrack
+Gallery
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">

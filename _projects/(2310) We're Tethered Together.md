@@ -5,11 +5,24 @@ image: "/docs/assets/images/projects/were-tethered-together/edited/wtt-1-crop.pn
 description: Charming and creepy atmospheric puzzle platformer.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # We're Tethered Together
-
 (Platformer, Puzzle, Horror)
 
 [Available for Free on Steam](https://store.steampowered.com/app/2578110/Were_Tethered_Together/)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Videos
+Soundtrack
+Gallery
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 {% include elements/steam-widget.html id="2578110" %}
 

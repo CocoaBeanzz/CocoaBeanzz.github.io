@@ -5,10 +5,22 @@ image: /docs/assets/images/projects/cryonic/edits/album-crop.jpg
 description: Time-traveling arctic combat game.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Cryonic
 (Turn-based, Science Fiction, Adventure)
 
 [Available for Free on itch.io](https://curioshade.itch.io/cryonic)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Soundtrack
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">

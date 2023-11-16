@@ -5,8 +5,22 @@ image: /docs/assets/images/projects/vengeance/edits/vengeance-3-crop.png
 description: Latin-American fantasy adventure game.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Vengeance
 (Fantasy, Adventure, Platformer)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Videos
+Soundtrack
+Gallery
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">

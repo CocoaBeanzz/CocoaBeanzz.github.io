@@ -5,10 +5,24 @@ image: /docs/assets/images/projects/bashful-baker/edited/bb-9-crop.png
 description: Pixel-style baking and stealth exploration game.
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px;" markdown="1">
 # Bashful Baker
 (Baking, Stealth, Social)
 
 [Available for Free on itch.io](https://therealmagicalporpoise.itch.io/bashfulbaker)
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Videos
+Soundtrack
+Gallery
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
 
 <div class="row">
 <div class="col">
