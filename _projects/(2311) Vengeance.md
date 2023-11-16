@@ -14,7 +14,6 @@ description: Latin-American fantasy adventure game.
 </div>
 <div class="col" style="max-width:30%;">
 {% capture list_items %}
-Videos
 Soundtrack
 Gallery
 {% endcapture %}
