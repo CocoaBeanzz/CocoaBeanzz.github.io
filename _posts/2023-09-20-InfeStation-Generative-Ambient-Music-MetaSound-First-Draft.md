@@ -54,7 +54,7 @@ and a delay with stereo inserts on the feedback path.
 This is also much like "abstraction" in the context of programming. 
 As Professor Doug Schilling at DigiPen Institute of Technology often preaches:
 
-*"Give each entity one cohesive responsibility."*
+> *"Give each entity one cohesive responsibility."*
 
 Don't create a C++ class that runs the whole game. 
 Create a class that handles vector data, a class that processes vector data, a class that interprets vector data as physical attributes, et cetera.
