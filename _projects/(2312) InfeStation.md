@@ -71,6 +71,8 @@ Raj Saini
 </div>
 </div>
 <img src="/docs/assets/images/projects/infestation/team/BHS.jpg" alt="Team Image">
+Left to right: Alexander Weiss, Kaleb Brown, Maximiliaan van Ginneken, David Saulnier, K Preston, Sabrina Black,
+Osprey Varboncoeur, Harrison Neiyer, Carlos Garrido, Austin Zhu, Bruce McCubbin
 
 ## Videos
 {% include elements/video.html id="eq-zq8Y37mI" %}
