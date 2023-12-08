@@ -16,6 +16,7 @@ description: Horror shooter on a derelict space station.
 </div>
 <div class="col" style="max-width:30%;">
 {% capture list_items %}
+Videos
 Gallery
 Blog Posts
 {% endcapture %}
