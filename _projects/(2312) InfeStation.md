@@ -1,7 +1,7 @@
 ---
 name: InfeStation
 tools: [C#, Unreal 5.2, Wwise, MetaSounds]
-image: "/docs/assets/images/projects/infestation/edited/infestation-1-square.png"
+image: "/docs/assets/images/projects/infestation/edited/InfeStation_gp_10_edit_crop.png"
 description: Horror shooter on a derelict space station.
 ---
 
@@ -16,6 +16,7 @@ description: Horror shooter on a derelict space station.
 </div>
 <div class="col" style="max-width:30%;">
 {% capture list_items %}
+Videos
 Gallery
 Blog Posts
 {% endcapture %}
@@ -25,7 +26,7 @@ Blog Posts
 
 <div class="row">
 <div class="col">
-<img src="/docs/assets/images/projects/infestation/edited/infestation-1-square.png" alt="Title Image">
+<img src="/docs/assets/images/projects/infestation/edited/InfeStation_gp_10_edit.png" alt="Title Image">
 </div>
 <div class="col">
 InfeStation is an action horror game where you must escape a space station overrun with hostile alien creatures.<br><br>
@@ -35,43 +36,44 @@ Sneak, blast, and complete puzzles until you make it out alive... or die trying.
 </div>
 
 ### Credits:
+Hyperlinks connect to LinkedIn or personal websites.
 
 <div class="row">
 <div class="col" markdown="1">
 Sabrina Black - Narrative Designer, Associate Producer<br>
-Kaleb Brown - UI / UX Designer<br>
-Carlos Garrido - Design Director, Level Designer<br>
-Alexander Weiss - Build Master, Audio Programmer<br>
-Harrison Neiyer - Producer, Programmer<br>
-Osprey Varboncoeur - Technical Director, Programmer<br>
-Bruce McCubbin - Creative Director, Level Designer<br>
-K Preston - Audio Director, Audio Designer, Audio Programmer<br>
-David Saulnier - Level Designer<br>
-Austin Zhu - AI Programmer<br>
-Maximiliaan van Ginneken - Audio Designer
+[Kaleb Brown](https://www.linkedin.com/in/kalebbrown42/) - UI / UX Designer<br>
+[Carlos Garrido](https://www.linkedin.com/in/carlos-garrido-65707522a/) - Design Director, Level Designer<br>
+[Alexander Weiss](https://www.linkedin.com/in/xweiss/) - Build Master, Audio Programmer<br>
+[Harrison Neiyer](https://www.linkedin.com/in/hneiyer/) - Producer, Programmer<br>
+[Osprey Varboncoeur](https://www.docnosv.com/) - Technical Director, Programmer<br>
+[Bruce McCubbin](https://www.linkedin.com/in/bruce-mccubbin/) - Creative Director, Level Designer<br>
+[K Preston](/) - Audio Director, Audio Designer, Audio Programmer<br>
+[David Saulnier](https://www.linkedin.com/in/david-saulnier-093340277/) - Level Designer<br>
+[Austin Zhu](https://www.linkedin.com/in/austin-zhu-264659195/) - AI Programmer<br>
+[Maximiliaan van Ginneken](https://www.linkedin.com/in/maxvgn/) - Audio Designer
 
 </div>
 <div class="col">
 <div class="col" markdown="1">
 #### Special Thanks To:
 
-Jonathan Larson - Silas<br>
-Evelyn Cullen - Player
+[Jonathan Larson](https://www.linkedin.com/in/jonathan-larson-3b4759291/) - Silas<br>
+[Evelyn Cullen](https://www.linkedin.com/in/evelyn-cullen-764499238/) - Player
 
 #### Former Team Members:
 
-Brillan Morgan<br>
-Dongho Lee<br>
+[Brillan Morgan](https://www.linkedin.com/in/brillanmorgan/)<br>
+[Dongho Lee](https://www.linkedin.com/in/dongho-lee-softdev/)<br>
 Frank Bartkus<br>
-Jinhyun Choi<br>
-Julian Palomaria<br>
-Mahin Goban<br>
-Raj Saini
+[Jinhyun Choi](https://www.linkedin.com/in/choijinhyun-dev/)<br>
+[Julian Palomaria](https://www.linkedin.com/in/julian-palomaria-5416b320b/)<br>
+[Mahin Goban](https://www.linkedin.com/in/mahin-goban/)<br>
+[Raj Saini](https://www.linkedin.com/in/raj-s-8037a2177/)
 </div>
 </div>
 </div>
 <img src="/docs/assets/images/projects/infestation/team/BHS.jpg" alt="Team Image">
-Left to right: Alexander Weiss, Kaleb Brown, Maximiliaan van Ginneken, David Saulnier, K Preston, Sabrina Black,
+Left to right: Alexander Weiss, Kaleb Brown, Maximiliaan van Ginneken, David Saulnier, K Preston, Quasar, Sabrina Black,
 Osprey Varboncoeur, Harrison Neiyer, Carlos Garrido, Austin Zhu, Bruce McCubbin
 
 ## Videos

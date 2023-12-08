@@ -1,7 +1,7 @@
 ---
 name: "Inline: Out of Time"
 tools: [C++, Custom Engine, FMOD Core]
-image: "/docs/assets/images/projects/inline-out-of-time/inline-5.png"
+image: "/docs/assets/images/projects/inline-out-of-time/edits/inline-5-edit.png"
 description: Time-attack speedrunning platformer.
 ---
 
