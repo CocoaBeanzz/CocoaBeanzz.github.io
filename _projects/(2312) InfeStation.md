@@ -1,7 +1,7 @@
 ---
 name: InfeStation
 tools: [C#, Unreal 5.2, Wwise, MetaSounds]
-image: "/docs/assets/images/projects/infestation/edited/infestation-1-square.png"
+image: "/docs/assets/images/projects/infestation/edited/InfeStation_gp_10_edit_crop.png"
 description: Horror shooter on a derelict space station.
 ---
 
@@ -26,7 +26,7 @@ Blog Posts
 
 <div class="row">
 <div class="col">
-<img src="/docs/assets/images/projects/infestation/edited/infestation-1-square.png" alt="Title Image">
+<img src="/docs/assets/images/projects/infestation/edited/InfeStation_gp_10_edit.png" alt="Title Image">
 </div>
 <div class="col">
 InfeStation is an action horror game where you must escape a space station overrun with hostile alien creatures.<br><br>
