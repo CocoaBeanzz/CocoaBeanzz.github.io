@@ -10,6 +10,7 @@ description: Time-attack speedrunning platformer.
 <img  src="/docs/assets/images/projects/inline-out-of-time/inline-logo.png" width="100%" alt="Title Image" align="left">
 <br>
 (Platformer, Speedrunning, Arcade)
+<a href="https://games.digipen.edu/games/inline-out-of-time">Available for Free on the DigiPen Game Gallery</a>
 </div>
 <div class="col">
 </div>
