@@ -10,7 +10,6 @@ description: Horror shooter on a derelict space station.
 # InfeStation
 (Horror, Action, FPS)
 
-#### [ Currently in Development ]
 </div>
 <div class="col">
 </div>

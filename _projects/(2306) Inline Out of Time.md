@@ -11,6 +11,7 @@ description: Time-attack speedrunning platformer.
 <br>
 (Platformer, Speedrunning, Arcade)
 <a href="https://games.digipen.edu/games/inline-out-of-time">Available for Free on the DigiPen Game Gallery</a>
+<a href="https://store.steampowered.com/app/2865360/Inline_Out_Of_Time/">Coming to Steam March 29</a>
 </div>
 <div class="col">
 </div>
@@ -24,6 +25,8 @@ Blog Posts
 {% include elements/list.html title="" type="toc" %}
 </div>
 </div>
+
+{% include elements/steam-widget.html id="2865360" %}
 
 <img src="/docs/assets/images/projects/inline-out-of-time/inline-endsplash.png" alt="Title Image">
 
