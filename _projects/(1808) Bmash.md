@@ -10,7 +10,7 @@ description: Discord social chatbot and web scraping utility.
 # BeanzMachine (Bmash)
 (Chatbot, Web Scraping, Tool)
 
-[ Status: Closed Beta ]
+[ Status: <span style="color:#7C4F9B">Closed Beta</span>. ]
 
 *This project's documentation is currently in development.*
 </div>
@@ -19,7 +19,8 @@ description: Discord social chatbot and web scraping utility.
 <div class="col" style="max-width:30%;">
 {% capture list_items %}
 Features
-Gallery
+Security
+Extra
 {% endcapture %}
 {% include elements/list.html title="" type="toc" %}
 </div>
@@ -32,9 +33,9 @@ Gallery
 <div class="col">
 
 <div class="row" markdown="1">
-| "Beep boop!"
+<img src="/docs/assets/images/projects/beanzmachine/bmash-beepboop.png" alt="Beep Boop!">
 
-BeanzMachine, or more commonly called Bmash, is a Discord social chatbot and web scraping utility for 
+BeanzMachine, often known as Bmash, is a Discord social chatbot and web scraping utility for 
 convenient data fetching and interactive entertainment within Discord community servers.
 </div>
 </div>
@@ -104,8 +105,10 @@ Bmash will recognize and reply to a large array of greetings from various cultur
 <br>
 #### Tarot Readings
 
-<div class="row" markdown="1">
+<div class="row">
+<div class="col" style="min-width:90%; max-width:90%;">
 <img src="/docs/assets/images/projects/beanzmachine/chats/bmash-tarot-1.png" alt="Tarot">
+</div>
 <div class="row">
 <div class="col" markdown="1">
 <br>
@@ -114,6 +117,8 @@ Cards can be drawn both upright and reversed and the description is selected acc
 
 The appropriate image from the Universal Waite set of tarot artwork is embedded with a colored bar indicating the card's suit.
 
+<br>
+Descriptions and images are scraped from [tarot.com]("https://tarot.com/cards"])
 </div>
 <div class="col" markdown="1">
 <div class="row">
@@ -122,7 +127,6 @@ The appropriate image from the Universal Waite set of tarot artwork is embedded 
 </div>
 </div>
 
-| Descriptions, interpretations, and images are scraped from [tarot.com]("https://tarot.com/cards"])
 
 </div>
 
@@ -135,6 +139,8 @@ The appropriate image from the Universal Waite set of tarot artwork is embedded 
 Bmash can deal any number of playing cards. 
 
 Single-card draws are accompanied by an embedded image with a colored bar indicating the card's suit.
+
+Multiple-card draws ensure to avoid duplicates.
 <br>
 <div class="col" style="min-width:60%; max-width:60%;" markdown="1">
 <img src="/docs/assets/images/projects/beanzmachine/chats/bmash-card-mult.png" alt="Playing Card">
@@ -152,13 +158,19 @@ Single-card draws are accompanied by an embedded image with a colored bar indica
 #### Meme Generation
 
 <div class="row" markdown="1">
+<div class="col" style="min-width:65%; max-width:65%;">
 <img src="/docs/assets/images/projects/beanzmachine/chats/bmash-meme-1.png" alt="Meme">
+</div>
+<div class="col">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-meme-3.png" alt="Meme">
+</div>
 <div class="row">
 <div class="col" markdown="1">
 <br>
 Using Google Image Search web scraping and the Python Pillow library, 
-bmash can create memes by searching an image query and overlay user text.
+bmash can create memes by searching an image query and rendering user text.
 
+Meme generation complies with the Image Search configuration, filtering AI art, mature content, and embed-incompatible sources.
 </div>
 <div class="col" markdown="1">
 <div class="row">
@@ -168,11 +180,44 @@ bmash can create memes by searching an image query and overlay user text.
 </div>
 </div>
 
-## Bonus Video
+## Security
+
+<br>
+#### Channel Access
+Bmash only parses messages that:
+- include `bmash` or `beanzmachine`,
+- directly `@mention` Bmash,
+- or are sent in a dedicated channel (configured with the `bmash !addchannel` command by a server admin).
+
+#### Message Visibility
+- Messages to and from Bmash are never stored.
+- Direct messages to and from Bmash are never visible to anyone.
+- Messages are never used for training or data collection.
+
+    *Exceptions:*
+- Messages to and from Bmash in server channels may be screened during active hours for testing.
+- Bug reports and feature suggestions filed with the `!bug` and `!feature` commands are stored in Bmash's server.
+- Library additions filed with the `!add[library]` family of commands are stored in Bmash's server.
+
+#### Controlled Output
+Bmash's output is not AI-driven or generative. All output is deliberate and screened.<br>
+*However, note that online searches are not controlled.*
+
+Bmash also features a blacklist of unsafe topics that he will not engage.
+
+#### Closed Beta
+Bmash is currently in a closed beta state. Only screened QA assistants can converse with Bmash.
+
+#### Closed Source
+Bmash is closed-source. Bmash's backend is only accessible by its developer (that's me, hi!).
+
+## Extra
+
+#### Bonus Video
 My [good friend](https://www.twitch.tv/myoscity) drew their impression of bmash and it makes me very happy <3
 {% include elements/video.html id="MWWmJ0Vtcy4" %}
 
-## Bonus Gallery
+#### Bonus Gallery
 {% assign prefix="/docs/assets/images/projects/beanzmachine/art/bmash-art-" -%}
 {% assign filetype=".jpg" -%}
 {% capture carousel_images %}
