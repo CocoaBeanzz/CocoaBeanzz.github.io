@@ -9,6 +9,25 @@ description: Realtime delay-based stereo reverb.
 <div class="col" style="min-width:300px; max-width:500px;" markdown="1">
 # Moorer Reverb
 (Software, Effect, Standalone)
+
+<div class="row">
+<br>
+</div>
+<div class="row">
+<div class="col" markdown="1" style="max-width:80%;">
+Made with
+<img src="/docs/assets/images/projects/moorer-reverb/jucelogo.png" alt="JUCE Logo">
+</div>
+<div class="col">
+</div>
+</div>
+
+</div>
+<br>
+<div class="row">
+<div class="col">
+</div>
+
 </div>
 <div class="col">
 </div>
@@ -18,6 +37,7 @@ Principle
 Design
 Interface
 Documents
+Related Posts
 {% endcapture %}
 {% include elements/list.html title="" type="toc" %}
 </div>
@@ -34,7 +54,7 @@ Documents
 
 <div class="row" markdown="1">
 <br>
-A realtime 6 tap delay and allpass based stereo reverb modeled after <a href="https://www.researchgate.net/publication/239735102_About_This_Reverberation_Business">James A. Moorer's paper</a> for Computer Music Journal titled "About This Reverberation Business."
+A realtime 6 tap delay and allpass based stereo reverb modeled after <a href="#documents">James A. Moorer's paper</a> for Computer Music Journal titled "About This Reverberation Business."
 
 Built from the ground up using a custom audio processing library. User interface rendered with JUCE.
 
@@ -70,6 +90,8 @@ Moorer's model represents a rectangular room with six walls, each represented by
 Each delay time simulates its respective wall's distance from the source, allowing the emulation of spaces of varying size and proportion.
 
 Each wall's lowpass coefficient corresponds to its high-frequency damping, which in practice is akin to the surface's roughness and affect's the echo's perceived diffusion.
+
+The dry/wet mix emulates the listener's proximity to the source.
 
 <br>
 *Note that comb and delay filters are mathematically equivalent. I will use the terms interchangeably.*
@@ -111,7 +133,7 @@ This also proves highly effective in stereo channel decorrelation (more on this 
 <div class="row">
 <img src="/docs/assets/images/projects/moorer-reverb/moorer-eq-1.png" alt="Equation 1">
 </div>
-    Eq. 1: Moorer reverb transfer function
+    Eq. 1: Moorer Reverb transfer function for N delay taps
 
 </div>
 </div>
@@ -407,3 +429,25 @@ Each circle illustrates the following parameters of each lowpass comb tap:
         <p>This browser does not support PDFs. Please <a href="{{pdf}}">download the PDF</a> to view it.</p>
     </embed>
 </object>
+
+## Related Posts
+{% assign tagfilter="Spatial Audio" -%}
+<div style="max-width: 1fr">
+    <div class="row">
+        <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            {% for post in site.posts %}
+                {% for tag in post.tags %}
+                    {%- if tag == tagfilter -%}
+                        <div class="col pl-1 pr-1">
+                            {% include blog/post-card.html %}
+
+                            {%- if forloop.index0 == 3 -%}
+                                {%- break -%}
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
