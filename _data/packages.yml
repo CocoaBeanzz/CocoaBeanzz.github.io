@@ -2,18 +2,38 @@
   percentage: 95
   color: primary
 
-- name: RapidJSON
+- name: Wwise
+  percentage: 90
+  color: danger
+
+- name: JUCE
   percentage: 85
+  color: success
+
+- name: Discord
+  percentage: 85
+  color: secondary
+
+- name: Spotify
+  percentage: 85
+  color: success
+
+- name: RapidJSON
+  percentage: 80
   color: warning
 
 - name: PortMIDI
-  percentage: 80
-  color: info
-
-- name: CMake
   percentage: 70
-  color: success
+  color: info
 
 - name: PortAudio
   percentage: 65
   color: primary
+
+- name: CMake
+  percentage: 60
+  color: light
+
+- name: Tensorflow
+  percentage: 40
+  color: secondary

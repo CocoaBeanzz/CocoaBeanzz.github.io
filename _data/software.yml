@@ -26,6 +26,10 @@
   percentage: 85
   color: secondary
 
+- name: Unity
+  percentage: 80
+  color: info
+
 - name: Reaper
   percentage: 80
   color: success
@@ -45,11 +49,3 @@
 - name: GitHub
   percentage: 75
   color: secondary
-
-- name: Unity
-  percentage: 70
-  color: info
-
-- name: JetBrains IntelliJ IDEA
-  percentage: 60
-  color: warning
