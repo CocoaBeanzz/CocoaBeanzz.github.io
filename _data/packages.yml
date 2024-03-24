@@ -26,6 +26,10 @@
   percentage: 70
   color: info
 
+- name: Wolfram Alpha
+  percentage: 65
+  color: danger
+
 - name: PortAudio
   percentage: 65
   color: primary
