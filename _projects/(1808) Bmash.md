@@ -1,0 +1,182 @@
+---
+name: BeanzMachine (Bmash)
+tools: [Python, Discord, HTML]
+image: /docs/assets/images/projects/beanzmachine/bmash-title.jpg
+description: Discord social chatbot and web scraping utility.
+---
+
+<div class="row">
+<div class="col" style="min-width:50%;" markdown="1">
+# BeanzMachine (Bmash)
+(Chatbot, Web Scraping, Tool)
+
+[ Status: Closed Beta ]
+
+*This project's documentation is currently in development.*
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Features
+Gallery
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<img src="/docs/assets/images/projects/beanzmachine/art/bmash-art-1.jpg" alt="Title Image">
+</div>
+<div class="col">
+
+<div class="row" markdown="1">
+| "Beep boop!"
+
+BeanzMachine, or more commonly called Bmash, is a Discord social chatbot and web scraping utility for 
+convenient data fetching and interactive entertainment within Discord community servers.
+</div>
+</div>
+</div>
+
+## Features
+How to use BeanzMachine (A.K.A. "bmash"):
+Your message MUST contain "bmash"  or be in a dedicated bmash server for BeanzMachine to read it.
+
+Some things you can do:
+- Say hi!
+    Bmash will respond to many common greetings.
+- Make decisions!
+    Enter the options separated by the word "or" or commas and end with "?"
+    For example: "bmash qp, mh, or lucioball?"
+- Convert time zones!
+    If your message has a time in it, followed by a time zone, 
+    bmash will convert it to all other continental U.S. time zones. 
+- Ask for an inspirational quote!
+    Ask for an "inspiration" or similar word for a random quote.
+- Validate stuff!
+    Use "validate", "confirm", or "verify" in your message for bmash's opinion.
+- Convey a message!
+    Begin your message with "Tell [recipient name here]".
+- Pick an Overwatch/Valorant character!
+    Ask bmash for a hero/agent of any class from either game. 
+- Get a gif!
+    Include "gif" in your message to get a random gif matching your message. 
+- Get a question!
+    Include "question" in your message to get a random question.
+- Play hangman!
+    Say "!hangman" to start a game of hangman!
+- Convert time zones!
+    Enter a time (e.g. 4 pt) for U.S. time zone conversions. 
+- Generate a fantasy name!
+    Ask for a name and optionally specify a length with a digit. 
+- Pick a random number!
+    Roll a dice (e.g. "roll a d20") or ask for a number in a given range.
+- Get a fortune cookie message!
+    Ask for a fortune to find your destiny.
+- Be appreciated!
+    Ask for a compliment and bmash will tell you why you're great.
+- Ask Wolfram Alpha!
+    Bmash will look up your question if he doesn't have an answer. 
+
+Type "bmash !advanced" for a list of advanced commands.
+
+<br>
+#### Greetings
+
+<div class="row" markdown="1">
+<div class="row">
+<div class="col" markdown="1">
+<div class="row">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-greeting-1.png" alt="Greetings">
+</div>
+</div>
+<div class="col" style="min-width:70%; max-width:70%;" markdown="1">
+<br>
+Bmash will recognize and reply to a large array of greetings from various cultures.
+
+</div>
+</div>
+
+</div>
+
+<br>
+#### Tarot Readings
+
+<div class="row" markdown="1">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-tarot-1.png" alt="Tarot">
+<div class="row">
+<div class="col" markdown="1">
+<br>
+Bmash can pick any number of tarot cards from a traditional 78-card tarot deck. 
+Cards can be drawn both upright and reversed and the description is selected accordingly.
+
+The appropriate image from the Universal Waite set of tarot artwork is embedded with a colored bar indicating the card's suit.
+
+</div>
+<div class="col" markdown="1">
+<div class="row">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-tarot-mult.png" alt="Multiple Tarot">
+</div>
+</div>
+</div>
+
+| Descriptions, interpretations, and images are scraped from [tarot.com]("https://tarot.com/cards"])
+
+</div>
+
+<br>
+#### Playing Cards
+
+<div class="row">
+<div class="col" style="min-width:70%; max-width:70%;" markdown="1">
+<br>
+Bmash can deal any number of playing cards. 
+
+Single-card draws are accompanied by an embedded image with a colored bar indicating the card's suit.
+<br>
+<div class="col" style="min-width:60%; max-width:60%;" markdown="1">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-card-mult.png" alt="Playing Card">
+</div>
+
+</div>
+<div class="col" markdown="1">
+<div class="row">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-card-1.png" alt="Multiple Playing Cards">
+</div>
+</div>
+</div>
+
+<br>
+#### Meme Generation
+
+<div class="row" markdown="1">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-meme-1.png" alt="Meme">
+<div class="row">
+<div class="col" markdown="1">
+<br>
+Using Google Image Search web scraping and the Python Pillow library, 
+bmash can create memes by searching an image query and overlay user text.
+
+</div>
+<div class="col" markdown="1">
+<div class="row">
+<img src="/docs/assets/images/projects/beanzmachine/chats/bmash-meme-2.png" alt="Meme">
+</div>
+</div>
+</div>
+</div>
+
+## Bonus Video
+My [good friend](https://www.twitch.tv/myoscity) drew their impression of bmash and it makes me very happy <3
+{% include elements/video.html id="MWWmJ0Vtcy4" %}
+
+## Bonus Gallery
+{% assign prefix="/docs/assets/images/projects/beanzmachine/art/bmash-art-" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
