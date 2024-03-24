@@ -5,7 +5,7 @@ tags: [Cats N Critters, Composition]
 style: border
 color: success
 description: "First draft of the musical style for the dungeon-crawling party game Cats N Critters."
-image: "/docs/assets/images/projects/cats-n-critters/cats-n-critters-stylesamplepost.png"
+image: "/docs/assets/images/projects/cats-n-critters/posts/cats-n-critters-stylesamplepost.png"
 ---
 
 (Orchestral, Fantasy, Cinematic)\

@@ -5,7 +5,7 @@ tags: [Cats N Critters, Composition]
 style: border
 color: success
 description: "Week 6 composition update for the dungeon-crawling party game Cats N Critters."
-image: "/docs/assets/images/projects/cats-n-critters/cats-n-critters-stylesamplepost.png"
+image: "/docs/assets/images/projects/cats-n-critters/posts/cats-n-critters-week6post.png"
 ---
 
 (Orchestral, Fantasy, Cinematic)\
