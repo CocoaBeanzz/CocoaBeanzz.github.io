@@ -29,6 +29,8 @@ Two wizards engage in a high-energy dance battle. Match your movement to the bea
 </div>
 </div>
 
+## Videos
+{% include elements/video.html id="G0cmPCgVAAI" %}
 
 ## Soundtrack
 (Electronic)\
