@@ -41,50 +41,107 @@ convenient data fetching and interactive entertainment within Discord community 
 </div>
 </div>
 
-## Features
+## Feature Overview
 How to use BeanzMachine (A.K.A. "bmash"):
 Your message MUST contain "bmash"  or be in a dedicated bmash server for BeanzMachine to read it.
 
-Some things you can do:
-- Say hi!
+#### Some things you can do:
+- **[Say hi!](#greetings)**
     Bmash will respond to many common greetings.
-- Make decisions!
+
+- **Make decisions!**
     Enter the options separated by the word "or" or commas and end with "?"
     For example: "bmash qp, mh, or lucioball?"
-- Convert time zones!
+
+- **Pick things!**
+    Bmash can select any of the following:
+    - Numbers
+    - Colors
+    - Culinary cuisines
+    - Animals
+    - [Tarot cards](#tarot-readings)
+    - [Playing cards](#playing-cards)
+    - Magic: The Gathering commander cards
+    - Song recommendations (user submitted)
+    - Overwatch heroes
+    - Valorant agents
+    - Inspirational quotes
+    - Compliments
+    - Fortune cookie fortunes
+    - Personality traits
+    - Buzzfeed quizzes (trending)
+    
+    Most selections are supplemented with images. 
+
+- **Get synonyms!**
+    Ask for a synonym of a word.
+
+- **Get anagrams!**
+    Ask for an anagram of a word.
+
+- **Generate Dungeons & Dragons characters!**
+    Ask for a DnD character to generate a full character sheet and backstory.
+
+- **Convert time zones!**
     If your message has a time in it, followed by a time zone, 
     bmash will convert it to all other continental U.S. time zones. 
-- Ask for an inspirational quote!
+
+- **Ask for an inspirational quote!**
     Ask for an "inspiration" or similar word for a random quote.
-- Validate stuff!
+
+- **Validate stuff!**
     Use "validate", "confirm", or "verify" in your message for bmash's opinion.
-- Convey a message!
+
+- **Convey a message!**
     Begin your message with "Tell [recipient name here]".
-- Pick an Overwatch/Valorant character!
+
+- **Pick an Overwatch/Valorant character!**
     Ask bmash for a hero/agent of any class from either game. 
-- Get a gif!
+
+- **Get a gif!**
     Include "gif" in your message to get a random gif matching your message. 
-- Get a question!
+
+- **Get a question!**
     Include "question" in your message to get a random question.
-- Play hangman!
+
+- **Play hangman!**
     Say "!hangman" to start a game of hangman!
-- Convert time zones!
+
+- **Convert time zones!**
     Enter a time (e.g. 4 pt) for U.S. time zone conversions. 
-- Generate a fantasy name!
+
+- **Generate a fantasy name!**
     Ask for a name and optionally specify a length with a digit. 
-- Pick a random number!
+
+- **Pick a random number!**
     Roll a dice (e.g. "roll a d20") or ask for a number in a given range.
-- Get a fortune cookie message!
+
+- **Get a fortune cookie message!**
     Ask for a fortune to find your destiny.
-- Be appreciated!
+
+- **Be appreciated!**
     Ask for a compliment and bmash will tell you why you're great.
-- Ask Wolfram Alpha!
+    
+- **Ask Wolfram Alpha!**
     Bmash will look up your question if he doesn't have an answer. 
 
-Type "bmash !advanced" for a list of advanced commands.
+- **Search Google!**
+    Ask Bmash to Google a query and he will return the first result snippet, if found.
+
+- **[Generate memes!](#meme-generation)**
+    Use the "!meme" command followed by an image search prompt and a caption in quotes.
+
+- **Summarize websites!**
+    Tell bmash to summarize a link to a website and he will do his best to condense its content to about 2000 characters.
+
+- **Identify resistors!**
+    Use the "!resistor" command followed by a list of color bands to identify a resistor value.
+
+## Settings
+
 
 <br>
-#### Greetings
+## Greetings
 
 <div class="row" markdown="1">
 <div class="row">
@@ -103,7 +160,7 @@ Bmash will recognize and reply to a large array of greetings from various cultur
 </div>
 
 <br>
-#### Tarot Readings
+## Tarot Readings
 
 <div class="row">
 <div class="col" style="min-width:90%; max-width:90%;">
@@ -118,7 +175,7 @@ Cards can be drawn both upright and reversed and the description is selected acc
 The appropriate image from the Universal Waite set of tarot artwork is embedded with a colored bar indicating the card's suit.
 
 <br>
-Descriptions and images are scraped from [tarot.com]("https://tarot.com/cards"])
+Descriptions and images are scraped from [tarot.com]("https://tarot.com/cards")
 </div>
 <div class="col" markdown="1">
 <div class="row">
@@ -131,7 +188,7 @@ Descriptions and images are scraped from [tarot.com]("https://tarot.com/cards"])
 </div>
 
 <br>
-#### Playing Cards
+## Playing Cards
 
 <div class="row">
 <div class="col" style="min-width:70%; max-width:70%;" markdown="1">
@@ -155,7 +212,7 @@ Multiple-card draws ensure to avoid duplicates.
 </div>
 
 <br>
-#### Meme Generation
+## Meme Generation
 
 <div class="row" markdown="1">
 <div class="col" style="min-width:65%; max-width:65%;">
