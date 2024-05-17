@@ -28,7 +28,9 @@ Blog Posts
 
 K Presto is a musical project melding contemporary electronic music with metal and baroque influences.
 
+<hr>
 {% include elements/video.html id="k8nJvnkhVJ0" %}
+<hr>
 
 ## Links
 
@@ -71,6 +73,7 @@ K Presto is a musical project melding contemporary electronic music with metal a
 ## Booking
 [mgmt@kaud.io](mailto:mgmt@kaud.io)
 
+<hr>
 ## Blog Posts
 {% assign tagfilter="K Presto" -%}
 <div style="max-width: 1fr">

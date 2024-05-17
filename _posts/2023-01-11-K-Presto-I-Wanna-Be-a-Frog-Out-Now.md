@@ -12,6 +12,7 @@ image: "/docs/assets/images/albums/IWannaBeAFrog.png"
 
 Schmoovin', groovin', bouncin' bass tells a tale of yearning for a simpler life in K Presto's new single.
 
+<hr>
 {% include elements/video.html id="nXiLyoImRDc" %}
 
 <div class="row" markdown="1">

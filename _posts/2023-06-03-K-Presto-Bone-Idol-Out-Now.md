@@ -12,6 +12,7 @@ image: "/docs/assets/images/albums/BoneIdol.png"
 
 Pounding bass, screaming guitars, and spine-tingling synths interplay in complex polyrhythms in the newest K Presto single.
 
+<hr>
 {% include elements/video.html id="WmE-39CVxK0" %}
 
 <div class="row" markdown="1">
@@ -32,3 +33,4 @@ Pounding bass, screaming guitars, and spine-tingling synths interplay in complex
 </div>
 
 </div>
+<hr>

@@ -14,6 +14,7 @@ Driving basslines smash through concrete in K Presto's latest single.
 
 Drawing distinct influences from metal and electro, K Presto breaks their three year silence with a colossal new take on their iconic production style.
 
+<hr>
 {% include elements/video.html id="Eg_hb6hWZbc" %}
 
 <div class="row" markdown="1">
