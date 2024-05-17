@@ -1,7 +1,7 @@
 ---
 title: "K Presto: The Tower Out Now!"
 date: 2024-02-05
-tags: [K Presto, Composition]
+tags: [K Presto, Composition, Releases]
 style: border
 color: danger
 description: "The first of many remasters and remixes of classic K Presto tracks. "

@@ -1,7 +1,7 @@
 ---
 title: "K Presto: Cryofracture EP Out Now!"
 date: 2023-12-28
-tags: [K Presto, Composition]
+tags: [K Presto, Composition, Releases]
 style: border
 color: info
 description: "An earth-shattering remaster of one of my first game soundtracks. "
