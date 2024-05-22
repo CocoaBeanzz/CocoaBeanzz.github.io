@@ -11,7 +11,7 @@ weight: 3
     <div id="container" class="my-2">
       <div id="dummy"></div>
       <div id="element">
-        <img src="{{ /docs/assets/images/site/231103-headshot-7-square.jpg }}" alt="{{ Portrait }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+        <img src="{{ "/docs/assets/images/site/231103-headshot-7-square.jpg" }}" alt="{{ Portrait }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
       </div>
     </div>
 </div>
@@ -21,8 +21,32 @@ weight: 3
 <b>Hey, I'm K.</b><br><br>
 I'm a musician, composer, audio programmer, synthesizer designer, student, and general creative enthusiast. <br><br>
 My projects blend my artistic and technical passions to bring forth new sonic experiences, be it through the sound of a video game, a cinematic score, an inspired album, or new tools to help other musicians realize their artistic visions.<br><br>
+I am currently attending my fourth and final year at DigiPen Institute of Technology in pursuit of a Bachelor's in Science in Computer Science and Digital Audio
+and a minor in mathematics.<br><br>
 Let's make something amazing together.
+<br><br>
+<hr>
+<div class="col" markdown="1">
+<div class="row" markdown="1">
+# **Links**
+</div>
+<div class="row" markdown="1">
+<div class="col" markdown="1">
+#### [LinkedIn](https://www.linkedin.com/in/kl-preston)
 
+#### [GitHub](https://www.github.com/CocoaBeanzz)
+
+#### [Email](k@kaud.io)
+</div>
+<div class="col" markdown="1">
+#### [Spotify](https://open.spotify.com/artist/6YVhlNw952WlFsXddTPgOY)
+
+#### [SoundCloud](https://www.soundcloud.com/CocoaBeanz)
+
+#### [YouTube](https://www.youtube.com/KPresto)
+</div>
+</div>
+</div>
 </div>
 </div>
 <br>
