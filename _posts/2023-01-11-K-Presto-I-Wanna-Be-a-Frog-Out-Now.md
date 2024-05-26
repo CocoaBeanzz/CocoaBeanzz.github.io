@@ -1,6 +1,6 @@
 ---
 title: "K Presto: I Wanna Be a Frog Out Now!"
-date: 2024-01-11
+date: 2023-01-11
 tags: [K Presto, Composition, Releases]
 style: border
 color: success
