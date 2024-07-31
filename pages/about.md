@@ -5,6 +5,8 @@ permalink: /about/
 weight: 3
 ---
 
+# About Me
+
 <div class="row">
 <div class="col">
     <!-- Fine Circle Responsive Image -->
