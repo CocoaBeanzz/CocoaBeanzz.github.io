@@ -17,6 +17,7 @@ description: Artistic storytelling puzzle platformer.
 Videos
 Soundtrack
 Gallery
+Credits
 {% endcapture %}
 {% include elements/list.html title="" type="toc" %}
 </div>
@@ -31,14 +32,6 @@ Gallery
 A lonesome onion ventures through a beautiful paper garden in search of a lost friend. 
 </div>
 </div>
-
-### Credits
-Eva Richie\
-Alex Elizarov\
-Ashlyn White\
-Corbyn LaMar\
-Caleb Kissinger\
-K Preston
 
 ## Videos
 {% include elements/video.html id="791LNASUr7I" %}
@@ -60,3 +53,11 @@ Instruments: Guitar, Vocal, Piano, Cello, Synthesizer
 {{prefix}}5{{filetype}}
 {% endcapture %}
 {% include elements/carousel.html %}
+
+## Credits
+Salem Richie\
+Alex Elizarov\
+Ashlyn White\
+Corbyn LaMar\
+Caleb Kissinger\
+K Preston

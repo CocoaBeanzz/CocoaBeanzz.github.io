@@ -16,6 +16,7 @@ description: Banish bad riffs and learn music theory in this roguelike rhythm sh
 {% capture list_items %}
 Soundtrack
 Gallery
+Credits
 {% endcapture %}
 {% include elements/list.html title="" type="toc" %}
 </div>
@@ -47,3 +48,8 @@ Instruments: Drums, Saxophone, Piano, Guitar, Bass, Synthesizer
 {{prefix}}6{{filetype}}
 {% endcapture %}
 {% include elements/carousel.html %}
+
+## Credits
+Tyler Spreng
+Kjell "Gunnar" Trimbo-Forthun
+K Preston

@@ -1,39 +1,28 @@
 ---
-name: K Presto
-image: /docs/assets/images/projects/k-presto/KPLogo_3D_MED.png
-description: K Presto is a musical project melding contemporary electronic music with metal and baroque influences.
+title: "K Presto | Some Originals"
+date: 2024-07-25
+tags: [K Presto, Live Performance]
+style: border
+color: primary
+description: "A short set of a handful of my original tunes, mostly unreleased goodies."
+image: "/docs/assets/images/projects/k-presto/Some-Originals.png"
 ---
 
-<div class="row">
-<div class="col" style="min-width:100px; " markdown="1">
-<img  src="/docs/assets/images/projects/k-presto/KPLogo_3D_MED.png" width="100%" alt="Title Image" align="left">
-</div>
-<div class="col" style="min-width:300px; " markdown="1">
+## Some Originals
 
-# K Presto
-Ongoing musical project
+A short set of a handful of my original tunes, mostly unreleased goodies. Enjoy!
 
-</div>
-<div class="col">
-</div>
-<div class="col" style="max-width:30%;">
-{% capture list_items %}
-Links
-Booking
-Blog Posts
-{% endcapture %}
-{% include elements/list.html title="" type="toc" %}
-</div>
-</div>
-
-K Presto is a musical project melding contemporary electronic music with metal and baroque influences.
+Like, follow, and subscribe to be notified of new music releases.
 
 <hr>
-{% include elements/video.html id="k8nJvnkhVJ0" %}
+{% include elements/video.html id="g5p5sD82OOw" %}
+
 <hr>
 
-## Links
+### About K Presto:
+K Presto is a musical project melding contemporary electronic music with metal and baroque influences.<br><br>
 
+### Links:
 <div class="row" markdown="1">
 <div class="col" markdown="1">
 ### [Spotify](https://open.spotify.com/artist/6YVhlNw952WlFsXddTPgOY)
@@ -74,7 +63,7 @@ K Presto is a musical project melding contemporary electronic music with metal a
 [mgmt@kaud.io](mailto:mgmt@kaud.io)
 
 <hr>
-## Blog Posts
+## Related Posts
 {% assign tagfilter="K Presto" -%}
 <div style="max-width: 1fr">
     <div class="row">

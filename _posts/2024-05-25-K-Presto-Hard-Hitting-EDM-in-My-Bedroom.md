@@ -1,39 +1,51 @@
 ---
-name: K Presto
-image: /docs/assets/images/projects/k-presto/KPLogo_3D_MED.png
-description: K Presto is a musical project melding contemporary electronic music with metal and baroque influences.
+title: "K Presto | Hard-Hitting EDM in My Bedroom"
+date: 2024-05-25
+tags: [K Presto, Live Performance]
+style: border
+color: primary
+description: "A short DJ set of some of my favorite EDM bangers."
+image: "/docs/assets/images/projects/k-presto/Hard-Hitting-EDM-in-My-Bedroom-2.png"
 ---
 
-<div class="row">
-<div class="col" style="min-width:100px; " markdown="1">
-<img  src="/docs/assets/images/projects/k-presto/KPLogo_3D_MED.png" width="100%" alt="Title Image" align="left">
-</div>
-<div class="col" style="min-width:300px; " markdown="1">
+## Hard-Hitting EDM in My Bedroom
 
-# K Presto
-Ongoing musical project
+A short DJ set of some of my favorite EDM bangers, including some premier sneek peeks of my own unreleased goodies. Enjoy!
 
-</div>
-<div class="col">
-</div>
-<div class="col" style="max-width:30%;">
-{% capture list_items %}
-Links
-Booking
-Blog Posts
-{% endcapture %}
-{% include elements/list.html title="" type="toc" %}
-</div>
-</div>
-
-K Presto is a musical project melding contemporary electronic music with metal and baroque influences.
+Like, follow, and subscribe to be notified of new music releases.
 
 <hr>
-{% include elements/video.html id="k8nJvnkhVJ0" %}
+{% include elements/video.html id="WI3vqWmOnBY" %}
+
 <hr>
 
-## Links
+### Tracklist:
+0:00 - K Presto - Fugue in D Minor<br>
+2:15 - MUST DIE!, The Pom-Poms - Don't Even Bother<br>
+3:15 - Wolfgang Gartner - Badboy Sound<br>
+4:15 - Eptic, Habstrakt - Lazor 3000<br>
+5:44 - TV Noise - Lasers<br>
+6:14 - Far Too Loud - Cybertron<br>
+8:14 - Julian Jordan - Slenderman<br>
+9:59 - K Presto - Ricochet (Remix)<br>
+12:14 - Proxy, aUtOdiDakT - Action Jackson<br>
+13:15 - HI-LO - Zeus<br>
+15:31 - K Presto - Invaders (Remix)<br>
+18:41 - Kill The Noise, Feed Me - I Do Coke (Ephwurd Remix)<br>
+20:10 - Knife Party - EDM Death Machine<br>
+21:14 - NIIKO X SWAE - Eeny Meeny<br>
+22:45 - Pegboard Nerds, Tristam - Razor Sharp (VIP)<br>
+24:58 - Zomboy - Raptor<br>
+25:44 - K Presto - Project 128 (Remix)<br>
+27:14 - BARELY ALIVE - Back To Back<br>
+29:29 - Delta Heavy - Conquer the Galaxy<br>
+32:14 - Herobust - Move Mint (VIP)<br>
+<hr>
 
+### About K Presto:
+K Presto is a musical project melding contemporary electronic music with metal and baroque influences.<br><br>
+
+### Links:
 <div class="row" markdown="1">
 <div class="col" markdown="1">
 ### [Spotify](https://open.spotify.com/artist/6YVhlNw952WlFsXddTPgOY)
@@ -74,7 +86,7 @@ K Presto is a musical project melding contemporary electronic music with metal a
 [mgmt@kaud.io](mailto:mgmt@kaud.io)
 
 <hr>
-## Blog Posts
+## Related Posts
 {% assign tagfilter="K Presto" -%}
 <div style="max-width: 1fr">
     <div class="row">

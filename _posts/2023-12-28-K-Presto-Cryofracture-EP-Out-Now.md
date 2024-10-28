@@ -1,7 +1,7 @@
 ---
 title: "K Presto: Cryofracture EP Out Now!"
 date: 2023-12-28
-tags: [K Presto, Composition]
+tags: [K Presto, Composition, Releases]
 style: border
 color: info
 description: "An earth-shattering remaster of one of my first game soundtracks. "
@@ -13,6 +13,7 @@ image: "/docs/assets/images/albums/Cryofracture.jpg"
 Cryofracture, my latest EP featuring selected remasters of tracks I composed for a game soundtrack is out now for streaming and purchase! 
 Give it a listen and explore a world of atmospheric sci-fi soundscapes and earth-shattering drum & bass.
 
+<hr>
 {% include elements/video.html id="DUsHWT1fbck" %}
 
 <div class="row" markdown="1">
@@ -33,3 +34,4 @@ Give it a listen and explore a world of atmospheric sci-fi soundscapes and earth
 </div>
 
 </div>
+<hr>
