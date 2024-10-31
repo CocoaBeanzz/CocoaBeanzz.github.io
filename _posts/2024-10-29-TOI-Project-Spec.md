@@ -8,11 +8,32 @@ description: "Project outline for an instrument of unconventional synthesis algo
 image: "/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-projectspec-ui.png"
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px; ">
+<img  src="/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-biscuitdads-logo.png" width="100%" alt="Biscuit Dads Logo" align="left">
+<br>
+This project is by Biscuit Dads, a partnership of audio programmers <a href="https://github.com/ianelsbree">Ian Elsbree</a> and K Preston.
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Overview
+Algorithm Implementation
+User Interface
+Audio Engine
+Goals
+References
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
+
+<br>
 > *“I dream of instruments obedient to my thought and which with their contribution of a whole new world of unsuspected sounds, will lend themselves to the exigencies of my inner rhythm.”*
 > \- Edgard Varese
 
-### **Biscuit Dads**
-This project is by Biscuit Dads, a partnership of audio programmers [Ian Elsbree](https://github.com/ianelsbree) and K Preston.
+<img src="/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-projectspec-ui.png" alt="TOI UI">
 
 ### **Overview**
 
