@@ -12,7 +12,7 @@ image: "/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-projectspec-
 > \- Edgard Varese
 
 ### **Biscuit Dads**
-This project is by Biscuit Dads, a partnership of audio programmers Ian Elsbree and K Preston.
+This project is by Biscuit Dads, a partnership of audio programmers [Ian Elsbree](https://github.com/ianelsbree) and K Preston.
 
 ### **Overview**
 
