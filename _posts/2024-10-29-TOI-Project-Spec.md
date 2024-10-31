@@ -11,6 +11,9 @@ image: "/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-projectspec-
 > *“I dream of instruments obedient to my thought and which with their contribution of a whole new world of unsuspected sounds, will lend themselves to the exigencies of my inner rhythm.”*
 > \- Edgard Varese
 
+### **Biscuit Dads**
+This project is by Biscuit Dads, a partnership of audio programmers Ian Elsbree and K Preston.
+
 ### **Overview**
 
 Thought-Obedient Instruments (TOI) is a collection of unconventional synthesizers packed into a VST plugin. It is a mix of experimental synthesis techniques and ideas that each may have varied levels of musical applicability, but in the end it is an experiment to see what might work.  
