@@ -10,8 +10,8 @@ description: Time-attack speedrunning platformer.
 <img  src="/docs/assets/images/projects/inline-out-of-time/inline-logo.png" width="100%" alt="Title Image" align="left">
 <br>
 (Platformer, Speedrunning, Arcade)
+<a href="https://store.steampowered.com/app/2865360/Inline_Out_Of_Time/">Available for Free on Steam</a>
 <a href="https://games.digipen.edu/games/inline-out-of-time">Available for Free on the DigiPen Game Gallery</a>
-<a href="https://store.steampowered.com/app/2865360/Inline_Out_Of_Time/">Coming to Steam March 29</a>
 </div>
 <div class="col">
 </div>

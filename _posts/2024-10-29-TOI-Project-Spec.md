@@ -8,15 +8,46 @@ description: "Project outline for an instrument of unconventional synthesis algo
 image: "/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-projectspec-ui.png"
 ---
 
+<div class="row">
+<div class="col" style="min-width:300px; ">
+<img  src="/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-biscuitdads-logo.png" width="100%" alt="Biscuit Dads Logo" align="left">
+<br>
+This project is by Biscuit Dads, a partnership of audio programmers <a href="https://github.com/ianelsbree">Ian Elsbree</a> and K Preston.
+</div>
+<div class="col">
+</div>
+<div class="col" style="max-width:30%;">
+{% capture list_items %}
+Overview
+Algorithm Implementation
+User Interface
+Audio Engine
+Goals
+References
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+</div>
+</div>
+
+<br>
 > *“I dream of instruments obedient to my thought and which with their contribution of a whole new world of unsuspected sounds, will lend themselves to the exigencies of my inner rhythm.”*
 > \- Edgard Varese
 
-### **Biscuit Dads**
-This project is by Biscuit Dads, a partnership of audio programmers [Ian Elsbree](https://github.com/ianelsbree) and K Preston.
+<div class="row">
+<div class="col">
+<div class="row">
+<br>
+Thought-Obedient Instruments (TOI) is a collection of unconventional synthesizers packed into a VST plugin. <br>
+<br>
+It is a mix of experimental synthesis techniques and ideas that each may have varied levels of musical applicability, but in the end it is an experiment to see what might work.  
+</div>
+</div>
+<div class="col" style="max-width:40%;">
+<img src="/docs/assets/images/projects/toi/posts/TOI-Project-Spec/toi-projectspec-ui.png" alt="TOI UI">
+</div>
+</div>
 
 ### **Overview**
-
-Thought-Obedient Instruments (TOI) is a collection of unconventional synthesizers packed into a VST plugin. It is a mix of experimental synthesis techniques and ideas that each may have varied levels of musical applicability, but in the end it is an experiment to see what might work.  
 
 We, the developers, are making use of some tools that we were already familiar with prior to this project, and we are also learning new things too.  
 
