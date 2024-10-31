@@ -5,7 +5,7 @@ tags: [K Presto, Composition, Releases]
 style: border
 color: danger
 description: "A classic K Presto melodic masterpiece meticulously remastered. "
-image: "/docs/assets/images/albums/TheTower.jpg"
+image: "/docs/assets/images/albums/Fallen.png"
 ---
 
 ## Fallen (K10 Anniversary Remix) is out for streaming and purchase!
