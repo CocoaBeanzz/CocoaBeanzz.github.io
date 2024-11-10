@@ -35,3 +35,7 @@ Give it a listen and explore a world of atmospheric sci-fi soundscapes and earth
 
 </div>
 <hr>
+### Original Soundtrack (2021)
+<iframe width="100%" height="400" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1289648479&color=%2300bcff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+<hr>
