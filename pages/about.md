@@ -58,7 +58,7 @@ Let's make something amazing together.
 # **Skills**
 
 <div class="row">
-<div class="container-fluid" style="display: grid; @media screen and (max-width:720px) {grid-template-columns: repeat(auto-fill, 50%);} grid-template-columns: repeat(auto-fill, 25%)">
+<div class="container-fluid" style="display: grid; @media screen and (max-width:720px) {grid-template-columns: repeat(auto-fill, 50%);} grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))">
 <div class="col">
 {% include about/skills.html title="Languages" source=site.data.languages %}
 </div>
