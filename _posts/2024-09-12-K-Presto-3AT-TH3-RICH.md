@@ -1,11 +1,12 @@
 ---
-title: "K Presto | DAMAG3 - 3AT TH3 RICH Tour"
+title: "K Presto | DAMAG3 - 3AT TH3 RICH Tour (Washington)"
 date: 2024-09-12
-tags: [K Presto, Live Performance]
+tags: [K Presto, Live Performance, Shows]
 style: border
 color: primary
 description: "Highlights from K Presto's set for DAMAG3's 3AT TH3 RICH Tour at The Funhouse in Seattle. "
 image: "/docs/assets/images/projects/k-presto/3AT-TH3-RICH.jpg"
+location: "The Funhouse | Seattle, WA, USA"
 ---
 
 ## K Presto @ The Funhouse Seattle | DAMAG3 - 3AT TH3 RICH Tour | Highlights
