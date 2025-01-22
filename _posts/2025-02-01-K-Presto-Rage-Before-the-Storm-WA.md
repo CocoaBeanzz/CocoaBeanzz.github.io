@@ -1,22 +1,32 @@
 ---
-title: "K Presto | Medieval Rave [Gone D&B!]"
-date: 2024-08-05
+title: "K Presto | DAMAG3 - Rage Before the Storm Tour (Washington)"
+date: 2025-02-01
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: primary
-description: "A silly bardcore house party pivots into a high-energy drum & bass set. "
-image: "/docs/assets/images/projects/k-presto/Medieval-Rave.png"
-location: "Seattle, WA, USA"
+description: "Raging with the homi3s in my hometown for DAMAG3's Rage Before the Storm Tour in Seattle. "
+image: "/docs/assets/images/projects/k-presto/RageBeforeTheStorm_Crop.png"
+location: "The Funhouse | Seattle, WA, USA"
 ---
 
-## Medieval Rave [Gone D&B!]
+## K Presto @ The Funhouse Seattle, WA, USA
+### DAMAG3 - Rage Before the Storm Tour
 
-A silly bardcore house party pivots into a high-energy drum & bass set. 
+# [TICKETS](https://tickets.holdmyticket.com/tickets/441688)
+<br>
+I'll be playing the last two shows of DAMAG3's Rage Before the Storm Tour! Meet all the homi3s in a colorful blend of queer rap and bass music.
+Catch me in my hometown of Seattle. Come ready to **thrash**.
 
-Like, follow, and subscribe to be notified of new music releases.
+#### Lineup
+- DAMAG3
+- Rob Apollo
+- Figgy Baby
+- Shno Xavier
+- K Presto
 
 <hr>
-{% include elements/video.html id="7VoSFBniXB4" %}
+#### Highlights from our show in Seattle last September
+{% include elements/video.html id="KeVXHJx4LNA" %}
 
 <hr>
 

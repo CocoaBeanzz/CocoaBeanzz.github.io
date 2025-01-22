@@ -1,0 +1,10 @@
+
+<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+    {% for post in site.posts %}
+        {% if post.tags contains 'Shows' %}
+        <div class="col pl-1 pr-1 pb-1 pt-1">
+            {% include shows/show-card.html %}
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>

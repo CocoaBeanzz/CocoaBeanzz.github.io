@@ -1,22 +1,33 @@
 ---
-title: "K Presto | Medieval Rave [Gone D&B!]"
-date: 2024-08-05
+title: "K Presto | DAMAG3 - Rage Before the Storm Tour (Oregon)"
+date: 2025-01-31
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: primary
-description: "A silly bardcore house party pivots into a high-energy drum & bass set. "
-image: "/docs/assets/images/projects/k-presto/Medieval-Rave.png"
-location: "Seattle, WA, USA"
+description: "K Presto's out-of-state debut for Rage Before the Storm Tour in Portland. "
+image: "/docs/assets/images/projects/k-presto/RageBeforeTheStorm_Crop.png"
+location: "Twilight Cafe & Bar | Portland, OR, USA"
 ---
 
-## Medieval Rave [Gone D&B!]
+## K Presto @ Twilight Cafe & Bar Portland, OR, USA
+### DAMAG3 - Rage Before the Storm Tour
 
-A silly bardcore house party pivots into a high-energy drum & bass set. 
+# [TICKETS](https://tickets.holdmyticket.com/tickets/441688)
+<br>
+I'll be playing the last two shows of DAMAG3's Rage Before the Storm Tour! Meet all the homi3s in a colorful blend of queer rap and bass music.
 
-Like, follow, and subscribe to be notified of new music releases.
+Catch me in Portland for my out-of-state debut! Come ready to **thrash**.
+
+#### Lineup
+- DAMAG3
+- Rob Apollo
+- Figgy Baby
+- Shno Xavier
+- K Presto
 
 <hr>
-{% include elements/video.html id="7VoSFBniXB4" %}
+#### Highlights from our show in Seattle last September
+{% include elements/video.html id="KeVXHJx4LNA" %}
 
 <hr>
 
