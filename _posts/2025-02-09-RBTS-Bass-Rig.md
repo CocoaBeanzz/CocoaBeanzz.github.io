@@ -248,7 +248,7 @@ In this particular setting, the phat rack serves to squash and burn the sound fo
 </div>
 </div>
 
-That's it! The rest just comes down to relentless practice and familiarity with the instrument. I hope this was helpful!
+> That's it! The rest just comes down to relentless practice and familiarity with the instrument. I hope this was helpful!
 
 ## Related Posts
 {% assign tagfilter="Tech" -%}
