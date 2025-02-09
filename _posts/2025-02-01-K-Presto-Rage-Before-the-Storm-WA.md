@@ -3,7 +3,7 @@ title: "K Presto | DAMAG3 - Rage Before the Storm Tour (Washington)"
 date: 2025-02-01
 tags: [K Presto, Live Performance, Shows]
 style: border
-color: primary
+color: danger
 description: "Raging with the homi3s in my hometown for DAMAG3's Rage Before the Storm Tour in Seattle. "
 image: "/docs/assets/images/projects/k-presto/RageBeforeTheStorm_Crop.png"
 location: "The Funhouse | Seattle, WA, USA"
@@ -12,10 +12,8 @@ location: "The Funhouse | Seattle, WA, USA"
 ## K Presto @ The Funhouse Seattle, WA, USA
 ### DAMAG3 - Rage Before the Storm Tour
 
-# [TICKETS](https://wl.seetickets.us/event/damag3/630951?afflky=ElCorazon)
 <br>
-I'll be playing the last two shows of DAMAG3's Rage Before the Storm Tour! Meet all the homi3s in a colorful blend of queer rap and bass music.
-Catch me in my hometown of Seattle. Come ready to **thrash**.
+I performed with DAMAG3, Figgy Babge, Rob Apollo, and Shno Xavier in my hometown of Seattle!
 
 #### Lineup
 - DAMAG3

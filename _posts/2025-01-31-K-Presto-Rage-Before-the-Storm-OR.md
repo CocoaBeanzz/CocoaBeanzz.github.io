@@ -3,20 +3,17 @@ title: "K Presto | DAMAG3 - Rage Before the Storm Tour (Oregon)"
 date: 2025-01-31
 tags: [K Presto, Live Performance, Shows]
 style: border
-color: primary
+color: danger
 description: "K Presto's out-of-state debut for Rage Before the Storm Tour in Portland. "
-image: "/docs/assets/images/projects/k-presto/RageBeforeTheStorm_Crop.png"
+image: "/docs/assets/images/projects/k-presto/RBTS-1.png"
 location: "Twilight Cafe & Bar | Portland, OR, USA"
 ---
 
 ## K Presto @ Twilight Cafe & Bar Portland, OR, USA
 ### DAMAG3 - Rage Before the Storm Tour
 
-# [TICKETS](https://tickets.holdmyticket.com/tickets/441688)
 <br>
-I'll be playing the last two shows of DAMAG3's Rage Before the Storm Tour! Meet all the homi3s in a colorful blend of queer rap and bass music.
-
-Catch me in Portland for my out-of-state debut! Come ready to **thrash**.
+I went on a mini west coast U.S. tour with DAMAG3, Figgy Baby, Rob Apollo, and Shno Xavier! This was my first time playing a proper show out-of-state. 
 
 #### Lineup
 - DAMAG3
@@ -26,8 +23,27 @@ Catch me in Portland for my out-of-state debut! Come ready to **thrash**.
 - K Presto
 
 <hr>
-#### Highlights from our show in Seattle last September
-{% include elements/video.html id="KeVXHJx4LNA" %}
+#### Tour Recap (Pt. 1)
+{% include elements/video.html id="rjanQa7Vauc" %}
+
+<hr>
+
+<div row markdown=1 style="max-height:1080px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/RBTS/Portland/RBTS-Portland-" -%}
+{% assign filetype=".png" -%}
+{% capture carousel_images %}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{{prefix}}7{{filetype}}
+{{prefix}}8{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 <hr>
 
