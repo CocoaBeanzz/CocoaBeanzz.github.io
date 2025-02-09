@@ -3,7 +3,7 @@ title: "K Presto | DAMAG3 - Rage Before the Storm Tour (Washington)"
 date: 2025-02-01
 tags: [K Presto, Live Performance, Shows]
 style: border
-color: primary
+color: danger
 description: "Raging with the homi3s in my hometown for DAMAG3's Rage Before the Storm Tour in Seattle. "
 image: "/docs/assets/images/projects/k-presto/RageBeforeTheStorm_Crop.png"
 location: "The Funhouse | Seattle, WA, USA"
