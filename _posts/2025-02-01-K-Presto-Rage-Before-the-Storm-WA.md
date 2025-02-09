@@ -12,10 +12,8 @@ location: "The Funhouse | Seattle, WA, USA"
 ## K Presto @ The Funhouse Seattle, WA, USA
 ### DAMAG3 - Rage Before the Storm Tour
 
-# [TICKETS](https://wl.seetickets.us/event/damag3/630951?afflky=ElCorazon)
 <br>
-I'll be playing the last two shows of DAMAG3's Rage Before the Storm Tour! Meet all the homi3s in a colorful blend of queer rap and bass music.
-Catch me in my hometown of Seattle. Come ready to **thrash**.
+I performed with DAMAG3, Figgy Babge, Rob Apollo, and Shno Xavier in my hometown of Seattle!
 
 #### Lineup
 - DAMAG3
