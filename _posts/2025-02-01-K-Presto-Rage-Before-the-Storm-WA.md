@@ -5,7 +5,7 @@ tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: "Raging with the homi3s in my hometown for DAMAG3's Rage Before the Storm Tour in Seattle. "
-image: "/docs/assets/images/projects/k-presto/RageBeforeTheStorm_Crop.png"
+image: "/docs/assets/images/projects/k-presto/RBTS/Seattle/RBTS-Seattle-1.jpg"
 location: "The Funhouse | Seattle, WA, USA"
 ---
 
@@ -23,10 +23,32 @@ I performed with DAMAG3, Figgy Babge, Rob Apollo, and Shno Xavier in my hometown
 - K Presto
 
 <hr>
-#### Highlights from our show in Seattle last September
-{% include elements/video.html id="KeVXHJx4LNA" %}
+#### Tour Recap (Pt. 2)
+{% include elements/video.html id="QyaoFde8PhY" %}
 
 <hr>
+
+<div row markdown=1 style="max-height:1080px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/RBTS/Seattle/RBTS-Seattle-" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{{prefix}}7{{filetype}}
+{{prefix}}8{{filetype}}
+{{prefix}}9{{filetype}}
+{{prefix}}10{{filetype}}
+{{prefix}}11{{filetype}}
+{{prefix}}12{{filetype}}
+{{prefix}}13{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 ### About K Presto:
 K Presto is a musical project melding contemporary electronic music with metal and baroque influences.<br><br>
