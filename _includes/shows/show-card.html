@@ -32,13 +32,18 @@
             <a href="{{ post_url }}" class="show card {{ card_style }}">
                 {%- endif -%}
                 <div class="card-body {{ text_style }}" style="padding: 3px; ">
+                    
+                    <div row>
+                    {%- if post.image -%}
+                    <div col style="max-width: 10%;">
+                    <img id="{{ post_url }}" class="card-img-top" src="{{ post.image }}" alt="Post Image" style="max-height: 100px; width: auto; margin: auto; float: left; padding-right: 12px;">
+                    </div>
+                    {%- endif -%}
+                    <div col style="max-width: 70%;">
                     <h5 class="card-title mb-2" style="font-size: calc(clamp(1.1em, 1.8em - 0.6vw, 3em));">{{ post.title }}</h5>
                     <p class="card-text">
                         {{ post.location }}
                     </p>
-                    {%- if post.image -%}
-                    <img id="{{ post_url }}" class="card-img-top" src="{{ post.image }}" alt="Post Image" style="max-height: 70%; height: auto; display: block; margin: auto; ">
-                    {%- endif -%}
                     <p class="card-text pt-3">
                         {%- if post.description -%}
                         {{ post.description }}
@@ -46,6 +51,10 @@
                         {{ post.content | truncatewords: 25, "<small><i>  read more...</i></small>" }}
                         {%- endif -%}
                     </p>
+                    </div>
+                    <div col style="max-width: 20%;">
+                    </div>
+                    </div>
                 </div>
                 <div class="card-footer {{ text_style }}" style="padding: 12px; ">
                     {{ post.date | date_to_long_string }}

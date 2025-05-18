@@ -1,6 +1,6 @@
 ---
 title: "K Presto | DAMAG3 - BLiND US Tour (Detroit)"
-date: 2025-08-20
+date: 2025-08-16
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
