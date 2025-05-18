@@ -21,9 +21,9 @@ weight: 6
 <div class="col">
 
 <b>Hey, I'm K.</b><br><br>
-I'm a musician, composer, audio programmer, synthesizer designer, student, and general creative enthusiast. <br><br>
+I'm a musician, composer, audio programmer, synthesizer designer, and general creative enthusiast. <br><br>
 My projects blend my artistic and technical passions to bring forth new sonic experiences, be it through the sound of a video game, a cinematic score, an inspired album, or new tools to help other musicians realize their artistic visions.<br><br>
-I am currently attending my fourth and final year at DigiPen Institute of Technology in pursuit of a Bachelor's in Science in Computer Science and Digital Audio
+I recently graduated from DigiPen Institute of Technology with a Bachelor's in Science in Computer Science and Digital Audio
 and a minor in mathematics.<br><br>
 Let's make something amazing together.
 <br><br>
