@@ -25,39 +25,45 @@
     {%- else -%}
     {%- assign post_url = post.url | relative_url -%}
     {%- endif -%}
+                                            
     <div class="my-3 wow animated fadeIn" data-wow-delay=".08s">
         {%- if post.external_url and site.open_new_tab -%}
         <a href="{{ post_url }}" class="show card {{ card_style }}" target="_blank">
-            {%- else -%}
-            <a href="{{ post_url }}" class="show card {{ card_style }}">
-                {%- endif -%}
-                <div class="card-body {{ text_style }}" style="padding: 3px; ">
-                    
-                    <div row>
+        {%- else -%}
+        <a href="{{ post_url }}" class="show card {{ card_style }}" >
+        {%- endif -%}
+            <div class="card-body {{ text_style }}" style="padding: 0px; ">
+                <div row>
                     {%- if post.image -%}
-                    <div col style="max-width: 10%;">
-                    <img id="{{ post_url }}" class="card-img-top" src="{{ post.image }}" alt="Post Image" style="max-height: 100px; width: auto; margin: auto; float: left; padding-right: 12px;">
+                    <div col style="max-width: 8%; min-width: 100px">
+                        <img id="{{ post_url }}" class="card-img-top" src="{{ post.image }}" alt="Post Image" style="margin: auto; float: left; padding-right: 12px;">
                     </div>
                     {%- endif -%}
-                    <div col style="max-width: 70%;">
-                    <h5 class="card-title mb-2" style="font-size: calc(clamp(1.1em, 1.8em - 0.6vw, 3em));">{{ post.title }}</h5>
-                    <p class="card-text">
-                        {{ post.location }}
-                    </p>
-                    <p class="card-text pt-3">
-                        {%- if post.description -%}
-                        {{ post.description }}
-                        {%- else -%}
-                        {{ post.content | truncatewords: 25, "<small><i>  read more...</i></small>" }}
-                        {%- endif -%}
-                    </p>
-                    </div>
-                    <div col style="max-width: 20%;">
-                    </div>
+                    <div col style="padding-left:10px">
+                        <div row>
+                            <p class="card-text">
+                        <h5 class="card-title mb-2" style="font-size: calc(clamp(1.1em, 1.8em - 0.6vw, 3em)); padding-bottom: 0;">{{ post.title }}</h5>
+                                {%- if post.description -%}
+                                {{ post.description }}
+                                {%- else -%}
+                                {{ post.content | truncatewords: 25, "<small><i>  read more...</i></small>" }}
+                                {%- endif -%}
+                            </p>
+                        </div>
+                            <div class="card-footer {{ text_style }}" style="float:left; padding: 10px; width: 100%">
+                                <div row>
+                                    <div col style="max-width: 50%; float:left">
+                                        {{ post.location }}
+                                    </div>
+                                    <div col style="min-width: 50%; float: right">
+                                        <div col style="min-width: 30%; float: right">
+                                            {{ post.date | date_to_long_string }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
-                <div class="card-footer {{ text_style }}" style="padding: 12px; ">
-                    {{ post.date | date_to_long_string }}
-                </div>
-            </a>
+            </div>
+        </a>
     </div>
