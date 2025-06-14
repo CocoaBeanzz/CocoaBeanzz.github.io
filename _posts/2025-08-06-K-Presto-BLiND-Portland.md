@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "Twilight Cafe and Bar | Portland, OR USA"
+link: https://tickets.holdmyticket.com/tickets/448116
 ---
 
 ## K Presto @ Twilight Cafe and Bar | Portland, OR USA

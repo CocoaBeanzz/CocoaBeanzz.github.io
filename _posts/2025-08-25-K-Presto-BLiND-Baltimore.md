@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/BennyFigSleazyShno.png"
 location: "Metro Baltimore | Baltimore, MD USA"
+link: https://dice.fm/partner/metro-gallery-llc/event/8ebaq2-damag3-w-noir-benny-figgy-baby-leazy-ez-and-shno-xavier-25th-aug-metro-baltimore-baltimore-tickets?dice_id=6036687&dice_channel=web&dice_tags=organic&dice_campaign=Metro+Gallery+LLC&dice_feature=mio_marketing&utm_source=web&utm_campaign=Metro+Gallery+LLC&utm_medium=mio_marketing
 ---
 
 ## K Presto @ Metro Baltimore | Baltimore, MD USA

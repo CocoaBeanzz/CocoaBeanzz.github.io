@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/FigSleazyShno.jpg"
 location: "Resonant Head | Oklahoma City, OK USA"
+link: https://www.prekindle.com/event/96731-damag3-oklahoma-city
 ---
 
 ## K Presto @ Resonant Head | Oklahoma City, OK USA

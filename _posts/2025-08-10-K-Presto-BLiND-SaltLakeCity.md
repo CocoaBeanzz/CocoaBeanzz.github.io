@@ -1,19 +1,19 @@
 ---
-title: "K Presto | DAMAG3 - BLiND US Tour (Kansas City)"
-date: 2025-08-12
+title: "K Presto | DAMAG3 - BLiND US Tour (Salt Lake City)"
+date: 2025-08-10
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
-location: "miniBar | Kansas City, MO USA"
-link: https://dice.fm/partner/strange-bedfellows-inc-dba-recordbar/event/mxaby9-damag3-rob-apollo-hadji-gavoita-shno-xaviar-sounds-by-k-presto-12th-aug-minibar-kansas-city-tickets?dice_id=5994860&dice_channel=web&dice_tags=organic&dice_campaign=Strange+Bedfellows+Inc+dba+recordBar&dice_feature=mio_marketing&utm_source=web&utm_campaign=Strange+Bedfellows+Inc+dba+recordBar&utm_medium=mio_marketing
+location: "The Beehive | Salt Lake City, UT USA"
+link: https://lu.ma/ol7puk2v
 ---
 
-## K Presto @ miniBar | Kansas City, MO USA
+## K Presto @ The Beehive | Salt Lake City, UT USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://dice.fm/partner/strange-bedfellows-inc-dba-recordbar/event/mxaby9-damag3-rob-apollo-hadji-gavoita-shno-xaviar-sounds-by-k-presto-12th-aug-minibar-kansas-city-tickets?dice_id=5994860&dice_channel=web&dice_tags=organic&dice_campaign=Strange+Bedfellows+Inc+dba+recordBar&dice_feature=mio_marketing&utm_source=web&utm_campaign=Strange+Bedfellows+Inc+dba+recordBar&utm_medium=mio_marketing)
+## [TICKETS](https://lu.ma/ol7puk2v)
 
 #### Lineup
 - DAMAG3
@@ -21,9 +21,6 @@ link: https://dice.fm/partner/strange-bedfellows-inc-dba-recordbar/event/mxaby9-
 - Hadji Gaviota
 - Shno Xavier
 - K Presto
-
-<hr>
-<img src="https://dice-media.imgix.net/attachments/2025-05-06/655feedf-375c-4c41-975f-49188a818386.jpg?rect=0%2C0%2C1080%2C1080&auto=format%2Ccompress&q=80&w=328&h=328&fit=crop&crop=faces%2Ccenter&dpr=1" alt="info">
 
 <hr>
 

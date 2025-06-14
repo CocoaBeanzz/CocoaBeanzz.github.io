@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "The WC Social Club | Chicago, IL USA"
+link: https://skeletix.com/3604-damag3-the-wc-social-club-2025-08-14/
 ---
 
 ## K Presto @ The WC Social Club | Chicago, IL USA

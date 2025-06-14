@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "The Funhouse | Seattle, WA USA"
+link: https://wl.seetickets.us/event/damag3/649190?afflky=ElCorazon
 ---
 
 ## K Presto @ The Funhouse | Seattle, WA USA

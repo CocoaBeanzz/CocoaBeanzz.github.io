@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/FigSleazyShno.jpg"
 location: "Cloud Harbor Vape and Gaming | Atlanta, GA USA"
+link: https://lu.ma/euvcs7gi
 ---
 
 ## K Presto @ Cloud Harbor Vape and Gaming | Atlanta, GA USA
