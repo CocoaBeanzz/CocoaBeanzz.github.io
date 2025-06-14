@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "HQ | Denver, CO USA"
+link: https://tickets.holdmyticket.com/tickets/448192?tc=hmt
 ---
 
 ## K Presto @ HQ | Denver, CO USA

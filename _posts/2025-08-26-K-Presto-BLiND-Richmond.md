@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/ZuriFigSleazyShno.jpg"
 location: "The Camel | Richmond, VA USA"
+link: https://app.opendate.io/e/damag3-august-26-2025-574605
 ---
 
 ## K Presto @ The Camel | Richmond, VA USA

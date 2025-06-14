@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/FigSleazyShno.jpg"
 location: "No Dice | New Orleans, LA USA"
+link: https://dice.fm/partner/dice/event/v3ape6-damag3-with-leazy-ez-figgy-baby-shno-xavier-k-presto-1st-sep-no-dice-new-orleans-tickets?dice_id=5984337&dice_channel=web&dice_tags=organic&dice_campaign=DICE&dice_feature=mio_marketing&utm_source=web&utm_campaign=DICE&utm_medium=mio_marketing
 ---
 
 ## K Presto @ No Dice | New Orleans, LA USA

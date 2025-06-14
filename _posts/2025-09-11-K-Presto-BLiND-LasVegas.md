@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/JoeyFigSleazyShno.png"
 location: "Fuego Lounge Bar | Las Vegas, NV USA"
+link: https://lu.ma/nitmyvmr
 ---
 
 ## K Presto @ Fuego Lounge Bar | Las Vegas, NV USA

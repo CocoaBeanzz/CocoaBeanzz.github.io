@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "Corktown Tavern | Detroit, MI USA"
+link: https://lu.ma/djn9tipj
 ---
 
 ## K Presto @ Corktown Tavern | Detroit, MI USA

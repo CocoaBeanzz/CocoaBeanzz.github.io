@@ -1,29 +1,30 @@
 ---
-title: "K Presto | DAMAG3 - BLiND US Tour (Kansas City)"
-date: 2025-08-12
+title: "K Presto | DAMAG3 - BLiND US Tour (Fresno)"
+date: 2025-08-02
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
-location: "miniBar | Kansas City, MO USA"
-link: https://dice.fm/partner/strange-bedfellows-inc-dba-recordbar/event/mxaby9-damag3-rob-apollo-hadji-gavoita-shno-xaviar-sounds-by-k-presto-12th-aug-minibar-kansas-city-tickets?dice_id=5994860&dice_channel=web&dice_tags=organic&dice_campaign=Strange+Bedfellows+Inc+dba+recordBar&dice_feature=mio_marketing&utm_source=web&utm_campaign=Strange+Bedfellows+Inc+dba+recordBar&utm_medium=mio_marketing
+location: "The Layover | Fresno, CA USA"
+link: https://www.ticketleap.events/tickets/great-room-shows/damag3-rob-apollo-hadji-gaviota-shno-xaiver-w-disorderly-conduct
 ---
 
-## K Presto @ miniBar | Kansas City, MO USA
+## K Presto @ The Layover | Fresno, CA USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://dice.fm/partner/strange-bedfellows-inc-dba-recordbar/event/mxaby9-damag3-rob-apollo-hadji-gavoita-shno-xaviar-sounds-by-k-presto-12th-aug-minibar-kansas-city-tickets?dice_id=5994860&dice_channel=web&dice_tags=organic&dice_campaign=Strange+Bedfellows+Inc+dba+recordBar&dice_feature=mio_marketing&utm_source=web&utm_campaign=Strange+Bedfellows+Inc+dba+recordBar&utm_medium=mio_marketing)
+## [TICKETS](https://www.ticketleap.events/tickets/great-room-shows/damag3-rob-apollo-hadji-gaviota-shno-xaiver-w-disorderly-conduct)
 
 #### Lineup
 - DAMAG3
+- DISORDERLY CONDUCT
 - Rob Apollo
 - Hadji Gaviota
 - Shno Xavier
 - K Presto
 
 <hr>
-<img src="https://dice-media.imgix.net/attachments/2025-05-06/655feedf-375c-4c41-975f-49188a818386.jpg?rect=0%2C0%2C1080%2C1080&auto=format%2Ccompress&q=80&w=328&h=328&fit=crop&crop=faces%2Ccenter&dpr=1" alt="info">
+<img src="https://tlt-events.s3.amazonaws.com/1784/1507022/18032bd700735bea03d4fdaf1da674d89c175ff3697e00c6cad8a1eaadb52579/51c9b5e1-7545-4156-b740-1665f2398891.jpg" alt="info">
 
 <hr>
 

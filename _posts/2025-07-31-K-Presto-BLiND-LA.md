@@ -7,6 +7,7 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "The Moroccan Lounge | Los Angeles, CA USA"
+link: https://www.ticketmaster.com/event/090062A5F4B02F54
 ---
 
 ## K Presto @ The Moroccan Lounge | Los Angeles, CA USA
