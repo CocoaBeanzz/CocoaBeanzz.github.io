@@ -9,7 +9,7 @@ image: "/docs/assets/images/projects/k-presto/LuckyBreak/LB_Kpresto_Square.png"
 location: "REBL 1 Studios | Seattle, WA, USA"
 ---
 
-## K Presto @ The Moroccan Lounge | Los Angeles, CA USA
+## LUCKY BREAK | REBL 1 Studios | Seattle, WA, USA
 
 <img src="/docs/assets/images/projects/k-presto/LuckyBreak/Banner.png" alt="banner">
 
