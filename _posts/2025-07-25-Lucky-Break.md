@@ -23,12 +23,17 @@ Let’s show up and show out, see and be seen, express ourselves to the maximum,
 
 Make some magic with us!
 
-$20 Presale
-$25 Door
+
+## Location: 
+>Rebl1<br>
+>55 Bell St<br>
+>Seattle WA, 98121
+
 9PM-1AM
-Location: Rebl1 - 55 Bell St, Seattle WA, 98121
 
 ## TICKETS
+$20 Presale<br>
+$25 Door
 > PRESALE -> [Venmo @Oscar-Prieto](https://venmo.com/Oscar-Prieto?txn=pay&amount=20) with memo: LUCKY BREAK + Your full name
 
 <div row markdown=1>
@@ -36,7 +41,7 @@ Location: Rebl1 - 55 Bell St, Seattle WA, 98121
 {% assign filetype=".png" -%}
 {% assign height="720px" -%}
 {% capture carousel_images %}
-{{prefix}}iko{{filetype}}
+{{prefix}}Iko{{filetype}}
 {{prefix}}KPresto{{filetype}}
 {{prefix}}Dimage{{filetype}}
 {{prefix}}Hamwich{{filetype}}
