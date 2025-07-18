@@ -29,7 +29,7 @@ $25 Door
 Location: Rebl1 - 55 Bell St, Seattle WA, 98121
 
 ## TICKETS
-> PRESALE -> Venmo @Oscar-Prieto with memo: LUCKY BREAK + Your full name
+> PRESALE -> [Venmo @Oscar-Prieto](https://venmo.com/Oscar-Prieto?txn=pay&amount=20) with memo: LUCKY BREAK + Your full name
 
 <div row markdown=1>
 {% assign prefix="/docs/assets/images/projects/k-presto/LuckyBreak/LB_" -%}
