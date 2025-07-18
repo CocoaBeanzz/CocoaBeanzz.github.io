@@ -43,6 +43,7 @@ Instruments: Piano, Guitar, Percussion, Orchestra, Drums, Synthesizer
 {% assign prefix="/docs/assets/images/projects/vengeance/vengeance-" -%}
 {% assign filetype=".png" -%}
 {% capture carousel_images %}
+{%- assign height = 720px -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}

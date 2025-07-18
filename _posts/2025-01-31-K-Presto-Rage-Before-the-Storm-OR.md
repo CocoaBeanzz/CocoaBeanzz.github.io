@@ -33,6 +33,7 @@ I went on a mini west coast U.S. tour with DAMAG3, Figgy Baby, Rob Apollo, and S
 {% assign prefix="/docs/assets/images/projects/k-presto/RBTS/Portland/RBTS-Portland-" -%}
 {% assign filetype=".png" -%}
 {% capture carousel_images %}
+{%- assign height = 720px -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}

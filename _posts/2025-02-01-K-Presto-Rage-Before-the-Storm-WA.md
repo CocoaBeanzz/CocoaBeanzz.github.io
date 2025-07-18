@@ -33,6 +33,7 @@ I performed with DAMAG3, Figgy Babge, Rob Apollo, and Shno Xavier in my hometown
 {% assign prefix="/docs/assets/images/projects/k-presto/RBTS/Seattle/RBTS-Seattle-" -%}
 {% assign filetype=".jpg" -%}
 {% capture carousel_images %}
+{%- assign height = 720px -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}

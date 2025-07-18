@@ -44,6 +44,7 @@ Sneak, blast, and complete puzzles until you make it out alive... or die trying.
 {% assign prefix="/docs/assets/images/projects/infestation/231203/editor/InfeStation_e_" -%}
 {% assign filetype=".png" -%}
 {% capture carousel_images %}
+{%- assign height = 720px -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}
@@ -63,6 +64,7 @@ Sneak, blast, and complete puzzles until you make it out alive... or die trying.
 {% assign prefix="/docs/assets/images/projects/infestation/231203/gameplay/InfeStation_gp_" -%}
 {% assign filetype=".png" -%}
 {% capture carousel_images %}
+{%- assign height = 720px -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}
