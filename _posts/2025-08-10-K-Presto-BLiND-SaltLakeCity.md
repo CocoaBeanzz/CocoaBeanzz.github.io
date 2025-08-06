@@ -17,7 +17,6 @@ link: https://lu.ma/ol7puk2v
 
 #### Lineup
 - DAMAG3
-- Rob Apollo
 - Hadji Gaviota
 - Shno Xavier
 - K Presto
