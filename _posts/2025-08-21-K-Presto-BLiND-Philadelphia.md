@@ -1,6 +1,6 @@
 ---
 title: "K Presto | DAMAG3 - BLiND US Tour (Philadelphia)"
-date: 2025-08-22
+date: 2025-08-21
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger

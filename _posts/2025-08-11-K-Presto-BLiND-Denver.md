@@ -17,7 +17,6 @@ link: https://tickets.holdmyticket.com/tickets/448192?tc=hmt
 
 #### Lineup
 - DAMAG3
-- Rob Apollo
 - Hadji Gaviota
 - Shno Xavier
 - K Presto
