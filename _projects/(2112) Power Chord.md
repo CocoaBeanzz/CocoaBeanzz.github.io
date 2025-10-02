@@ -40,7 +40,7 @@ Instruments: Drums, Saxophone, Piano, Guitar, Bass, Synthesizer
 {% assign prefix="/docs/assets/images/projects/power-chord/power-chord-" -%}
 {% assign filetype=".png" -%}
 {% capture carousel_images %}
-{%- assign height = 720px -%}
+{%- assign height = "720px" -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}
