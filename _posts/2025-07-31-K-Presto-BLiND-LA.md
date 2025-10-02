@@ -4,29 +4,33 @@ date: 2025-07-31
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: We kicked off the US tour in Los Angeles with a vibrant crowd of lovely people!
+image: "/docs/assets/images/projects/k-presto/BLiND/LA/BLiND_LA_1.png"
 location: "The Moroccan Lounge | Los Angeles, CA USA"
-link: https://www.ticketmaster.com/event/090062A5F4B02F54
 ---
 
 ## K Presto @ The Moroccan Lounge | Los Angeles, CA USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://www.ticketmaster.com/event/090062A5F4B02F54)
-
 <br>
-Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
+We kicked off the US tour in Los Angeles with a vibrant crowd of lovely people!
+
+I had the pleasure of performing for and connecting with some very inspiring fellow artists. 
+
+Performing with My Favorite Color was such a joy! The energy onstage was captivating.
+
+What a delightful start to this adventure.
+
+<hr>
+<img src="/docs/assets/images/projects/k-presto/BLiND/LA/BLiND_LA_1.png" alt="Show Photo">
 
 #### Lineup
 - DAMAG3
 - Rob Apollo
 - Hadji Gaviota
+- My Favorite Color
 - Shno Xavier
 - K Presto
-
-<hr>
-<img src="https://s1.ticketm.net/dam/e/405/1612ecfe-413a-4218-98ca-52b82e24a405_TABLET_LANDSCAPE_16_9.jpg" alt="info">
 
 <hr>
 

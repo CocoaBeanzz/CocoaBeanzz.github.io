@@ -4,16 +4,31 @@ date: 2025-08-06
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: Portland's community is always such a delight!
+image: "/docs/assets/images/projects/k-presto/BLiND/Portland/BLiND_Portland_Thumb.jpg"
 location: "Twilight Cafe and Bar | Portland, OR USA"
-link: https://tickets.holdmyticket.com/tickets/448116
 ---
 
 ## K Presto @ Twilight Cafe and Bar | Portland, OR USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://tickets.holdmyticket.com/tickets/448116)
+Portland's community is always such a delight! I met some very very sweet fans and we moshed together!
+
+<div row markdown=1 style="height:800px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/BLiND/Portland/BLiND_Portland_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 #### Lineup
 - DAMAG3
@@ -21,9 +36,6 @@ link: https://tickets.holdmyticket.com/tickets/448116
 - Hadji Gaviota
 - Shno Xavier
 - K Presto
-
-<hr>
-<img src="https://cloudinary-a.akamaihd.net/holdmyticket/image/upload/w_800,h_800,c_fit,c_limit,q_80,dn_72,dpr_auto,f_auto/v6/uploads/flyers2/kaj55f0eh3ixustm42x9.jpg" alt="info">
 
 <hr>
 

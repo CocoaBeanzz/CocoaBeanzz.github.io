@@ -4,27 +4,37 @@ date: 2025-08-02
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: The Central Valley thrashed hard in the heat!
+image: "/docs/assets/images/projects/k-presto/BLiND/Fresno/BLiND_Fresno_Thumb.jpg"
 location: "The Layover | Fresno, CA USA"
-link: https://www.ticketleap.events/tickets/great-room-shows/damag3-rob-apollo-hadji-gaviota-shno-xaiver-w-disorderly-conduct
 ---
 
 ## K Presto @ The Layover | Fresno, CA USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://www.ticketleap.events/tickets/great-room-shows/damag3-rob-apollo-hadji-gaviota-shno-xaiver-w-disorderly-conduct)
+The Central Valley thrashed hard in the heat!
+
+Witnessing the massive sound of Disorderly Conduct was utterly thrilling.
+
+<div row markdown=1 style="height:800px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/BLiND/Fresno/BLiND_Fresno_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 #### Lineup
 - DAMAG3
-- DISORDERLY CONDUCT
+- Disorderly Conduct
 - Rob Apollo
 - Hadji Gaviota
 - Shno Xavier
 - K Presto
-
-<hr>
-<img src="https://tlt-events.s3.amazonaws.com/1784/1507022/18032bd700735bea03d4fdaf1da674d89c175ff3697e00c6cad8a1eaadb52579/51c9b5e1-7545-4156-b740-1665f2398891.jpg" alt="info">
 
 <hr>
 

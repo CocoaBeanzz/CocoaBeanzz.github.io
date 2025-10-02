@@ -4,16 +4,25 @@ date: 2025-08-03
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: San Francisco went freaking crazy!
+image: "/docs/assets/images/projects/k-presto/BLiND/SF/BLiND_SF_2.jpg"
 location: "The Faight Collective | San Francisco, CA USA"
-link: https://lu.ma/w3i67fou
 ---
 
 ## K Presto @ The Faight Collective | San Francisco, CA USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://lu.ma/w3i67fou)
+<div row markdown=1 style="height:800px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/BLiND/SF/BLiND_SF_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 #### Lineup
 - DAMAG3
