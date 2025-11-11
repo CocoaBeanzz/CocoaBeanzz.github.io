@@ -4,7 +4,7 @@ layout: default_nonav
 ---
 
 <div class="col" markdown="1" style="
-width:80%; 
+width:100%; 
 max-width:720px;
 margin-left:auto; 
 margin-right:auto;
