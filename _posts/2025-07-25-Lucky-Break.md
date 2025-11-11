@@ -5,7 +5,7 @@ tags: [K Presto, Live Performance, Shows]
 style: border
 color: warning
 description: A hard-hitting bouncy bassy rave in Seattle with K Presto and friends!
-image: "/docs/assets/images/projects/k-presto/LuckyBreak/LB_Kpresto_Square.png"
+image: "/docs/assets/images/projects/k-presto/LuckyBreak/LB_Thumb.jpg"
 location: "REBL 1 Studios | Seattle, WA, USA"
 ---
 
@@ -13,28 +13,32 @@ location: "REBL 1 Studios | Seattle, WA, USA"
 
 <img src="/docs/assets/images/projects/k-presto/LuckyBreak/Banner.png" alt="banner">
 
-##### SEATTLE RAVERS, YOU’RE IN LUCK!
+I played a delightful little rave with my friends Iko, Hamwich, and Dimage! 
+We shared a colorful assortment of bass, breaks, garage, dnb, house, and more among a 
+energetic, intimate crowd. It was a blast!
 
-*Friday July 25th Swiftheart Events presents* **LUCKY BREAK!**
+I'm grateful for the opportunity to work with such a sweet and talented team to put this night together. 
 
-Claim your blessings on the dance floor to the sounds of club, bass, jungle, breaks, wubs and more. We’re bringing eclectic and creative curation to the function with multigenre sets from local DJs Dimage, K Presto, Hamwich and guest iko to raise your spirits, get your body moving, and celebrate each other. This is your midsummer boost, a chance to make your own luck.
-
-Let’s show up and show out, see and be seen, express ourselves to the maximum, and let go of our worries with community. Come together and connect from a place of love and unity to strengthen the inner fire in uncertain times. 
-
-Make some magic with us!
-
-
-## Location: 
->Rebl1<br>
->55 Bell St<br>
->Seattle WA, 98121
-
-9PM-1AM
-
-## TICKETS
-$20 Presale<br>
-$25 Door
-> PRESALE -> [Venmo @Oscar-Prieto](https://venmo.com/Oscar-Prieto?txn=pay&amount=20) with memo: LUCKY BREAK + Your full name
+<div row markdown=1 style="height:800px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/LuckyBreak/LB_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{{prefix}}7{{filetype}}
+{{prefix}}8{{filetype}}
+{{prefix}}9{{filetype}}
+{{prefix}}10{{filetype}}
+{{prefix}}11{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 <div row markdown=1>
 {% assign prefix="/docs/assets/images/projects/k-presto/LuckyBreak/LB_" -%}

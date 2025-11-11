@@ -4,16 +4,29 @@ date: 2025-08-14
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: The energy in Chicago was phenomenal!
+image: "/docs/assets/images/projects/k-presto/BLiND/Chicago/BLiND_Chicago_Thumb.jpg"
 location: "The WC Social Club | Chicago, IL USA"
-link: https://skeletix.com/3604-damag3-the-wc-social-club-2025-08-14/
 ---
 
 ## K Presto @ The WC Social Club | Chicago, IL USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://skeletix.com/3604-damag3-the-wc-social-club-2025-08-14/)
+<div row markdown=1 style="height:800px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/BLiND/Chicago/BLiND_Chicago_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 #### Lineup
 - DAMAG3

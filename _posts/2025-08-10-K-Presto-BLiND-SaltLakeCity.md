@@ -13,8 +13,6 @@ link: https://lu.ma/ol7puk2v
 ## K Presto @ The Beehive | Salt Lake City, UT USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://lu.ma/ol7puk2v)
-
 #### Lineup
 - DAMAG3
 - Hadji Gaviota

@@ -4,8 +4,8 @@ date: 2025-08-16
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: Detroit surpassed all expectations bringing the HEAT.
+image: "/docs/assets/images/projects/k-presto/BLiND/Detroit/BLiND_Detroit_Thumb.jpg"
 location: "Corktown Tavern | Detroit, MI USA"
 link: https://lu.ma/djn9tipj
 ---
@@ -13,7 +13,26 @@ link: https://lu.ma/djn9tipj
 ## K Presto @ Corktown Tavern | Detroit, MI USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://lu.ma/djn9tipj)
+Detroit surpassed all expectations bringing the HEAT.
+
+These maniacs bounced so hard the floor started to buckle.
+
+<div row markdown=1 style="height:800px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/BLiND/Detroit/BLiND_Detroit_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{{prefix}}7{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 #### Lineup
 - DAMAG3

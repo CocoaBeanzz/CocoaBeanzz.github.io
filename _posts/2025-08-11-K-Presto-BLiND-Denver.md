@@ -4,8 +4,8 @@ date: 2025-08-11
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: The Denver crowd went hard!
+image: "/docs/assets/images/projects/k-presto/BLiND/Denver/BLiND_Denver_Thumb.png"
 location: "HQ | Denver, CO USA"
 link: https://tickets.holdmyticket.com/tickets/448192?tc=hmt
 ---
