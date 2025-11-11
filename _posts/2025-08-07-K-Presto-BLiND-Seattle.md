@@ -4,16 +4,29 @@ date: 2025-08-07
 tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
-description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+description: I was met with so much love in my hometown!
+image: "/docs/assets/images/projects/k-presto/BLiND/Seattle/BLiND_Seattle_Thumb.jpg"
 location: "The Funhouse | Seattle, WA USA"
-link: https://wl.seetickets.us/event/damag3/649190?afflky=ElCorazon
 ---
 
 ## K Presto @ The Funhouse | Seattle, WA USA
 ### DAMAG3 - BLiND Tour
 
-## [TICKETS](https://wl.seetickets.us/event/damag3/649190?afflky=ElCorazon)
+I was met with so much love in my hometown!
+
+It's always such a joy seeing all my friends and sharing a special night together.
+
+<div row markdown=1 style="height:800px; ">
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/BLiND/Seattle/BLiND_Seattle_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+</div>
 
 #### Lineup
 - DAMAG3
@@ -21,9 +34,6 @@ link: https://wl.seetickets.us/event/damag3/649190?afflky=ElCorazon
 - Hadji Gaviota
 - Shno Xavier
 - K Presto
-
-<hr>
-<img src="https://prod-images.seetickets.us/eyJidWNrZXQiOiJwcm9kLXNpaC5zZWV0aWNrZXRzdXNhLnVzIiwia2V5IjoiNmVjZDkxZDItZmNhZi00NjQ4LWJhZDYtNzJkMDQ1YTAxNGFlIiwiZWRpdHMiOnt9fQ==" alt="info">
 
 <hr>
 

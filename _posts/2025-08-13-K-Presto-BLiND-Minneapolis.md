@@ -7,13 +7,10 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "Underground Music Venue - Cafe | Minneapolis, MN USA"
-link: https://dice.fm/partner/underground-music-venue-llc/event/53nwoy-damag3-friends-13th-aug-underground-music-venue-cafe-minneapolis-tickets?dice_id=6010246&dice_channel=web&dice_tags=organic&dice_campaign=Underground+Music+Venue+LLC&dice_feature=mio_marketing&utm_source=web&utm_campaign=Underground+Music+Venue+LLC&utm_medium=mio_marketing
 ---
 
 ## K Presto @ Underground Music Venue - Cafe | Minneapolis, MN USA
 ### DAMAG3 - BLiND Tour
-
-## [TICKETS](https://dice.fm/partner/underground-music-venue-llc/event/53nwoy-damag3-friends-13th-aug-underground-music-venue-cafe-minneapolis-tickets?dice_id=6010246&dice_channel=web&dice_tags=organic&dice_campaign=Underground+Music+Venue+LLC&dice_feature=mio_marketing&utm_source=web&utm_campaign=Underground+Music+Venue+LLC&utm_medium=mio_marketing)
 
 #### Lineup
 - DAMAG3

@@ -7,13 +7,10 @@ color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
 image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
 location: "miniBar | Kansas City, MO USA"
-link: https://dice.fm/partner/strange-bedfellows-inc-dba-recordbar/event/mxaby9-damag3-rob-apollo-hadji-gavoita-shno-xaviar-sounds-by-k-presto-12th-aug-minibar-kansas-city-tickets?dice_id=5994860&dice_channel=web&dice_tags=organic&dice_campaign=Strange+Bedfellows+Inc+dba+recordBar&dice_feature=mio_marketing&utm_source=web&utm_campaign=Strange+Bedfellows+Inc+dba+recordBar&utm_medium=mio_marketing
 ---
 
 ## K Presto @ miniBar | Kansas City, MO USA
 ### DAMAG3 - BLiND Tour
-
-## [TICKETS](https://dice.fm/partner/strange-bedfellows-inc-dba-recordbar/event/mxaby9-damag3-rob-apollo-hadji-gavoita-shno-xaviar-sounds-by-k-presto-12th-aug-minibar-kansas-city-tickets?dice_id=5994860&dice_channel=web&dice_tags=organic&dice_campaign=Strange+Bedfellows+Inc+dba+recordBar&dice_feature=mio_marketing&utm_source=web&utm_campaign=Strange+Bedfellows+Inc+dba+recordBar&utm_medium=mio_marketing)
 
 #### Lineup
 - DAMAG3

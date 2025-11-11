@@ -20,6 +20,7 @@ location: "The Faight Collective | San Francisco, CA USA"
 {%- assign height = "720px" -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
 {% endcapture %}
 {% include elements/carousel.html %}
 </div>
