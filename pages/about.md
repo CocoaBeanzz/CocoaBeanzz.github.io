@@ -11,7 +11,8 @@ weight: 6
 {% assign prefix="/docs/assets/images/site/headshots/headshot-" -%}
 {% assign filetype=".jpg" -%}
 {% capture carousel_images %}
-{%- assign height = "720px" -%}
+{% assign height = "720px" -%}
+{% assign interval="2500" -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}
