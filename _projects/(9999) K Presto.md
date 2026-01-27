@@ -4,6 +4,7 @@ heading: Ongoing Independent Music Project
 role: Composer, Vocals, Bass, DJ
 image: /docs/assets/images/projects/k-presto/KPLogo_3D_MED.png
 description: Musical project melding electronic music with metal and baroque influences.
+tags: [Highlight]
 ---
 
 <div class="row">

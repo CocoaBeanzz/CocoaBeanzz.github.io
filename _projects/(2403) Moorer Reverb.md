@@ -4,6 +4,7 @@ role: DSP Engineer
 tools: [C++, JUCE, DSP]
 image: /docs/assets/images/projects/moorer-reverb/moorer-1.png
 description: Realtime delay-based stereo reverb.
+tags: [Highlight]
 ---
 
 <div class="row">

@@ -1,7 +1,7 @@
 ---
 title: "Lucky Break (Seattle)"
 date: 2025-07-25
-tags: [K Presto, Live Performance, Shows]
+tags: [K Presto, Live Performance, Shows, Highlight]
 style: border
 color: warning
 description: A hard-hitting bouncy bassy rave in Seattle with K Presto and friends!

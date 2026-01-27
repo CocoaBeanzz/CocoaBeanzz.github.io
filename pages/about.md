@@ -73,7 +73,7 @@ Let's make something amazing together.
 {% include about/skills.html title="Packages" source=site.data.packages %}
 </div>
 <div class="col">
-{% include about/skills.html title="Instruments" source=site.data.instruments %}
+{% include about/skills.html title="Performance" source=site.data.performance %}
 </div>
 <div class="col">
 {% include about/skills.html title="Software" source=site.data.software %}
