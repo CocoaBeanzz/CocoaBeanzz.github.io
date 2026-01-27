@@ -5,7 +5,7 @@
 {% assign filetype=".jpg" -%}
 {% capture carousel_images %}
 {% assign height = "720px" -%}
-{% assign interval="1000" -%}
+{% assign interval="2500" -%}
 {{prefix}}1{{filetype}}
 {{prefix}}2{{filetype}}
 {{prefix}}3{{filetype}}
@@ -38,13 +38,15 @@
     <br>
     <hr style="border: none; border-bottom: 1px solid; border-color: dimgray;">
     <div style="max-width: 1fr">
-        <h2>Recent Projects:</h2>
+        <h2>Highlighted Projects:</h2>
         <div class="row">
             <div class="container-fluid" style="display: grid; grid-template-columns: repeat(minmax(200px, 1fr)); grid-auto-flow:column; overflow-x: auto; ">
                 {% for project in site.projects reversed %}
-                <div class="col pl-1 pr-1" style="min-width: 200px">
-                    {% include projects/project-card.html %}
-                </div>
+                    {% if project.tags contains 'Highlight' %}
+                        <div class="col pl-1 pr-1" style="min-width: 200px">
+                            {% include projects/project-card.html %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -54,17 +56,16 @@
     <hr style="border: none; border-bottom: 1px solid; border-color: dimgray;">
 
     <div style="max-width: 1fr">
-        <h2>Recent Posts:</h2>
+        <h2>Highlighted Posts:</h2>
         {%- assign hidetags = 'true' -%}
         <div class="row">
             <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-auto-flow:column; overflow-x: auto; ">
                 {% for post in site.posts %}
-                {% if post.tags contains 'Shows' %}
-                {%- else -%}
-                <div class="col pl-1 pr-1" style="min-width: 200px">
-                    {% include blog/post-card.html %}
-                </div>
-                {% endif %}
+                    {% if post.tags contains 'Highlight' %}
+                        <div class="col pl-1 pr-1" style="min-width: 200px">
+                            {% include blog/post-card.html %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

@@ -5,7 +5,7 @@ tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/FigSleazyShno.jpg"
+image: "/docs/assets/images/projects/k-presto/BLiND/Cambridge/BLiND_Cambridge_Thumb.png"
 location: "The Middle East | Cambridge, MA USA"
 link: https://www.ticketweb.com/event/damag3-figgy-baby-leazy-middle-east-upstairs-tickets/14451033?pl=mideastclub
 ---

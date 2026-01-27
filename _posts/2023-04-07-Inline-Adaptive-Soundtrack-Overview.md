@@ -1,7 +1,7 @@
 ---
 title: "Inline: Out of Time - Adaptive Soundtrack System Overview"
 date: 2023-04-07
-tags: ["Inline: Out of Time", Tech Overview, Tech, Audio Programming, Custom Engine, Engine Architecture, Adaptive Music]
+tags: ["Inline: Out of Time", Tech Overview, Tech, Audio Programming, Custom Engine, Engine Architecture, Adaptive Music, Highlight]
 style: border
 color: warning
 description: "Architecture breakdown of Inline: Out of Time's gameplay-driven adaptive soundtrack system."

@@ -1,42 +1,38 @@
 - name: Ableton Live
   percentage: 95
-  color: warning
+  color: light
   
 - name: Microsoft Visual Studio
   percentage: 90
-  color: info
+  color: light
 
 - name: Audacity
   percentage: 90
-  color: secondary
-
-- name: iZotope Suite
-  percentage: 90
-  color: primary
+  color: light
 
 - name: Logic Pro
   percentage: 90
-  color: info
+  color: light
 
 - name: Wwise
   percentage: 85
-  color: danger
+  color: light
 
 - name: Unreal
   percentage: 85
-  color: secondary
+  color: light
 
 - name: Unity
-  percentage: 80
-  color: info
+  percentage: 85
+  color: light
 
 - name: Reaper
   percentage: 80
-  color: success
+  color: light
   
 - name: Microsoft Visual Studio Code
   percentage: 80
-  color: primary
+  color: light
 
 - name: Git
   percentage: 80
@@ -44,8 +40,8 @@
 
 - name: SVN
   percentage: 75
-  color: warning
+  color: light
 
 - name: GitHub
   percentage: 75
-  color: secondary
+  color: light

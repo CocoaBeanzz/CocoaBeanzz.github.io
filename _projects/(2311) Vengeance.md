@@ -1,5 +1,6 @@
 ---
 name: Vengeance
+role: Composer
 tools: [C#, Unity]
 image: /docs/assets/images/projects/vengeance/edits/vengeance-3-crop.png
 description: Latin-American fantasy adventure game.

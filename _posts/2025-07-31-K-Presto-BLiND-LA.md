@@ -1,7 +1,7 @@
 ---
 title: "K Presto | DAMAG3 - BLiND US Tour (Los Angeles)"
 date: 2025-07-31
-tags: [K Presto, Live Performance, Shows]
+tags: [K Presto, Live Performance, Shows, Highlight]
 style: border
 color: danger
 description: We kicked off the US tour in Los Angeles with a vibrant crowd of lovely people!
@@ -23,6 +23,9 @@ What a delightful start to this adventure.
 
 <hr>
 <img src="/docs/assets/images/projects/k-presto/BLiND/LA/BLiND_LA_1.png" alt="Show Photo">
+
+### Tour Recap Part 1
+{% include elements/video.html id="AAbG7GZ2TO4" %}
 
 #### Lineup
 - DAMAG3

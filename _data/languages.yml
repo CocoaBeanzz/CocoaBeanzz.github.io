@@ -4,19 +4,23 @@
 
 - name: C
   percentage: 85
-  color: primary
+  color: info
 
 - name: Python
   percentage: 75
-  color: success
+  color: info
+
+- name: Pure Data
+  percentage: 70
+  color: info
 
 - name: C#
   percentage: 65
-  color: light
+  color: info
 
 - name: GLSL
   percentage: 55
-  color: danger
+  color: info
 
 - name: Batch Script
   percentage: 45
@@ -24,12 +28,12 @@
 
 - name: HTML
   percentage: 45
-  color: secondary
+  color: info
 
 - name: Java
   percentage: 40
-  color: warning
+  color: info
 
 - name: CSS
   percentage: 30
-  color: primary
+  color: info

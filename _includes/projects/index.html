@@ -33,7 +33,7 @@
     {% endfor %}
 
 <!-- Local Projects -->
-<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(33.3%, 300px));">
+<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 25%));">
     {% for project in site.projects reversed %}
         <div class="col pl-1 pr-1 pb-1 pt-1">
             {% include projects/project-card.html %}

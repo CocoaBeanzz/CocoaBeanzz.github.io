@@ -1,5 +1,6 @@
 ---
 name: Tyler Falcon's Radical Skate Tower of Death
+role: Composer
 tools: [C, Custom Engine, FMOD Core]
 image: https://i1.sndcdn.com/artworks-HHCMstr4iKQHSyzz-7uEWAg-t500x500.jpg
 description: Retrofuturistic skateboarding precision platformer.

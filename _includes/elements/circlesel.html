@@ -4,7 +4,7 @@
 {%- assign filenamesplit = filename | split: "." -%}
 {%- assign carouselid = filenamesplit.first -%}
 
-<div id="{{carouselid}}" class="carousel slide" data-ride="carousel" data-bs-interval="{{interval}}">
+<div id="{{carouselid}}" class="carousel slide" data-ride="carousel" data-interval="{{interval}}">
 
     <ol class="carousel-indicators">
         {% for image in images %}

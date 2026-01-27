@@ -1,7 +1,7 @@
 ---
 title: "K Presto: FROGBONES Out Now!"
 date: 2025-10-30
-tags: [K Presto, Composition, Releases]
+tags: [K Presto, Composition, Releases, Highlight]
 style: fill
 color: black
 description: "My second K Presto album is out after 8 years in the making!"

@@ -1,5 +1,6 @@
 ---
 name: Nowhere to Grow
+role: Audio Programmer, Composer, Sound Designer
 tools: [C, Custom Engine, FMOD Core]
 image: /docs/assets/images/projects/nowhere-to-grow/edits/album-crop.jpg
 description: Artistic storytelling puzzle platformer.

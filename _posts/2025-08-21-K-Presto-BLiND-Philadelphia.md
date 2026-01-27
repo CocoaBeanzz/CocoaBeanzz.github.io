@@ -5,7 +5,7 @@ tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/FigSleazyShno.jpg"
+image: "/docs/assets/images/projects/k-presto/BLiND/Philadelphia/BLiND_Philadelphia_Thumb.jpg"
 location: "Star|Bolt | Philadelphia, PA USA"
 link: https://lu.ma/vh2rf3mf
 ---

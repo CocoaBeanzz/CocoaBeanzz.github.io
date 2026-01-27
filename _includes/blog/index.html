@@ -1,8 +1,11 @@
 
-<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 25%));">
     {% for post in site.posts %}
-    <div class="col pl-1 pr-1 pb-1 pt-1">
-        {% include blog/post-card.html %}
-    </div>
-        {% endfor %}
-    </div>
+        {% if post.tags contains 'Shows' %}
+        {% else %}
+            <div class="col pl-1 pr-1 pb-1 pt-1">
+                {% include blog/post-card.html %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

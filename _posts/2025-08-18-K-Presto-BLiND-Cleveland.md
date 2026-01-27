@@ -5,7 +5,7 @@ tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+image: "/docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_2.jpg"
 location: "The Foundry | Cleveland, OH USA"
 link: https://www.ticketweb.com/event/damag3-rob-apollo-hadji-gaviota-the-foundry-tickets/14470903?pl=thefoundry
 ---

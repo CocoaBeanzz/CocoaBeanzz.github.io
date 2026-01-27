@@ -1,43 +1,43 @@
 - name: FMOD Core
   percentage: 95
-  color: primary
+  color: success
 
 - name: Wwise
   percentage: 90
-  color: danger
+  color: success
 
 - name: JUCE
   percentage: 85
   color: success
 
 - name: Discord
-  percentage: 85
-  color: secondary
+  percentage: 80
+  color: success
 
 - name: Spotify
-  percentage: 85
+  percentage: 80
   color: success
 
 - name: RapidJSON
-  percentage: 80
-  color: warning
+  percentage: 75
+  color: success
 
 - name: PortMIDI
-  percentage: 70
-  color: info
+  percentage: 75
+  color: success
 
 - name: Wolfram Alpha
-  percentage: 65
-  color: danger
+  percentage: 60
+  color: success
 
 - name: PortAudio
-  percentage: 65
-  color: primary
+  percentage: 60
+  color: success
 
 - name: CMake
-  percentage: 60
-  color: light
+  percentage: 50
+  color: success
 
 - name: Tensorflow
-  percentage: 40
-  color: secondary
+  percentage: 35
+  color: success

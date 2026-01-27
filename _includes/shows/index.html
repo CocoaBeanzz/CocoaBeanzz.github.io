@@ -2,7 +2,32 @@
 <div class="container-fluid p-0" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(1fr, 80p)); row-gap: 0px;">
     {% for post in site.posts %}
         {% if post.tags contains 'Shows' %}
-            {% include shows/show-card.html %}
+        {% assign post_date = post.date | date: "%Y%m%d" %}
+            {% assign today = site.time | date: "%Y%m%d" %}
+            {% if post_date >= today %}
+                <h2>Upcoming Shows:</h2>
+                {% break %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {% for post in site.posts %}
+        {% if post.tags contains 'Shows' %}
+        {% assign post_date = post.date | date: "%Y%m%d" %}
+            {% assign today = site.time | date: "%Y%m%d" %}
+            {% if post_date >= today %}
+                {% include shows/show-card.html %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<h2>Past Shows:</h2>
+<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 20%));">
+    {% for post in site.posts %}
+        {% if post.tags contains 'Shows' %}
+            <div class="col pl-1 pr-1 pb-1 pt-1">
+                {% include blog/post-card-mini.html %}
+            </div>
         {% endif %}
     {% endfor %}
 </div>

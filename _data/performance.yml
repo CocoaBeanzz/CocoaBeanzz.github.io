@@ -1,18 +1,22 @@
-- name: Piano
+- name: DJ
   percentage: 95
-  color: info
+  color: danger
+
+- name: Piano
+  percentage: 90
+  color: danger
 
 - name: Synthesizer
   percentage: 90
-  color: secondary
+  color: danger
 
 - name: Clarinet
   percentage: 90
-  color: primary
+  color: danger
 
 - name: Saxophone
   percentage: 85
-  color: success
+  color: danger
 
 - name: Guitar
   percentage: 70
@@ -20,11 +24,11 @@
 
 - name: Drums
   percentage: 70
-  color: warning
+  color: danger
 
 - name: Vocals
   percentage: 50
-  color: light
+  color: danger
 
 - name: Bass Guitar
   percentage: 40
