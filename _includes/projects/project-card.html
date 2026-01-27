@@ -2,6 +2,8 @@
 {%- assign project_id    = project.name | slugify -%}
 {%- assign project_img   = project.image -%}
 {%- assign project_name  = project.name -%}
+{%- assign project_heading  = project.heading -%}
+{%- assign project_role  = project.role -%}
 {%- assign project_desc  = project.description -%}
 {%- assign project_tools = project.tools -%}
 
@@ -28,6 +30,8 @@
                 {%- endif -%}
                 {{ project_name }}
             </h5>
+            <h7 id="{{ project_id }}-heading" class="card-title" style="color:rgb(180, 180, 180)">{{ project_heading }}</h7>
+            <h6 id="{{ project_id }}-role" class="card-title" style="color:rgb(124, 124, 124)">{{ project_role }}</h6>
             <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}</p>
             <p id="{{ project_id }}-tools" class="card-text">
                 {%- for tool in project_tools -%}

@@ -5,7 +5,7 @@ tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/RobHadjiShno.jpg"
+image: "/docs/assets/images/projects/k-presto/BLiND/Minneapolis/BLiND_Minneapolis_1.jpg"
 location: "Underground Music Venue - Cafe | Minneapolis, MN USA"
 ---
 

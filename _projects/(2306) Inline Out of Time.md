@@ -1,5 +1,6 @@
 ---
 name: "Inline: Out of Time"
+role: Audio Programmer, Composer, Sound Designer
 tools: [C++, Custom Engine, FMOD Core]
 image: "/docs/assets/images/projects/inline-out-of-time/edits/inline-5-edit.png"
 description: Time-attack speedrunning platformer.

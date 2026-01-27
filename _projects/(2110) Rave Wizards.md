@@ -1,5 +1,6 @@
 ---
 name: Rave Wizards
+role: Developer (Solo)
 tools: [C, Custom Engine, FMOD Core]
 image: https://i1.sndcdn.com/artworks-J2SOChjNyxAoex07-BrWz5w-t500x500.jpg
 description: Fast-paced arcade rhythm wizard duel.

@@ -1,5 +1,6 @@
 ---
 name: We're Tethered Together
+role: Composer
 tools: [C#, Unity]
 image: "/docs/assets/images/projects/were-tethered-together/edited/wtt-1-crop.png"
 description: Charming and creepy atmospheric puzzle platformer.

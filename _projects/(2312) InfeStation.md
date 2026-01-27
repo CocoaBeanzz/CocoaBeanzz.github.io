@@ -1,5 +1,6 @@
 ---
 name: InfeStation
+role: Audio Lead, Composer, Sound Designer
 tools: [C#, Unreal 5.2, Wwise, MetaSounds]
 image: "/docs/assets/images/projects/infestation/edited/InfeStation_gp_10_edit_crop.png"
 description: Horror shooter on a derelict space station.

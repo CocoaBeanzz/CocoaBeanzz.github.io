@@ -1,5 +1,6 @@
 ---
 name: Xenaria's Curse
+role: Composer
 tools: [C#, Unity]
 image: /docs/assets/images/projects/xenarias-curse/edits/album-crop.jpg
 description: Wave defense arcade shooter.

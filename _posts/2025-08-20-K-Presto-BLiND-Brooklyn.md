@@ -5,7 +5,7 @@ tags: [K Presto, Live Performance, Shows]
 style: border
 color: danger
 description: Catch my first country-spanning tour with DAMAG3 and friends! Tickets on sale now.
-image: "/docs/assets/images/projects/k-presto/BLiND/FigSleazyShno.jpg"
+image: "/docs/assets/images/projects/k-presto/BLiND/Brooklyn/BLiND_Brooklyn_Thumb.png"
 location: "Baby's All Right | Brooklyn, NY USA"
 link: https://wl.seetickets.us/event/damag3/650340?afflky=BabysAllRightBrooklyn
 ---

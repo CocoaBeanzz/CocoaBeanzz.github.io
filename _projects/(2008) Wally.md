@@ -1,5 +1,6 @@
 ---
 name: Wally the Wobblesynth
+role: Engineer (Solo)
 tools: [Hardware]
 image: /docs/assets/images/projects/wally/wally-on-5.jpg
 description: Simple analog wobble synthesizer.
