@@ -87,25 +87,3 @@ The next step is to tie these settings to gameplay drivers.
 For example, a scripted event could increase the abrasiveness of the music, or an enemy lurking nearby could make it more eery.
 With the right parameters in place, the creative implementation opportunities are endless. 
 I hope to work closely with the game design department to create some immersive and engaging soundscapes.
-
-## Related Posts
-{% assign tagfilter="InfeStation" -%}
-<div style="max-width: 1fr">
-    <div class="row">
-        <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            {% for post in site.posts %}
-                {% for tag in post.tags %}
-                    {%- if tag == tagfilter -%}
-                        <div class="col pl-1 pr-1">
-                            {% include blog/post-card.html %}
-
-                            {%- if forloop.index0 == 3 -%}
-                                {%- break -%}
-                            {%- endif -%}
-                        </div>
-                    {%- endif -%}
-                {% endfor %}
-            {% endfor %}
-        </div>
-    </div>
-</div>

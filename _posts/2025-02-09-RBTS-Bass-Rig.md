@@ -250,24 +250,3 @@ In this particular setting, the phat rack serves to squash and burn the sound fo
 
 > That's it! The rest just comes down to relentless practice and familiarity with the instrument. I hope this was helpful!
 
-## Related Posts
-{% assign tagfilter="Tech" -%}
-<div style="max-width: 1fr">
-    <div class="row">
-        <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            {% for post in site.posts %}
-                {% for tag in post.tags %}
-                    {%- if tag == tagfilter -%}
-                        <div class="col pl-1 pr-1">
-                            {% include blog/post-card.html %}
-
-                            {%- if forloop.index0 == 3 -%}
-                                {%- break -%}
-                            {%- endif -%}
-                        </div>
-                    {%- endif -%}
-                {% endfor %}
-            {% endfor %}
-        </div>
-    </div>
-</div>
