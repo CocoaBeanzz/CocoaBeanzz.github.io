@@ -1,0 +1,11 @@
+<h2>Related Posts</h2>
+<div class="row">
+    <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        {% for post in page.related_posts %}
+        <div class="col pl-1 pr-1">
+          {% include blog/post-card.html post=post %}
+          {%- if forloop.index0 == 3 -%}{%- break -%}{%- endif -%}
+        </div>
+      {% endfor %}
+    </div>
+</div>

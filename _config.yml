@@ -4,7 +4,7 @@ description         : >-
                       Breaking new ground in the world of sound.
 baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : CocoaBeanzz/CocoaBeanzz.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
-remote_theme        : yousinix/portfolYOU
+#remote_theme        : yousinix/portfolYOU
 open_new_tab        : true                             # Opens external URLs in new tab (works for posts, projects and navbar only)
 future              : true
 
@@ -13,7 +13,6 @@ future              : true
 plugins:
   - jemoji
   - jekyll-readme-index
-
 
 ### Navbar Settings ###
 nav_exclude:                                            # The following paths are excluded from navbar
@@ -57,6 +56,11 @@ author:
 ### Posts ###
 permalink: /blog/:title
 
+related_posts:
+  min_shared: 1          # minimum non-common shared tags required
+  max_results: 6         # cap how many related posts are stored
+  common_tag_ratio: 0.25 # tags appearing in >25% of posts are treated as "common"
+
 ### Collections ###
 collections:
   projects:
@@ -96,6 +100,7 @@ defaults:
       path: ""
       type: "posts"
     values:
+      layout: "page"
       comments: false                                   # Set to true to enable disqus comments
 
 
