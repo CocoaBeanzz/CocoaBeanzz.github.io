@@ -8,7 +8,10 @@ repository          : CocoaBeanzz/CocoaBeanzz.github.io     # Change to <your-us
 open_new_tab        : true                             # Opens external URLs in new tab (works for posts, projects and navbar only)
 future              : true
 
-
+exclude:
+  - vendor
+  - vendor/bundle
+  
 ### Plugins ###
 plugins:
   - jemoji
