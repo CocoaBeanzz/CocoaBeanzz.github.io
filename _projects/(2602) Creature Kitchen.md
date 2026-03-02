@@ -1,7 +1,6 @@
 ---
 name: Creature Kitchen
 role: Composer
-tools: [C++, JUCE, DSP, VST3]
 image: /docs/assets/images/projects/creature-kitchen/creature-kitchen-thumb.jpg
 description: A creepy-cozy cooking simulator where you befriend local wildlife and feed them their favorite snacks!
 ---
