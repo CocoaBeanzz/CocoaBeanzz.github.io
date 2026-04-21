@@ -2,6 +2,7 @@
 name: Bashful Baker
 role: Composer
 tools: [C#, Unity]
+tags: [Video Game]
 image: /docs/assets/images/projects/bashful-baker/edited/bb-9-crop.png
 description: Pixel-style baking and stealth exploration game.
 ---

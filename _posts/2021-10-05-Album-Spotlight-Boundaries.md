@@ -2,6 +2,7 @@
 title: "Album Spotlight: Boundaries"
 date: 2021-10-05
 tags: [Artist's Statement, Album Spotlight, Composition, Sound Design]
+project: Independent Music
 style: border
 color: info
 description: "Lush soundscapes from unexpected sources, reimagined in orchestral arrangement."

@@ -1,7 +1,8 @@
 ---
 title: "K Presto: I Wanna Be a Frog (J8-Bit Remix) Out Now!"
 date: 2024-07-09
-tags: [K Presto, Composition, Releases]
+tags: [Composition, Releases]
+project: K Presto
 style: border
 color: success
 description: "J8-Bit presents a euphoric new take on this iconic track! "

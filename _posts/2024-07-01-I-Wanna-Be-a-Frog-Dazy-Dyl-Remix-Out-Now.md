@@ -1,7 +1,8 @@
 ---
 title: "K Presto: I Wanna Be a Frog (Dazy Dyl Remix) Out Now!"
 date: 2024-07-01
-tags: [K Presto, Composition, Releases]
+tags: [Composition, Releases]
+project: K Presto
 style: border
 color: success
 description: "Dazy Dyl's brilliant remix of my biggest tune is out now! "

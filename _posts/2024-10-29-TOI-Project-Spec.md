@@ -1,7 +1,8 @@
 ---
 title: "TOI (Thought-Obedient Instruments): Project Specification"
 date: 2024-10-29
-tags: [TOI, Audio Programming, Tech, JUCE]
+tags: [Audio Programming, Tech, JUCE]
+project: TOI
 style: border
 color: warning
 description: "Project outline for an instrument of unconventional synthesis algorithms."

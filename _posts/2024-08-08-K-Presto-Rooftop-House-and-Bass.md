@@ -1,7 +1,8 @@
 ---
 title: "K Presto | Rooftop House & Bass Set"
 date: 2024-08-05
-tags: [K Presto, Live Performance, Shows]
+tags: [Live Performance, Shows]
+project: K Presto
 style: border
 color: primary
 description: "House and bass music for a small rooftop party."

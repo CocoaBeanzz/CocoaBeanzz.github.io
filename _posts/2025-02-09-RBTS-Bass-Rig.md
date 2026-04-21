@@ -2,6 +2,7 @@
 title: "Rage Before the Storm Tour: Live Bass Rig Walkthrough"
 date: 2025-02-09
 tags: [Tech, Live Performance]
+project: K Presto
 style: border
 color: danger
 description: "A detailed walkthrough of the live bass setup used for the Rage Before the Storm tour."

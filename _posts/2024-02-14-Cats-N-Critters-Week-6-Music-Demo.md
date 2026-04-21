@@ -1,7 +1,8 @@
 ---
 title: "Cats N Critters Week 6 Demo"
 date: 2024-02-14
-tags: [Cats N Critters, Composition]
+tags: [Composition]
+project: Cats N Critters
 style: border
 color: success
 description: "Week 6 composition update for the dungeon-crawling party game Cats N Critters."

@@ -1,7 +1,8 @@
 ---
 title: "InfeStation: Generative Ambient Music with MetaSounds (Retrospective)"
 date: 2023-12-03
-tags: [InfeStation, Composition, Audio Programming, Sound Design, Tech, Unreal Engine, MetaSounds]
+tags: [Composition, Audio Programming, Sound Design, Tech, Unreal Engine, MetaSounds]
+project: InfeStation
 style: border
 color: danger
 description: "I built a generative ambient horror soundtrack with MetaSounds in Unreal Engine 5."

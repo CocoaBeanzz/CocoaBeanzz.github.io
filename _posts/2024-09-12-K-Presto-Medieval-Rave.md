@@ -1,7 +1,8 @@
 ---
 title: "K Presto | Medieval Rave [Gone D&B!]"
 date: 2024-08-05
-tags: [K Presto, Live Performance, Shows]
+tags: [Live Performance, Shows]
+project: K Presto
 style: border
 color: primary
 description: "A silly bardcore house party pivots into a high-energy drum & bass set. "

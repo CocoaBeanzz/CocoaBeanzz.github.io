@@ -1,25 +1,279 @@
-<!-- Simple-Jekyll-Search https://github.com/christian-fei/Simple-Jekyll-Search -->
+{%- assign blog_tags = blank -%}
+{%- assign blog_projects = blank -%}
 
-<div class="input-group mt-5 px-3">
-  <input id="search-input" type="text" class="form-control search-box" placeholder="Search posts..">
-  <div class="input-group-append">
-    <span class="input-group-text border border-primary bg-primary text-white">
-      <i class="fas fa-search"></i>
-    </span>
+{%- comment -%}
+Blog Filter Exclusions
+Add tag/project labels here to hide them from filter options.
+Examples:
+{%- assign excluded_blog_tags = 'Highlight|Releases' | split: '|' -%}
+{%- assign excluded_blog_projects = 'TOI' | split: '|' -%}
+{%- endcomment -%}
+{%- assign excluded_blog_tags = 'Highlight' | split: '|' -%}
+{%- assign excluded_blog_projects = '' | split: '|' -%}
+
+{%- for post in site.posts -%}
+  {%- unless post.tags contains 'Shows' -%}
+    {%- assign post_tags = post.tags | join:'|' | append:'|' -%}
+    {%- if post_tags != '|' -%}
+      {%- assign blog_tags = blog_tags | append:post_tags -%}
+    {%- endif -%}
+    {%- if post.project and post.project != blank -%}
+      {%- assign blog_projects = blog_projects | append: post.project | append: '|' -%}
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- assign blog_tags = blog_tags | split:'|' | uniq | sort -%}
+{%- assign blog_projects = blog_projects | split:'|' | uniq | sort -%}
+
+<div class="mt-5 px-3">
+  <div class="input-group">
+    <input id="search-input" type="text" class="form-control search-box" placeholder="Search posts...">
+    <div class="input-group-append">
+      <span class="input-group-text border border-primary bg-primary text-white">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+    <div class="input-group-append ml-1">
+      <button class="btn btn-outline-primary" type="button" id="toggle-tag-filters" aria-expanded="false" aria-controls="tag-filter-panel">
+        <i class="fas fa-filter"></i>
+        Filter labels
+      </button>
+    </div>
+    <div class="input-group-append ml-1">
+      <button class="btn btn-outline-secondary" type="button" id="clear-blog-filters" style="display: none;">
+        Clear
+      </button>
+    </div>
+    <div class="input-group-append ml-1">
+      <a class="btn btn-outline-primary" href="{{ '/blog/tags' | relative_url }}">
+        <i class="fas fa-tags"></i>
+      </a>
+    </div>
   </div>
-  <button class="btn btn-outline-primary ml-1" onclick="location.href = '{{ '/blog/tags' | relative_url }}';">
-    <i class="fas fa-tags"></i>
-  </button>
-</div>
-<ul class="px-3" id="results-container"></ul>
 
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+  <div id="tag-filter-panel" class="border rounded px-3 py-3 mt-3" style="display: none; background-color: rgba(25, 26, 28, 0.94); color: #f8f9fa; border-color: rgba(255, 255, 255, 0.14) !important;">
+    <div class="mb-2">
+      <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Tags</div>
+      <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+        {% assign has_filterable_blog_tags = false %}
+        {% for tag in blog_tags %}
+        {% unless excluded_blog_tags contains tag %}
+        {% assign has_filterable_blog_tags = true %}
+        <label class="btn btn-sm btn-outline-primary mb-0">
+        <input type="checkbox" class="blog-tag-filter" value="{{ tag | escape }}" autocomplete="off" style="display: none;">
+        {{ tag }}
+      </label>
+      {% endunless %}
+      {% endfor %}
+      {% unless has_filterable_blog_tags %}
+      <span class="small" style="color: #adb5bd;">No blog tags available.</span>
+      {% endunless %}
+      </div>
+    </div>
+
+    <hr style="border-color: rgba(255, 255, 255, 0.12);">
+
+    <div class="mb-2">
+      <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Projects</div>
+      <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+        {% assign has_filterable_blog_projects = false %}
+        {% for project in blog_projects %}
+        {% if project != blank %}
+        {% unless excluded_blog_projects contains project %}
+        {% assign has_filterable_blog_projects = true %}
+        <label class="btn btn-sm btn-outline-info mb-0">
+        <input type="checkbox" class="blog-project-filter" value="{{ project | escape }}" autocomplete="off" style="display: none;">
+        {{ project }}
+      </label>
+      {% endunless %}
+      {% endif %}
+      {% endfor %}
+      {% unless has_filterable_blog_projects %}
+      <span class="small" style="color: #adb5bd;">No blog projects available.</span>
+      {% endunless %}
+      </div>
+    </div>
+  </div>
+
+  <p id="blog-filter-summary" class="text-muted small mt-3 mb-0">Showing all blog posts.</p>
+</div>
+
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item list-group-item-action disabled">No results found</li>',
-        json: '{{ '/search.json' | relative_url }}'
-      })
+  (function () {
+    function initBlogFilters() {
+      var searchInput = document.getElementById('search-input');
+      var toggleButton = document.getElementById('toggle-tag-filters');
+      var clearButton = document.getElementById('clear-blog-filters');
+      var filterPanel = document.getElementById('tag-filter-panel');
+      var filterSummary = document.getElementById('blog-filter-summary');
+      var highlightedPostsSection = document.getElementById('highlighted-posts-section');
+      var tagInputs = Array.prototype.slice.call(document.querySelectorAll('.blog-tag-filter'));
+      var projectInputs = Array.prototype.slice.call(document.querySelectorAll('.blog-project-filter'));
+      var postCards = Array.prototype.slice.call(document.querySelectorAll('.blog-post-item'));
+
+      if (!searchInput || !toggleButton || !clearButton || !filterPanel || !filterSummary || !postCards.length) {
+        return;
+      }
+
+      function updateTagStyles() {
+        tagInputs.forEach(function (input) {
+          var label = input.parentElement;
+          if (!label) {
+            return;
+          }
+
+          label.classList.toggle('active', input.checked);
+          label.classList.toggle('btn-primary', input.checked);
+          label.classList.toggle('text-white', input.checked);
+          label.classList.toggle('btn-outline-primary', !input.checked);
+        });
+
+        projectInputs.forEach(function (input) {
+          var label = input.parentElement;
+          if (!label) {
+            return;
+          }
+
+          label.classList.toggle('active', input.checked);
+          label.classList.toggle('btn-info', input.checked);
+          label.classList.toggle('text-white', input.checked);
+          label.classList.toggle('btn-outline-info', !input.checked);
+        });
+      }
+
+      function updateSummary(visibleCount, totalCount, selectedTags, searchTerm) {
+        if (!selectedTags.length && !searchTerm) {
+          filterSummary.textContent = 'Showing all ' + totalCount + ' blog posts.';
+          clearButton.style.display = 'none';
+          return;
+        }
+
+        var summary = 'Showing ' + visibleCount + ' of ' + totalCount + ' blog posts';
+
+        if (selectedTags.length) {
+          summary += ' tagged with ' + selectedTags.join(', ');
+        }
+
+        if (searchTerm) {
+          summary += selectedTags.length ? ' matching ' : ' matching ';
+          summary += '"' + searchTerm + '"';
+        }
+
+        filterSummary.textContent = summary + '.';
+        clearButton.style.display = '';
+      }
+
+      function isInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < window.innerHeight;
+      }
+
+      function revealCard(card) {
+        var animatedCard = card.querySelector('.wow');
+        if (!animatedCard || !isInViewport(card)) {
+          return;
+        }
+
+        animatedCard.style.visibility = 'visible';
+        animatedCard.classList.remove('animated', 'fadeIn');
+        void animatedCard.offsetWidth;
+        animatedCard.classList.add('animated', 'fadeIn');
+      }
+
+      function revealVisibleCards() {
+        postCards.forEach(function (card) {
+          if (card.style.display !== 'none') {
+            revealCard(card);
+          }
+        });
+      }
+
+      function updateHighlightedPostsVisibility(hasActiveFilters) {
+        if (!highlightedPostsSection) {
+          return;
+        }
+
+        highlightedPostsSection.style.display = hasActiveFilters ? 'none' : '';
+      }
+
+      function applyFilters() {
+        var searchTerm = searchInput.value.trim().toLowerCase();
+        var selectedTags = tagInputs
+          .filter(function (input) {
+            return input.checked;
+          })
+          .map(function (input) {
+            return input.value.toLowerCase();
+          });
+        var selectedProjects = projectInputs
+          .filter(function (input) {
+            return input.checked;
+          })
+          .map(function (input) {
+            return input.value.toLowerCase();
+          });
+        var hasActiveFilters = Boolean(searchTerm || selectedTags.length || selectedProjects.length);
+        var visibleCount = 0;
+
+        postCards.forEach(function (card) {
+          var postTags = (card.getAttribute('data-post-tags') || '').split('|').filter(Boolean);
+          var postProjects = (card.getAttribute('data-post-project') || '').split('|').filter(Boolean);
+          var searchableText = (card.getAttribute('data-post-search') || '').toLowerCase();
+          var matchesSearch = !searchTerm || searchableText.indexOf(searchTerm) !== -1;
+          var matchesTags = !selectedTags.length || selectedTags.every(function (tag) {
+            return postTags.indexOf(tag) !== -1;
+          });
+          var matchesProjects = !selectedProjects.length || selectedProjects.some(function (project) {
+            return postProjects.indexOf(project) !== -1;
+          });
+          var isVisible = matchesSearch && matchesTags && matchesProjects;
+
+          card.style.display = isVisible ? '' : 'none';
+          if (isVisible) {
+            visibleCount += 1;
+          }
+        });
+
+        updateTagStyles();
+        updateSummary(visibleCount, postCards.length, selectedTags, searchTerm);
+        updateHighlightedPostsVisibility(hasActiveFilters);
+        window.requestAnimationFrame(revealVisibleCards);
+      }
+
+      toggleButton.addEventListener('click', function () {
+        var isHidden = filterPanel.style.display === 'none';
+        filterPanel.style.display = isHidden ? 'block' : 'none';
+        toggleButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      });
+
+      clearButton.addEventListener('click', function () {
+        searchInput.value = '';
+        tagInputs.forEach(function (input) {
+          input.checked = false;
+        });
+        projectInputs.forEach(function (input) {
+          input.checked = false;
+        });
+        applyFilters();
+      });
+
+      searchInput.addEventListener('input', applyFilters);
+      tagInputs.forEach(function (input) {
+        input.addEventListener('change', applyFilters);
+      });
+      projectInputs.forEach(function (input) {
+        input.addEventListener('change', applyFilters);
+      });
+
+      window.addEventListener('resize', revealVisibleCards);
+
+      applyFilters();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBlogFilters);
+    } else {
+      initBlogFilters();
+    }
+  })();
 </script>

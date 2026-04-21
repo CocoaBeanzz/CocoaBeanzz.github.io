@@ -1,5 +1,130 @@
 <!--<div class="card-columns">-->
+{%- assign project_tags = blank -%}
+{%- assign project_tools_all = blank -%}
+{%- assign project_roles_all = blank -%}
+
+{%- comment -%}
+Filter Exclusions
+Add labels here to hide them from filter options.
+Example:
+{%- assign excluded_project_roles = 'Vocals|DJ|Bass' | split: '|' -%}
+{%- endcomment -%}
+{%- assign excluded_project_tags = '' | split: '|' -%}
+{%- assign excluded_project_roles = 'Vocals|DJ|Bass' | split: '|' -%}
+{%- assign excluded_project_tools = '' | split: '|' -%}
+
+{%- for p in site.projects -%}
+    {%- assign p_tags = p.tags | join:'|' | append:'|' -%}
+    {%- assign p_tools = p.tools | join:'|' | append:'|' -%}
+    {%- assign p_roles = p.role | default: '' | split: ',' -%}
+    {%- if p_tags != '|' -%}
+        {%- assign project_tags = project_tags | append:p_tags -%}
+    {%- endif -%}
+    {%- if p_tools != '|' -%}
+        {%- assign project_tools_all = project_tools_all | append:p_tools -%}
+    {%- endif -%}
+    {%- for role_item in p_roles -%}
+        {%- assign clean_role = role_item | strip -%}
+        {%- if clean_role != '' -%}
+            {%- assign project_roles_all = project_roles_all | append: clean_role | append: '|' -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor -%}
+{%- assign project_tags = project_tags | split:'|' | uniq | sort -%}
+{%- assign project_tools_all = project_tools_all | split:'|' | uniq | sort -%}
+{%- assign project_roles_all = project_roles_all | split:'|' | uniq | sort -%}
+
+<div class="container-fluid mt-4 px-3" id="projects-filter-root" style="max-width:85%;">
+    <div class="input-group">
+        <input id="project-search-input" type="text" class="form-control search-box" placeholder="Search projects...">
+        <div class="input-group-append">
+            <span class="input-group-text border border-primary bg-primary text-white">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+        <div class="input-group-append ml-1">
+            <button class="btn btn-outline-primary" type="button" id="toggle-project-filters" aria-expanded="false" aria-controls="project-filter-panel">
+                <i class="fas fa-filter"></i>
+                Filter labels
+            </button>
+        </div>
+        <div class="input-group-append ml-1">
+            <button class="btn btn-outline-secondary" type="button" id="clear-project-filters" style="display: none;">Clear</button>
+        </div>
+    </div>
+
+    <div id="project-filter-panel" class="border rounded px-3 py-3 mt-3" style="display: none; background-color: rgba(25, 26, 28, 0.94); color: #f8f9fa; border-color: rgba(255, 255, 255, 0.14) !important;">
+        <div class="mb-2">
+            <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Tags</div>
+            <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+                {% assign has_filterable_tags = false %}
+                {% for tag in project_tags %}
+                    {% unless tag == 'Highlight' or excluded_project_tags contains tag %}
+                        {% assign has_filterable_tags = true %}
+                        <label class="btn btn-sm btn-outline-info mb-0">
+                            <input type="checkbox" class="project-tag-filter" value="{{ tag | escape }}" autocomplete="off" style="display: none;">
+                            {{ tag }}
+                        </label>
+                    {% endunless %}
+                {% endfor %}
+                {% unless has_filterable_tags %}
+                    <span class="small" style="color: #adb5bd;">No project tags yet.</span>
+                {% endunless %}
+            </div>
+        </div>
+
+        <hr style="border-color: rgba(255, 255, 255, 0.12);">
+
+        <div class="mb-2">
+            <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Roles</div>
+            <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+                {% assign has_filterable_roles = false %}
+                {% for role in project_roles_all %}
+                    {% if role != blank %}
+                    {% unless excluded_project_roles contains role %}
+                    {% assign has_filterable_roles = true %}
+                    <label class="btn btn-sm btn-outline-warning mb-0">
+                        <input type="checkbox" class="project-role-filter" value="{{ role | escape }}" autocomplete="off" style="display: none;">
+                        {{ role }}
+                    </label>
+                    {% endunless %}
+                    {% endif %}
+                {% endfor %}
+                {% unless has_filterable_roles %}
+                    <span class="small" style="color: #adb5bd;">No project roles available.</span>
+                {% endunless %}
+            </div>
+        </div>
+
+        <hr style="border-color: rgba(255, 255, 255, 0.12);">
+
+        <div>
+            <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Tools</div>
+            <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+                {% assign has_filterable_tools = false %}
+                {% for tool in project_tools_all %}
+                    {% if tool != blank %}
+                    {% unless excluded_project_tools contains tool %}
+                    {% assign has_filterable_tools = true %}
+                    <label class="btn btn-sm btn-outline-primary mb-0">
+                        <input type="checkbox" class="project-tool-filter" value="{{ tool | escape }}" autocomplete="off" style="display: none;">
+                        {{ tool }}
+                    </label>
+                    {% endunless %}
+                    {% endif %}
+                {% endfor %}
+                {% unless has_filterable_tools %}
+                    <span class="small" style="color: #adb5bd;">No project tools available.</span>
+                {% endunless %}
+            </div>
+        </div>
+    </div>
+
+    <p id="project-filter-summary" class="text-muted small mt-3 mb-0">Showing all projects.</p>
+</div>
+
 <!-- Remote Projects -->
+<div class="container-fluid" id="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 25%));">
     {% for remote_project in page.remote_projects %}
 
     {%- for repo in site.github.public_repositories -%}
@@ -22,9 +147,19 @@
     {%- assign project_desc  = project.description -%}
     {%- assign project_url   = project.html_url -%}
     {%- assign project_tools = project.topics -%}
+    {%- assign project_tags_for_filter = blank -%}
+        {%- assign project_roles_for_filter = blank -%}
+    {%- assign project_tools_for_filter = project_tools | join: '|' -%}
+    {%- assign project_search_text = project_name | append: ' ' | append: project_desc | append: ' ' | append: project_tools_for_filter -%}
     {%- assign external      = true -%}
 
-    {% include projects/project-card.html %}
+    <div class="col pl-1 pr-1 pb-1 pt-1 project-filter-item"
+         data-project-tags="{{ project_tags_for_filter | downcase | escape }}"
+            data-project-roles="{{ project_roles_for_filter | downcase | escape }}"
+         data-project-tools="{{ project_tools_for_filter | downcase | escape }}"
+         data-project-search="{{ project_search_text | downcase | escape }}">
+        {% include projects/project-card.html %}
+    </div>
 
     {%- endif -%}
 
@@ -33,10 +168,173 @@
     {% endfor %}
 
 <!-- Local Projects -->
-<div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 25%));">
     {% for project in site.projects reversed %}
-        <div class="col pl-1 pr-1 pb-1 pt-1">
+        {%- assign project_tags_for_filter = project.tags | join: '|' -%}
+        {%- assign project_roles_for_filter = project.role | default: '' | replace: ', ', '|' | replace: ',', '|' -%}
+        {%- assign project_tools_for_filter = project.tools | join: '|' -%}
+        {%- assign project_search_text = project.name | append: ' ' | append: project.heading | append: ' ' | append: project.role | append: ' ' | append: project.description | append: ' ' | append: project_tags_for_filter | append: ' ' | append: project_tools_for_filter -%}
+        <div class="col pl-1 pr-1 pb-1 pt-1 project-filter-item"
+             data-project-tags="{{ project_tags_for_filter | downcase | escape }}"
+             data-project-roles="{{ project_roles_for_filter | downcase | escape }}"
+             data-project-tools="{{ project_tools_for_filter | downcase | escape }}"
+             data-project-search="{{ project_search_text | downcase | escape }}">
             {% include projects/project-card.html %}
         </div>
     {% endfor %}
 </div>
+
+<script>
+    (function () {
+        function initProjectFilters() {
+            var searchInput = document.getElementById('project-search-input');
+            var toggleButton = document.getElementById('toggle-project-filters');
+            var filterPanel = document.getElementById('project-filter-panel');
+            var tagInputs = Array.prototype.slice.call(document.querySelectorAll('.project-tag-filter'));
+            var roleInputs = Array.prototype.slice.call(document.querySelectorAll('.project-role-filter'));
+            var toolInputs = Array.prototype.slice.call(document.querySelectorAll('.project-tool-filter'));
+            var clearButton = document.getElementById('clear-project-filters');
+            var summary = document.getElementById('project-filter-summary');
+            var highlightedProjectsSection = document.getElementById('highlighted-projects-section');
+            var cards = Array.prototype.slice.call(document.querySelectorAll('.project-filter-item'));
+
+            if (!searchInput || !toggleButton || !filterPanel || !clearButton || !summary || !cards.length) {
+                return;
+            }
+
+            function updatePillStyles(inputs, activeClass, outlineClass, textClass) {
+                inputs.forEach(function (input) {
+                    var label = input.parentElement;
+                    if (!label) {
+                        return;
+                    }
+
+                    label.classList.toggle('active', input.checked);
+                    label.classList.toggle(activeClass, input.checked);
+                    label.classList.toggle(textClass, input.checked);
+                    label.classList.toggle(outlineClass, !input.checked);
+                });
+            }
+
+            function isInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return rect.bottom > 0 && rect.top < window.innerHeight;
+            }
+
+            function revealCard(card) {
+                var animatedCard = card.querySelector('.wow');
+                if (!animatedCard || !isInViewport(card)) {
+                    return;
+                }
+
+                animatedCard.style.visibility = 'visible';
+                animatedCard.classList.remove('animated', 'fadeIn');
+                void animatedCard.offsetWidth;
+                animatedCard.classList.add('animated', 'fadeIn');
+            }
+
+            function revealVisibleCards() {
+                cards.forEach(function (card) {
+                    if (card.style.display !== 'none') {
+                        revealCard(card);
+                    }
+                });
+            }
+
+            function updateHighlightedProjectsVisibility(hasActiveFilters) {
+                if (!highlightedProjectsSection) {
+                    return;
+                }
+
+                highlightedProjectsSection.style.display = hasActiveFilters ? 'none' : '';
+            }
+
+            function applyFilters() {
+                var searchTerm = searchInput.value.trim().toLowerCase();
+                var selectedTags = tagInputs
+                    .filter(function (input) { return input.checked; })
+                    .map(function (input) { return input.value.toLowerCase(); });
+                var selectedRoles = roleInputs
+                    .filter(function (input) { return input.checked; })
+                    .map(function (input) { return input.value.toLowerCase(); });
+                var selectedTools = toolInputs
+                    .filter(function (input) { return input.checked; })
+                    .map(function (input) { return input.value.toLowerCase(); });
+                var hasFilters = Boolean(searchTerm || selectedTags.length || selectedRoles.length || selectedTools.length);
+                var visibleCount = 0;
+
+                cards.forEach(function (card) {
+                    var cardTags = (card.getAttribute('data-project-tags') || '').split('|').filter(Boolean);
+                    var cardRoles = (card.getAttribute('data-project-roles') || '').split('|').filter(Boolean);
+                    var cardTools = (card.getAttribute('data-project-tools') || '').split('|').filter(Boolean);
+                    var searchableText = (card.getAttribute('data-project-search') || '').toLowerCase();
+                    var matchesSearch = !searchTerm || searchableText.indexOf(searchTerm) !== -1;
+                    var matchesTags = !selectedTags.length || selectedTags.some(function (tag) {
+                        return cardTags.indexOf(tag) !== -1;
+                    });
+                    var matchesRoles = !selectedRoles.length || selectedRoles.some(function (role) {
+                        return cardRoles.indexOf(role) !== -1;
+                    });
+                    var matchesTools = !selectedTools.length || selectedTools.some(function (tool) {
+                        return cardTools.indexOf(tool) !== -1;
+                    });
+                    var isVisible = matchesSearch && matchesTags && matchesRoles && matchesTools;
+
+                    card.style.display = isVisible ? '' : 'none';
+                    if (isVisible) {
+                        visibleCount += 1;
+                    }
+                });
+
+                updatePillStyles(tagInputs, 'btn-info', 'btn-outline-info', 'text-white');
+                updatePillStyles(roleInputs, 'btn-warning', 'btn-outline-warning', 'text-dark');
+                updatePillStyles(toolInputs, 'btn-primary', 'btn-outline-primary', 'text-white');
+
+                if (!hasFilters) {
+                    summary.textContent = 'Showing all ' + cards.length + ' projects.';
+                    clearButton.style.display = 'none';
+                } else {
+                    summary.textContent = 'Showing ' + visibleCount + ' of ' + cards.length + ' projects matching filters.';
+                    clearButton.style.display = '';
+                }
+
+                updateHighlightedProjectsVisibility(hasFilters);
+                window.requestAnimationFrame(revealVisibleCards);
+            }
+
+            toggleButton.addEventListener('click', function () {
+                var isHidden = filterPanel.style.display === 'none';
+                filterPanel.style.display = isHidden ? 'block' : 'none';
+                toggleButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            });
+
+            clearButton.addEventListener('click', function () {
+                searchInput.value = '';
+                tagInputs.forEach(function (input) { input.checked = false; });
+                roleInputs.forEach(function (input) { input.checked = false; });
+                toolInputs.forEach(function (input) { input.checked = false; });
+                applyFilters();
+            });
+
+            searchInput.addEventListener('input', applyFilters);
+
+            tagInputs.forEach(function (input) {
+                input.addEventListener('change', applyFilters);
+            });
+            roleInputs.forEach(function (input) {
+                input.addEventListener('change', applyFilters);
+            });
+            toolInputs.forEach(function (input) {
+                input.addEventListener('change', applyFilters);
+            });
+
+            window.addEventListener('resize', revealVisibleCards);
+            applyFilters();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initProjectFilters);
+        } else {
+            initProjectFilters();
+        }
+    })();
+</script>

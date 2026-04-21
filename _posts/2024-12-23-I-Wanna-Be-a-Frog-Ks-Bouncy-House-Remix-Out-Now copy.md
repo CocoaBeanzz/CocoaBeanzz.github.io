@@ -1,7 +1,8 @@
 ---
 title: "K Presto: I Wanna Be a Frog (K's Bouncy House Remix) Out Now!"
 date: 2024-12-23
-tags: [K Presto, Composition, Releases]
+tags: [Composition, Releases]
+project: K Presto
 style: border
 color: success
 description: "I made a bouncy jumpy silly house remix of my biggest tune."

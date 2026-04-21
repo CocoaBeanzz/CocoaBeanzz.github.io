@@ -1,7 +1,8 @@
 ---
 title: "K Presto: Teach Me, Break My Ego_ Out Now!"
 date: 2026-03-14
-tags: [K Presto, Composition, Releases, Highlight]
+tags: [Composition, Releases, Highlight]
+project: K Presto
 style: fill
 color: black
 description: "Two tracks about music-induced ego death."

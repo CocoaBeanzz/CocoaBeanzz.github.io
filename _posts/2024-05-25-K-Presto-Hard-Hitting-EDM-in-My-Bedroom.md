@@ -1,7 +1,8 @@
 ---
 title: "K Presto | Hard-Hitting EDM in My Bedroom"
 date: 2024-05-25
-tags: [K Presto, Live Performance]
+tags: [Live Performance]
+project: K Presto
 style: border
 color: primary
 description: "A short DJ set of some of my favorite EDM bangers."

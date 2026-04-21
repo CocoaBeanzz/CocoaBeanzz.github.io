@@ -1,7 +1,8 @@
 ---
 title: "Cats N Critters Style Sample"
 date: 2024-01-14
-tags: [Cats N Critters, Composition]
+tags: [Composition]
+project: Cats N Critters
 style: border
 color: success
 description: "First draft of the musical style for the dungeon-crawling party game Cats N Critters."

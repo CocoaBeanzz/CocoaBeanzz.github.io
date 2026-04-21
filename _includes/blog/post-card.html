@@ -33,6 +33,8 @@
                 {%- endif -%}
                 <div class="card-body {{ text_style }}" style="padding: 3px; ">
                     <h5 class="card-title mb-2" style="font-size: calc(clamp(1.1em, 1.8em - 0.6vw, 3em));">{{ post.title }}</h5>
+                    
+                    <h7 class="card-title" style="color:rgb(180, 180, 180)">{{ post.project }}</h7>
                     <p class="card-text">
                         {%- if hidetags != 'true' -%}
                             {% for tag in post.tags %}

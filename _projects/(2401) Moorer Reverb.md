@@ -2,9 +2,9 @@
 name: Moorer Reverb
 role: DSP Engineer
 tools: [C++, JUCE, DSP]
+tags: [Audio, Tool, Highlight]
 image: /docs/assets/images/projects/moorer-reverb/moorer-1.png
 description: Realtime delay-based stereo reverb.
-tags: [Highlight]
 ---
 
 <div class="row">

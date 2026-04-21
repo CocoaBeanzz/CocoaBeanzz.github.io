@@ -1,7 +1,8 @@
 ---
 title: "Inline: Out of Time - Positional Sound"
 date: 2023-04-07
-tags: ["Inline: Out of Time", Tech Overview, Tech, Audio Programming, Custom Engine, Spatial Audio]
+tags: [Tech Overview, Tech, Audio Programming, Custom Engine, Spatial Audio]
+project: "Inline: Out of Time"
 style: border
 color: warning
 description: "Breaking down the formulae driving Inline: Out of Time's stereo imaging."

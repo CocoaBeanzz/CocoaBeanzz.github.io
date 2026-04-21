@@ -1,7 +1,8 @@
 ---
 title: "K Presto: Bone Idol Out Now!"
 date: 2023-06-03
-tags: [K Presto, Composition, Releases]
+tags: [Composition, Releases]
+project: K Presto
 style: border
 color: danger
 description: "BONE IDOL is out now for streaming and purchase! "
