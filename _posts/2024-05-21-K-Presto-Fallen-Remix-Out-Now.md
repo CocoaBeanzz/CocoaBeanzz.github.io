@@ -1,7 +1,8 @@
 ---
 title: "K Presto: Fallen Out Now!"
 date: 2024-05-21
-tags: [K Presto, Composition, Releases]
+tags: [Composition, Releases]
+project: K Presto
 style: border
 color: warning
 description: "A classic K Presto melodic masterpiece meticulously remastered. "

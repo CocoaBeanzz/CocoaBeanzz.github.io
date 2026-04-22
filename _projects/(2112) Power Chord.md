@@ -2,6 +2,7 @@
 name: Power Chord
 role: Audio Programmer, Composer, Sound Designer
 tools: [C, Custom Engine, FMOD Core]
+tags: [Video Game]
 image: /docs/assets/images/projects/power-chord/edits/album-crop.jpg
 description: Banish bad riffs and learn music theory in this roguelike rhythm shooter.
 ---

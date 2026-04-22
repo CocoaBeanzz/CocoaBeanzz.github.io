@@ -1,7 +1,8 @@
 ---
 title: "K Presto: Can't Stop Out Now!"
 date: 2022-12-30
-tags: [K Presto, Composition, Releases]
+tags: [Composition, Releases]
+project: K Presto
 style: border
 color: primary
 description: "CAN'T STOP is out now for streaming and purchase! "

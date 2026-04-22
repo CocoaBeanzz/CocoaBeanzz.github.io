@@ -1,7 +1,8 @@
 ---
 title: "InfeStation: Mathematically Emotion-Driven Adaptive Music"
 date: 2023-11-14
-tags: [InfeStation, Composition, Audio Programming, Sound Design, Tech, Unreal Engine, MetaSounds, Highlight]
+tags: [Composition, Audio Programming, Sound Design, Tech, Unreal Engine, MetaSounds, Highlight]
+project: InfeStation
 style: border
 color: danger
 description: "Generative music driven by an emotional algorithm."

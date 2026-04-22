@@ -2,6 +2,7 @@
 title: "Game Soundtrack Demo Reel (11/2023)"
 date: 2023-11-15
 tags: [Composition, Sound Design, Highlight]
+project: Independent Music
 style: fill
 color: secondary
 description: "2-minute compilation of my game soundtrack highlights."

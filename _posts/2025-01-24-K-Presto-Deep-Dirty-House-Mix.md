@@ -1,7 +1,8 @@
 ---
 title: "K Presto | Deep Dirty House Mix"
 date: 2025-01-24
-tags: [K Presto, Live Performance]
+tags: [Live Performance]
+project: K Presto
 style: border
 color: primary
 description: "A few of my fav tech house cuts right now. Enjoy!"

@@ -1,7 +1,8 @@
 ---
 title: "K Presto: I Wanna Be a Frog Out Now!"
 date: 2023-01-11
-tags: [K Presto, Composition, Releases]
+tags: [Composition, Releases]
+project: K Presto
 style: border
 color: success
 description: "A schmoovin', groovin', bouncin' tune about frogs."

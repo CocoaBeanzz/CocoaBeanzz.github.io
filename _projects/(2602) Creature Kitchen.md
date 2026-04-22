@@ -1,6 +1,7 @@
 ---
 name: Creature Kitchen
 role: Composer
+tags: [Video Game]
 image: /docs/assets/images/projects/creature-kitchen/creature-kitchen-thumb.jpg
 description: A creepy-cozy cooking simulator where you befriend local wildlife and feed them their favorite snacks!
 ---

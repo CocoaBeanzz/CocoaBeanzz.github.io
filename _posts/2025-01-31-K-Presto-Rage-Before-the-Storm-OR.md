@@ -1,7 +1,8 @@
 ---
 title: "K Presto | DAMAG3 - Rage Before the Storm Tour (Oregon)"
 date: 2025-01-31
-tags: [K Presto, Live Performance, Shows]
+tags: [Live Performance, Shows]
+project: K Presto
 style: border
 color: danger
 description: "K Presto's out-of-state debut for Rage Before the Storm Tour in Portland. "

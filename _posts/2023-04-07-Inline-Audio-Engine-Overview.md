@@ -1,7 +1,8 @@
 ---
 title: "Inline: Out of Time - Audio Engine Overview"
 date: 2023-04-07
-tags: ["Inline: Out of Time", Tech Overview, Tech, Audio Programming, Custom Engine, Spatial Audio, Highlight]
+tags: [Tech Overview, Tech, Audio Programming, Custom Engine, Spatial Audio, Highlight]
+project: "Inline: Out of Time"
 style: border
 color: warning
 description: "An overview of the powerful audio engine behind Inline: Out of Time's rich soundscape and audio-driven visuals."

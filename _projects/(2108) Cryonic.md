@@ -2,6 +2,7 @@
 name: Cryonic
 role: Composer
 tools: [GameMaker]
+tags: [Video Game]
 image: /docs/assets/images/projects/cryonic/edits/album-crop.jpg
 description: Time-traveling arctic combat game.
 ---

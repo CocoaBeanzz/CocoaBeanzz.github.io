@@ -1,7 +1,8 @@
 ---
 title: "Inline: Out of Time - Object Density Acoustic Model"
 date: 2023-04-07
-tags: ["Inline: Out of Time", Tech Overview, Tech, Audio Programming, Custom Engine, Engine Architecture]
+tags: [Tech Overview, Tech, Audio Programming, Custom Engine, Engine Architecture]
+project: "Inline: Out of Time"
 style: border
 color: warning
 description: "Deconstruction and analysis of Inline: Out of Time's highly optimized environmentally-driven acoustic model."

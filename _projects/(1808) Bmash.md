@@ -2,9 +2,9 @@
 name: BeanzMachine (Bmash)
 role: Programmer (Solo)
 tools: [Python, Discord, HTML]
+tags: [Tool, Toy, Bot, Highlight]
 image: /docs/assets/images/projects/beanzmachine/bmash-title.jpg
 description: Discord social chatbot and web scraping utility.
-tags: [Highlight]
 ---
 
 <div class="row">

@@ -3,6 +3,7 @@ name: Northstar Kitchens
 heading: Sound Redesign
 role: Sound Designer, Composer
 tools: [Reaper, Vital]
+tags: [Film]
 image: /docs/assets/images/projects/northstar/northstar-1-edit.png
 description: Futuristic kitchen mock advertisement sound redesign.
 ---

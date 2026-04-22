@@ -1,7 +1,8 @@
 ---
 title: "K Presto | DAMAG3 - Rage Before the Storm Tour (Washington)"
 date: 2025-02-01
-tags: [K Presto, Live Performance, Shows]
+tags: [Live Performance, Shows]
+project: K Presto
 style: border
 color: danger
 description: "Raging with the homi3s in my hometown for DAMAG3's Rage Before the Storm Tour in Seattle. "

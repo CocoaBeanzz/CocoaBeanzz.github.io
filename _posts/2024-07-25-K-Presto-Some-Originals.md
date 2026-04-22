@@ -1,7 +1,8 @@
 ---
 title: "K Presto | Some Originals"
 date: 2024-07-25
-tags: [K Presto, Live Performance]
+tags: [Live Performance]
+project: K Presto
 style: border
 color: primary
 description: "A short set of a handful of my original tunes, mostly unreleased goodies."
