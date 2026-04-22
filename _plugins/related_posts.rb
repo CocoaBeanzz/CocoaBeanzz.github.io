@@ -58,9 +58,6 @@ module RelatedPosts
       scores[p] = { score: score, shared: shared }
     end
 
-    # log for debugging
-    Jekyll.logger.warn "related_posts:debug", "#{post.data['title'] || post.url}: used_tags=#{my_tags.inspect} common_cutoff=#{common_cutoff} matches=#{scores.size}"
-
     sorted = scores.sort_by { |_, v| -v[:score] }.map { |pair| pair[0] }
     sorted.first(max_results)
   end
@@ -84,15 +81,12 @@ module Jekyll
 
       common_cutoff = (posts.size * common_ratio).floor
 
-      Jekyll.logger.warn "related_posts:", "generate() called; found #{posts.size} posts; common_cutoff=#{common_cutoff}"
-
       posts.each do |post|
         related = ::RelatedPosts.related_for(post, posts,
                     min_shared: min_shared,
                     max_results: max_results,
                     common_cutoff: common_cutoff)
         post.data['related_posts'] = related
-        Jekyll.logger.warn "related_posts:", "#{post.data['title'] || post.url}: #{related.size} related: #{related.map { |r| (r.data && r.data['title']) || (r.respond_to?(:title) && r.title) }.join(' | ')}"
       end
     end
   end
