@@ -61,7 +61,6 @@ Hyperlinks connect to LinkedIn or personal websites.
 
 <div class="row">
 <div class="col" markdown="1">
-#### Development Phase 2:
 [Skyler Boelts](https://skylerboelts.com/) - Multiplayer Gameplay Programmer, Producer<br>
 [Salem Richie](https://salem.richie.website/) - Creative Director, AI Programmer<br>
 [Kaleb Brown](https://www.linkedin.com/in/kalebbrown42/) - UI Programmer<br>
