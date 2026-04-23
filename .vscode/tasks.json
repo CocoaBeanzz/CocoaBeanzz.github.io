@@ -1,0 +1,45 @@
+{
+	"version": "2.0.0",
+    "tasks": [
+		{
+			"label": "Run Build Batch",
+			"type": "shell",
+			"command": ".\\run_local.bat",
+    		"isBackground": true,
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": {
+				"pattern": { "regexp": "^.*$" },
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": ".*compiling.*",
+					"endsPattern": ".*Server running.*" // Debugger starts when this appears
+				}
+			}
+		},
+		{
+			"label": "Stop Build Batch",
+			"type": "shell",
+			"command": "$p = Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine -match 'run_local\\.bat' }; if ($p) { $p | ForEach-Object { taskkill /PID $_.ProcessId /T /F } } else { Write-Host 'No run_local.bat process found.' }", // Command to stop run_local.bat and its child processes
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		}
+	]
+}
