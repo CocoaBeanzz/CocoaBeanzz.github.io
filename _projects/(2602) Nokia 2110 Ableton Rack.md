@@ -1,9 +1,9 @@
 ---
 name: "Nokia 2110 Ableton Rack"
-role: Composer
-tags: [Video Game]
+role: Developer (Solo)
+tags: [Audio, Tool]
 image: /docs/assets/images/projects/nokia-2110-ableton-rack/thumb.png
-description: An arena shooter with a card game twist in which combatants compete using Major Arcana tarot cards.
+description: The sound of 1994 in your DAW!
 ---
 
 <div class="row">
