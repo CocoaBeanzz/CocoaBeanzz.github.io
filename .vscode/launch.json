@@ -6,10 +6,12 @@
     "configurations": [
         {
             "name": "Attach to Chrome",
-            "port": 9222,
+            "url": "http://localhost:4000",
             "request": "attach",
             "type": "chrome",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "Run Build Batch",
+            "postDebugTask": "Stop Build Batch"
         },
         {
             "type": "chrome",
