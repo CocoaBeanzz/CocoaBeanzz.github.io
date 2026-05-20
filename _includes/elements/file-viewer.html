@@ -1,0 +1,35 @@
+{% assign src = include.src %}
+{% assign lang = include.lang | default: 'plaintext' %}
+{% assign ext = src | split: '.' | last | downcase %}
+
+{% if ext == 'pdf' %}
+  <object data="{{ src }}" type="application/pdf" width="100%" height="1000px">
+    <embed src="{{ src }}" type="application/pdf">
+      <p>This browser does not support PDFs. Please <a href="{{ src }}">download the PDF</a>.</p>
+    </embed>
+  </object>
+{% else %}
+  <pre><code id="code-viewer-{{ include.id }}" class="language-{{ lang }}">Loading {{ src }}...</code></pre>
+  <p><a href="{{ src }}" target="_blank" rel="noopener">Open raw file</a></p>
+
+  <script>
+    (function() {
+      var src = {{ src | jsonify }};
+      var el = document.getElementById("code-viewer-{{ include.id }}");
+      fetch(src)
+        .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+        .then(function(text){
+          el.textContent = text;
+          if (window.hljs) {
+            // reset highlight.js state because highlightAll() already touched this node
+            el.removeAttribute("data-highlighted");
+            el.classList.remove("hljs");
+            hljs.highlightElement(el);
+          }
+        })
+        .catch(function(err){
+          el.textContent = "Could not load file: " + err.message;
+        });
+    })();
+  </script>
+{% endif %}
