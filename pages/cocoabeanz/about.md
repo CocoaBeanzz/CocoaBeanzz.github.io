@@ -14,7 +14,7 @@ weight: 6
 /docs/assets/images/site/headshots/headshot-3.jpg
 /docs/assets/images/site/headshots/headshot-5.jpg
 /docs/assets/images/site/headshots/headshot-6.jpg
-/docs/assets/images/site/headshots/headshot-10.png
+/docs/assets/images/site/headshots/headshot-10.jpg
 /docs/assets/images/site/headshots/headshot-11.jpg
 {% endcapture %}
 {% include about/portrait.html %}
