@@ -1,0 +1,36 @@
+# Cloudflare Worker that serves each kaud.io department on its own subdomain.
+# What it does and why is documented at the top of worker.js.
+#
+# Deploy (from this folder):   npx wrangler deploy
+# Try locally against `jekyll serve` on port 4000:
+#   npx wrangler dev --var ORIGIN:http://localhost:4000 --host dev.kaud.io
+#
+# Before the first deploy, each subdomain needs a proxied (orange cloud) DNS
+# record in the kaud.io zone, e.g. CNAME dev -> kaud.io. The record's target
+# is never contacted because the Worker answers first.
+
+name = "kaud-section-proxy"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# One pair of routes per department: the subdomain itself, and the same
+# department's path on the hub host (redirected to the subdomain).
+routes = [
+  { pattern = "dev.kaud.io/*",   zone_name = "kaud.io" },
+  { pattern = "music.kaud.io/*", zone_name = "kaud.io" },
+  { pattern = "kpresto.kaud.io/*",    zone_name = "kaud.io" },
+  { pattern = "cocoabeanz.kaud.io/*", zone_name = "kaud.io" },
+  { pattern = "tools.kaud.io/*", zone_name = "kaud.io" },
+  { pattern = "games.kaud.io/*", zone_name = "kaud.io" },
+  { pattern = "kaud.io/dev/*",   zone_name = "kaud.io" },
+  { pattern = "kaud.io/music/*", zone_name = "kaud.io" },
+  { pattern = "kaud.io/kpresto/*",    zone_name = "kaud.io" },
+  { pattern = "kaud.io/cocoabeanz/*", zone_name = "kaud.io" },
+  { pattern = "kaud.io/tools/*", zone_name = "kaud.io" },
+  { pattern = "kaud.io/games/*", zone_name = "kaud.io" },
+]
+
+[vars]
+# Where the Jekyll build is served from. Same-zone fetches from a Worker go
+# straight to the origin (GitHub Pages) without running this Worker again.
+ORIGIN = "https://kaud.io"

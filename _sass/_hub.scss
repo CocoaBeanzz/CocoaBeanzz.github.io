@@ -1,0 +1,83 @@
+// kaud.io front door (_layouts/hub.html).
+// Used by kaud.io and by kaud.io/music/. One panel per department, side by side and filling the viewport on desktop,
+// stacked on phones so all of them still fit on one screen.
+
+.hub {
+  margin: 0;
+  background: #000;
+}
+
+// Logo over the top left corner of a second-level branching page. Links
+// back to kaud.io.
+.hub-home {
+  position: absolute;
+  top: 1rem;
+  left: var(--gutter);
+  z-index: 1; // above the panels
+}
+
+.hub-panels {
+  display: flex;
+  height: 100vh;
+  height: 100svh; // excludes mobile browser toolbars where supported
+}
+
+.hub-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: flex-grow 300ms ease;
+
+  // The panel under the pointer (or keyboard focus) widens and its image
+  // comes up to full strength, which is the only "this is a link" signal.
+  &:hover,
+  &:focus-visible {
+    flex-grow: 1.6;
+    color: #fff;
+    text-decoration: none;
+
+    .hub-panel-image {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+.hub-panel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  // Dimmed at rest so the department name stays readable over any photo.
+  filter: brightness(0.4);
+  transition: filter 300ms ease;
+}
+
+.hub-panel-title {
+  position: relative; // above the image
+  font-size: clamp(1.5rem, 3vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 767.98px) {
+  .hub-panels {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-panel,
+  .hub-panel-image {
+    transition: none;
+  }
+}

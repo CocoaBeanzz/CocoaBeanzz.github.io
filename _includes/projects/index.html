@@ -1,4 +1,25 @@
-<!--<div class="card-columns">-->
+{%- comment -%}
+Search box, label filters and card grid for the current department's projects.
+`section_projects` is every project whose folder is _projects/<this department>/,
+plus projects from other departments that list this one under `also_in`
+(see _plugins/sections.rb).
+
+A project with `unlisted: true` in its front matter is left out of the
+listing. It keeps its page and can still be featured on the landing.
+
+A listing page with `square_tiles: true` in its front matter crops tile
+images square (for album artwork) instead of wide.
+{%- endcomment -%}
+{%- assign section_projects = site.projects | where_exp: "item", "item.sections contains page.section" -%}
+{%- comment -%} Liquid's where cannot test "is not true", so rebuild the list without unlisted projects {%- endcomment -%}
+{%- assign listed_projects = "" | split: "" -%}
+{%- for candidate in section_projects -%}
+    {%- unless candidate.unlisted -%}
+        {%- assign listed_projects = listed_projects | push: candidate -%}
+    {%- endunless -%}
+{%- endfor -%}
+{%- comment -%} Oldest to newest by file-name date, whatever folder each came from (_plugins/sections.rb). The grid below walks it in reverse. {%- endcomment -%}
+{%- assign section_projects = listed_projects | sort: "order" -%}
 {%- assign project_tags = blank -%}
 {%- assign project_tools_all = blank -%}
 {%- assign project_roles_all = blank -%}
@@ -13,7 +34,7 @@ Example:
 {%- assign excluded_project_roles = 'Vocals|DJ|Bass' | split: '|' -%}
 {%- assign excluded_project_tools = '' | split: '|' -%}
 
-{%- for p in site.projects -%}
+{%- for p in section_projects -%}
     {%- assign p_tags = p.tags | join:'|' | append:'|' -%}
     {%- assign p_tools = p.tools | join:'|' | append:'|' -%}
     {%- assign p_roles = p.role | default: '' | split: ',' -%}
@@ -34,7 +55,7 @@ Example:
 {%- assign project_tools_all = project_tools_all | split:'|' | uniq | sort -%}
 {%- assign project_roles_all = project_roles_all | split:'|' | uniq | sort -%}
 
-<div class="container-fluid mt-4 px-3" id="projects-filter-root" style="max-width:85%;">
+<div class="filter-bar" id="projects-filter-root">
     <div class="input-group">
         <input id="project-search-input" type="text" class="form-control search-box" placeholder="Search projects...">
         <div class="input-group-append">
@@ -53,127 +74,79 @@ Example:
         </div>
     </div>
 
-    <div id="project-filter-panel" class="border rounded px-3 py-3 mt-3" style="display: none; background-color: rgba(25, 26, 28, 0.94); color: #f8f9fa; border-color: rgba(255, 255, 255, 0.14) !important;">
-        <div class="mb-2">
-            <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Tags</div>
-            <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+    <div id="project-filter-panel" class="filter-panel" style="display: none;">
+        <div class="filter-group">
+            <div class="eyebrow">Tags</div>
+            <div class="filter-options">
                 {% assign has_filterable_tags = false %}
                 {% for tag in project_tags %}
                     {% unless tag == 'Highlight' or excluded_project_tags contains tag %}
                         {% assign has_filterable_tags = true %}
                         <label class="btn btn-sm btn-outline-info mb-0">
-                            <input type="checkbox" class="project-tag-filter" value="{{ tag | escape }}" autocomplete="off" style="display: none;">
+                            <input type="checkbox" class="project-tag-filter" value="{{ tag | escape }}" autocomplete="off">
                             {{ tag }}
                         </label>
                     {% endunless %}
                 {% endfor %}
                 {% unless has_filterable_tags %}
-                    <span class="small" style="color: #adb5bd;">No project tags yet.</span>
+                    <span class="eyebrow">No project tags yet.</span>
                 {% endunless %}
             </div>
         </div>
 
-        <hr style="border-color: rgba(255, 255, 255, 0.12);">
-
-        <div class="mb-2">
-            <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Roles</div>
-            <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+        <div class="filter-group">
+            <div class="eyebrow">Roles</div>
+            <div class="filter-options">
                 {% assign has_filterable_roles = false %}
                 {% for role in project_roles_all %}
                     {% if role != blank %}
                     {% unless excluded_project_roles contains role %}
                     {% assign has_filterable_roles = true %}
                     <label class="btn btn-sm btn-outline-warning mb-0">
-                        <input type="checkbox" class="project-role-filter" value="{{ role | escape }}" autocomplete="off" style="display: none;">
+                        <input type="checkbox" class="project-role-filter" value="{{ role | escape }}" autocomplete="off">
                         {{ role }}
                     </label>
                     {% endunless %}
                     {% endif %}
                 {% endfor %}
                 {% unless has_filterable_roles %}
-                    <span class="small" style="color: #adb5bd;">No project roles available.</span>
+                    <span class="eyebrow">No project roles available.</span>
                 {% endunless %}
             </div>
         </div>
 
-        <hr style="border-color: rgba(255, 255, 255, 0.12);">
-
-        <div>
-            <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Tools</div>
-            <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+        <div class="filter-group">
+            <div class="eyebrow">Tools</div>
+            <div class="filter-options">
                 {% assign has_filterable_tools = false %}
                 {% for tool in project_tools_all %}
                     {% if tool != blank %}
                     {% unless excluded_project_tools contains tool %}
                     {% assign has_filterable_tools = true %}
                     <label class="btn btn-sm btn-outline-primary mb-0">
-                        <input type="checkbox" class="project-tool-filter" value="{{ tool | escape }}" autocomplete="off" style="display: none;">
+                        <input type="checkbox" class="project-tool-filter" value="{{ tool | escape }}" autocomplete="off">
                         {{ tool }}
                     </label>
                     {% endunless %}
                     {% endif %}
                 {% endfor %}
                 {% unless has_filterable_tools %}
-                    <span class="small" style="color: #adb5bd;">No project tools available.</span>
+                    <span class="eyebrow">No project tools available.</span>
                 {% endunless %}
             </div>
         </div>
     </div>
 
-    <p id="project-filter-summary" class="text-muted small mt-3 mb-0">Showing all projects.</p>
+    <p id="project-filter-summary" class="filter-summary">Showing all projects.</p>
 </div>
 
-<!-- Remote Projects -->
-<div class="container-fluid" id="projects-grid" style="column-width: 320px; column-gap: 0.75rem;">
-    {% for remote_project in page.remote_projects %}
-
-    {%- for repo in site.github.public_repositories -%}
-
-    {%- if remote_project == repo.name -%}
-
-    {%- assign project = repo -%}
-    {%- assign words = project.name | split: '-' -%}
-
-    {%- capture titlecase -%}
-    {%- for word in words -%}
-{{ word | capitalize | append: ' ' }}
-    {%- endfor -%}
-    {%- endcapture -%}
-
-    {%- assign project_type  = "remote" -%}
-    {%- assign project_id    = project.name -%}
-    {%- assign project_img   = false -%}
-    {%- assign project_name  = titlecase | strip -%}
-    {%- assign project_desc  = project.description -%}
-    {%- assign project_url   = project.html_url -%}
-    {%- assign project_tools = project.topics -%}
-    {%- assign project_tags_for_filter = blank -%}
-        {%- assign project_roles_for_filter = blank -%}
-    {%- assign project_tools_for_filter = project_tools | join: '|' -%}
-    {%- assign project_search_text = project_name | append: ' ' | append: project_desc | append: ' ' | append: project_tools_for_filter -%}
-    {%- assign external      = true -%}
-
-     <div class="project-filter-item" style="break-inside: avoid; margin-bottom: 0.75rem; display: inline-block; width: 100%;"
-         data-project-tags="{{ project_tags_for_filter | downcase | escape }}"
-            data-project-roles="{{ project_roles_for_filter | downcase | escape }}"
-         data-project-tools="{{ project_tools_for_filter | downcase | escape }}"
-         data-project-search="{{ project_search_text | downcase | escape }}">
-        {% include projects/project-card.html %}
-    </div>
-
-    {%- endif -%}
-
-    {%- endfor -%}
-
-    {% endfor %}
-
-<!-- Local Projects -->
-    {% for project in site.projects reversed %}
+<div class="tile-grid{% if page.square_tiles %} tile-grid-square{% endif %}" id="projects-grid">
+    {% for project in section_projects reversed %}
         {%- assign project_tags_for_filter = project.tags | join: '|' -%}
         {%- assign project_roles_for_filter = project.role | default: '' | replace: ', ', '|' | replace: ',', '|' -%}
         {%- assign project_tools_for_filter = project.tools | join: '|' -%}
         {%- assign project_search_text = project.name | append: ' ' | append: project.heading | append: ' ' | append: project.role | append: ' ' | append: project.description | append: ' ' | append: project_tags_for_filter | append: ' ' | append: project_tools_for_filter -%}
-        <div class="project-filter-item" style="break-inside: avoid; margin-bottom: 0.75rem; display: inline-block; width: 100%;"
+        <div class="project-filter-item"
              data-project-tags="{{ project_tags_for_filter | downcase | escape }}"
              data-project-roles="{{ project_roles_for_filter | downcase | escape }}"
              data-project-tools="{{ project_tools_for_filter | downcase | escape }}"
@@ -212,31 +185,6 @@ Example:
                     label.classList.toggle(activeClass, input.checked);
                     label.classList.toggle(textClass, input.checked);
                     label.classList.toggle(outlineClass, !input.checked);
-                });
-            }
-
-            function isInViewport(element) {
-                var rect = element.getBoundingClientRect();
-                return rect.bottom > 0 && rect.top < window.innerHeight;
-            }
-
-            function revealCard(card) {
-                var animatedCard = card.querySelector('.wow');
-                if (!animatedCard || !isInViewport(card)) {
-                    return;
-                }
-
-                animatedCard.style.visibility = 'visible';
-                animatedCard.classList.remove('animated', 'fadeIn');
-                void animatedCard.offsetWidth;
-                animatedCard.classList.add('animated', 'fadeIn');
-            }
-
-            function revealVisibleCards() {
-                cards.forEach(function (card) {
-                    if (card.style.display !== 'none') {
-                        revealCard(card);
-                    }
                 });
             }
 
@@ -298,7 +246,6 @@ Example:
                 }
 
                 updateHighlightedProjectsVisibility(hasFilters);
-                window.requestAnimationFrame(revealVisibleCards);
             }
 
             toggleButton.addEventListener('click', function () {
@@ -327,7 +274,6 @@ Example:
                 input.addEventListener('change', applyFilters);
             });
 
-            window.addEventListener('resize', revealVisibleCards);
             applyFilters();
         }
 

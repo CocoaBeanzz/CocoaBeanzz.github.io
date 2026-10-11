@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 
-<html lang="en" class="h-100">
+{%- comment -%}
+Shell shared by every page except the hub (see hub.html): sticky navbar,
+the page's content in a centered column (.page), footer.
+
+`section` is the department this page belongs to, looked up in
+_data/sections.yml from the `section` value _config.yml stamps on everything
+inside a department folder. It is nil on pages outside a department
+(404, links). Its accent color is handed to the stylesheet as
+--section-accent.
+
+A child layout can set `chrome: false` in its front matter to drop the navbar
+and footer (default_nonav.html does this).
+{%- endcomment -%}
+{%- assign section = site.data.sections | where: "id", page.section | first -%}
+
+<html lang="en">
 
 {% include head.html %}
 
-<body class="h-100 d-flex flex-column">
-    <style>
-        body {
-            background-image: url('/docs/assets/images/site/background.png');
-            background-attachment: fixed;
-            background-size: cover;
-        }
-    </style>
-    <main class="flex-shrink-0 container-fluid mt-5" style="max-width:90%">
-        {% include navbar.html %}
+<body {%- if section %} class="section-{{ section.id }}" style="--section-accent: {{ section.accent }};"{% endif %}>
+    {% unless layout.chrome == false %}{% include navbar.html %}{% endunless %}
+    <main class="page">
         {{ content }}
     </main>
-    {% include footer.html %}
+    {% unless layout.chrome == false %}{% include footer.html %}{% endunless %}
 
     {% include analytics.html %}
     {% include scripts.html %}

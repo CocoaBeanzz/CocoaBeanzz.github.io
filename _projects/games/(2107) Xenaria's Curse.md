@@ -1,0 +1,33 @@
+---
+name: Xenaria's Curse
+role: Composer
+tools: [C#, Unity]
+tags: [Video Game]
+image: /docs/assets/images/projects/xenarias-curse/edits/album-crop.jpg
+description: Wave defense arcade shooter.
+also_in: [cocoabeanz]
+---
+
+<div class="project-header" markdown="1">
+# Xenaria's Curse
+(Arcade, Bullet Hell)
+</div>
+
+{% capture list_items %}
+Soundtrack
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+
+<div class="project-intro">
+<div class="project-intro-media">
+<img src="/docs/assets/images/projects/xenarias-curse/edits/album-crop.jpg" alt="Title Image">
+</div>
+<div class="project-intro-text" markdown="1">
+A pirate wizard fends off waves of possessed souls to ascend the mountain and escape Xenaria's Curse.
+</div>
+</div>
+
+## Soundtrack
+(Chiptune, Electronic)\
+Instruments: Synthesizer
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1433864380&color=%23c221ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>

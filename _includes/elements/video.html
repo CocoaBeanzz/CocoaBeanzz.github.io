@@ -1,3 +1,24 @@
-<div class="video">
-  <iframe style="width: 100%; aspect-ratio: 16 / 9" title="YOUR IFRAME TITLE" src="https://www.youtube.com/embed/{{ include.id }}?playlist={{ include.id }}&loop=1controls=0" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
+{%- comment -%}
+YouTube video. Shows the video's thumbnail with a play button, and loads the
+actual player only when clicked (assets/js/site.js), so a page with several
+videos stays fast.
+
+    {% include elements/video.html id="YouTubeVideoId" %}
+    {% include elements/video.html id="YouTubeVideoId" list="PlaylistId" %}
+
+An id written the old way, with the playlist attached ("VideoId&list=..."),
+also works: the part after & is passed to the player and kept out of the
+thumbnail address.
+{%- endcomment -%}
+{%- assign video_parts = include.id | split: "&" -%}
+{%- assign video_id = video_parts | first -%}
+{%- assign video_params = include.id | remove_first: video_id | remove_first: "&" -%}
+{%- if include.list -%}
+    {%- assign video_params = include.list | prepend: "list=" -%}
+{%- endif -%}
+<div class="video" data-video-id="{{ video_id }}"{% if video_params != "" %} data-video-params="{{ video_params }}"{% endif %}>
+<button class="video-poster" type="button" aria-label="Play video">
+<img src="https://i.ytimg.com/vi/{{ video_id }}/hqdefault.jpg" alt="" loading="lazy">
+<span class="video-play"></span>
+</button>
 </div>

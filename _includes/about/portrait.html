@@ -1,0 +1,23 @@
+{%- comment -%}
+Portrait for an About page: a square photo, or several that fade from one to
+the next every few seconds (assets/js/site.js). List one image per line:
+
+    {% capture portrait_images %}
+    /docs/assets/images/site/headshots/headshot-1.jpg
+    /docs/assets/images/site/headshots/headshot-2.jpg
+    {% endcapture %}
+    {% include about/portrait.html %}
+
+The first image shows straight away. The rest load lazily, since the
+headshots are large files. Output is flush left because this is included
+from markdown, where indented HTML would be read as a code block.
+{%- endcomment -%}
+{%- assign portrait_list = portrait_images | strip | newline_to_br | split: '<br />' -%}
+<div class="portrait" data-slideshow>
+{%- for portrait_image in portrait_list -%}
+{%- assign portrait_src = portrait_image | strip -%}
+{%- if portrait_src != "" %}
+<img src="{{ portrait_src }}" alt=""{% if forloop.first %} class="is-showing"{% else %} loading="lazy"{% endif %}>
+{%- endif -%}
+{%- endfor %}
+</div>

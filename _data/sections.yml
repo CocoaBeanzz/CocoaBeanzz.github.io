@@ -1,0 +1,55 @@
+# The departments of kaud.io, in the order they appear on the hub.
+#
+# id      Folder name used under _projects/, _posts/ and pages/, and the
+#         path prefix (kaud.io/<id>/). Must match the "Departments" block
+#         in _config.yml and SECTIONS in cloudflare/section-proxy/worker.js.
+# title   Name shown on the hub panel and in the navbar.
+# hero    Image filling the hub panel and the top of the department landing.
+# hero_position
+#         Optional. Which part of the hero stays in view when the landing
+#         crops it to a wide banner, as a CSS object-position ("center 20%"
+#         keeps the upper part). Defaults to the middle.
+# accent  Exposed to CSS as --section-accent on every page of the department.
+# parent  Optional. Id of the department this one sits under. A department
+#         with children is a branching page (kaud.io/music/ shows K Presto
+#         and CocoaBeanz as panels) and has no content of its own. Children
+#         are full departments with their own folders, navbar and address.
+#         kaud.io itself shows only departments without a parent.
+#
+# To add a department: add an entry here, three lines to the "Departments"
+# block in _config.yml, the id to the Worker's SECTIONS list, and create the
+# three folders.
+
+- id: music
+  title: Music
+  hero: /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_1.jpg   # PLACEHOLDER hero image
+  hero_position: center 22%
+  accent: "#7c4f9b"
+
+- id: kpresto
+  title: K Presto
+  parent: music
+  hero: /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_1.jpg   # PLACEHOLDER hero image
+  hero_position: center 22%
+  accent: "#7c4f9b"
+
+- id: cocoabeanz
+  title: CocoaBeanz
+  parent: music
+  hero: /docs/assets/images/site/231103-headshot-5-square.jpg   # PLACEHOLDER hero image
+  accent: "#7c4f9b"
+
+- id: tools
+  title: Tools
+  hero: /docs/assets/images/projects/nokia-2110-ableton-rack/thumb.png  # PLACEHOLDER hero image
+  accent: "#7c4f9b"
+
+- id: games
+  title: Games
+  hero: /docs/assets/images/projects/inline-out-of-time/edits/inline-5-edit.png   # PLACEHOLDER hero image
+  accent: "#7c4f9b"
+
+- id: dev
+  title: Development
+  hero: /docs/assets/images/projects/moorer-reverb/moorer-1.png        # PLACEHOLDER hero image
+  accent: "#7c4f9b"

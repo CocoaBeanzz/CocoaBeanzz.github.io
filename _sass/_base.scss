@@ -1,13 +1,279 @@
+// Foundation for every page: design tokens, type, the page column, and the
+// handful of Bootstrap pieces that are recolored to match.
+//
+// Visual rules the rest of the stylesheet follows:
+//   1. Dark canvas, image-led. Photos and screenshots carry the color.
+//   2. Sharp corners everywhere. No rounded cards, no pills.
+//   3. One accent per department (--accent), used for links, active states
+//      and the primary action. Never for decoration.
+//   4. Things are separated by space and a hairline, not by boxes.
+
+:root {
+  --bg: #000;                             // page canvas. Matches the black of the circuit artwork.
+  --surface: #151518;                     // inputs, panels, image backing
+  --line: rgba(255, 255, 255, 0.14);      // hairline dividers and outlines
+  --text: rgba(255, 255, 255, 0.92);
+  --text-dim: rgba(255, 255, 255, 0.62);  // secondary text: labels, dates, descriptions
+
+  // --section-accent comes from _data/sections.yml via <body style> in
+  // _layouts/default.html. Pages outside a department fall back to $primary.
+  --accent: var(--section-accent, #{$primary});
+  // The accent is too dark to read as text on the canvas, so links use a
+  // lightened mix of it.
+  --accent-text: color-mix(in srgb, var(--accent) 55%, white);
+
+  --page-max: 1280px;                     // widest the content column gets
+  --gutter: clamp(1rem, 4vw, 3rem);       // space between the column and the window edge
+  --band-gap: clamp(3.5rem, 8vw, 7rem);   // vertical space between page sections
+}
+
 html {
-  padding-left: calc(100vw - 100%);
+  scrollbar-gutter: stable; // no sideways jump between short and long pages
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // Full-bleed blocks are 100vw wide, which overhangs by the scrollbar's width.
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--text);
   font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-text);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+// The circuit-board artwork, faint, behind every page. A fixed layer of its
+// own (rather than background-attachment: fixed) because phones repaint the
+// latter on every scroll frame.
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg) url('/docs/assets/images/site/background.png') center / cover no-repeat;
+}
+
+// The same artwork at full strength and tinted with the department accent.
+// Used behind page titles and the footer. Two stacked layers do the tint:
+// the artwork brightened from near-black grey to mid grey, then a sheet of
+// the accent color multiplied over it, which leaves black as black and turns
+// the lines the accent's hue.
+.circuit-band {
+  position: relative;
+  isolation: isolate; // keeps the blend inside this element
+  background: #000;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::before {
+    z-index: -2;
+    // Drawn at its natural size and anchored right, not stretched to cover:
+    // a short wide band would otherwise zoom in on a few thick lines.
+    background: url('/docs/assets/images/site/background.png') right 38% / 1440px auto no-repeat;
+    filter: brightness(6);
+  }
+
+  &::after {
+    z-index: -1;
+    background: var(--accent);
+    mix-blend-mode: multiply;
+  }
+}
+
+// Band holding a listing page's title (_includes/elements/page-header.html).
+.page-header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-header-inner {
+  width: calc(min(100% - 2 * var(--gutter), var(--page-max)));
+  margin: 0 auto;
+}
+
+// The centered content column. Everything a page renders sits inside it.
+.page {
+  flex: 1 0 auto;
+  width: calc(min(100% - 2 * var(--gutter), var(--page-max))); // calc() keeps Sass from evaluating min()
+  margin: 0 auto;
+  padding-bottom: var(--band-gap);
+}
+
+// Breaks an element out of .page to span the whole window.
+.bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+// One section of a page. Bands stack with generous space between them.
+.band {
+  margin-top: var(--band-gap);
+}
+
+// Name of a tab page (Showcase, Blog, Shows), set large at the top.
+.page-title {
+  margin: 0;
+  padding: clamp(3rem, 8vw, 6.5rem) 0 clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+// Heading of a band.
+.section-heading {
+  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+// Small uppercase label above or beside a title (role, date, filter group).
+.eyebrow {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+// Large text link that leads on to a full listing ("Showcase", "Blog").
+// The arrow is drawn here so the link text stays the tab's own title.
+.more-link {
+  display: inline-block;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid var(--accent);
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none !important;
+
+  &::after {
+    content: "\2192"; // rightwards arrow
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 200ms ease;
+  }
+
+  &:hover::after {
+    transform: translateX(0.3rem);
+  }
+}
+
+// Loud on purpose. See _includes/elements/placeholder.html.
+.copy-placeholder {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 3px dashed #ffcc00;
+  background: rgba(255, 204, 0, 0.12);
+  color: #ffcc00;
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+// ---------------------------------------------------------------------------
+// Bootstrap recolor. Bootstrap's CSS comes from a CDN with its stock blue as
+// "primary". These overrides point every primary-colored piece at the
+// department accent and square off its rounded corners.
+// ---------------------------------------------------------------------------
+
+.text-primary {
+  color: var(--accent-text) !important;
+}
+
+.border-primary {
+  border-color: var(--accent) !important;
+}
+
+.bg-primary {
+  background-color: var(--accent) !important;
+}
+
+.btn,
+.badge,
+.card,
+.form-control,
+.input-group-text,
+.list-group,
+.list-group-item,
+.progress {
+  border-radius: 0 !important;
+}
+
+.btn-primary,
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+  border-color: var(--accent) !important;
+  background-color: var(--accent) !important;
+  color: #fff !important;
+}
+
+.btn-outline-primary {
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.btn:focus,
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.form-control {
+  border-color: var(--line);
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+
+  &::placeholder {
+    color: var(--text-dim) !important;
+  }
 }
 
 .badge {
   font-weight: 500;
+}
+
+// In-page tables of contents (_includes/elements/list.html).
+.list-group-item {
+  border-color: var(--line);
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+
+  &.list-group-item-action:hover {
+    background-color: var(--accent) !important;
+  }
 }
 
 .bg-light,
@@ -23,5 +289,11 @@ body {
   &,
   * {
     color: $text-white !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
   }
 }

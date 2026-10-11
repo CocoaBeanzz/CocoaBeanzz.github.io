@@ -1,0 +1,61 @@
+---
+name: Nowhere to Grow
+role: Audio Programmer, Composer, Sound Designer
+tools: [C, Custom Engine, FMOD Core]
+tags: [Video Game]
+image: /docs/assets/images/projects/nowhere-to-grow/edits/album-crop.jpg
+description: Artistic storytelling puzzle platformer.
+also_in: [cocoabeanz, dev]
+---
+
+<div class="project-header" markdown="1">
+# Nowhere to Grow
+(Platformer, Puzzle, Story-driven)
+</div>
+
+{% capture list_items %}
+Videos
+Soundtrack
+Gallery
+Credits
+{% endcapture %}
+{% include elements/list.html title="" type="toc" %}
+
+<div class="project-intro">
+<div class="project-intro-media">
+<img src="/docs/assets/images/projects/nowhere-to-grow/edits/album-crop.jpg" alt="Title Image">
+</div>
+<div class="project-intro-text" markdown="1">
+A lonesome onion ventures through a beautiful paper garden in search of a lost friend. 
+</div>
+</div>
+
+## Videos
+{% include elements/video.html id="791LNASUr7I" %}
+
+## Soundtrack
+(Acoustic, Folk, Electronic)\
+Instruments: Guitar, Vocal, Piano, Cello, Synthesizer
+
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1680881013&color=%23ff7e1c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+## Gallery
+{% assign prefix="/docs/assets/images/projects/nowhere-to-grow/ntg-" -%}
+{% assign filetype=".png" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+
+## Credits
+Salem Richie\
+Alex Elizarov\
+Ashlyn White\
+Corbyn LaMar\
+Caleb Kissinger\
+K Preston

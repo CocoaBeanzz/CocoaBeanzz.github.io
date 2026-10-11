@@ -1,0 +1,21 @@
+{%- comment -%}
+Shows a whole project page inside another page (a post announcing it):
+
+    {% include elements/project.html name="Moorer Reverb" %}
+
+`name` is the project's `name:` front matter, exactly as written there. The
+project's body is rendered here as it is on its own page, so the two never
+need to be kept in step by hand. See _plugins/embed.rb for `raw_body` and
+`liquify`.
+
+For a K Presto release, use elements/release.html instead.
+{%- endcomment -%}
+{%- assign embedded_project = site.projects | where: "name", include.name | first -%}
+{%- if embedded_project -%}
+<div class="project-embed">
+{{ embedded_project.raw_body | liquify | markdownify }}
+</div>
+{%- else -%}
+{%- capture missing_project -%}PLACEHOLDER: no project is named "{{ include.name }}". The name has to match a project's `name:` exactly.{%- endcapture -%}
+{% include elements/placeholder.html note=missing_project %}
+{%- endif -%}

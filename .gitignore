@@ -43,3 +43,8 @@ Thumbs.db
 /.sass-cache
 *.scssc
 /.sass-cache
+
+# Wrangler local state #
+########################
+.wrangler
+node_modules

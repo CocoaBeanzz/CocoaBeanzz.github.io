@@ -1,5 +1,5 @@
 ### Site Settings ###
-title               : K Preston
+title               : KAUD.io
 description         : >-
                       Breaking new ground in the world of sound.
 baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
@@ -16,10 +16,20 @@ plugins:
 
 ### Navbar Settings ###
 nav_exclude:                                            # The following paths are excluded from navbar
-  - pages/tags.html
   - pages/404.html
-  - pages/index.md
-  - pages/code_sample.md
+  - pages/index.html
+  - pages/dev/index.md
+  - pages/dev/tags.html
+  - pages/dev/code_sample.md
+  - pages/music/index.html
+  - pages/kpresto/index.md
+  - pages/kpresto/tags.html
+  - pages/cocoabeanz/index.md
+  - pages/cocoabeanz/tags.html
+  - pages/tools/index.md
+  - pages/tools/tags.html
+  - pages/games/index.md
+  - pages/games/tags.html
 
 ### Use README.md as index.md
 readme_index:
@@ -55,6 +65,8 @@ author:
 
 
 ### Posts ###
+# Fallback only. Every post lives in a department folder, and the
+# "Departments" defaults below give it /<department>/blog/:title.
 permalink: /blog/:title
 
 related_posts:
@@ -104,6 +116,47 @@ defaults:
       layout: "page"
       comments: false                                   # Set to true to enable disqus comments
 
+  ### Departments ###
+  # A department is a folder name. Anything inside _projects/<dept>/,
+  # _posts/<dept>/ or pages/<dept>/ is stamped with `section: <dept>` here,
+  # which is what the navbar and every listing filter on. Moving a file to
+  # another department's folder is all it takes to reassign it.
+  # To list a project or post in further departments as well, give it
+  # `also_in: [dev]` in its front matter (_plugins/sections.rb).
+  # Display names, hero images and hosts live in _data/sections.yml.
+  - { scope: { path: "_projects/dev"   }, values: { section: dev,   permalink: "/dev/projects/:name"   } }
+  - { scope: { path: "_posts/dev"      }, values: { section: dev,   permalink: "/dev/blog/:title"      } }
+  - { scope: { path: "pages/dev"       }, values: { section: dev   } }
+  # music is a branching page for the two departments under it and holds no
+  # projects or posts of its own.
+  - { scope: { path: "pages/music"     }, values: { section: music } }
+  - { scope: { path: "_projects/kpresto" }, values: { section: kpresto, permalink: "/kpresto/projects/:name" } }
+  - { scope: { path: "_posts/kpresto"    }, values: { section: kpresto, permalink: "/kpresto/blog/:title"    } }
+  - { scope: { path: "pages/kpresto"     }, values: { section: kpresto } }
+  - { scope: { path: "_projects/cocoabeanz" }, values: { section: cocoabeanz, permalink: "/cocoabeanz/projects/:name" } }
+  - { scope: { path: "_posts/cocoabeanz"    }, values: { section: cocoabeanz, permalink: "/cocoabeanz/blog/:title"    } }
+  - { scope: { path: "pages/cocoabeanz"     }, values: { section: cocoabeanz } }
+  - { scope: { path: "_projects/tools" }, values: { section: tools, permalink: "/tools/projects/:name" } }
+  - { scope: { path: "_posts/tools"    }, values: { section: tools, permalink: "/tools/blog/:title"    } }
+  - { scope: { path: "pages/tools"     }, values: { section: tools } }
+  - { scope: { path: "_projects/games" }, values: { section: games, permalink: "/games/projects/:name" } }
+  - { scope: { path: "_posts/games"    }, values: { section: games, permalink: "/games/blog/:title"    } }
+  - { scope: { path: "pages/games"     }, values: { section: games } }
+
+
+### Legacy redirects ###
+# Addresses from before the site was split into departments.
+# _plugins/legacy_redirects.rb writes a redirect stub at each key.
+# Old /projects/<name> and /blog/<title> addresses are handled
+# automatically by the same plugin and do not need listing here.
+legacy_redirects:
+  /projects/: /
+  /blog/: /
+  /blog/tags: /
+  /about/: /dev/about/
+  /contact/: /dev/contact/
+  /shows/: /kpresto/shows/
+
 
 ### Exclude from processing ###
 exclude:
@@ -112,3 +165,16 @@ exclude:
   - LICENSE
   - "*.log"
   - ".vs"
+  # Listing anything under `exclude` replaces Jekyll's built-in list, so the
+  # usual entries are restated here. Without .sass-cache, every stylesheet
+  # change made the local server regenerate twice: once for the edit and
+  # again when Sass wrote its cache into the watched folder.
+  - ".sass-cache"
+  - ".jekyll-cache"
+  - Gemfile
+  - Gemfile.lock
+  - run_local.bat
+  - profile.bat
+  - node_modules
+  - vendor
+  - cloudflare                                          # Worker source, deployed with wrangler, not part of the site

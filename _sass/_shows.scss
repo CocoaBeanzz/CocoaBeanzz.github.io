@@ -1,26 +1,90 @@
-.search-box {
-  box-shadow: none !important;
-}
+// Show listings (_includes/shows/show-row.html): one show per line with its
+// poster thumbnail, date, title and venue.
 
-.show.card {
-  border-radius: $rounded-borders;
+.show-row {
+  display: grid;
+  grid-template-columns: 64px 11rem 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
   text-decoration: none !important;
-  padding: 15px;
-  height: 100%;
 
-  .card-footer {
-    font-size: 18px;
-    margin: 0 -15px -15px -15px;
-    padding: 15px 35px;
+  &:first-of-type {
+    border-top: 1px solid var(--line);
+  }
+
+  &:hover {
+    background: var(--surface);
+    color: var(--text);
   }
 }
 
-.show-metadata {
-  font-size: 14px;
-  margin-top: -6px;
+.show-row-image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
 
-  .tag:hover {
-    background-color: $primary;
-    color: white !important;
+.show-row-date,
+.show-row-location {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.show-row-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.show-row-description {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+// Upcoming shows: same row, bigger, so they outrank the archive below them.
+.show-row-upcoming {
+  grid-template-columns: 128px 11rem 1fr auto;
+  padding: 1.25rem 1.25rem 1.25rem 0;
+
+  .show-row-image {
+    width: 128px;
+    height: 128px;
+  }
+
+  .show-row-title {
+    font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+    line-height: 1.15;
+  }
+
+  .show-row-date {
+    color: var(--accent-text);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 767.98px) {
+  // Thumbnail on the left, the text fields stacked beside it.
+  .show-row,
+  .show-row-upcoming {
+    grid-template-columns: 64px 1fr;
+    column-gap: 1rem;
+    row-gap: 0;
+  }
+
+  .show-row-image,
+  .show-row-upcoming .show-row-image {
+    grid-row: span 3;
+    width: 64px;
+    height: 64px;
+  }
+
+  // Date, title and venue already make three lines per show on a phone.
+  .show-row:not(.show-row-upcoming) .show-row-description {
+    display: none;
   }
 }

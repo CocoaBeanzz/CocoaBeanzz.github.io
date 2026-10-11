@@ -1,0 +1,6 @@
+{%- comment -%}
+Marks a spot that still needs K's own writing or imagery.
+Usage: {% include elements/placeholder.html note="PLACEHOLDER: what belongs here" %}
+Start the note with PLACEHOLDER so a repo search for that word finds it.
+{%- endcomment -%}
+<div class="copy-placeholder">{{ include.note }}</div>
