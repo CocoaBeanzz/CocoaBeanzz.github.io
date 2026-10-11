@@ -1,0 +1,19 @@
+{%- comment -%}
+Row of up to four posts about one project, newest first, from any
+department. A post counts when its `project` is the given name or the name
+is one of its tags. The post that simply embeds the project (its title is
+the project's name) is left out, since on the project's own page it would
+only link to a copy of the page being read.
+Usage: {% include blog/tagged-posts.html name="InfeStation" %}
+{%- endcomment -%}
+{%- assign tagged_count = 0 -%}
+<div class="tile-grid tile-grid-square tile-grid-row">
+{%- for post in site.posts -%}
+{%- if post.project == include.name or post.tags contains include.name -%}
+{%- if tagged_count < 4 and post.title != include.name %}
+{% include blog/post-card.html %}
+{%- assign tagged_count = tagged_count | plus: 1 -%}
+{%- endif -%}
+{%- endif -%}
+{%- endfor %}
+</div>

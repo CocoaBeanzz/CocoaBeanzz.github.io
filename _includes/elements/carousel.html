@@ -1,43 +1,28 @@
-{%- assign images = carousel_images | strip | newline_to_br | split: '<br />' -%}
-{%- assign firstimagesplit = images.first | split: "/" -%}
-{%- assign filename = firstimagesplit.last -%}
-{%- assign filenamesplit = filename | split: "." -%}
-{%- assign carouselid = filenamesplit.first -%}
+{%- comment -%}
+Image gallery: a strip of images that scrolls sideways, with arrow buttons.
+Clicking an image opens it full size (assets/js/site.js). Styles are in
+_sass/_markdown.scss.
 
-<div id="{{carouselid}}" class="carousel slide" data-ride="carousel">
+Usage is unchanged from the old carousel. List one image path per line:
 
-    <ol class="carousel-indicators">
-        {% for image in images %}
-        {%- if forloop.first -%}
-        <li data-target="#{{carouselid}}" data-slide-to="{{forloop.index0}}" class="active"></li>
-        {%- else -%}
-        <li data-target="#{{carouselid}}" data-slide-to="{{forloop.index0}}"></li>
-        {%- endif -%}
-        {% endfor %}
-    </ol>
+    {% capture carousel_images %}
+    /docs/assets/images/a.png
+    /docs/assets/images/b.png
+    {% endcapture %}
+    {% include elements/carousel.html %}
 
-    <div class="carousel-inner">
-        {% for image in images %}
-        {%- if forloop.first -%}
-        <div class="carousel-item active" style="transition: transform .3s ease, opacity .5s ease-out;">
-            <img src="{{ image }}" class="d-block w-100" style="height:{{ height }}; min-width:50%; max-width:100%; object-fit: contain; object-position: center;" >
-        </div>
-        {%- else -%}
-        <div class="carousel-item" style="transition: transform .3s ease, opacity .5s ease-out;">
-            <img src="{{ image }}" class="d-block w-100" style="height:{{ height }}; min-width:50%; max-width:100%; object-fit: contain; object-position: center;">
-        </div>
-        {%- endif -%}
-        {% endfor %}
-    </div>
-
-    <a class="carousel-control-prev" href="#{{carouselid}}" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-
-    <a class="carousel-control-next" href="#{{carouselid}}" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-
+Older pages also assign `height` before the include. It is no longer used.
+{%- endcomment -%}
+{%- assign gallery_images = carousel_images | strip | newline_to_br | split: '<br />' -%}
+<div class="gallery" data-gallery>
+<div class="gallery-track">
+{%- for gallery_image in gallery_images -%}
+{%- assign gallery_src = gallery_image | strip -%}
+{%- if gallery_src != "" %}
+<a class="gallery-item" href="{{ gallery_src }}"><img src="{{ gallery_src }}" alt="" loading="lazy"></a>
+{%- endif -%}
+{%- endfor %}
+</div>
+<button class="gallery-button gallery-prev" type="button" aria-label="Previous images"></button>
+<button class="gallery-button gallery-next" type="button" aria-label="Next images"></button>
 </div>

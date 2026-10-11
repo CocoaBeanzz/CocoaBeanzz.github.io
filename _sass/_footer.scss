@@ -1,31 +1,68 @@
-.social {
-  text-decoration: none !important;
+// Bottom of every page (_includes/footer.html): links to the four department
+// sites, social accounts, and the credit line.
+
+// Carries the circuit artwork (.circuit-band in _base.scss).
+.site-footer {
+  border-top: 1px solid var(--line);
+
+  // Show the part of the artwork with the music staff.
+  &.circuit-band::before {
+    background-position: center 72%;
+  }
 }
 
-#attribution {
-  opacity: 0.5;
+.site-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  width: calc(min(100% - 2 * var(--gutter), var(--page-max))); // calc() keeps Sass from evaluating min()
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+}
+
+// The family of sites. The one being viewed is marked with the accent.
+.site-footer-family {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+
   a {
+    color: var(--text-dim);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
-    font-weight: bold;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &.active {
+      color: #fff;
+      box-shadow: 0 2px 0 var(--accent);
+    }
   }
 }
 
-@media only screen and (min-width: 768px) {
-  #attribution {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    position: fixed;
-    bottom: 120px;
-    right: 22px;
+.site-footer-social {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 1.25rem;
+
+  a {
+    color: var(--text-dim);
+
+    // Each service's brand color, passed in by _includes/social.html.
+    &:hover {
+      color: var(--service-color, #fff);
+    }
   }
 }
 
-.github-footer {
-  font-size: 10px;
-  color: #6c757d;
-  text-decoration: underline;
-  text-decoration-color: yellow;
-  text-align: right;
-  margin-top: 4em;
-  margin-right: 2em;
+.site-footer-credit {
+  flex-basis: 100%;
+  color: var(--text-dim);
+  font-size: 0.85rem;
 }

@@ -1,0 +1,65 @@
+---
+title: "K Presto | DAMAG3 - BLiND US Tour (Detroit)"
+date: 2025-08-16
+tags: [K Presto, Live Performance, Shows]
+style: border
+color: danger
+description: Detroit surpassed all expectations bringing the HEAT.
+image: "/docs/assets/images/projects/k-presto/BLiND/Detroit/BLiND_Detroit_Thumb.jpg"
+location: "Corktown Tavern | Detroit, MI USA"
+link: https://lu.ma/djn9tipj
+---
+
+## K Presto @ Corktown Tavern | Detroit, MI USA
+### DAMAG3 - BLiND Tour
+
+Detroit surpassed all expectations bringing the HEAT.
+
+These maniacs bounced so hard the floor started to buckle.
+
+## Gallery
+{% assign prefix="/docs/assets/images/projects/k-presto/BLiND/Detroit/BLiND_Detroit_" -%}
+{% assign filetype=".jpg" -%}
+{% capture carousel_images %}
+{%- assign height = "720px" -%}
+{{prefix}}1{{filetype}}
+{{prefix}}2{{filetype}}
+{{prefix}}3{{filetype}}
+{{prefix}}4{{filetype}}
+{{prefix}}5{{filetype}}
+{{prefix}}6{{filetype}}
+{{prefix}}7{{filetype}}
+{% endcapture %}
+{% include elements/carousel.html %}
+
+#### Lineup
+- DAMAG3
+- Rob Apollo
+- Hadji Gaviota
+- Shno Xavier
+- K Presto
+
+<hr>
+<img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,background=white,quality=75,width=400,height=400/event-covers/b1/c009f3e4-4d13-4f7f-8b5c-d974f0e39307.png" alt="info">
+
+<hr>
+
+### About K Presto:
+K Presto is a musical project melding contemporary electronic music with metal and baroque influences.
+
+### Links:
+<div class="link-buttons" markdown="1">
+[Spotify](https://open.spotify.com/artist/6YVhlNw952WlFsXddTPgOY)
+[Apple Music](https://music.apple.com/us/artist/k-presto/1073441282)
+[YouTube Music](https://music.youtube.com/channel/UC3LezgQLQx0Y832j3)
+[SoundCloud](https://soundcloud.com/kpresto/the-tower-k10-anniversary-remix)
+[Amazon Music](https://www.amazon.com/music/player/artists/B01A52DFU4/k-presto)
+[Instagram](http://instagram.com/officialkpresto/)
+[Facebook](www.facebook.com/kprestomusic)
+[YouTube](www.youtube.com/channel/UCUen6Z997mMG6Q5OqhFu2eg)
+</div>
+
+## Booking
+[mgmt@kaud.io](mailto:mgmt@kaud.io)
+
+<hr>

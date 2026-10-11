@@ -1,0 +1,50 @@
+{%- comment -%}
+Large alternating image-and-text rows, one per featured project, for a
+department landing.
+
+Featured means tagged Highlight. A department with no highlighted projects
+features all of them, so a small catalog (Tools) still fills its landing.
+
+Ends with a link to the department's full project listing, labelled with
+that tab's own title (Portfolio, Showcase, Products).
+{%- endcomment -%}
+{%- assign section_projects = site.projects | where_exp: "item", "item.sections contains page.section" -%}
+{%- assign featured_projects = section_projects | where_exp: "project", "project.tags contains 'Highlight'" -%}
+{%- if featured_projects.size == 0 -%}
+    {%- assign featured_projects = section_projects -%}
+{%- endif -%}
+
+{%- comment -%} Oldest to newest by file-name date, whatever folder each came from (_plugins/sections.rb). Shown newest first. {%- endcomment -%}
+{%- assign featured_projects = featured_projects | sort: "order" -%}
+
+{%- if featured_projects.size > 0 -%}
+<section class="features">
+    {% for project in featured_projects reversed %}
+    <a class="feature" href="{{ project.external_url | default: project.url | relative_url }}">
+        <div class="feature-media">
+            {%- if project.image -%}
+            <img class="feature-image" src="{{ project.image }}" alt="">
+            {%- endif -%}
+        </div>
+        <div class="feature-body">
+            <span class="eyebrow">{% if project.role %}{{ project.role }}{% elsif project.released %}{{ project.released | date_to_long_string }}{% endif %}</span>
+            <h2 class="feature-title">{{ project.name }}</h2>
+            {%- if project.heading -%}
+            <p class="feature-heading">{{ project.heading }}</p>
+            {%- endif -%}
+            <p class="feature-text">{{ project.description }}</p>
+            {%- if project.tools -%}
+            <p class="feature-meta">{{ project.tools | join: " / " }}</p>
+            {%- endif -%}
+        </div>
+    </a>
+    {% endfor %}
+
+    {%- comment -%} The project listing tab is the page at /<department>/projects/ {%- endcomment -%}
+    {%- assign listing_url = page.section | prepend: "/" | append: "/projects/" -%}
+    {%- assign listing_page = site.html_pages | where: "url", listing_url | first -%}
+    {%- if listing_page -%}
+    <a class="more-link" href="{{ listing_page.url | relative_url }}">{{ listing_page.title }}</a>
+    {%- endif -%}
+</section>
+{%- endif -%}

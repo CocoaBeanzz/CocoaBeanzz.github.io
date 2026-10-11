@@ -1,3 +1,5 @@
+{%- assign section_posts = site.posts | where_exp: "item", "item.sections contains page.section" -%}
+{%- if section_posts.size > 0 -%}
 {%- assign blog_tags = blank -%}
 {%- assign blog_projects = blank -%}
 
@@ -11,7 +13,7 @@ Examples:
 {%- assign excluded_blog_tags = 'Highlight' | split: '|' -%}
 {%- assign excluded_blog_projects = '' | split: '|' -%}
 
-{%- for post in site.posts -%}
+{%- for post in section_posts -%}
   {%- unless post.tags contains 'Shows' -%}
     {%- assign post_tags = post.tags | join:'|' | append:'|' -%}
     {%- if post_tags != '|' -%}
@@ -25,7 +27,7 @@ Examples:
 {%- assign blog_tags = blog_tags | split:'|' | uniq | sort -%}
 {%- assign blog_projects = blog_projects | split:'|' | uniq | sort -%}
 
-<div class="mt-5 px-3">
+<div class="filter-bar">
   <div class="input-group">
     <input id="search-input" type="text" class="form-control search-box" placeholder="Search posts...">
     <div class="input-group-append">
@@ -45,57 +47,56 @@ Examples:
       </button>
     </div>
     <div class="input-group-append ml-1">
-      <a class="btn btn-outline-primary" href="{{ '/blog/tags' | relative_url }}">
+      <a class="btn btn-outline-primary" href="{{ page.section | prepend: '/' | append: '/blog/tags' | relative_url }}">
         <i class="fas fa-tags"></i>
       </a>
     </div>
   </div>
 
-  <div id="tag-filter-panel" class="border rounded px-3 py-3 mt-3" style="display: none; background-color: rgba(25, 26, 28, 0.94); color: #f8f9fa; border-color: rgba(255, 255, 255, 0.14) !important;">
-    <div class="mb-2">
-      <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Tags</div>
-      <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
+  <div class="filter-group filter-quick">
+  <div class="eyebrow">Projects</div>
+  <div class="filter-options">
+  {% assign has_filterable_blog_projects = false %}
+  {% for project in blog_projects %}
+  {% if project != blank %}
+  {% unless excluded_blog_projects contains project %}
+  {% assign has_filterable_blog_projects = true %}
+  <label class="btn btn-sm btn-outline-info mb-0">
+  <input type="checkbox" class="blog-project-filter" value="{{ project | escape }}" autocomplete="off">
+  {{ project }}
+  </label>
+  {% endunless %}
+  {% endif %}
+  {% endfor %}
+  {% unless has_filterable_blog_projects %}
+  <span class="eyebrow">No blog projects available.</span>
+  {% endunless %}
+  </div>
+  </div>
+
+  <div id="tag-filter-panel" class="filter-panel" style="display: none;">
+    <div class="filter-group">
+      <div class="eyebrow">Tags</div>
+      <div class="filter-options">
         {% assign has_filterable_blog_tags = false %}
         {% for tag in blog_tags %}
         {% unless excluded_blog_tags contains tag %}
         {% assign has_filterable_blog_tags = true %}
         <label class="btn btn-sm btn-outline-primary mb-0">
-        <input type="checkbox" class="blog-tag-filter" value="{{ tag | escape }}" autocomplete="off" style="display: none;">
+        <input type="checkbox" class="blog-tag-filter" value="{{ tag | escape }}" autocomplete="off">
         {{ tag }}
       </label>
       {% endunless %}
       {% endfor %}
       {% unless has_filterable_blog_tags %}
-      <span class="small" style="color: #adb5bd;">No blog tags available.</span>
+      <span class="eyebrow">No blog tags available.</span>
       {% endunless %}
       </div>
     </div>
 
-    <hr style="border-color: rgba(255, 255, 255, 0.12);">
-
-    <div class="mb-2">
-      <div class="small text-uppercase" style="letter-spacing: 0.08em; color: #adb5bd;">Projects</div>
-      <div class="d-flex flex-wrap align-items-center mt-2" style="gap: 0.5rem;">
-        {% assign has_filterable_blog_projects = false %}
-        {% for project in blog_projects %}
-        {% if project != blank %}
-        {% unless excluded_blog_projects contains project %}
-        {% assign has_filterable_blog_projects = true %}
-        <label class="btn btn-sm btn-outline-info mb-0">
-        <input type="checkbox" class="blog-project-filter" value="{{ project | escape }}" autocomplete="off" style="display: none;">
-        {{ project }}
-      </label>
-      {% endunless %}
-      {% endif %}
-      {% endfor %}
-      {% unless has_filterable_blog_projects %}
-      <span class="small" style="color: #adb5bd;">No blog projects available.</span>
-      {% endunless %}
-      </div>
-    </div>
   </div>
 
-  <p id="blog-filter-summary" class="text-muted small mt-3 mb-0">Showing all blog posts.</p>
+  <p id="blog-filter-summary" class="filter-summary">Showing all blog posts.</p>
 </div>
 
 <script>
@@ -163,31 +164,6 @@ Examples:
         clearButton.style.display = '';
       }
 
-      function isInViewport(element) {
-        var rect = element.getBoundingClientRect();
-        return rect.bottom > 0 && rect.top < window.innerHeight;
-      }
-
-      function revealCard(card) {
-        var animatedCard = card.querySelector('.wow');
-        if (!animatedCard || !isInViewport(card)) {
-          return;
-        }
-
-        animatedCard.style.visibility = 'visible';
-        animatedCard.classList.remove('animated', 'fadeIn');
-        void animatedCard.offsetWidth;
-        animatedCard.classList.add('animated', 'fadeIn');
-      }
-
-      function revealVisibleCards() {
-        postCards.forEach(function (card) {
-          if (card.style.display !== 'none') {
-            revealCard(card);
-          }
-        });
-      }
-
       function updateHighlightedPostsVisibility(hasActiveFilters) {
         if (!highlightedPostsSection) {
           return;
@@ -237,7 +213,6 @@ Examples:
         updateTagStyles();
         updateSummary(visibleCount, postCards.length, selectedTags, searchTerm);
         updateHighlightedPostsVisibility(hasActiveFilters);
-        window.requestAnimationFrame(revealVisibleCards);
       }
 
       toggleButton.addEventListener('click', function () {
@@ -265,8 +240,6 @@ Examples:
         input.addEventListener('change', applyFilters);
       });
 
-      window.addEventListener('resize', revealVisibleCards);
-
       applyFilters();
     }
 
@@ -277,3 +250,4 @@ Examples:
     }
   })();
 </script>
+{%- endif -%}

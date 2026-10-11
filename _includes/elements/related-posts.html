@@ -1,11 +1,14 @@
-<h2>Related Posts</h2>
-<div class="row">
-    <div class="container-fluid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-        {% for post in page.related_posts %}
-        <div class="col pl-1 pr-1">
-          {% include blog/post-card.html post=post %}
-          {%- if forloop.index0 == 3 -%}{%- break -%}{%- endif -%}
-        </div>
-      {% endfor %}
+{%- comment -%}
+Up to four posts sharing tags with this page (chosen by
+_plugins/related_posts.rb). Renders nothing when there are none.
+{%- endcomment -%}
+{%- if page.related_posts.size > 0 -%}
+<section class="band">
+    <h2 class="section-heading">Related Posts</h2>
+    <div class="tile-grid tile-grid-square tile-grid-row">
+        {% for post in page.related_posts limit: 4 %}
+            {% include blog/post-card.html post=post %}
+        {% endfor %}
     </div>
-</div>
+</section>
+{%- endif -%}

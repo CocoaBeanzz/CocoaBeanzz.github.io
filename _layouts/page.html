@@ -2,8 +2,33 @@
 layout: default
 ---
 
-<div class="col-lg-10 mx-auto mt-5 markdown-body">
+{%- comment -%}
+Long-form pages: project pages, posts, About, Contact.
+
+Posts get a header built from their front matter: title, then date and
+tags. Each tag links to its entry on the department's tag page. "Highlight"
+is a sorting flag, not a topic, so it is not shown.
+
+Project pages bring their own header (the .project-header block at the top
+of each file), because several use a logo image in place of a text title.
+{%- endcomment -%}
+<article class="prose markdown-body">
+  {%- if page.collection == "posts" -%}
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-metadata">
+      <span>{{ page.date | date_to_long_string }}</span>
+      {%- for tag in page.tags -%}
+        {%- unless tag == "Highlight" -%}
+        {%- assign tag_anchor = tag | slugify %}
+      <a class="post-tag" href="{{ page.section | prepend: '/' | append: '/blog/tags#' | append: tag_anchor | relative_url }}">{{ tag }}</a>
+        {%- endunless -%}
+      {%- endfor %}
+    </p>
+  </header>
+  {%- endif %}
+
   {{ content }}
 
 {% include elements/related-posts.html %}
-</div>
+</article>

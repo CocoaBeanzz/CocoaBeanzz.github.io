@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{%- comment -%}
+A branching page: one full-height panel per department and nothing else.
+No navbar, no footer, no scrolling on desktop. Styles are in _sass/_hub.scss.
+
+Used twice. kaud.io shows every department that has no `parent` in
+_data/sections.yml. A page that sets `hub_parent: <id>` in its front matter
+(pages/music/index.html) shows that department's children instead, plus the
+logo as a way back to kaud.io.
+{%- endcomment -%}
+{%- if page.hub_parent -%}
+    {%- assign hub_sections = site.data.sections | where: "parent", page.hub_parent -%}
+{%- else -%}
+    {%- assign hub_sections = site.data.sections | where_exp: "hub_section", "hub_section.parent == nil" -%}
+{%- endif -%}
+<html lang="en">
+
+{% include head.html %}
+
+<body class="hub">
+    <a class="site-logo hub-home" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}"></a>
+    <main class="hub-panels">
+        {% for hub_section in hub_sections %}
+        <a class="hub-panel" href="{{ hub_section.id | prepend: '/' | append: '/' | relative_url }}">
+            <img class="hub-panel-image" src="{{ hub_section.hero | relative_url }}" alt=""
+                 {%- if hub_section.hero_position %} style="object-position: {{ hub_section.hero_position }};"{% endif %}>
+            <span class="hub-panel-title">{{ hub_section.title }}</span>
+        </a>
+        {% endfor %}
+    </main>
+    {% include analytics.html %}
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+{%- comment -%}
+The body of a release: its video (or artwork), the places to listen, and
+its lyrics. One source for two places:
+
+  - the release's own page (_layouts/release.html), which calls this with
+    no arguments and gets the page being rendered
+  - anywhere else, by name, so a post can show a release without repeating
+    its links and lyrics:
+
+        {% include elements/release.html name="Can't Stop" %}
+
+    `name` is the release's `name:` front matter, exactly as written there.
+
+Output is kept flush left: this is included from markdown, where indented
+HTML would be read as a code block.
+{%- endcomment -%}
+{%- if include.name -%}
+    {%- assign release = site.projects | where: "name", include.name | first -%}
+    {%- comment -%} raw_body is the file's body as written (_plugins/embed.rb) {%- endcomment -%}
+    {%- assign release_lyrics = release.raw_body | markdownify -%}
+{%- else -%}
+    {%- assign release = page -%}
+    {%- assign release_lyrics = content -%}
+{%- endif -%}
+
+{%- if release -%}
+<div class="release-body">
+<div class="release-centerpiece">
+{%- if release.youtube %}
+{% include elements/video.html id=release.youtube list=release.youtube_playlist %}
+{%- elsif release.image %}
+<img class="release-art" src="{{ release.image }}" alt="">
+{%- endif %}
+</div>
+{%- if release.links %}
+<nav class="link-buttons release-links">
+<p>
+{%- for link in release.links %}
+<a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+{%- endfor %}
+</p>
+</nav>
+{%- endif -%}
+{%- comment -%} strip_html also drops HTML comments, so a release holding only its placeholder comment counts as having no lyrics {%- endcomment -%}
+{%- assign release_lyrics_text = release_lyrics | strip_html | strip -%}
+{%- if release_lyrics_text != "" %}
+<section class="release-lyrics">
+<h2 class="section-heading">Lyrics</h2>
+<div class="lyrics">
+{{ release_lyrics }}
+</div>
+</section>
+{%- endif %}
+</div>
+{%- else -%}
+{%- capture missing_release -%}PLACEHOLDER: no release is named "{{ include.name }}". The name has to match a `name:` in _projects/kpresto/ exactly.{%- endcapture -%}
+{% include elements/placeholder.html note=missing_release %}
+{%- endif -%}

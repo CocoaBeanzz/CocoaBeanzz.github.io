@@ -1,0 +1,20 @@
+{%- comment -%}
+Top of a department landing: that department's hero image from
+_data/sections.yml across the whole window, with the page's intro on a solid
+block at its lower left.
+
+The intro is whatever the page captured into `hero_intro` before including
+this file (same pattern as carousel_images and list_items):
+
+    {% capture hero_intro %} ...HTML... {% endcapture %}
+    {% include landing/hero.html %}
+
+A <b> at the start of the intro is set large as the headline.
+{%- endcomment -%}
+{%- assign section = site.data.sections | where: "id", page.section | first -%}
+<header class="hero bleed">
+    <img class="hero-image" src="{{ section.hero | relative_url }}" alt="" style="object-position: {{ section.hero_position | default: 'center' }};">
+    {%- if hero_intro -%}
+    <div class="hero-intro">{{ hero_intro }}</div>
+    {%- endif -%}
+</header>

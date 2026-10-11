@@ -1,43 +1,16 @@
-{%- assign project_type  = "local" -%}
-{%- assign project_id    = project.name | slugify -%}
-{%- assign project_img   = project.image -%}
-{%- assign project_name  = project.name -%}
-{%- assign project_heading  = project.heading -%}
-{%- assign project_role  = project.role -%}
-{%- assign project_desc  = project.description -%}
-{%- assign project_tools = project.tools -%}
-
-{%- if project.external_url -%}
-{%- assign project_url = project.external_url -%}
-{%- assign external    = true -%}
-{%- else -%}
-{%- assign project_url = project.url | relative_url -%}
-{%- assign external    = false -%}
-{%- endif -%}
-<div class="wow animated fadeIn" data-wow-delay=".08s">
-    {%- if external and site.open_new_tab -%}
-    <a href="{{ project_url }}" class="project card text-themed" target="_blank">
-    {%- else -%}
-    <a href="{{ project_url }}" class="project card text-themed">
-    {%- endif -%}
-    {%- if project_img -%}
-        <img id="{{ project_id }}-img" class="card-img-top" src="{{ project_img }}" alt="{{ project_name }}"/>
+{%- comment -%}
+One project as a tile: image, role, name, description. Expects `project`.
+A release (no role, has `released`) shows its release date where the role goes.
+Used by the project listing (projects/index.html). Styles: _sass/_tiles.scss.
+{%- endcomment -%}
+<a class="tile" href="{{ project.external_url | default: project.url | relative_url }}"
+   {%- if project.external_url and site.open_new_tab %} target="_blank"{% endif %}>
+    <div class="tile-media">
+        {%- if project.image -%}
+        <img class="tile-image" src="{{ project.image }}" alt="" loading="lazy">
         {%- endif -%}
-        <div class="card-body">
-            <h5 id="{{ project_id }}-name" class="card-title">
-                {%- if project_type == "remote" -%}
-                <i class="fab fa-github" data-toggle="tooltip" data-placement="bottom" data-delay="250" title="GitHub Repository"></i> |&nbsp;
-                {%- endif -%}
-                {{ project_name }}
-            </h5>
-            <h7 id="{{ project_id }}-heading" class="card-title" style="color:rgb(180, 180, 180)">{{ project_heading }}</h7>
-            <h6 id="{{ project_id }}-role" class="card-title" style="color:rgb(124, 124, 124)">{{ project_role }}</h6>
-            <p id="{{ project_id }}-desc" class="card-text">{{ project_desc }}</p>
-            <p id="{{ project_id }}-tools" class="card-text">
-                {%- for tool in project_tools -%}
-                <span class="badge badge-pill text-primary border border-primary ml-1">{{ tool }}</span>
-                {%- endfor -%}
-            </p>
-        </div>
-    </a>
-</div>
+    </div>
+    <span class="eyebrow">{% if project.role %}{{ project.role }}{% elsif project.released %}{{ project.released | date_to_long_string }}{% endif %}</span>
+    <h3 class="tile-title">{{ project.name }}</h3>
+    <p class="tile-text">{{ project.description }}</p>
+</a>

@@ -1,13 +1,51 @@
-<div class="col mt-3">
-    <div class="timeline-body bg-themed">
-        {% for item in site.data.timeline %}
-            <div class="timeline-item">
-                <div class="content mt-1 mb-1 pb-1 pt-0">
-                    <h2 class="mt-2">{{ item.title }}</h2>
-                    <h6 class="date mb-1">{{ item.from }} - {{ item.to }}</h6>
-                    <h8>{{ item.description }}</h8>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+{%- comment -%}
+Dated list of roles, newest first, from _data/timeline.yml (or another data
+file: {% include about/timeline.html source=site.data.other_file %}).
+
+Each entry in the data file has:
+    title:        the role
+    from, to:     dates, shown as written
+    description:  lines separated by <br>. A line starting with "-" becomes
+                  a bullet point. Of the other lines, the first is set as the
+                  project's name and the rest as details under it.
+{%- endcomment -%}
+{%- assign timeline_entries = include.source | default: site.data.timeline -%}
+<ol class="timeline">
+{%- for entry in timeline_entries %}
+<li class="timeline-entry">
+<span class="timeline-dates">{{ entry.from }} - {{ entry.to }}</span>
+<div class="timeline-details">
+<h3 class="timeline-role">{{ entry.title }}</h3>
+{%- assign entry_lines = entry.description | split: "<br>" -%}
+{%- assign plain_line_count = 0 -%}
+{%- assign bullet_open = false -%}
+{%- for entry_line in entry_lines -%}
+{%- assign line_text = entry_line | strip -%}
+{%- if line_text == "" -%}{%- continue -%}{%- endif -%}
+{%- assign line_start = line_text | slice: 0 -%}
+{%- if line_start == "-" -%}
+{%- unless bullet_open %}
+<ul class="timeline-points">
+{%- assign bullet_open = true -%}
+{%- endunless %}
+<li>{{ line_text | remove_first: "-" | strip }}</li>
+{%- else -%}
+{%- if bullet_open %}
+</ul>
+{%- assign bullet_open = false -%}
+{%- endif -%}
+{%- if plain_line_count == 0 %}
+<p class="timeline-project">{{ line_text }}</p>
+{%- else %}
+<p class="timeline-meta">{{ line_text }}</p>
+{%- endif -%}
+{%- assign plain_line_count = plain_line_count | plus: 1 -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if bullet_open %}
+</ul>
+{%- endif %}
 </div>
+</li>
+{%- endfor %}
+</ol>

@@ -1,28 +1,207 @@
-// Fine Circle Responsive Image
-// Inspired by https://stackoverflow.com/a/6615994/10194811
+// Department landing pages: the hero, the feature rows for highlighted
+// projects, and paired media embeds.
 
-#container {
-  display: inline-block;
+// ---------------------------------------------------------------------------
+// Hero (_includes/landing/hero.html)
+// The department's hero image across the whole window, most of a screen tall,
+// with the page's intro on a solid block at its lower left.
+// ---------------------------------------------------------------------------
+
+.hero {
   position: relative;
-  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  height: clamp(420px, 78vh, 860px);
+  // Room for the intro block, which hangs below the image's bottom edge.
+  margin-bottom: 3rem;
 }
 
-#dummy {
-  padding-top: 100%; /* 1:1 aspect ratio */
-}
-
-#element {
+.hero-image {
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
-}
-
-.circle-image {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
-  object-position: center;
+}
+
+// Solid backing rather than a tint over the whole photo, so the image keeps
+// its full color and the text is readable over any picture.
+.hero-intro {
+  position: relative; // above the image
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  max-width: calc(min(760px, 100% - var(--gutter)));
+  // Left edge lines up with the .page column below the hero.
+  margin-left: calc(max(var(--gutter), (100vw - var(--page-max)) / 2));
+  margin-bottom: -3rem;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  background: var(--bg);
+  font-size: clamp(1.15rem, 1.9vw, 1.7rem);
+  line-height: 1.3;
+
+  p {
+    margin: 0;
+  }
+
+  // The opening line reads as the headline.
+  b {
+    display: block;
+    margin-bottom: 0.4em;
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  // Intro text written with doubled <br> for spacing: keep one line break.
+  br + br {
+    display: none;
+  }
+
+  .copy-placeholder {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+// Round headshot carousel inside the hero intro. Too small for arrows and
+// dots, and it advances on its own.
+.hero-intro-portrait {
+  flex: 0 0 clamp(96px, 12vw, 168px);
+
+  .carousel-indicators,
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero {
+    height: clamp(420px, 70vh, 640px);
+  }
+
+  .hero-intro {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Feature rows (_includes/projects/features.html)
+// One highlighted project per row: a large image beside its name and
+// description, with the image side alternating row to row.
+// ---------------------------------------------------------------------------
+
+.feature {
+  display: grid;
+  // minmax(0, ...) lets the columns shrink below their content's natural
+  // width, so a long title wraps and never pushes the row wider than the page.
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-top: var(--band-gap);
+  color: var(--text);
+  text-decoration: none !important;
+
+  &:hover {
+    color: var(--text);
+
+    .feature-image {
+      transform: scale(1.03);
+    }
+
+    .feature-title {
+      color: var(--accent-text);
+    }
+  }
+
+  // Every second row puts the image on the right. The column widths swap
+  // with it so the image keeps the wide column.
+  &:nth-of-type(even) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+
+    .feature-media {
+      order: 2;
+    }
+  }
+}
+
+.feature-media {
+  overflow: hidden; // clips the image's hover zoom
+  aspect-ratio: 16 / 10;
+  background: var(--surface);
+}
+
+.feature-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.feature-title {
+  margin: 0.5rem 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  transition: color 200ms ease;
+}
+
+.feature-heading {
+  margin: 0 0 0.75rem;
+  color: var(--text-dim);
+  font-size: 1.15rem;
+}
+
+.feature-text {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+}
+
+.feature-meta {
+  margin: 1.25rem 0 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767.98px) {
+  .feature {
+    // Stacked: one column, image always first.
+    &,
+    &:nth-of-type(even) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    gap: 1rem;
+
+    &:nth-of-type(even) .feature-media {
+      order: 0;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Two embeds side by side at the same height (video and audio player).
+// ---------------------------------------------------------------------------
+
+.media-pair {
+  display: grid;
+  // minmax(0, ...) lets the columns shrink below their content's natural
+  // width, so a long title wraps and never pushes the row wider than the page.
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.5rem;
+
+  > iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+  }
+
+  @media (max-width: 991.98px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

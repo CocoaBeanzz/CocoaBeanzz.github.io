@@ -1,17 +1,29 @@
-
-<div class="container-fluid" style="column-width: 320px; column-gap: 0.75rem;">
-    {% for post in site.posts %}
+{%- comment -%}
+Card grid of the current department's posts: everything in
+_posts/<this department>/, plus posts from other departments that list this
+one under `also_in` (see _plugins/sections.rb). Shows-tagged posts are left out because they
+have their own tab. The newest post is shown at double width.
+{%- endcomment -%}
+{%- assign lead_placed = false -%}
+{%- assign section_posts = site.posts | where_exp: "item", "item.sections contains page.section" -%}
+{%- if section_posts.size == 0 -%}
+    {%- capture empty_note -%}PLACEHOLDER: No posts in this department yet. Add one to _posts/{{ page.section }}/.{%- endcapture -%}
+    {% include elements/placeholder.html note=empty_note %}
+{%- endif -%}
+<div class="tile-grid tile-grid-square">
+    {% for post in section_posts %}
         {% if post.tags contains 'Shows' %}
         {% else %}
             {%- assign post_summary = post.description | default: post.content | strip_html | normalize_whitespace -%}
             {%- assign post_tag_text = post.tags | join: ' ' -%}
             {%- assign post_project_text = post.project | default: '' -%}
-            <div class="blog-post-item" style="break-inside: avoid; margin-bottom: 0.75rem; display: inline-block; width: 100%;"
+            <div class="blog-post-item{% unless lead_placed %} tile-cell-lead{% endunless %}"
                  data-post-tags="{{ post.tags | join: '|' | downcase | escape }}"
                  data-post-project="{{ post_project_text | downcase | escape }}"
                  data-post-search="{{ post.title | append: ' ' | append: post_summary | append: ' ' | append: post_tag_text | append: ' ' | append: post_project_text | downcase | escape }}">
                 {% include blog/post-card.html %}
             </div>
+            {%- assign lead_placed = true -%}
         {% endif %}
     {% endfor %}
 </div>
