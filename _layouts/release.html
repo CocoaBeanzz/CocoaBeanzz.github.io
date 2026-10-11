@@ -11,6 +11,7 @@ lyrics. Everything but the lyrics comes from the file's front matter:
     released: 2024-05-21
     image: /docs/assets/images/albums/Fallen.png   # artwork, also used on tiles
     youtube: JQ5jCnLX_b0                           # video id, the centerpiece
+    soundcloud: tracks/1532809405                  # instead of youtube: a SoundCloud player (see elements/soundcloud.html)
     youtube_playlist: OLAK5uy_...                  # optional, plays the id within this playlist
     links:                                         # places to listen, in order
       - { label: "Spotify", url: "https://..." }
@@ -21,7 +22,11 @@ the song per line, a blank line between verses. For a release with several
 tracks, start each track with "## Track name". With no body, the lyrics
 section is left off the page.
 
-A release without `youtube` shows its artwork in the embed's place.
+A release whose body is a description instead of lyrics says so with
+`body: notes`. The text is then shown without the "Lyrics" heading.
+
+A release with neither `youtube` nor `soundcloud` shows its artwork in the
+embed's place.
 {%- endcomment -%}
 <article class="release">
 

@@ -688,6 +688,39 @@
   }
 }
 
+// SoundCloud player (_includes/elements/soundcloud.html). Square, because
+// cover art is square and the artwork player crops it to the frame's shape.
+// Capped in width so it does not grow taller than the screen.
+.soundcloud-embed {
+  display: block;
+  width: calc(min(100%, 640px));
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border: 0;
+}
+
+// Description under a release (a release with `body: notes`). Set as
+// ordinary text in a readable column. pre-line keeps the line breaks as
+// they were typed.
+.release-notes {
+  max-width: 640px;
+  margin: var(--band-gap) auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere; // long web addresses
+
+  p {
+    white-space: pre-line;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
 // Artwork standing in for a release that has no video.
 .release-art {
   display: block;

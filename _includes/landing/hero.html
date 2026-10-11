@@ -10,10 +10,19 @@ this file (same pattern as carousel_images and list_items):
     {% include landing/hero.html %}
 
 A <b> at the start of the intro is set large as the headline.
+
+A department with several hero images (a list under `hero` in
+_data/sections.yml) gets a slideshow: every few seconds the next image
+slides in from the right (assets/js/site.js). The first one shows straight
+away and the rest load lazily.
 {%- endcomment -%}
 {%- assign section = site.data.sections | where: "id", page.section | first -%}
 <header class="hero bleed">
-    <img class="hero-image" src="{{ section.hero | relative_url }}" alt="" style="object-position: {{ section.hero_position | default: 'center' }};">
+    <div class="hero-frame{% if section.heroes.size > 1 %} hero-slides{% endif %}" data-slideshow data-slideshow-interval="6000">
+        {%- for hero in section.heroes %}
+        <img class="hero-image{% if forloop.first %} is-showing{% endif %}" src="{{ hero.image | relative_url }}" alt="" style="object-position: {{ hero.position }};"{% unless forloop.first %} loading="lazy"{% endunless %}>
+        {%- endfor %}
+    </div>
     {%- if hero_intro -%}
     <div class="hero-intro">{{ hero_intro }}</div>
     {%- endif -%}

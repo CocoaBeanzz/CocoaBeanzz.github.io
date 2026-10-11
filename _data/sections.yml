@@ -4,11 +4,16 @@
 #         path prefix (kaud.io/<id>/). Must match the "Departments" block
 #         in _config.yml and SECTIONS in cloudflare/section-proxy/worker.js.
 # title   Name shown on the hub panel and in the navbar.
-# hero    Image filling the hub panel and the top of the department landing.
+# hero    Image for the hub panel and the top of the department landing.
+#         One path, or a list of them. With a list, the landing slides from
+#         one to the next every few seconds, and the hub panel uses the first.
+#         A list entry can also say which part of that image to keep in view
+#         when it is cropped to a wide banner:
+#             - { image: /docs/..., position: "center 20%" }
 # hero_position
-#         Optional. Which part of the hero stays in view when the landing
-#         crops it to a wide banner, as a CSS object-position ("center 20%"
-#         keeps the upper part). Defaults to the middle.
+#         Optional. The same crop setting for a single `hero`, or the default
+#         for list entries that do not set their own. A CSS object-position
+#         ("center 20%" keeps the upper part). Defaults to the middle.
 # accent  Exposed to CSS as --section-accent on every page of the department.
 # parent  Optional. Id of the department this one sits under. A department
 #         with children is a branching page (kaud.io/music/ shows K Presto
@@ -29,14 +34,22 @@
 - id: kpresto
   title: K Presto
   parent: music
-  hero: /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_1.jpg   # PLACEHOLDER hero image
-  hero_position: center 22%
+  hero:   # PLACEHOLDER hero images
+    - { image: /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_1.jpg, position: "center 22%" }
+    - /docs/assets/images/projects/k-presto/BLiND/Chicago/BLiND_Chicago_3.jpg
+    - /docs/assets/images/projects/k-presto/BLiND/Chicago/BLiND_Chicago_1.jpg
+    - /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_3.jpg
+    - /docs/assets/images/projects/k-presto/BLiND/Chicago/BLiND_Chicago_6.jpg
   accent: "#7c4f9b"
 
 - id: cocoabeanz
   title: CocoaBeanz
   parent: music
-  hero: /docs/assets/images/site/231103-headshot-5-square.jpg   # PLACEHOLDER hero image
+  hero:   # PLACEHOLDER hero images
+    - /docs/assets/images/site/231103-headshot-5-square.jpg
+    - /docs/assets/images/site/250122-headshot-1.jpg
+    - /docs/assets/images/site/headshots/headshot-11.jpg
+    - /docs/assets/images/site/250122-headshot-2.jpg
   accent: "#7c4f9b"
 
 - id: tools
@@ -46,10 +59,19 @@
 
 - id: games
   title: Games
-  hero: /docs/assets/images/projects/inline-out-of-time/edits/inline-5-edit.png   # PLACEHOLDER hero image
+  hero:   # PLACEHOLDER hero images
+    - /docs/assets/images/projects/inline-out-of-time/edits/inline-5-edit.png
+    - /docs/assets/images/projects/infestation/edited/InfeStation_gp_10_edit.png
+    - /docs/assets/images/projects/eidolon/screenshots/eidolon-screenshot-3.jpg
+    - /docs/assets/images/projects/were-tethered-together/wtt-10.png
+    - /docs/assets/images/projects/cats-n-critters/screenshots/cats-n-critters-screenshot-4.jpg
   accent: "#7c4f9b"
 
 - id: dev
   title: Development
-  hero: /docs/assets/images/projects/moorer-reverb/moorer-1.png        # PLACEHOLDER hero image
+  hero:   # PLACEHOLDER hero images
+    - /docs/assets/images/projects/moorer-reverb/moorer-1.png
+    - /docs/assets/images/projects/toi/toi-1.png
+    - /docs/assets/images/projects/wally/wally-on-5.jpg
+    - /docs/assets/images/projects/wally/wally-on-2.jpg
   accent: "#7c4f9b"

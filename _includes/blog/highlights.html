@@ -1,20 +1,39 @@
 {%- comment -%}
-Band of this department's four newest posts tagged Highlight, for a landing.
-Renders nothing when there are none. Ends with a link to the Blog tab, labelled with
-that tab's own title.
+Band of four posts for a department landing: its posts tagged Highlight,
+newest first, then its newest other posts to fill any remaining places.
+Posts from other departments that list this one under `also_in` count as
+this department's. Renders nothing when the department has no posts.
+
+The heading is "Highlighted Posts:" when all four are highlighted. When the
+row had to be filled out with other posts it takes the Blog tab's own title
+instead, since "highlighted" would no longer be true. Ends with a link to
+the Blog tab.
 {%- endcomment -%}
-{%- assign highlighted_posts = site.posts | where_exp: "item", "item.sections contains page.section" | where_exp: "post", "post.tags contains 'Highlight'" -%}
-{%- if highlighted_posts.size > 0 -%}
+{%- assign section_posts = site.posts | where_exp: "item", "item.sections contains page.section" -%}
+{%- assign landing_posts = section_posts | where_exp: "post", "post.tags contains 'Highlight'" -%}
+{%- assign all_highlighted = true -%}
+{%- if landing_posts.size < 4 -%}
+    {%- for candidate in section_posts -%}
+        {%- if landing_posts.size >= 4 -%}{%- break -%}{%- endif -%}
+        {%- unless candidate.tags contains 'Highlight' -%}
+            {%- assign landing_posts = landing_posts | push: candidate -%}
+            {%- assign all_highlighted = false -%}
+        {%- endunless -%}
+    {%- endfor -%}
+{%- endif -%}
+
+{%- assign blog_url = page.section | prepend: "/" | append: "/blog/" -%}
+{%- assign blog_page = site.html_pages | where: "url", blog_url | first -%}
+
+{%- if landing_posts.size > 0 -%}
 <section id="highlighted-posts-section" class="band">
-    <h2 class="section-heading">Highlighted Posts:</h2>
+    <h2 class="section-heading">{% if all_highlighted %}Highlighted Posts:{% else %}{{ blog_page.title | default: "Highlighted Posts:" }}{% endif %}</h2>
     <div class="tile-grid tile-grid-square tile-grid-row">
-        {% for post in highlighted_posts limit: 4 %}
+        {% for post in landing_posts limit: 4 %}
             {% include blog/post-card.html %}
         {% endfor %}
     </div>
 
-    {%- assign blog_url = page.section | prepend: "/" | append: "/blog/" -%}
-    {%- assign blog_page = site.html_pages | where: "url", blog_url | first -%}
     {%- if blog_page -%}
     <a class="more-link" href="{{ blog_page.url | relative_url }}">{{ blog_page.title }}</a>
     {%- endif -%}

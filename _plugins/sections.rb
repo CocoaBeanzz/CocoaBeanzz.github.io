@@ -20,6 +20,13 @@
 # the start of the file name alone, ignoring the folder, and listings sort on
 # it. Posts do not need this: Jekyll already orders them by date across
 # folders.
+#
+# Last, it tidies each department's `hero` in _data/sections.yml, which may
+# be one image path or a list (see the notes at the top of that file). After
+# this runs every department has:
+#     heroes         list of { "image" => path, "position" => crop setting }
+#     hero           the first image's path          (hub panel)
+#     hero_position  the first image's crop setting  (hub panel)
 module Jekyll
   class SectionsGenerator < Generator
     safe true
@@ -46,9 +53,31 @@ module Jekyll
       site.collections["projects"].docs.each do |doc|
         doc.data["order"] = order_key(doc)
       end
+
+      (site.data["sections"] || []).each { |section| normalize_heroes(section) }
     end
 
     private
+
+    # Accepts `hero` as a path, a list of paths, or a list mixing paths and
+    # { image:, position: } entries. Entries without their own position take
+    # the department's `hero_position`, or the middle of the image.
+    def normalize_heroes(section)
+      default_position = section["hero_position"] || "center"
+      entries = section["hero"].is_a?(Array) ? section["hero"] : [section["hero"]]
+
+      section["heroes"] = entries.compact.map do |entry|
+        if entry.is_a?(Hash)
+          { "image" => entry["image"], "position" => entry["position"] || default_position }
+        else
+          { "image" => entry, "position" => default_position }
+        end
+      end
+
+      first = section["heroes"].first
+      section["hero"] = first && first["image"]
+      section["hero_position"] = first && first["position"]
+    end
 
     # Sortable text for a project file named "(YYMM) Name.md": the number,
     # padded to four digits, then the file name so two projects from the same
