@@ -1,7 +1,8 @@
 // Behavior for the content components used in project pages and posts:
 //   - image galleries (_includes/elements/carousel.html) and their lightbox
 //   - click-to-load YouTube videos (_includes/elements/video.html)
-//   - fading portrait slideshow on About pages (_includes/about/portrait.html)
+//   - slideshows: the About portrait (_includes/about/portrait.html) and the
+//     department landing hero (_includes/landing/hero.html)
 // Loaded at the end of <body> by _includes/scripts.html. No dependencies.
 
 (function () {
@@ -141,10 +142,17 @@
   }
 
   // -------------------------------------------------------------------------
-  // Portrait slideshow: several photos stacked in one frame. Every few
-  // seconds the "is-showing" mark moves to the next one and CSS fades between
-  // them. With one photo, or for visitors who ask their system for reduced
-  // motion, the first photo simply stays.
+  // Slideshows: several images stacked in one frame, shown one at a time.
+  // Used by the About portrait (a fade) and the department landing hero (a
+  // slide). This script only moves two marks along on a timer:
+  //   is-showing   the image on screen
+  //   is-leaving   the one that was on screen just before
+  // What the change looks like is up to each frame's CSS. With one image, or
+  // for visitors who ask their system for reduced motion, the first image
+  // simply stays.
+  //
+  // The time each image stays up is data-slideshow-interval on the frame, in
+  // milliseconds, or the default below.
   // -------------------------------------------------------------------------
 
   var SLIDESHOW_INTERVAL_MS = 4500;
@@ -154,16 +162,25 @@
     var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (photos.length < 2 || prefersReducedMotion) return;
 
+    var interval = parseInt(frame.getAttribute("data-slideshow-interval"), 10) || SLIDESHOW_INTERVAL_MS;
     var current = 0;
+    var leaving = null; // index of the image still carrying is-leaving
+
     window.setInterval(function () {
       var next = (current + 1) % photos.length;
-      // Later photos are lazy-loaded. Asking for the next one now means it is
-      // ready by the time it is faded in.
+      // Later images are lazy-loaded. Asking for the next one now means it is
+      // ready by the time it comes on screen.
       photos[next].loading = "eager";
+
+      if (leaving !== null) photos[leaving].classList.remove("is-leaving");
       photos[current].classList.remove("is-showing");
+      photos[current].classList.add("is-leaving");
+      photos[next].classList.remove("is-leaving");
       photos[next].classList.add("is-showing");
+
+      leaving = current;
       current = next;
-    }, SLIDESHOW_INTERVAL_MS);
+    }, interval);
   }
 
   Array.prototype.forEach.call(document.querySelectorAll("[data-slideshow]"), initSlideshow);

@@ -139,6 +139,11 @@ defaults:
   - { scope: { path: "_projects/cocoabeanz" }, values: { section: cocoabeanz, permalink: "/cocoabeanz/projects/:name" } }
   - { scope: { path: "_posts/cocoabeanz"    }, values: { section: cocoabeanz, permalink: "/cocoabeanz/blog/:title"    } }
   - { scope: { path: "pages/cocoabeanz"     }, values: { section: cocoabeanz } }
+  # CocoaBeanz has a Releases tab beside its Showcase. Releases live in a
+  # subfolder and get their own address so that tab is the one marked
+  # current when a release is open. (A longer path here wins over the
+  # _projects/cocoabeanz line above for the values both set.)
+  - { scope: { path: "_projects/cocoabeanz/releases" }, values: { permalink: "/cocoabeanz/releases/:name" } }
   - { scope: { path: "_projects/tools" }, values: { section: tools, permalink: "/tools/projects/:name" } }
   - { scope: { path: "_posts/tools"    }, values: { section: tools, permalink: "/tools/blog/:title"    } }
   - { scope: { path: "pages/tools"     }, values: { section: tools } }

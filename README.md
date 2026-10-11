@@ -47,7 +47,7 @@ and tag pages too. It still has one page, at its home department's address.
 | the "on this page" bar           | `{% capture list_items %}` one heading per line, then `{% include elements/list.html type="toc" %}` |
 | a row of link buttons            | `<div class="link-buttons" markdown="1">` with one `[Label](url)` per line |
 | posts about a project            | `{% include blog/tagged-posts.html name="Project Name" %}`            |
-| a K Presto release               | copy a file in `_projects/kpresto/` that has `layout: release`. Front matter holds the links and video, the body is the lyrics |
+| a release                        | copy a file that has `layout: release` (`_projects/kpresto/` or `_projects/cocoabeanz/releases/`). Front matter holds the links and the `youtube:` or `soundcloud:` player, the body is the lyrics |
 | a whole project inside a post    | `{% include elements/project.html name="Project Name" %}`             |
 | a release inside a post          | `{% include elements/release.html name="Release Name" %}`             |
 | a Steam store widget             | `{% include elements/steam-widget.html id="APP_ID" %}`                |

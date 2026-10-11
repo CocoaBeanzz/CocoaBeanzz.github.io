@@ -15,7 +15,14 @@ Output is kept flush left: this is included from markdown, where indented
 HTML would be read as a code block.
 {%- endcomment -%}
 {%- if include.name -%}
-    {%- assign release = site.projects | where: "name", include.name | first -%}
+    {%- comment -%}
+    Two releases can share a name across departments (K Presto's "Fallen" and
+    the 2016 original under CocoaBeanz). Take the one from this page's own
+    department when there is one, otherwise the first match anywhere.
+    {%- endcomment -%}
+    {%- assign named_releases = site.projects | where: "name", include.name -%}
+    {%- assign release = named_releases | where: "section", page.section | first -%}
+    {%- unless release -%}{%- assign release = named_releases | first -%}{%- endunless -%}
     {%- comment -%} raw_body is the file's body as written (_plugins/embed.rb) {%- endcomment -%}
     {%- assign release_lyrics = release.raw_body | markdownify -%}
 {%- else -%}
@@ -28,6 +35,8 @@ HTML would be read as a code block.
 <div class="release-centerpiece">
 {%- if release.youtube %}
 {% include elements/video.html id=release.youtube list=release.youtube_playlist %}
+{%- elsif release.soundcloud %}
+{% include elements/soundcloud.html id=release.soundcloud %}
 {%- elsif release.image %}
 <img class="release-art" src="{{ release.image }}" alt="">
 {%- endif %}
@@ -43,13 +52,24 @@ HTML would be read as a code block.
 {%- endif -%}
 {%- comment -%} strip_html also drops HTML comments, so a release holding only its placeholder comment counts as having no lyrics {%- endcomment -%}
 {%- assign release_lyrics_text = release_lyrics | strip_html | strip -%}
-{%- if release_lyrics_text != "" %}
+{%- if release_lyrics_text != "" -%}
+{%- comment -%}
+The body is lyrics unless the release says `body: notes` in its front
+matter, in which case it is a description: no heading, and set as ordinary
+text. Either way line breaks show as typed.
+{%- endcomment -%}
+{%- if release.body == "notes" %}
+<section class="release-notes">
+{{ release_lyrics }}
+</section>
+{%- else %}
 <section class="release-lyrics">
 <h2 class="section-heading">Lyrics</h2>
 <div class="lyrics">
 {{ release_lyrics }}
 </div>
 </section>
+{%- endif %}
 {%- endif %}
 </div>
 {%- else -%}

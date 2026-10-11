@@ -5,8 +5,18 @@ department landing.
 Featured means tagged Highlight. A department with no highlighted projects
 features all of them, so a small catalog (Tools) still fills its landing.
 
+Under the rows, the department's other projects follow as a grid of tiles,
+newest first, up to eight. That includes projects from other departments
+that list this one under `also_in`, whether or not they are tagged
+Highlight, so a department that mostly borrows its projects (CocoaBeanz)
+still shows them on its landing.
+
 Ends with a link to the department's full project listing, labelled with
 that tab's own title (Portfolio, Showcase, Products).
+
+A department with a separate Releases tab (a page at /<department>/releases/)
+keeps releases out of that grid, so they do not crowd the projects out, and
+shows its four newest releases in a row of their own with a link to the tab.
 {%- endcomment -%}
 {%- assign section_projects = site.projects | where_exp: "item", "item.sections contains page.section" -%}
 {%- assign featured_projects = section_projects | where_exp: "project", "project.tags contains 'Highlight'" -%}
@@ -40,11 +50,49 @@ that tab's own title (Portfolio, Showcase, Products).
     </a>
     {% endfor %}
 
+    {%- comment -%}
+    The rest: listed projects that were not featured above. Liquid has no
+    "not in this list" filter, so each project's address is checked against
+    the featured ones' addresses joined into one string.
+    {%- endcomment -%}
+    {%- assign featured_urls = featured_projects | map: "url" | join: "|" | append: "|" -%}
+    {%- assign other_projects = "" | split: "" -%}
+    {%- assign newest_releases = "" | split: "" -%}
+    {%- assign releases_url = page.section | prepend: "/" | append: "/releases/" -%}
+    {%- assign releases_page = site.html_pages | where: "url", releases_url | first -%}
+    {%- assign ordered_projects = section_projects | sort: "order" -%}
+    {%- for candidate in ordered_projects reversed -%}
+        {%- assign candidate_url = candidate.url | append: "|" -%}
+        {%- unless candidate.unlisted or featured_urls contains candidate_url -%}
+            {%- if releases_page and candidate.layout == "release" -%}
+                {%- assign newest_releases = newest_releases | push: candidate -%}
+            {%- else -%}
+                {%- assign other_projects = other_projects | push: candidate -%}
+            {%- endif -%}
+        {%- endunless -%}
+    {%- endfor -%}
+    {%- if other_projects.size > 0 %}
+    <div class="tile-grid feature-others">
+        {% for project in other_projects limit: 8 %}
+            {% include projects/project-card.html %}
+        {% endfor %}
+    </div>
+    {%- endif %}
+
     {%- comment -%} The project listing tab is the page at /<department>/projects/ {%- endcomment -%}
     {%- assign listing_url = page.section | prepend: "/" | append: "/projects/" -%}
     {%- assign listing_page = site.html_pages | where: "url", listing_url | first -%}
     {%- if listing_page -%}
     <a class="more-link" href="{{ listing_page.url | relative_url }}">{{ listing_page.title }}</a>
     {%- endif -%}
+
+    {%- if newest_releases.size > 0 %}
+    <div class="tile-grid tile-grid-square tile-grid-row feature-others">
+        {% for project in newest_releases limit: 4 %}
+            {% include projects/project-card.html %}
+        {% endfor %}
+    </div>
+    <a class="more-link" href="{{ releases_page.url | relative_url }}">{{ releases_page.title }}</a>
+    {%- endif %}
 </section>
 {%- endif -%}

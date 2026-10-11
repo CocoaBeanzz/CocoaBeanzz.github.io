@@ -16,6 +16,18 @@
   margin-bottom: 3rem;
 }
 
+// Holds the hero image, or several stacked for the slideshow. A box of its
+// own so sliding images are clipped at the hero's edges while the intro
+// block is still free to hang below it.
+.hero-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .hero-image {
   position: absolute;
   top: 0;
@@ -23,6 +35,26 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+// Slideshow (several hero images). Each image is in one of three places:
+// waiting off the right edge, showing, or gone off the left edge.
+// assets/js/site.js moves the "is-showing" and "is-leaving" marks along.
+// Only the showing and leaving states animate. A waiting image has no
+// transition, so one that has left jumps back to the right unseen instead of
+// sweeping across the screen.
+.hero-slides .hero-image {
+  transform: translateX(100%);
+
+  &.is-showing {
+    transform: none;
+    transition: transform 900ms ease;
+  }
+
+  &.is-leaving {
+    transform: translateX(-100%);
+    transition: transform 900ms ease;
+  }
 }
 
 // Solid backing rather than a tint over the whole photo, so the image keeps
@@ -182,6 +214,11 @@
       order: 0;
     }
   }
+}
+
+// The department's other projects, as tiles under the feature rows.
+.feature-others {
+  margin-top: var(--band-gap);
 }
 
 // ---------------------------------------------------------------------------

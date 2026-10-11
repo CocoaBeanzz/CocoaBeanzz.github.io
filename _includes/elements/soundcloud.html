@@ -1,0 +1,14 @@
+{%- comment -%}
+SoundCloud player for one track or one set (album, EP, playlist).
+
+    {% include elements/soundcloud.html id="tracks/1532809405" %}
+    {% include elements/soundcloud.html id="playlists/1343142538" %}
+
+`id` is the kind and number SoundCloud uses in its own embed code: in the
+"Embed" box of a track or set's Share dialog it is the part after
+api.soundcloud.com/ . The player is SoundCloud's artwork style, shown
+square so the cover art is not cropped. A set lists its tracks over the
+lower part of the art. The player takes the department's accent color.
+{%- endcomment -%}
+{%- assign soundcloud_color = section.accent | default: "#7c4f9b" | remove: "#" -%}
+<iframe class="soundcloud-embed" title="SoundCloud" loading="lazy" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/{{ include.id }}&color=%23{{ soundcloud_color }}&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>

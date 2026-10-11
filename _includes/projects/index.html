@@ -9,14 +9,24 @@ listing. It keeps its page and can still be featured on the landing.
 
 A listing page with `square_tiles: true` in its front matter crops tile
 images square (for album artwork) instead of wide.
+
+A listing page can narrow what it shows with `listing:` in its front matter,
+for a department that splits its projects over two tabs:
+    listing: releases   only pages with `layout: release`
+    listing: projects   everything except those
+Left out, it shows both.
 {%- endcomment -%}
 {%- assign section_projects = site.projects | where_exp: "item", "item.sections contains page.section" -%}
-{%- comment -%} Liquid's where cannot test "is not true", so rebuild the list without unlisted projects {%- endcomment -%}
+{%- comment -%} Liquid's where cannot test "is not", so rebuild the list by hand: drop unlisted projects and apply the page's `listing` choice {%- endcomment -%}
 {%- assign listed_projects = "" | split: "" -%}
 {%- for candidate in section_projects -%}
-    {%- unless candidate.unlisted -%}
+    {%- assign keep = true -%}
+    {%- if candidate.unlisted -%}{%- assign keep = false -%}{%- endif -%}
+    {%- if page.listing == "releases" and candidate.layout != "release" -%}{%- assign keep = false -%}{%- endif -%}
+    {%- if page.listing == "projects" and candidate.layout == "release" -%}{%- assign keep = false -%}{%- endif -%}
+    {%- if keep -%}
         {%- assign listed_projects = listed_projects | push: candidate -%}
-    {%- endunless -%}
+    {%- endif -%}
 {%- endfor -%}
 {%- comment -%} Oldest to newest by file-name date, whatever folder each came from (_plugins/sections.rb). The grid below walks it in reverse. {%- endcomment -%}
 {%- assign section_projects = listed_projects | sort: "order" -%}
