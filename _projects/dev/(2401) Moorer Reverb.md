@@ -91,8 +91,8 @@ This also proves highly effective in stereo channel decorrelation (more on this 
 <div class="row">
 <img src="/docs/assets/images/projects/moorer-reverb/moorer-eq-1.png" alt="Equation 1">
 </div>
-    Eq. 1: Moorer Reverb transfer function for N delay taps
-
+Eq. 1: Moorer Reverb transfer function for N delay taps
+{: .figure-caption}
 </div>
 </div>
 
@@ -127,13 +127,15 @@ Fig. 3: Lowpass comb (delay) with lowpass feedback insert
 <div class="row">
 <img src="/docs/assets/images/projects/moorer-reverb/moorer-eq-2.png" alt="Equation 2">
 </div>
-    Eq. 2: Lowpass filter transfer function
+Eq. 2: Lowpass filter transfer function
+{: .figure-caption}
 </div>
 <div class="col" markdown="1">
 <div class="row">
 <img src="/docs/assets/images/projects/moorer-reverb/moorer-eq-3.png" alt="Equation 3">
 </div>
-    Eq. 3: Lowpass comb transfer function
+Eq. 3: Lowpass comb transfer function
+{: .figure-caption}
 </div>
 
 </div>
@@ -157,8 +159,8 @@ The mix coefficients *a* and *-a* between the two *m*-delayed paths are inverted
 <div class="row">
 <img src="/docs/assets/images/projects/moorer-reverb/moorer-eq-4.png" alt="Equation 4">
 </div>
-    Eq. 4: Allpass filter transfer function
-
+Eq. 4: Allpass filter transfer function
+{: .figure-caption}
 </div>
 </div>
 
