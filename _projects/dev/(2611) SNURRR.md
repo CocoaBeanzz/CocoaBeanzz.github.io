@@ -4,12 +4,12 @@ heading: SNURRR
 role: Developer (Solo)
 tools: [C++, iPlug2, DSP, VST3]
 tags: [Audio, Instrument, Tool]
-image: /docs/assets/images/projects/snurrr/SNURRR_Main.png
+image: /docs/assets/images/projects/SNURRR/SNURRR_Main.png
 description: Percussion instrument that can reimagine the spectral profile of anything.
 ---
 
 <div class="project-header" markdown="1">
-<img src="/docs/assets/images/projects/snurrr/SNURRR_Main.png" width="100%" alt="SNURRR main interface">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_Main.png" width="100%" alt="SNURRR main interface">
 SNURRR is a drum and percussion sound design instrument built around a simple idea. Freeze the tone of a sound, then rebuild the hit around it. A sample can become a sustained spectral texture, a playable additive voice, one layer in a hybrid drum, or the starting point for something unrecognisable.
 </div>
 
@@ -30,7 +30,7 @@ SNURRR runs as VST3, VST2, CLAP, AAX and AU, with a standalone version for sound
 
 The core workflow is to separate a drum's transient from its tone, then take control of both. Keep the original attack in one sampler, turn the tail into a playable texture in the other, and add a synthesised body underneath. The same process works for tonal one-shots, risers and abstract textures.
 
-<img src="/docs/assets/images/projects/snurrr/SNURRR_Main_2.png" alt="SNURRR sampler page with two samplers, Body and the processing chain">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_Main_2.png" alt="SNURRR sampler page with two samplers, Body and the processing chain">
 
 ## SMURRR
 
@@ -40,10 +40,10 @@ Selection is part of the sound design. A slice around the transient tends to pro
 
 <div class="row">
 <div class="col" style="width:58%;" markdown="1">
-<img src="/docs/assets/images/projects/snurrr/SNURRR_SMURRR.png" alt="SMURRR spectral processor with waveform and time selection">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_SMURRR.png" alt="SMURRR spectral processor with waveform and time selection">
 </div>
 <div class="col" markdown="1">
-<img src="/docs/assets/images/projects/snurrr/SNURRR_SMURRR_2.png" alt="SMURRR spectrogram with transient and low-frequency detail">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_SMURRR_2.png" alt="SMURRR spectrogram with transient and low-frequency detail">
 </div>
 </div>
 
@@ -59,7 +59,7 @@ Each of the two independent samplers can play an untouched recording, a SMURRR t
 
 **Noise** provides five synthesised sources, from saturated sample-and-hold noise to filtered, metallic, granular and resonant noise. These engines can supply everything from a transient layer to a complete synthetic hat or percussion sound.
 
-<img src="/docs/assets/images/projects/snurrr/SNURRR_Additive.png" alt="Additive engine with its partials display">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_Additive.png" alt="Additive engine with its partials display">
 
 ## The Body
 
@@ -69,7 +69,7 @@ The Body is an independent synthesiser for the weight and impact beneath the upp
 - **Modal** models a drum head using ten resonant modes and a separate four-mode shell. Its modes respond differently to damping, while variation can introduce small per-hit changes in pitch and decay.
 - **Swept** recreates the pitched drop of a classic analogue drum machine oscillator, with selectable waveforms, glide, detuning and drive.
 
-<img src="/docs/assets/images/projects/snurrr/SNURRR_Body.png" alt="SNURRR Body synthesiser with its three sound engines">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_Body.png" alt="SNURRR Body synthesiser with its three sound engines">
 
 ## Processing and routing
 
@@ -79,7 +79,7 @@ The distortion engines include smooth saturation, hard clipping, polynomial clip
 
 The six effects can be reordered freely. They cover transient control, resonant filtering, phase dispersion, clipping, multiband compression and a three-engine reverb that blends room, plate and convolution. The full chain is designed to move from subtle cleanup to heavily reshaped, synthetic percussion.
 
-<img src="/docs/assets/images/projects/snurrr/SNURRR_FX.png" alt="SNURRR Drive modules, six-stage effects chain, master EQ and output section">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_FX.png" alt="SNURRR Drive modules, six-stage effects chain, master EQ and output section">
 
 ## Visualization and batch work
 
@@ -87,7 +87,7 @@ SNURRR's graphs are part of the instrument, not just meters. Waveforms and spect
 
 Batch mode turns a folder of recordings into a set of selectable sources. The spectral display stacks one curve per file, SMURRR processes the group together, and each sampler can select its own track. This makes it practical to explore variations across a collection of kicks, snares or found sounds without repeating the same setup for every file.
 
-<img src="/docs/assets/images/projects/snurrr/SNURRR_Batch.png" alt="Batch spectral processing with stacked curves for multiple source files">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_Batch.png" alt="Batch spectral processing with stacked curves for multiple source files">
 
 ## Under the hood
 
