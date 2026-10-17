@@ -1,0 +1,931 @@
+// Product pages (_layouts/product.html): a tool shown off rather than written
+// up. Everything is under .kp so nothing leaks into the rest of the site.
+//
+// The site's own rules hold (dark canvas, sharp corners, a hairline before a
+// box), with three things a product page adds, each from the product itself:
+//   1. The product's palette, not the department accent: the app's own
+//      default skin (Kouncil.kskin), so the page and the screenshots on it
+//      are one thing. Gold is the action, the characters' colors are theirs.
+//   2. The characters carry the copy. Every feature is said by one of them
+//      in a speech bubble (the app's one rounded shape) in their typeface,
+//      and the reader picks which one (the voice switch).
+//   3. Real output as the imagery: screenshots, charts and skins rendered
+//      by the app, never mock-ups. Motion only moves those pictures into
+//      place; nothing loops for its own sake but the skin carousel.
+
+@font-face {
+  font-family: "Kouncil Speech";
+  src: url("/docs/assets/fonts/KHand-Regular.ttf");
+  font-display: swap;
+}
+
+.kp {
+  // The Kouncil skin.
+  --kp-bg: #0e0e0e;
+  --kp-panel: #1c1c1e;
+  --kp-line: #424242;
+  --kp-text: #f2f2f2;
+  --kp-muted: #b3a6cc;
+  --kp-gold: #f1ca87;           // accent: the action, the logo
+  --kp-violet: #a988df;
+  --kp-teal: #3fcfc0;
+  // The characters' colors, in the app's order.
+  --kp-listener: #e39c62;
+  --kp-casual: #f1ca87;
+  --kp-engineer: #5fc27a;
+  --kp-robot: #a988df;
+  --kp-speech: "Kouncil Speech", "Comic Sans MS", cursive;
+  --kp-ease: cubic-bezier(.2, .7, .2, 1);
+
+  color: var(--kp-text);
+
+  h1, h2 { color: #fff; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.1; margin: 0 0 1.25rem; }
+  img { max-width: 100%; height: auto; }
+}
+
+// A block that spans the window, out of the page's centered column.
+.kp-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.kp-kicker {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kp-gold);
+}
+
+.kp-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+
+.kp-button {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  background: var(--kp-gold);
+  color: #141414;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 160ms var(--kp-ease), box-shadow 160ms var(--kp-ease);
+
+  &:hover {
+    color: #141414;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px var(--kp-gold);
+  }
+
+  &.kp-ghost {
+    background: transparent;
+    color: var(--kp-text);
+    box-shadow: inset 0 0 0 1px var(--kp-line);
+
+    &:hover { color: #fff; box-shadow: inset 0 0 0 1px var(--kp-gold); }
+  }
+}
+
+// ── Hero ────────────────────────────────────────────────────────────────
+
+.kp-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(3rem, 8vw, 7rem) 0 0;
+  background: var(--kp-bg);
+
+  // Three slow lights in the skin's gold, violet and teal behind the
+  // screenshot: the product's palette, lit.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% 10%;
+    z-index: -1;
+    background:
+      radial-gradient(40% 50% at 20% 30%, rgba(241, 202, 135, 0.22), transparent 70%),
+      radial-gradient(35% 45% at 80% 20%, rgba(169, 136, 223, 0.25), transparent 70%),
+      radial-gradient(45% 40% at 60% 80%, rgba(63, 207, 192, 0.18), transparent 70%);
+    filter: blur(20px);
+    animation: kp-drift 18s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes kp-drift {
+  to { transform: translate3d(3%, 4%, 0) scale(1.08); }
+}
+
+.kp-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: calc(min(100% - 2 * var(--gutter), var(--page-max)));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kp-logo {
+  width: clamp(180px, 22vw, 280px);
+  aspect-ratio: 900 / 475;
+  margin: 0 auto 1.25rem;
+  background: linear-gradient(100deg, var(--kp-gold), #fff2d6 45%, var(--kp-gold));
+  background-size: 200% 100%;
+  -webkit-mask: var(--logo) center / contain no-repeat;
+          mask: var(--logo) center / contain no-repeat;
+  animation: kp-shine 6s var(--kp-ease) infinite;
+}
+
+@keyframes kp-shine {
+  0%, 60% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.kp-eyebrow { color: var(--kp-muted); letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+
+.kp-title {
+  font-size: clamp(2.4rem, 6.4vw, 5.4rem);
+  line-height: 1.02;
+  margin: 0;
+
+  span {
+    background: linear-gradient(90deg, var(--kp-gold), var(--kp-violet) 55%, var(--kp-teal));
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+  }
+}
+
+.kp-lede {
+  max-width: 44rem;
+  margin: 1.5rem auto 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.kp-hero .kp-actions { justify-content: center; }
+
+// The screenshot leans back like a screen on a desk and stands up as the
+// page scrolls (--kp-lift, 0 to 1, set by product.js).
+.kp-hero-stage {
+  position: relative;
+  width: min(1180px, 92vw);
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
+  perspective: 1600px;
+}
+
+.kp-hero-shot {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--kp-line);
+  box-shadow: 0 40px 120px -30px rgba(169, 136, 223, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transform-origin: 50% 100%;
+  transform: rotateX(calc((1 - var(--kp-lift, 0)) * 24deg)) scale(calc(0.94 + var(--kp-lift, 0) * 0.06));
+  transition: transform 80ms linear;
+}
+
+// Two of the characters lean in from behind the screen's edges.
+.kp-hero-peek {
+  position: absolute;
+  z-index: 3;
+  width: clamp(80px, 10vw, 150px);
+  bottom: -2%;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.6));
+  transition: transform 600ms var(--kp-ease);
+}
+.kp-peek-1 { left: -9%; transform: translateX(calc((1 - var(--kp-lift, 0)) * -40%)) rotate(-4deg); }
+.kp-peek-2 { right: -9%; transform: translateX(calc((1 - var(--kp-lift, 0)) * 40%)) rotate(4deg); }
+
+// ── Numbers ─────────────────────────────────────────────────────────────
+
+.kp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: clamp(3rem, 7vw, 6rem) 0 var(--band-gap);
+  border-top: 1px solid var(--kp-line);
+  border-bottom: 1px solid var(--kp-line);
+}
+
+.kp-stat {
+  padding: 2rem 1.5rem;
+
+  & + & { border-left: 1px solid var(--kp-line); }
+
+  b {
+    display: block;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    color: var(--kp-gold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  span { display: block; margin-top: 0.6rem; color: var(--kp-muted); font-size: 0.95rem; line-height: 1.4; }
+}
+
+// ── Voice switch ────────────────────────────────────────────────────────
+// Sticky under the navbar: which character speaks every bubble below.
+
+.kp-voices {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin: 0 auto var(--band-gap);
+  padding: 0.6rem 0.9rem;
+  width: fit-content;
+  max-width: 100%;
+  background: rgba(14, 14, 14, 0.82);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 0 1px var(--kp-line);
+}
+
+.kp-voices-label { color: var(--kp-muted); font-size: 0.9rem; }
+
+.kp-voices-options { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.kp-voices button {
+  --who: var(--kp-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+  border: 0;
+  background: transparent;
+  color: var(--kp-muted);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 200ms var(--kp-ease), color 200ms var(--kp-ease);
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    object-position: top;
+    background: var(--kp-panel);
+    filter: grayscale(1) brightness(0.8);
+    transition: filter 200ms var(--kp-ease), transform 200ms var(--kp-ease);
+  }
+
+  &:hover { color: #fff; img { filter: none; } }
+
+  &[aria-pressed="true"] {
+    color: #141414;
+    background: var(--who);
+    img { filter: none; transform: scale(1.12) rotate(-4deg); }
+  }
+
+  &[data-voice="listener"] { --who: var(--kp-listener); }
+  &[data-voice="casual"]   { --who: var(--kp-casual); }
+  &[data-voice="engineer"] { --who: var(--kp-engineer); }
+  &[data-voice="robot"]    { --who: var(--kp-robot); }
+}
+
+// ── A character's bubble ────────────────────────────────────────────────
+
+.kp-says {
+  --who: var(--kp-gold);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  animation: kp-pop 420ms var(--kp-ease) both;
+}
+.kp-listener { --who: var(--kp-listener); }
+.kp-casual   { --who: var(--kp-casual); }
+.kp-engineer { --who: var(--kp-engineer); }
+.kp-robot    { --who: var(--kp-robot); }
+
+// Only the chosen voice speaks (the page's data-voice, set by the switch).
+// A bubble marked .kp-says-always speaks whoever is chosen.
+.kp[data-voice="listener"] .kp-says:not([data-voice="listener"]):not(.kp-says-always),
+.kp[data-voice="casual"]   .kp-says:not([data-voice="casual"]):not(.kp-says-always),
+.kp[data-voice="engineer"] .kp-says:not([data-voice="engineer"]):not(.kp-says-always),
+.kp[data-voice="robot"]    .kp-says:not([data-voice="robot"]):not(.kp-says-always) {
+  display: none;
+}
+
+@keyframes kp-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+}
+
+.kp-says-face {
+  flex: none;
+  width: 3.75rem;
+  height: 3.75rem;
+  object-fit: cover;
+  object-position: top;
+  background: var(--kp-panel);
+  box-shadow: inset 0 0 0 1px var(--who);
+}
+
+.kp-says-bubble {
+  position: relative;
+  flex: 1;
+  margin: 0.4rem 0 0;
+  padding: 1.1rem 1.25rem 1rem;
+  border: 1px solid var(--who);
+  border-radius: 18px;     // the app's speech bubble, the one rounded thing on the page
+  background: var(--kp-panel);
+  font-family: var(--kp-speech);
+  font-size: 1.3rem;
+  line-height: 1.45;
+
+  // The tail, towards the face.
+  &::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 1.3rem;
+    width: 14px;
+    height: 14px;
+    background: var(--kp-panel);
+    border-left: 1px solid var(--who);
+    border-bottom: 1px solid var(--who);
+    transform: rotate(45deg);
+  }
+}
+
+.kp-says-name {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 100%;
+  margin-bottom: 0.2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--who);
+}
+
+// ── Features ────────────────────────────────────────────────────────────
+
+.kp-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  margin-bottom: var(--band-gap);
+
+  &.kp-flip {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    .kp-feature-copy { order: 2; }
+  }
+}
+
+.kp-feature-media {
+  margin: 0;
+  perspective: 1400px;
+
+  // Capped in height: a portrait screenshot (the Overview's column) would
+  // otherwise fill the whole window.
+  img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: min(80vh, 720px);
+    margin: 0 auto;
+    border: 1px solid var(--kp-line);
+    box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+  }
+}
+
+// Leans towards the pointer (product.js sets --rx / --ry).
+.kp-tilt img {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 300ms var(--kp-ease), box-shadow 300ms var(--kp-ease);
+}
+.kp-tilt:hover img { box-shadow: 0 40px 90px -30px rgba(241, 202, 135, 0.35); }
+
+// ── The cast ────────────────────────────────────────────────────────────
+
+.kp-cast {
+  position: relative;
+  padding: var(--band-gap) 0;
+  margin-bottom: var(--band-gap);
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(169, 136, 223, 0.16), transparent 70%),
+    var(--kp-bg);
+  border-top: 1px solid var(--kp-line);
+  border-bottom: 1px solid var(--kp-line);
+  overflow: hidden;
+}
+
+.kp-cast-inner {
+  width: calc(min(100% - 2 * var(--gutter), var(--page-max)));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kp-cast-lede { max-width: 40rem; margin: 0 auto; color: var(--kp-muted); }
+
+.kp-cast-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 3rem;
+}
+
+.kp-member {
+  margin: 0;      // --who comes from the figure's kp-<voice> class
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--who);
+  }
+  b { font-size: 1.15rem; color: #fff; }
+  span { color: var(--who); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; }
+  q { margin-top: 0.6rem; font-family: var(--kp-speech); font-size: 1.25rem; color: var(--kp-text); quotes: none; }  // the hand font has no curly quotes
+}
+
+// Hover: the critical face gives way to the pleased one, and the figure
+// steps forward in its own light.
+.kp-member-art {
+  position: relative;
+  aspect-ratio: 420 / 740;
+  background: radial-gradient(50% 40% at 50% 70%, color-mix(in srgb, var(--who) 30%, transparent), transparent 75%);
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+    transition: opacity 250ms var(--kp-ease), transform 350ms var(--kp-ease);
+  }
+}
+.kp-member-happy { opacity: 0; }
+.kp-member:hover {
+  .kp-member-calm { opacity: 0; }
+  .kp-member-happy { opacity: 1; }
+  img { transform: translateY(-10px) scale(1.04); }
+}
+
+.kp-cast-scene {
+  display: block;
+  width: min(1100px, 92vw);
+  margin: 4rem auto 0;
+  border: 1px solid var(--kp-line);
+  box-shadow: 0 40px 120px -40px rgba(241, 202, 135, 0.3);
+}
+
+// ── Charts ──────────────────────────────────────────────────────────────
+
+.kp-section-head {
+  max-width: 46rem;
+  margin-bottom: 2.5rem;
+
+  p:not(.kp-kicker) { color: var(--kp-muted); }
+}
+
+.kp-charts { margin-bottom: var(--band-gap); }
+
+// A wall of the app's own charts, packed in columns.
+.kp-chart-wall {
+  columns: 4 260px;
+  column-gap: 1rem;
+}
+
+.kp-chart {
+  position: relative;
+  margin: 0 0 1rem;
+  break-inside: avoid;
+  overflow: hidden;
+  border: 1px solid var(--kp-line);
+
+  img { display: block; width: 100%; transition: transform 500ms var(--kp-ease), filter 500ms var(--kp-ease); filter: saturate(0.85); }
+
+  figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.5rem 0.75rem 0.5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 250ms var(--kp-ease), transform 250ms var(--kp-ease);
+  }
+
+  &:hover {
+    img { transform: scale(1.06); filter: none; }
+    figcaption { opacity: 1; transform: none; }
+  }
+}
+
+// ── Skins ───────────────────────────────────────────────────────────────
+
+.kp-skins { margin-bottom: var(--band-gap); }
+
+// The section is full-bleed, so its heading is put back on the page column
+// (the line length cap moves to the heading's children).
+.kp-skins .kp-section-head {
+  max-width: none;
+  width: calc(min(100% - 2 * var(--gutter), var(--page-max)));
+  margin-left: auto;
+  margin-right: auto;
+
+  > * { max-width: 46rem; }
+}
+
+// The skins slide by, endlessly: the set is in the page twice, and the
+// track moves exactly one set's width before it starts again.
+.kp-marquee {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.kp-marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: kp-slide 60s linear infinite;
+}
+.kp-marquee:hover .kp-marquee-track { animation-play-state: paused; }
+
+@keyframes kp-slide {
+  to { transform: translateX(calc(-50% - 0.75rem)); }
+}
+
+.kp-skin {
+  margin: 0;
+  width: clamp(320px, 40vw, 620px);
+
+  img { display: block; width: 100%; border: 1px solid var(--kp-line); }
+  figcaption { margin-top: 0.6rem; color: var(--kp-muted); font-size: 0.9rem; }
+}
+
+// ── Under the hood ──────────────────────────────────────────────────────
+
+.kp-hood { margin-bottom: var(--band-gap); }
+
+.kp-hood-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--kp-line);
+
+  > div {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+    border-bottom: 1px solid var(--kp-line);
+  }
+
+  dt { color: #fff; font-weight: 600; margin-bottom: 0.4rem; }
+  dt::before { content: "\2192\00a0"; color: var(--kp-gold); }
+  dd { margin: 0; color: var(--kp-muted); line-height: 1.55; }
+  code { color: var(--kp-teal); background: none; padding: 0; }
+}
+
+// ── Tech specs ──────────────────────────────────────────────────────────
+// A spec sheet is read by scanning: label and value on one line, a hairline
+// between rows, groups two abreast. No boxes; the group heading is the only
+// emphasis.
+
+.kp-specs { margin-bottom: var(--band-gap); }
+
+.kp-spec-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 3rem;
+}
+
+.kp-spec-group {
+  h3 {
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--kp-muted);
+  }
+
+  dl { margin: 0; border-top: 1px solid var(--kp-line); }
+
+  dl > div {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--kp-line);
+  }
+
+  dt { color: #fff; font-weight: 600; }
+  dd { margin: 0; color: var(--kp-muted); line-height: 1.5; }
+}
+
+// ── Get it ──────────────────────────────────────────────────────────────
+
+.kp-get {
+  position: relative;
+  overflow: hidden;
+  padding: var(--band-gap) 0;
+  background:
+    radial-gradient(50% 70% at 50% 100%, rgba(241, 202, 135, 0.2), transparent 70%),
+    var(--kp-bg);
+  border-top: 1px solid var(--kp-line);
+  margin-bottom: calc(-1 * var(--band-gap));     // meets the footer
+}
+
+.kp-get-inner {
+  width: calc(min(100% - 2 * var(--gutter), 46rem));
+  margin: 0 auto;
+  text-align: center;
+
+  h2 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
+  p { color: var(--kp-muted); font-size: 1.1rem; }
+  .kp-actions { justify-content: center; }
+  .kp-says { text-align: left; margin-top: 3.5rem; }
+}
+
+// ── Coming into view ────────────────────────────────────────────────────
+// product.js marks what has been scrolled to; without it, nothing is hidden.
+
+.kp-js .kp-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms var(--kp-ease), transform 700ms var(--kp-ease);
+
+  &.is-in { opacity: 1; transform: none; }
+}
+
+// ── Narrow screens ──────────────────────────────────────────────────────
+
+@media (max-width: 900px) {
+  .kp-feature, .kp-feature.kp-flip { grid-template-columns: minmax(0, 1fr); }
+  .kp-feature.kp-flip .kp-feature-copy { order: 0; }
+  .kp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kp-stat:nth-child(3) { border-left: 0; }
+  .kp-stat:nth-child(n + 3) { border-top: 1px solid var(--kp-line); }
+  .kp-cast-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kp-hood-list { grid-template-columns: minmax(0, 1fr); }
+  .kp-spec-groups { grid-template-columns: minmax(0, 1fr); }
+  .kp-hero-peek { display: none; }
+}
+
+@media (max-width: 560px) {
+  .kp-spec-group dl > div { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+  .kp-voices-label { width: 100%; text-align: center; }
+  .kp-voices button span { display: none; }
+  .kp-says-bubble { font-size: 1.15rem; }
+  // One column of sixteen charts was the longest scroll on the page.
+  .kp-chart-wall { columns: 2; column-gap: 0.5rem; }
+  .kp-chart { margin-bottom: 0.5rem; }
+}
+
+// Movement only where it says something; none at all for those who ask.
+@media (prefers-reduced-motion: reduce) {
+  .kp-hero::before, .kp-logo, .kp-marquee-track, .kp-says { animation: none; }
+  .kp-hero-shot { transform: none; }
+  .kp-js .kp-reveal { opacity: 1; transform: none; transition: none; }
+  .kp-marquee { overflow-x: auto; }
+}
+
+// ── Made by a human ─────────────────────────────────────────────────────
+// The person behind the tool, beside the promise that nothing else is in it.
+// Hand-drawn marks (the strike-through, the arrow, the signature) are drawn
+// in the characters' handwriting, so the section reads as written, not made.
+
+.kp-human {
+  position: relative;
+  overflow: hidden;
+  padding: var(--band-gap) 0;
+  margin-bottom: var(--band-gap);
+  background:
+    radial-gradient(45% 60% at 22% 55%, rgba(241, 202, 135, 0.16), transparent 70%),
+    radial-gradient(40% 50% at 90% 10%, rgba(227, 156, 98, 0.10), transparent 70%),
+    var(--kp-bg);
+  border-top: 1px solid var(--kp-line);
+  border-bottom: 1px solid var(--kp-line);
+}
+
+.kp-human-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  width: calc(min(100% - 2 * var(--gutter), var(--page-max)));
+  margin: 0 auto;
+}
+
+// The photo leans a little, like a print pinned to the wall, with a gold
+// frame set off behind it; it straightens when pointed at.
+.kp-human-photo {
+  position: relative;
+  margin: 0;
+  transform: rotate(-2deg);
+  transition: transform 500ms var(--kp-ease);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(14px, 14px);
+    box-shadow: inset 0 0 0 1px var(--kp-gold);
+  }
+
+  img {
+    position: relative;
+    display: block;
+    width: 100%;
+    box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  &:hover { transform: rotate(0deg) scale(1.01); }
+}
+
+.kp-human-note {
+  position: absolute;
+  top: -1.6rem;
+  right: -1.5rem;
+  font-family: var(--kp-speech);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  color: var(--kp-gold);
+  transform: rotate(6deg);
+  white-space: nowrap;
+
+  svg {
+    position: absolute;
+    top: 100%;
+    right: 1.5rem;
+    width: 5.5rem;
+    height: auto;
+  }
+}
+
+.kp-human-copy h2 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.05;
+}
+
+// "a robot", struck out by hand as the section comes into view.
+.kp-strike {
+  position: relative;
+  color: var(--kp-muted);
+  white-space: nowrap;
+
+  svg {
+    position: absolute;
+    left: -4%;
+    top: 30%;
+    width: 108%;
+    height: 50%;
+    overflow: visible;
+  }
+}
+
+// One stroke style for every hand-drawn mark.
+.kp-strike path,
+.kp-human-note path {
+  fill: none;
+  stroke: var(--kp-gold);
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+// With product.js, the marks draw themselves once the section is in view:
+// the strike first, then the arrow.
+.kp-js .kp-human {
+  .kp-strike path, .kp-human-note path {
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 700ms var(--kp-ease);
+  }
+  .kp-strike path { transition-delay: 400ms; }
+  .kp-human-note path { transition-delay: 1100ms; }
+
+  &.is-in {
+    .kp-strike path, .kp-human-note path { stroke-dashoffset: 0; }
+  }
+}
+
+.kp-human-lede { max-width: 38rem; color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; }
+
+.kp-human-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--kp-line);
+
+  > div { padding: 1rem 0; border-bottom: 1px solid var(--kp-line); }
+  dt { color: #fff; font-weight: 600; margin-bottom: 0.25rem; }
+  dd { margin: 0; color: var(--kp-muted); line-height: 1.5; font-size: 0.95rem; }
+}
+
+.kp-human-sign {
+  margin: 2.25rem 0 0;
+  font-family: var(--kp-speech);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.5;      // the hand face rises well above a tight line box
+  color: var(--kp-gold);
+
+  span {
+    display: block;
+    margin-bottom: clamp(1.4rem, 2.6vw, 2.2rem);   // clearance for the name's tall glyphs, which scale with it
+    line-height: 1.4;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--kp-muted);
+  }
+}
+
+.kp-human .kp-says { max-width: 34rem; margin-top: 2rem; }
+
+@media (max-width: 900px) {
+  .kp-human-inner { grid-template-columns: minmax(0, 1fr); }
+  .kp-human-photo { max-width: 26rem; margin: 1.5rem auto 0; }
+  .kp-human-note { right: 0.75rem; font-size: 1.4rem; }
+}
+
+@media (max-width: 560px) {
+  .kp-human-list { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kp-js .kp-human .kp-strike path,
+  .kp-js .kp-human .kp-human-note path { stroke-dashoffset: 0; transition: none; }
+  .kp-human-photo { transform: none; }
+}
+
+// ── Pricing ─────────────────────────────────────────────────────────────
+// Two plans side by side, divided by a hairline. The paid one carries the
+// page's one filled button and a gold rule on top; Lite is the quieter one.
+
+.kp-pricing { margin-bottom: var(--band-gap); }
+
+.kp-plans {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--kp-line);
+  border-bottom: 1px solid var(--kp-line);
+}
+
+.kp-plan {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2.5rem 2.25rem 0;
+
+  & + & { padding-left: 2.5rem; border-left: 1px solid var(--kp-line); }
+
+  h3 { margin: 0; font-size: 1.4rem; font-weight: 700; color: #fff; }
+
+  ul {
+    flex: 1;
+    margin: 1.25rem 0 2rem;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    padding: 0.55rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    color: var(--kp-text);
+    line-height: 1.45;
+  }
+  .kp-button { align-self: flex-start; }
+}
+
+.kp-plan-full { box-shadow: inset 0 3px 0 var(--kp-gold); }
+
+.kp-plan-price {
+  margin: 0.5rem 0 0;
+
+  b { font-size: clamp(2.4rem, 4vw, 3.2rem); line-height: 1; color: var(--kp-gold); font-variant-numeric: tabular-nums; }
+  s { margin-right: 0.4rem; font-size: 1.3rem; color: var(--kp-muted); }
+  span { margin-left: 0.4rem; color: var(--kp-muted); font-size: 0.9rem; }
+}
+
+.kp-plan-for { margin: 0.6rem 0 0; color: var(--kp-muted); }
+
+.kp-plan-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--kp-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .kp-plans { grid-template-columns: minmax(0, 1fr); }
+  .kp-plan { padding-right: 0; }
+  .kp-plan + .kp-plan { padding-left: 0; border-left: 0; border-top: 1px solid var(--kp-line); }
+  .kp-plan-full { padding-top: 2.25rem; }
+}

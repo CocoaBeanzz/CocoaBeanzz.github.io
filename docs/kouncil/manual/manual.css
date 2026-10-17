@@ -1,0 +1,378 @@
+/*
+  The manual's stylesheet: the web page, and (the @media print part at the
+  end) the PDF printed from it.
+
+  No colour and no typeface is named here. They are custom properties from
+  skin.css, which tools/build_manual.py writes from the app's own skins and
+  font roles: --bg --panel --rule --text --muted --accent --warn, a
+  --char-<key> per character, and --head --body --data --speech. The page
+  wears one skin and the paper another; this file is the same for both.
+
+  It is meant to read as part of the app:
+    - the app's four faces in the app's roles: headings, text, numbers and
+      keys, and what a character says;
+    - one accent, for links and for the marks that say "look here". The
+      only other colours are the characters' own, on their inserts;
+    - flat and square: no shadows, no rounded panels. A block is set apart
+      by space, a tint or one rule, never by more than one of them. The one
+      rounded thing is a speech bubble, which is the app's own shape.
+
+  The layout blocks of MANUAL.md (see tools/build_manual.py) are the classes
+  under "Layout blocks". A new one is a class here and nothing anywhere else.
+*/
+
+:root {
+  --measure: 44rem;        /* the width of a column of prose */
+  --contents: 15rem;       /* the contents column beside it */
+  --gap: 2.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--bg); color: var(--text); scroll-padding-top: 1.5rem; }
+
+body {
+  margin: 0;
+  font: 400 1.0625rem/1.6 var(--body);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ── Masthead ───────────────────────────────────────────────────────────── */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  max-width: calc(var(--contents) + var(--gap) + var(--measure) + 12rem);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+
+/* The logo, tinted by the build in its skin's title colour. */
+.wordmark { width: 11rem; height: auto; }
+
+.masthead h1 {
+  margin: 0 0 0.35rem;
+  font: 400 1.5rem/1 var(--head);
+  color: var(--muted);
+}
+
+/* ── Page: contents beside the text ─────────────────────────────────────── */
+
+.page {
+  display: grid;
+  grid-template-columns: var(--contents) minmax(0, 1fr);
+  gap: var(--gap);
+  max-width: calc(var(--contents) + var(--gap) + var(--measure) + 12rem);
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+.contents {
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.contents ol { list-style: none; margin: 0; padding: 0; }
+.contents > ol > li { margin-bottom: 0.55rem; }
+.contents a { color: var(--text); text-decoration: none; }
+.contents a:hover { color: var(--accent); }
+/* A chapter's sections: smaller and muted, set in from the chapter. */
+.contents ol ol { margin: 0.2rem 0 0 1.4rem; }
+.contents ol ol a { color: var(--muted); font-size: 0.8125rem; }
+.contents ol ol li { margin-bottom: 0.1rem; }
+
+main { min-width: 0; }
+
+/* Prose keeps to the measure; a layout block may take the whole column. */
+main > * { max-width: var(--measure); }
+main > .columns, main > .cards, main > .wide, main > .gallery, main > .steps, main > .figure.full { max-width: none; }
+
+/* ── Text ───────────────────────────────────────────────────────────────── */
+
+h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.2; }
+
+h2 {
+  margin: 4.5rem 0 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1.875rem;
+}
+main > h2:first-of-type { margin-top: 1rem; }
+h3 { margin: 2.25rem 0 0.5rem; font-size: 1.25rem; }
+
+p, ul, ol { margin: 0 0 1rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin-bottom: 0.3rem; }
+strong { font-weight: 700; }
+
+a { color: var(--accent); text-underline-offset: 0.15em; }
+
+/* The chapters are divided by their headings' rules. */
+hr { display: none; }
+
+code {
+  font: 400 0.9em var(--data);
+  background: var(--panel);
+  padding: 0.08em 0.35em;
+}
+pre {
+  background: var(--panel);
+  padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+pre code { background: none; padding: 0; font-size: inherit; }
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+
+.table { overflow-x: auto; margin: 0 0 1.25rem; }
+
+table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; line-height: 1.4; }
+th {
+  text-align: left;
+  font: 400 0.75rem var(--body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 1rem 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+td { padding: 0.45rem 1rem 0.45rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+/* A table's first column names the row. */
+td:first-child { font-weight: 700; white-space: nowrap; }
+
+/* A table of keys (::: keys): the key itself, the column before the last
+   one (the first of two columns, the second of three), in the data face. */
+.keys td:nth-last-child(2) { font: 400 0.875rem var(--data); color: var(--accent); white-space: nowrap; }
+
+/* ── Layout blocks ──────────────────────────────────────────────────────── */
+
+/* ::: columns  /  ::: col  -- columns of equal width; `wide-left` and
+   `wide-right` on the columns block give one of two the larger share. */
+.columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: start;
+  margin: 0 0 1.25rem;
+}
+.columns.wide-left  { grid-auto-flow: row; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+.columns.wide-right { grid-auto-flow: row; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.col > :first-child { margin-top: 0; }
+.col > :last-child { margin-bottom: 0; }
+
+/* ::: figure  -- a picture and the words under it. `left` / `right` float
+   it in the text, `full` takes the whole column. */
+.figure { margin: 0 0 1.25rem; }
+.figure img, .col img { display: block; width: 100%; height: auto; }
+.figure p { margin: 0; }
+/* Whatever follows the picture is its caption. */
+.figure p + p, .figure img + em { display: block; margin-top: 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--muted); font-style: normal; }
+.figure.left  { float: left;  width: 45%; margin: 0.3rem var(--gap) 1rem 0; }
+.figure.right { float: right; width: 45%; margin: 0.3rem 0 1rem var(--gap); }
+h2, h3, .columns, .cards, .gallery { clear: both; }
+
+/* ::: steps  /  ::: step  -- the quick start: numbered rows, the words
+   beside the picture of what they describe. The number is a counter, so
+   steps can be added or moved without renumbering anything. */
+.steps { counter-reset: step; margin: 0 0 1.5rem; }
+.step {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 2fr) minmax(0, 3fr);
+  gap: 0 1.5rem;
+  align-items: start;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--rule);
+}
+.step::before {
+  content: counter(step);
+  font: 700 2rem/1 var(--head);
+  color: var(--accent);
+}
+.step h3 { margin-top: 0; }
+/* A picture is at most so tall: a long one (the Overview's column) would
+   otherwise make its step a page of its own. Wide ones keep their width. */
+.step img { display: block; max-width: 100%; max-height: 18rem; width: auto; height: auto; }
+.step .col > :last-child { margin-bottom: 0; }
+
+/* ::: gallery  -- figures side by side, two across: a chart beside the
+   sentence about it, for a section that names several. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem var(--gap);
+  align-items: start;
+  margin: 0 0 1.5rem;
+}
+.gallery .figure { margin: 0; }
+.gallery .figure p + p { font-size: 0.875rem; color: var(--text); }
+.gallery .figure strong { font-family: var(--head); }
+
+/* ::: note  /  ::: warning  -- a paragraph set apart: one rule in the
+   accent at its left, nothing else. */
+.note, .warning {
+  margin: 0 0 1.25rem;
+  padding: 0.1rem 0 0.1rem 1rem;
+  border-left: 2px solid var(--accent);
+}
+.note > :last-child, .warning > :last-child { margin-bottom: 0; }
+.warning { border-left-color: var(--warn); }
+
+/* ::: says <character>  -- the same point for another audience, in that
+   character's voice: their face, then the app's speech bubble (rounded,
+   outlined in their colour, a tail towards them) with their name over
+   what they say. --who is the character's colour. */
+.says {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  /* Room above for the name, which sits on top of the bubble. */
+  margin: 1.9rem 0 1.25rem;
+  --who: var(--accent);
+}
+.says.listener { --who: var(--char-listener); }
+.says.casual   { --who: var(--char-casual); }
+.says.engineer { --who: var(--char-engineer); }
+.says.robot    { --who: var(--char-robot); }
+.says .face { flex: none; width: 3.5rem; height: 3.5rem; object-fit: cover; object-position: top; }
+.said {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  /* More above and below than at the sides, as the app's bubbles: the
+     speech face sits high on its line. */
+  padding: 1.2rem 1rem 0.8rem;
+  border: 1px solid var(--who);
+  border-radius: 1rem;
+  background: var(--panel);
+  /* A size up from the text around it: a handwritten face is smaller on
+     its body than a text face, and its strokes reach further above and
+     below the line, so the lines need the room too. */
+  font: 400 1.1875rem/1.5 var(--speech);
+}
+/* The tail: a square turned on its corner, half of it behind the bubble's
+   edge, showing two sides of the outline. */
+.said::before {
+  content: '';
+  position: absolute;
+  left: -0.4rem;
+  top: 1.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--panel);
+  border-left: 1px solid var(--who);
+  border-bottom: 1px solid var(--who);
+  transform: rotate(45deg);
+}
+.said p { margin: 0 0 0.5rem; }
+.said p:last-child { margin-bottom: 0; }
+/* The name stands on the bubble, outside it. Inside, as its first line, it
+   was written over: a handwritten speech face draws well above its own
+   line, into whatever is set above it. */
+.said .who {
+  position: absolute;
+  left: 1rem;
+  bottom: 100%;
+  margin: 0 0 0.2rem;
+  font: 700 0.8125rem/1.3 var(--head);
+  color: var(--who);
+}
+.said code { background: none; padding: 0; }
+
+/* ::: cards  /  ::: card  -- a tile each for things of a kind (the four
+   characters). A tile is its content under one rule; no box. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--gap);
+  margin: 0 0 1.5rem;
+}
+.card { border-top: 1px solid var(--rule); padding-top: 1rem; }
+.card img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; margin-bottom: 0.75rem; }
+.card h4 { margin: 0; font: 700 1.125rem/1.2 var(--head); }
+.card p { margin: 0.15rem 0 0; font-size: 0.875rem; line-height: 1.4; color: var(--muted); }
+/* What the character sounds like: their own face. */
+.card p:last-child { margin-top: 0.6rem; font-family: var(--speech); font-size: 1.125rem; color: var(--text); }
+
+/* ::: wide  -- lets what is inside (a big table, a picture) past the measure. */
+.wide { margin: 0 0 1.25rem; }
+
+/* ── Narrow screens: one column, contents on top ────────────────────────── */
+
+@media (max-width: 60rem) {
+  .page { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .contents {
+    position: static;
+    max-height: none;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    columns: 2;
+    column-gap: var(--gap);
+  }
+  .contents ol ol { display: none; }          /* chapters only */
+}
+
+@media (max-width: 40rem) {
+  body { font-size: 1rem; }
+  .masthead, .page { padding-left: 1rem; padding-right: 1rem; }
+  .gallery { grid-template-columns: minmax(0, 1fr); }
+  .step { grid-template-columns: 2rem minmax(0, 1fr); }
+  .step .col + .col { grid-column: 2; margin-top: 0.75rem; }
+  .columns, .columns.wide-left, .columns.wide-right {
+    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  .figure.left, .figure.right { float: none; width: auto; margin: 0 0 1.25rem; }
+  .contents { columns: 1; }
+  h2 { font-size: 1.5rem; margin-top: 3rem; }
+  td:first-child { white-space: normal; }
+}
+
+/* ── Paper: the PDF ─────────────────────────────────────────────────────── */
+
+@page { size: A4; margin: 18mm 16mm 20mm; }
+
+@media print {
+  :root { --gap: 1.75rem; }
+  html { font-size: 10pt; }
+  body { line-height: 1.5; }
+  /* Tints and the logo's fill are backgrounds, which a browser leaves out
+     of a print unless told otherwise. */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .masthead { padding: 0 0 1rem; max-width: none; }
+  .page { display: block; max-width: none; padding: 0; }
+
+  /* The contents become the first page, in two columns. */
+  .contents {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    columns: 2;
+    column-gap: var(--gap);
+    font-size: 9pt;
+    break-after: page;
+  }
+  .contents > ol > li { break-inside: avoid; }
+  main > * { max-width: none; }
+
+  h2 { margin-top: 2.5rem; font-size: 18pt; }
+  h3 { font-size: 12pt; }
+  /* A heading stays with what it heads, and a block isn't cut in two. */
+  h2, h3, h4 { break-after: avoid; }
+  .columns, .cards, .card, .figure, .note, .warning, .says, .step, tr, pre { break-inside: avoid; }
+  .table { overflow: visible; }
+  a { color: inherit; text-decoration: none; }
+  .contents a { color: var(--text); }
+}

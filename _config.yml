@@ -164,6 +164,7 @@ legacy_redirects:
   /about/: /dev/about/
   /contact/: /dev/contact/
   /shows/: /kpresto/shows/
+  /dev/projects/2610-kouncil: /tools/projects/2610-kouncil   # moved to Tools when it became a product page
 
 
 ### Exclude from processing ###

@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+{%- comment -%}
+A product page: a tool that is sold or downloaded, shown off rather than
+written up. The page's own HTML is the whole body (no .prose column, no
+related posts), styled by _sass/_product.scss, with the little behavior it
+has in assets/js/product.js (the voice switch, counters, scroll reveals).
+
+Front matter a product page can set:
+
+    layout: product
+    name: Kouncil
+    download_url: https://...      # the Get button; without it, the page says the product is coming
+    price: "$49"                    # shown on the Get button when set
+    platforms: Windows and macOS
+{%- endcomment -%}
+{{ content }}
+<script src="{{ '/assets/js/product.js' | relative_url }}" defer></script>
