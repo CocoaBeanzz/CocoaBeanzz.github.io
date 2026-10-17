@@ -1,0 +1,42 @@
+/* Written by tools/build_manual.py from the app's skins and fonts. */
+@font-face { font-family: 'Kouncil Head'; src: url('fonts/LiberationSerif-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Head'; src: url('fonts/LiberationSerif-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Kouncil Body'; src: url('fonts/LiberationSans-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Body'; src: url('fonts/LiberationSans-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Kouncil Data'; src: url('fonts/LiberationMono-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Data'; src: url('fonts/LiberationMono-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Kouncil Speech'; src: url('fonts/KHand-Regular.ttf'); font-weight: 400; }
+:root {
+  /* Kouncil */
+  --bg: #0e0e0e;
+  --panel: #1c1c1e;
+  --rule: #424242;
+  --text: #f2f2f2;
+  --muted: #b3a6cc;
+  --accent: #f1ca87;
+  --warn: #ea8b4d;
+  --char-listener: #e39c62;
+  --char-casual: #f1ca87;
+  --char-engineer: #5fc27a;
+  --char-robot: #a988df;
+  --head: 'Kouncil Head', serif;
+  --body: 'Kouncil Body', sans-serif;
+  --data: 'Kouncil Data', monospace;
+  --speech: 'Kouncil Speech', sans-serif;
+}
+@media print {
+:root {
+  /* High Contrast Light */
+  --bg: #ffffff;
+  --panel: #efefef;
+  --rule: #8c8c8c;
+  --text: #000000;
+  --muted: #4a4a4a;
+  --accent: #0050b3;
+  --warn: #a34700;
+  --char-listener: #b0006e;
+  --char-casual: #0050b3;
+  --char-engineer: #006b4f;
+  --char-robot: #8a5a00;
+}
+}
