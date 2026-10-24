@@ -83,3 +83,29 @@ so it can run while the local server is up.
 `cloudflare/section-proxy/` is a Cloudflare Worker that serves
 `kaud.io/dev/...` at `dev.kaud.io/...` (and likewise for the others). The site
 works without it. Setup and deploy notes are at the top of its `wrangler.toml`.
+It also holds the hub's short links (`SHORT_LINKS` in `worker.js`):
+`kaud.io/kouncil` answers with a 301 to the Kouncil product page, and
+`legacy_redirects` in `_config.yml` is the stub for when the Worker isn't
+deployed.
+
+# The Kouncil product page
+
+`_projects/tools/(2610) Kouncil.html` with `layout: product`, styled by
+`_sass/_product.scss` (flat, in the app's own typefaces from
+`docs/kouncil/manual/fonts/` and `docs/assets/fonts/Coming_Soon/`) and
+`assets/js/product.js`. How the page works is in the comment at the top of
+the page file: a fixed layer behind it (the stage) plays each section's
+background cuts (`data-bg`, dimmed to `data-dim`), the reader picks which
+character speaks from the cast or the switch that floats at the bottom of the
+window, and `data-scroll` elements move with the scroll. Its front matter
+holds the prices and `beta_url`; while that is set every buy and download
+button says "Join the closed beta" and goes to `pages/tools/kouncil-beta.html`,
+the application form (`form_action`: the contact form's Formspree address).
+The Lite / Kouncil feature table is `_data/kouncil_features.yml`.
+
+The pictures are in `docs/assets/images/projects/kouncil/product/`. The
+background cuts (`bg_<section>_<n>_w` / `_t`, `.mp4` and poster `.jpg`) and
+`_data/kouncil_backdrops.yml` (how many each section has) are made by
+`web_loops.py` in `Documents/Kouncil_Marketing/tools/`. The `fb_*` screenshots
+are the FROGBONES album judged by the Industrial Metal profile, filmed with the
+app's `tools/film_tab.py` (`Kouncil_Marketing/tools/film_frogbones.sh` has the track list).

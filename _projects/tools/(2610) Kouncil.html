@@ -1,0 +1,495 @@
+---
+layout: product
+name: Kouncil
+heading: Kouncil
+role: Developer (Solo)
+tools: [Python, NumPy, SciPy, Matplotlib, Tkinter, ffmpeg]
+tags: [Audio, Analysis, Tool, Highlight]
+also_in: [dev]
+image: /docs/assets/images/projects/kouncil/product/tab_overview_playing.jpg
+description: A mastering analyzer that tells you if your master is ready, and explains why four ways, from first-time producer to audio scientist.
+platforms: Windows and macOS
+price_full: "$79"
+price_launch: "$49"             # shown with the full price struck out; remove after launch
+beta_url: /tools/kouncil-beta/  # the closed beta's application: "Join the closed beta" in the hero, the plans and the closing section; remove at launch
+# lite_url: https://...         # set these and the plan buttons download / buy
+# buy_url: https://...
+---
+{%- assign img = '/docs/assets/images/projects/kouncil/product/' | relative_url -%}
+{%- comment -%}
+How the page is put together (styles in _sass/_product.scss, behavior in
+assets/js/product.js):
+
+  The stage     One fixed layer behind the whole page plays the section's
+                cuts one after another (bg_<name>_<n>_w / _t.mp4, made by
+                Kouncil_Marketing/tools/web_loops.py, which also writes how
+                many each has to _data/kouncil_backdrops.yml). A section
+                names its set with data-bg and how far the stage is dimmed
+                behind it with data-dim (0 none, 1 black); text-heavy
+                sections dim it most. A section without data-bg keeps the
+                one before it.
+  Voices        Every bubble exists in all four voices; only the picked one
+                shows. The reader picks from the cast or from the switch that
+                floats at the bottom of the window from the cast on. The
+                hero's welcome lines are the exception: the four take turns.
+  Scroll        data-scroll elements get --p (0..1) from their place in the
+                window: the hero's screenshot leans back as it leaves, the
+                skins fan out, the chart columns drift apart.
+{%- endcomment -%}
+
+<div class="kp" data-voice="casual">
+
+<div class="kp-stage" aria-hidden="true" data-src="{{ img }}" data-cuts='{{ site.data.kouncil_backdrops | jsonify }}'>
+  <video class="kp-stage-clip" muted loop playsinline preload="none"></video>
+  <video class="kp-stage-clip" muted loop playsinline preload="none"></video>
+  <div class="kp-stage-dim"></div>
+</div>
+
+<!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+<!-- The app comes first: the whole window, playing, sized to fit the screen
+     on arrival. Above it one row set like the app's own header and kaud.io's
+     (the wordmark, a rule, two lines) with the one thing to do. Under it the
+     four characters take turns saying the app's welcome lines (the first
+     thing the app itself says), whoever the reader has picked. -->
+<section class="kp-hero kp-bleed" data-bg="hero" data-dim="0.45">
+  <div class="kp-hero-top kp-col">
+    <div class="kp-masthead">
+      <div class="kp-logo" role="img" aria-label="Kouncil" style="--logo: url('{{ img }}logo.png')"></div>
+      <h1 class="kp-title">Is your master ready?<span>Ask the Kouncil.</span></h1>
+    </div>
+    <div class="kp-actions">
+      <span class="kp-hero-meta">{{ page.platforms }}. Lite is free.</span>
+      {%- if page.beta_url %}
+      <a class="kp-button" href="{{ page.beta_url | relative_url }}">Join the closed beta</a>
+      {%- else %}
+      <a class="kp-button" href="#pricing">Start free with Kouncil Lite</a>
+      {%- endif %}
+    </div>
+  </div>
+  <div class="kp-hero-stage" data-scroll="leave">
+    <img class="kp-hero-shot" src="{{ img }}tab_overview_playing.jpg" width="1880" height="1050" alt="Kouncil's Overview while a track plays against a compare track: headline metrics, the health score, three charts, live meters and both waveforms">
+    <img class="kp-hero-peek kp-peek-1" src="{{ img }}figure_casual_a.png" alt="">
+    <img class="kp-hero-peek kp-peek-2" src="{{ img }}figure_robot_a.png" alt="">
+  </div>
+  <div class="kp-hero-row kp-col">
+    <p class="kp-lede">Loudness, tone, stereo, dynamics and real codec tests, judged against 2,499 commercial masters and explained four ways, from "it sounds a bit loud" to the BS.1770 math.</p>
+    {%- assign welcome = "listener|Taylor|Hi! Drop a song you've finished on me and I'll tell you if it's ready to put out. No jargon, promise.;casual|Vexie Hex|Got a bounce? Drop it here. I'll tell you what's off and which knob to turn.;engineer|Kate Adagio|Load a master. Loudness, true peak, tone, stereo, dynamics and eight codec paths, judged against your genre's references.;robot|K0ndukt0r|Supply one finished stereo master. I will return about forty measurements, each with its derivation." | split: ";" %}
+    <div class="kp-welcome" data-cycle>
+      {%- for line in welcome -%}
+      {%- assign w = line | split: "|" %}
+      <figure class="kp-welcome-one kp-{{ w[0] }}{% if forloop.first %} is-on{% endif %}">
+        <img src="{{ img }}figure_{{ w[0] }}_a.png" alt="{{ w[1] }}">
+        <p class="kp-says-bubble"><span class="kp-says-name">{{ w[1] }}</span>{{ w[2] }}</p>
+      </figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Numbers ════════════════════════════════════════════════════════ -->
+<section class="kp-stats" aria-label="Kouncil in numbers">
+  <div class="kp-stat kp-reveal"><b data-count="2499">2,499</b><span>commercial masters behind every judgment</span></div>
+  <div class="kp-stat kp-reveal"><b data-count="100">100</b><span>genre profiles, from 1920s Delta blues to modern K-pop</span></div>
+  <div class="kp-stat kp-reveal"><b data-count="8">8</b><span>real codec and Bluetooth paths, encoded and played back</span></div>
+  <div class="kp-stat kp-reveal"><b data-count="4">4</b><span>characters who explain it all at your level</span></div>
+</section>
+
+<!-- ═══ The cast ═══════════════════════════════════════════════════════ -->
+<!-- The four are the voice switch: picking one here is picking who speaks
+     for the rest of the page. From here on the switch also floats at the
+     bottom of the window (.kp-voices). -->
+<section class="kp-cast kp-bleed" id="cast" data-bg="cast" data-dim="0.55">
+  <div class="kp-cast-inner kp-col">
+    <p class="kp-kicker">The Kouncil</p>
+    <h2>Four perspectives.</h2>
+    <p class="kp-cast-lede">Every chart, number and setting in the app is written four ways. Pick your mix assistant to guide your feedback and tooltips. <br>Try it out on this page. Pick a character below.</p>
+    <div class="kp-cast-row">
+      {%- assign cast = "listener|Taylor|The listener|Does it sound good in my earbuds?;casual|Vexie Hex|The musician|Tell me which knob, and which way.;engineer|Kate Adagio|The mastering engineer|Give me the number and the fix.;robot|K0ndukt0r|The audio scientist|Show me the derivation." | split: ";" -%}
+      {%- for member in cast -%}
+      {%- assign m = member | split: "|" %}
+      <button type="button" class="kp-member kp-{{ m[0] }} kp-reveal" data-voice="{{ m[0] }}" aria-pressed="{% if m[0] == 'casual' %}true{% else %}false{% endif %}">
+        <span class="kp-member-art">
+          <img class="kp-member-calm" src="{{ img }}figure_{{ m[0] }}_b.png" alt="" loading="lazy">
+          <img class="kp-member-happy" src="{{ img }}figure_{{ m[0] }}_a.png" alt="" loading="lazy">
+        </span>
+        <span class="kp-member-cap"><b>{{ m[1] }}</b><span>{{ m[2] }}</span><q>{{ m[3] }}</q></span>
+      </button>
+      {%- endfor %}
+    </div>
+  </div>
+  <img class="kp-cast-scene kp-reveal" src="{{ img }}fb_kouncil.jpg" alt="The Kouncil tab: the four characters, each with their take on the track" loading="lazy">
+</section>
+
+<!-- ═══ Voice switch ═══════════════════════════════════════════════════ -->
+<nav class="kp-voices" aria-label="Explain it like I'm">
+  <span class="kp-voices-label">Explain it like I'm</span>
+  <div class="kp-voices-options">
+    <button type="button" data-voice="listener" aria-pressed="false"><img src="{{ img }}face_listener_a.png" alt=""><span>a listener</span></button>
+    <button type="button" data-voice="casual" aria-pressed="true"><img src="{{ img }}face_casual_a.png" alt=""><span>a musician</span></button>
+    <button type="button" data-voice="engineer" aria-pressed="false"><img src="{{ img }}face_engineer_a.png" alt=""><span>an engineer</span></button>
+    <button type="button" data-voice="robot" aria-pressed="false"><img src="{{ img }}face_robot_a.png" alt=""><span>a scientist</span></button>
+  </div>
+</nav>
+
+<!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+<!-- Each feature plays its own loop behind it: the 3D render of the thing it describes. -->
+<section class="kp-feature" data-bg="overview" data-dim="0.6">
+  <div class="kp-feature-copy kp-reveal">
+    <p class="kp-kicker">Overview</p>
+    <h2>Simple, actionable feedback, with all the numbers to back it up.</h2>
+    {% include product/says.html voice="listener" text="You get a number out of 100 and a short list of what's wrong, biggest problem first. No degree needed." %}
+    {% include product/says.html voice="casual" text="Load the bounce, read the score, fix the first red line. Every finding says what to turn and roughly how far." %}
+    {% include product/says.html voice="engineer" text="Five headline metrics against target, a health score and prioritized findings with fixes. Profile-aware, so a dense genre isn't punished for being dense." %}
+    {% include product/says.html voice="robot" text="Health = 100 &minus; &Sigma; deductions over loudness error, true-peak excess, DR, clipping, correlation, mono loss, harshness and more. Zero deduction inside the active profile's range." %}
+  </div>
+  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_overview_left.jpg" alt="Headline metrics with their gauges, the health score and the findings" loading="lazy"></figure>
+</section>
+
+<section class="kp-feature kp-flip" data-bg="listen" data-dim="0.6">
+  <div class="kp-feature-copy kp-reveal">
+    <p class="kp-kicker">Listening</p>
+    <h2>Point at a problem and hear it.</h2>
+    {% include product/says.html voice="listener" text="Drag across any spectrum and you hear just those frequencies. Click any timeline graph to jump to that spot." %}
+    {% include product/says.html voice="casual" text="Find the harsh frequency by ear, read the number, put your EQ cut there. A/B against your reference, level-matched so louder doesn't win. Click any timeline to jump to that moment." %}
+    {% include product/says.html voice="engineer" text="Band audition on every spectrum, level-matched A/B with synced playheads, range and loop, a dim switch, live goniometer, spectrum and loudness meter. Click any frequency graph to solo a region, click any time graph to jump that section." %}
+    {% include product/says.html voice="robot" text="A log-frequency band-pass that glides with coefficient crossfades and a look-ahead limiter behind it. Playback runs in its own process over shared memory, so analysis never causes a dropout." %}
+  </div>
+  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_loudness.jpg" alt="The Loudness tab against a compare track, playing, with both waveforms" loading="lazy"></figure>
+</section>
+
+<section class="kp-feature" data-bg="profiles" data-dim="0.6">
+  <div class="kp-feature-copy kp-reveal">
+    <p class="kp-kicker">Profiles</p>
+    <h2>Profiles built from the greats.</h2>
+    {% include product/says.html voice="listener" text="A metal song and a jazz song shouldn't be graded the same. Pick your style and Kouncil stops nagging about what's normal for it." %}
+    {% include product/says.html voice="casual" text="100 genre profiles built from real releases. Pick the closest, or build your own from the records you're chasing." %}
+    {% include product/says.html voice="engineer" text="Per-metric reference ranges and an average spectrum from 2,499 commercial masters. Build a profile from your own references and share it as one file." %}
+    {% include product/says.html voice="robot" text="Each profile stores mean, median, trimmed mean, &sigma;, quartiles and percentiles per metric. Target and range methods are chosen after the fact, without rebuilding." %}
+  </div>
+  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}dlg_profiles.jpg" alt="The Profile Library" loading="lazy"></figure>
+</section>
+
+<section class="kp-feature" data-bg="album" data-dim="0.6">
+  <div class="kp-feature-copy kp-reveal">
+    <p class="kp-kicker">Albums</p>
+    <h2>Glue an album together.</h2>
+    {% include product/says.html voice="listener" text="See if one song is way louder or brighter than the rest before your listeners do." %}
+    {% include product/says.html voice="casual" text="Load the whole EP. Spot the track that jumps out, drag the order around, and audition every transition straight from the sequence chart." %}
+    {% include product/says.html voice="engineer" text="Every track's metrics side by side with outliers flagged, overlaid spectra and width, and the loudness step at every join of the running order." %}
+    {% include product/says.html voice="robot" text="Outliers by &sigma; against the album mean, per metric. Radar axes normalized to the profile's range, so a conforming track draws a circle." %}
+  </div>
+  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_compare.jpg" alt="The Compare tab with a thirteen-track album" loading="lazy"></figure>
+</section>
+
+<section class="kp-feature kp-flip" data-bg="codec" data-dim="0.6">
+  <div class="kp-feature-copy kp-reveal">
+    <p class="kp-kicker">Codecs</p>
+    <h2>See and hear what streams.</h2>
+    {% include product/says.html voice="listener" text="Spotify and Bluetooth squash your song to send it. Kouncil does the squashing for real, then plays you what got lost." %}
+    {% include product/says.html voice="casual" text="Flip between your master and how it sounds on AirPods, or on Spotify over Bluetooth, mid-playback. DIFFERENCE plays only the damage." %}
+    {% include product/says.html voice="engineer" text="Eight real encode and decode paths, Bluetooth chains included. True-peak overshoot, transient fidelity, stereo collapse and pre-echo per codec, and you can listen to each." %}
+    {% include product/says.html voice="robot" text="ffmpeg round-trips aligned to the sample by cross-correlation. Error spectra against a quarter-Bark masking threshold; artifacts scored against each codec's own baseline." %}
+  </div>
+  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_codec.jpg" alt="The Codec tab: summary, scorecard, error spectrum, artifact timeline and the Listen rows" loading="lazy"></figure>
+</section>
+
+<section class="kp-feature kp-flip" data-bg="report" data-dim="0.6">
+  <div class="kp-feature-copy kp-reveal">
+    <p class="kp-kicker">Reports</p>
+    <h2>Deliver.</h2>
+    {% include product/says.html voice="listener" text="Make a picture of any song's measurements to share, with us explaining it." %}
+    {% include product/says.html voice="casual" text="Send your engineer a PDF, post a chart, or save a snapshot to share your favorite reference tracks with your friends." %}
+    {% include product/says.html voice="engineer" text="Text, image and PDF reports that name the target and profile, snapshots and profiles as single files, and a page editor for layouts you place by hand." %}
+    {% include product/says.html voice="robot" text="Quick, automatic text, image, and PDF layouts and a multi-page editor for custom showcases." %}
+  </div>
+  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}dlg_export_advanced.jpg" alt="The export page editor" loading="lazy"></figure>
+</section>
+
+<!-- ═══ Made by a human ════════════════════════════════════════════════ -->
+<section class="kp-human kp-bleed" data-bg="human" data-dim="0.75">
+  <div class="kp-human-inner kp-col kp-reveal">
+    <figure class="kp-human-photo">
+      <img src="{{ img }}creator_2.jpg" alt="K Presto, who made Kouncil, leaning in front of a mixing console" loading="lazy">
+      <figcaption class="kp-human-note">hi! I made this
+        <svg viewBox="0 0 120 70" aria-hidden="true"><path pathLength="1" d="M110 6 C 96 40, 60 58, 14 60 M14 60 l 14 -10 M14 60 l 15 7"/></svg>
+      </figcaption>
+    </figure>
+    <div class="kp-human-copy">
+      <p class="kp-kicker">No AI inside</p>
+      <h2>Made by a human.<br>For humans.</h2>
+      <p class="kp-human-lede">No machine learning, no generated text, no robot between you and your master. Every number comes from a formula I documented, and I wrote every word the characters say before you ever pressed Load.</p>
+      <dl class="kp-human-list">
+        <div><dt>Formulas, not a black box</dt><dd>Ask why a track scored 87 and there's an exact answer, no fuzzy logic.</dd></div>
+        <div><dt>References with names</dt><dd>I spent weeks researching and evaluating historically reknowned masters, from Van Gelder's jazz to Grammy-winning pop.</dd></div>
+        <div><dt>Ranges from real masters</dt><dd>Every range was measured from the highest quality cuts of each reference track.</dd></div>
+        <div><dt>A script, not improvisation</dt><dd>Each line is written for one situation and only said when the measurement calls for it. No LLM is generating text on the fly.</dd></div>
+        <div><dt>No flattery</dt><dd>A character only notes what the tables mark as a problem. No compliments padded in to keep you happy.</dd></div>
+        <div><dt>Same track, same answer</dt><dd>No random numbers under the hood messing with your results, and nothing about your music is sent anywhere.</dd></div>
+      </dl>
+    </div>
+    <dl class="kp-human-list">
+      <div><dt><p class="kp-human-sign"><span>Designed and built by</span><img src="{{ img }}signature_k.png" alt="K Presto's signature" loading="lazy" width="80%"></p></dd></div>
+      <div><dd><p class="kp-human-sign"><span>Character design and illustration by</span><img src="{{ img }}signature_uneasylex.png" alt="UneasyLex's signature" loading="lazy" width="80%"></p></dd></div>
+    </dl>
+    {% include product/says.html voice="robot" always="true" text="I'm the only robot here. I'm drawn by hand, and I read from a script." %}
+  </div>
+</section>
+
+<!-- ═══ Borrowed science ═══════════════════════════════════════════════ -->
+<section class="kp-hood" data-bg="science" data-dim="0.78">
+  <div class="kp-section-head kp-reveal">
+    <p class="kp-kicker">Borrowed science</p>
+    <h2>Some of the best audio tools weren't made for audio.</h2>
+    <p>When a problem in a master turned out to be a problem another field had already solved, Kouncil took the answer.</p>
+  </div>
+  <dl class="kp-hood-list kp-reveal">
+    <div><dt>Resonances, found like spectral lines</dt><dd>Spectroscopy's baseline subtraction finds the narrow peaks. Keeping only what is there the whole song through tells a ringing frequency from the notes you play.</dd></div>
+    <div><dt>Ranges, set like a blood test's</dt><dd>Every profile is a reference interval, laboratory medicine's "normal range", measured from real records with robust statistics so one odd master can't skew it.</dd></div>
+    <div><dt>Codec frames, checked like JPEG blocks</dt><dd>The grid you see in an over-compressed photo has an audio twin at the codec's frame edges, and Kouncil looks for it the way image-quality metrics do.</dd></div>
+    <div><dt>Pumping, measured like a lecture hall</dt><dd>The speech-intelligibility test for rooms measures how much loudness movement survives. Kouncil asks the same of your limiter.</dd></div>
+    <div><dt>Codec delay, timed like sonar</dt><dd>Each decoded version is lined up with your master to the sample by the cross-correlation sonar uses to time an echo.</dd></div>
+    <div><dt>Timelines, drawn like an oscilloscope</dt><dd>Each pixel keeps the loudest and quietest moment it covers, so a single spike in a ten-minute track still shows at any zoom.</dd></div>
+  </dl>
+</section>
+
+<!-- ═══ Charts ═════════════════════════════════════════════════════════ -->
+<!-- Four columns that drift apart as the section scrolls by (--drift per column). -->
+<section class="kp-charts" data-bg="charts" data-dim="0.7">
+  <div class="kp-section-head kp-reveal">
+    <p class="kp-kicker">Analysis</p>
+    <h2>Thirty-two charts. Every one explains itself.</h2>
+    <p>Hover anything in Kouncil, a line, a band, a single bar, and your character says what it means for your track.</p>
+  </div>
+  {%- assign charts = "spectrum:Spectrum;loudness_timeline:Short-term loudness;goniometer:Goniometer;codec_artifacts:Codec artifacts;tonal_balance:Tonal balance;width_heatmap:Width heatmap;crest_timeline:Crest factor;codec_error_spectrum:Codec error spectrum;phase_corr_band:Correlation by band;resonances:Resonances and tilt;stereo_by_freq:Width by frequency;loudness_overview:Loudness distribution;attack_slope:Attack slope;modulation:Envelope modulation;band_dynamics:Dynamics by band;codec_scorecard:Codec scorecard" | split: ";" %}
+  <div class="kp-chart-wall" data-scroll="through">
+    {%- assign drifts = "-70|30|-30|60" | split: "|" -%}
+    {%- for column in (0..3) %}
+    <div class="kp-chart-col" style="--drift: {{ drifts[column] }}px">
+      {%- for chart in charts -%}
+      {%- assign place = forloop.index0 | modulo: 4 -%}
+      {%- if place == column -%}
+      {%- assign c = chart | split: ":" %}
+      <figure class="kp-chart"><img src="{{ img }}chart_{{ c[0] }}.jpg" alt="{{ c[1] }}" loading="lazy"><figcaption>{{ c[1] }}</figcaption></figure>
+      {%- endif -%}
+      {%- endfor %}
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+<!-- ═══ Skins ══════════════════════════════════════════════════════════ -->
+<!-- The skin picker as the app draws it (each name in its own skin's
+     colors, in the app's order) beside a stack of the app in all twenty, which fans out as it
+     comes into view. Pointing at a name brings its skin to the front. -->
+<section class="kp-skins" data-dim="0.85">
+  {%- assign skins = "kouncil|Kouncil|#0e0e0e|#f2f2f2|#f1ca87;midnight|Midnight|#12141b|#e6edf3|#00d4aa;slate|Slate|#1c2026|#d8dee9|#88c0d0;deep-space|Deep Space|#07080f|#c8d0ea|#6f8cff;monochrome|Monochrome|#0a0a0a|#e6e6e6|#ffffff;toolbox|Toolbox|#2e2e2e|#f0f0f0|#8cff5a;logical|Logical|#28282d|#ebebf0|#64d2ff;fabricator|Fabricator|#12131c|#e6e6f2|#ffd24a;candlelight|Candlelight|#120e0c|#f5e6c8|#ffb347;sunset|Sunset|#1b0d10|#f6e3da|#ff8a8d;matcha|Matcha|#0e1410|#e0ecd6|#a8d672;ultraviolet|Ultraviolet|#090a1c|#e2e0fa|#a87bff;synthwave|Synthwave|#12021f|#ffe3ff|#ff2bd6;bubblegum|Bubblegum|#ffffff|#e1409c|#ff7ab8;terminal|Terminal|#050805|#33e633|#8dff8d;lamplight|Lamplight|#cfbd94|#241a10|#123f78;cream|Cream|#f6efe0|#2e2a24|#2b6a4d;print|Print|#ffffff|#000000|#000000;high-contrast|High Contrast|#000000|#ffffff|#ffe94a;high-contrast-light|High Contrast Light|#ffffff|#000000|#0050b3" | split: ";" %}
+  <div class="kp-skins-copy kp-reveal">
+    <p class="kp-kicker">Skins</p>
+    <h2>Twenty skins. Or make your own.</h2>
+    <p>From high-contrast light to phosphor green. Every color, chart and export follows, and a built-in editor saves yours.</p>
+    <ul class="kp-skin-list">
+      {%- for skin in skins -%}
+      {%- assign s = skin | split: "|" %}
+      <li><button type="button" data-skin="{{ forloop.index0 }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" style="--s-bg: {{ s[2] }}; --s-fg: {{ s[3] }}; --s-ac: {{ s[4] }}">{{ s[1] }}</button></li>
+      {%- endfor %}
+    </ul>
+  </div>
+  <div class="kp-skin-stack" data-scroll="enter">
+    {%- for skin in skins -%}
+    {%- assign s = skin | split: "|" %}
+    <img class="kp-skin{% if forloop.first %} is-front{% endif %}" style="--i: {{ forloop.index0 }}" src="{{ img }}fb_skin-{{ s[0] }}.jpg" alt="Kouncil in the {{ s[1] }} skin" loading="lazy">
+    {%- endfor %}
+  </div>
+</section>
+
+<!-- ═══ Under the hood ═════════════════════════════════════════════════ -->
+<section class="kp-hood" data-bg="specs" data-dim="0.82">
+  <div class="kp-section-head kp-reveal">
+    <p class="kp-kicker">Under the hood</p>
+    <h2>Measured properly.</h2>
+  </div>
+  <dl class="kp-hood-list kp-reveal">
+    <div><dt>Standards-checked loudness</dt><dd>ITU-R BS.1770 with the standard's own filters, tested against EBU Tech 3341 and cross-checked with ffmpeg's <code>ebur128</code>. Oversampled true peak.</dd></div>
+    <div><dt>Real codecs, not models</dt><dd>Every codec figure comes from an actual encode and decode, aligned to the original to the sample.</dd></div>
+    <div><dt>Thresholds from data</dt><dd>What gets flagged was set from measured commercial masters, not rules of thumb: 2,499 of them, across 100 genres.</dd></div>
+    <div><dt>Glitch-free playback</dt><dd>The audio engine runs in a process of its own, so a heavy analysis never stutters what you hear.</dd></div>
+    <div><dt>Batch it</dt><dd>A command line analyzes folders of tracks and builds profiles without opening a window.</dd></div>
+    <div><dt>Yours, offline</dt><dd>No account, no upload, no network connections. Your audio never leaves your computer.</dd></div>
+  </dl>
+</section>
+
+<!-- ═══ Tech specs ═════════════════════════════════════════════════════ -->
+{%- comment -%}
+What Kouncil reads and needs, for someone deciding whether it fits their
+files. Every line is checked against the code. The limits that matter to a
+buyer are stated where they apply (stereo, lossless); the rest are in the
+manual. Requirements were measured 2026-10-23: one 3:21 track's analysis,
+codec simulation included, peaks at about 4 GB and takes 28 s (32 threads).
+Several tracks are only analyzed at once while memory is free (2 GB or 15%),
+so more memory makes a batch faster, not possible.
+{%- endcomment -%}
+<section class="kp-specs" id="specs" data-dim="0.85">
+  <div class="kp-section-head kp-reveal">
+    <p class="kp-kicker">Tech specs</p>
+    <h2>What it reads, and how.</h2>
+  </div>
+  <div class="kp-spec-groups kp-reveal">
+    <div class="kp-spec-group">
+      <h3>Audio files</h3>
+      <dl>
+        <div><dt>Formats</dt><dd>WAV, AIFF, FLAC, ALAC, AAC, MP3, Ogg Vorbis, Opus. Lossless masters give the full picture</dd></div>
+        <div><dt>Channels</dt><dd>Stereo and mono. Surround files are mixed down to stereo</dd></div>
+        <div><dt>Sample rate</dt><dd>Any, measured at the file's own rate</dd></div>
+        <div><dt>Bit depth</dt><dd>Any, including 24-bit and 32-bit float, at full resolution</dd></div>
+      </dl>
+    </div>
+    <div class="kp-spec-group">
+      <h3>Measurement</h3>
+      <dl>
+        <div><dt>Loudness</dt><dd>ITU-R BS.1770-4 / EBU R128: integrated, short-term, momentary, loudness range. Tested against EBU Tech 3341</dd></div>
+        <div><dt>True peak</dt><dd>4&times; oversampled, per channel</dd></div>
+        <div><dt>Codecs</dt><dd>AAC 128 and 256, Vorbis 160, Opus 128, MP3 320, SBC 192, and two chains: Vorbis into SBC, AAC into AAC. Real encodes, at the sample rate each service sends</dd></div>
+        <div><dt>Reference ranges</dt><dd>100 genre profiles measured from released records, or your own built from references</dd></div>
+      </dl>
+    </div>
+    <div class="kp-spec-group">
+      <h3>Output</h3>
+      <dl>
+        <div><dt>Reports</dt><dd>PNG and JPG images, PDF, plain text</dd></div>
+        <div><dt>Kouncil's own</dt><dd>Snapshots (a track's whole analysis, reopened without the audio), profiles and skins, all shareable</dd></div>
+      </dl>
+    </div>
+    <div class="kp-spec-group kp-req">
+      <h3>Requirements</h3>
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">Minimum</th><th scope="col">Recommended</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Windows</th><td>Windows 10, 64-bit</td><td>Windows 11</td></tr>
+          <tr><th scope="row">macOS</th><td colspan="2">Confirmed with the Mac beta</td></tr>
+          <tr><th scope="row">Processor</th><td>64-bit, 4 cores</td><td>8 cores or more: tracks analyzed side by side</td></tr>
+          <tr><th scope="row">Memory</th><td>8 GB</td><td>16 GB: several tracks analyzed at once</td></tr>
+          <tr><th scope="row">Disk</th><td>200 MB</td><td>Up to 1 GB more to keep codec versions ready to play (adjustable, or off)</td></tr>
+          <tr><th scope="row">Display</th><td>1280 &times; 800</td><td>1920 &times; 1080</td></tr>
+          <tr><th scope="row">Connection</th><td colspan="2">None. Works offline, no account</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Pricing ════════════════════════════════════════════════════════ -->
+{%- comment -%}
+Free is what a beginner needs to fix a mix; paid is what someone releasing
+records needs. The characters are in both: they are what sells the full one.
+{%- endcomment -%}
+<section class="kp-pricing" id="pricing" data-dim="0.85">
+  <div class="kp-section-head kp-reveal">
+    <p class="kp-kicker">Pricing</p>
+    <h2>Free to start. Yours to keep.</h2>
+    <p>Kouncil Lite is free for good. The full version is one payment, no subscription, and every 1.x update is included.</p>
+  </div>
+  <div class="kp-plans kp-reveal">
+    <div class="kp-plan">
+      <h3>Kouncil Lite</h3>
+      <p class="kp-plan-price"><b>Free</b></p>
+      <p class="kp-plan-for">Every check, and where the problems are.</p>
+      {%- if page.lite_url %}
+      <a class="kp-button kp-ghost" href="{{ page.lite_url }}">Download Lite</a>
+      {%- elsif page.beta_url %}
+      <a class="kp-button kp-ghost" href="{{ page.beta_url | relative_url }}">Join the closed beta</a>
+      {%- else %}
+      <a class="kp-button kp-ghost" href="#get">Coming soon</a>
+      {%- endif %}
+    </div>
+    <div class="kp-plan kp-plan-full">
+      <h3>Kouncil</h3>
+      <p class="kp-plan-price">{% if page.price_launch %}<s>{{ page.price_full }}</s> <b>{{ page.price_launch }}</b> <span>at launch</span>{% else %}<b>{{ page.price_full }}</b>{% endif %}</p>
+      <p class="kp-plan-for">The exact numbers, the fixes and the deep tools.</p>
+      {%- if page.buy_url %}
+      <a class="kp-button" href="{{ page.buy_url }}">Buy Kouncil</a>
+      {%- elsif page.beta_url %}
+      <a class="kp-button" href="{{ page.beta_url | relative_url }}">Join the closed beta</a>
+      {%- else %}
+      <a class="kp-button" href="#get">Coming soon</a>
+      {%- endif %}
+    </div>
+  </div>
+
+  <!-- Everything in each edition, from _data/kouncil_features.yml: a fold per
+       group, closed, with how many of its features each edition has. -->
+  <div class="kp-compare kp-reveal">
+    <div class="kp-compare-head"><span>Everything in each</span><span>Lite</span><span>Kouncil</span></div>
+    {%- for group in site.data.kouncil_features %}
+    {%- assign in_lite = group.rows | where_exp: "row", "row.lite != false" | size -%}
+    {%- assign in_full = group.rows | where_exp: "row", "row.full != false" | size %}
+    <details class="kp-compare-group">
+      <summary><span>{{ group.group }}</span><span>{{ in_lite }} of {{ group.rows.size }}</span><span>{{ in_full }} of {{ group.rows.size }}</span></summary>
+      <table>
+        {%- for row in group.rows %}
+        <tr>
+          <th scope="row">{{ row.feature }}</th>
+          <td>{% if row.lite == true %}<span class="kp-yes" role="img" aria-label="Included"></span>{% elsif row.lite %}<span class="kp-part">{{ row.lite }}</span>{% else %}<span class="kp-no" role="img" aria-label="Not included"></span>{% endif %}</td>
+          <td>{% if row.full == true %}<span class="kp-yes" role="img" aria-label="Included"></span>{% elsif row.full %}<span class="kp-part">{{ row.full }}</span>{% else %}<span class="kp-no" role="img" aria-label="Not included"></span>{% endif %}</td>
+        </tr>
+        {%- endfor %}
+      </table>
+    </details>
+    {%- endfor %}
+  </div>
+  <ul class="kp-plan-notes">
+    <li>Try the full version for 14 days from inside Lite.</li>
+    <li>Students and teachers: 40% off.</li>
+    <li>Your license works offline. No account, nothing sent anywhere.</li>
+    <li>{{ page.platforms }}.</li>
+  </ul>
+</section>
+
+<!-- ═══ Get it ═════════════════════════════════════════════════════════ -->
+<section class="kp-get kp-bleed" id="get" data-bg="get" data-dim="0.5">
+  <div class="kp-get-inner kp-reveal">
+    <h2>Ask the Kouncil.</h2>
+    {%- if page.lite_url %}
+    <p>Start with Lite. It's free, and the full version is a click away when you need it.</p>
+    <div class="kp-actions"><a class="kp-button" href="{{ page.lite_url }}">Download Kouncil Lite</a></div>
+    {%- elsif page.beta_url %}
+    <p>Kouncil is in closed beta. Testers who send real reports get a full license.</p>
+    <div class="kp-actions"><a class="kp-button" href="{{ page.beta_url | relative_url }}">Join the closed beta</a></div>
+    {%- else %}
+    <p>Kouncil is in its final round of testing for {{ page.platforms }}. Want to know the day it ships?</p>
+    <div class="kp-actions"><a class="kp-button" href="mailto:{{ site.author.email }}?subject=Kouncil">Tell me when it's out</a></div>
+    {%- endif %}
+    <!-- The four take turns here too, like the hero's welcome lines. -->
+    <div class="kp-get-cycle" data-cycle>
+      {% include product/says.html voice="listener" always="true" text="Honestly? Load your song, look at the score, read the first red thing, fix it. That's most of it." %}
+      {% include product/says.html voice="casual" always="true" text="Bounce it, load it, fix the worst thing on the list, bounce again. Keep going until the list is short." %}
+      {% include product/says.html voice="engineer" always="true" text="Pick the profile closest to the record, then work the findings top down and measure again after every change." %}
+      {% include product/says.html voice="robot" always="true" text="Procedure: load, correct the largest deduction, load again. Repeat until the remaining deductions are ones you chose." %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Further reading ════════════════════════════════════════════════ -->
+<!-- The references first, then every dev post about Kouncil, newest first
+     (any post whose title starts "Kouncil:"). -->
+<section class="kp-links" data-dim="0.8" aria-label="Further reading">
+  <div class="kp-links-group">
+    <h3>Reference</h3>
+    <ul>
+      <li><a href="{{ '/docs/kouncil/manual/' | relative_url }}">The manual</a><span>Every tab, chart and setting</span></li>
+      <li><a href="{{ '/docs/kouncil/manual/Kouncil-Manual.pdf' | relative_url }}">The manual as a PDF</a><span>The same, for printing</span></li>
+      {%- for post in site.posts %}{% if post.title == "Kouncil: Algorithm Reference" %}
+      <li><a href="{{ post.url | relative_url }}">Algorithm reference</a><span>Every measurement, with its method and sources</span></li>
+      {%- endif %}{% endfor %}
+    </ul>
+  </div>
+  <div class="kp-links-group">
+    <h3>From the dev blog</h3>
+    <ul>
+      {%- for post in site.posts %}{% assign prefix = post.title | slice: 0, 8 %}{% if prefix == "Kouncil:" and post.title != "Kouncil: Algorithm Reference" %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title | remove_first: "Kouncil: " }}</a><span>{{ post.date | date: "%b %-d, %Y" }}</span></li>
+      {%- endif %}{% endfor %}
+    </ul>
+  </div>
+</section>
+
+</div>

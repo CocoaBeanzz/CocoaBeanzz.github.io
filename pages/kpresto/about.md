@@ -53,7 +53,7 @@ K is known for their collaborations with hard-hitting rappers and hip hop vocali
 [SoundCloud](https://www.soundcloud.com/CocoaBeanz)
 [Amazon Music](https://www.amazon.com/music/player/artists/B01A52DFU4/k-presto)
 [Instagram](http://instagram.com/officialkpresto/)
-[Facebook](www.facebook.com/kprestomusic)
+[Facebook](https://www.facebook.com/kprestomusic)
 [YouTube](https://www.youtube.com/KPresto)
 </div>
 

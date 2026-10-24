@@ -1,0 +1,141 @@
+---
+layout: product
+title: Kouncil closed beta
+name: Kouncil
+permalink: /tools/kouncil-beta/
+description: Apply for the Kouncil closed beta, Windows and macOS.
+sitemap: false
+# Where the answers go. Formspree's free plan takes 50 submissions a month;
+# give the beta a form of its own there (or any service that takes a plain
+# POST) and put its address here.
+form_action: https://formspree.io/xbjnewjq
+---
+{%- assign img = '/docs/assets/images/projects/kouncil/product/' | relative_url -%}
+
+<div class="kp" data-voice="engineer">
+
+<section class="kp-apply">
+  <a class="kp-apply-back" href="{{ '/tools/projects/2610-kouncil' | relative_url }}">Kouncil</a>
+  <h1>Join the closed beta</h1>
+  <p class="kp-apply-lede">Kouncil is in its last round of testing. Windows testers start first, Mac testers soon after. Testers get the full version for the beta, and those who send real reports keep a full license.</p>
+  {% include product/says.html voice="engineer" always="true" text="Bring a master you know well. It's the fastest way to find out whether I'm right." %}
+
+  <form class="kp-form" action="{{ page.form_action }}" method="post" data-kp-form>
+    <input type="hidden" name="_subject" value="Kouncil beta application">
+    <!-- A field people never see: forms that fill it in are bots. -->
+    <input type="text" name="_gotcha" class="kp-form-trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <fieldset>
+      <legend>You</legend>
+      <label>Name <input type="text" name="name" required autocomplete="name"></label>
+      <label>Email <input type="email" name="email" required autocomplete="email"></label>
+      <label>Where you make music <span>Optional: a site, an artist page, a portfolio</span>
+        <input type="url" name="portfolio" placeholder="https://"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your machine</legend>
+      <p class="kp-form-q">What would you test on?</p>
+      <div class="kp-form-choices">
+        <label><input type="radio" name="platform" value="Windows" required> Windows</label>
+        <label><input type="radio" name="platform" value="macOS, Apple silicon"> macOS, Apple silicon</label>
+        <label><input type="radio" name="platform" value="macOS, Intel"> macOS, Intel</label>
+        <label><input type="radio" name="platform" value="Windows and macOS"> Both</label>
+      </div>
+      <label>System <span>The OS version, and the processor and memory if you know them</span>
+        <input type="text" name="system" placeholder="macOS 14, M2, 16 GB"></label>
+      <label>Your DAW <input type="text" name="daw" placeholder="Ableton Live, Logic, Reaper"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your work</legend>
+      <p class="kp-form-q">Which describes you best?</p>
+      <div class="kp-form-choices">
+        <label><input type="radio" name="role" value="Hobbyist" required> I make music for fun</label>
+        <label><input type="radio" name="role" value="Self-releasing artist"> I release my own music</label>
+        <label><input type="radio" name="role" value="Producer for others"> I produce for other artists</label>
+        <label><input type="radio" name="role" value="Mix engineer"> I mix for clients</label>
+        <label><input type="radio" name="role" value="Mastering engineer"> I master for clients</label>
+      </div>
+      <p class="kp-form-q">How long have you been mixing or mastering?</p>
+      <div class="kp-form-choices">
+        <label><input type="radio" name="experience" value="Under a year" required> Under a year</label>
+        <label><input type="radio" name="experience" value="1-3 years"> 1 to 3 years</label>
+        <label><input type="radio" name="experience" value="3-10 years"> 3 to 10 years</label>
+        <label><input type="radio" name="experience" value="10+ years"> 10 years or more</label>
+      </div>
+      <label>Genres you work in <span>Kouncil judges each track against its genre's released records</span>
+        <input type="text" name="genres" placeholder="Melodic techno, indie rock"></label>
+      <label>What would you run through Kouncil in the next few weeks?
+        <textarea name="material" rows="3" placeholder="An EP I'm finishing, client masters, old releases I know well"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Testing</legend>
+      <p class="kp-form-q">Have you beta tested software before?</p>
+      <div class="kp-form-choices">
+        <label><input type="radio" name="testing" value="Never" required> No, this would be my first</label>
+        <label><input type="radio" name="testing" value="A few times"> A few times</label>
+        <label><input type="radio" name="testing" value="Regularly"> Regularly</label>
+      </div>
+      <label>What have you tested? <span>Optional: plugins, apps, games</span>
+        <input type="text" name="tested"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Content</legend>
+      <p class="kp-form-note">Creators get priority for beta places. Videos, posts, streams and write-ups about Kouncil, good or bad, all count.</p>
+      <p class="kp-form-q">Would you make content about Kouncil?</p>
+      <div class="kp-form-choices">
+        <label><input type="radio" name="content" value="Yes, I make content regularly" required> Yes, I make content regularly</label>
+        <label><input type="radio" name="content" value="Yes, I'd give it a try"> Yes, I'd give it a try</label>
+        <label><input type="radio" name="content" value="Maybe"> Maybe</label>
+        <label><input type="radio" name="content" value="No"> No</label>
+      </div>
+      <label>Where you post <span>Links to your channels, and roughly how many people follow them</span>
+        <textarea name="channels" rows="2" placeholder="youtube.com/@..., 4k subscribers"></textarea></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>The deal</legend>
+      <p class="kp-form-note">Kouncil never sends anything on its own: no tracking, no account. During the beta I'll sometimes ask for its logs or a crash report, and you send them yourself.</p>
+      <label class="kp-form-check"><input type="checkbox" name="logs" value="Yes" required> I'll send logs and crash reports when asked</label>
+      <label class="kp-form-check"><input type="checkbox" name="reports" value="Yes" required> I'll report what breaks or confuses me</label>
+      <label>How did you hear about Kouncil? <input type="text" name="source" placeholder="Instagram, a friend, kaud.io"></label>
+      <label>Anything else <textarea name="notes" rows="3"></textarea></label>
+    </fieldset>
+
+    <button type="submit" class="kp-button">Apply</button>
+    <p class="kp-form-status" role="status" hidden></p>
+  </form>
+</section>
+
+</div>
+
+<script>
+// Sends the form in place so the page can say thanks; without JavaScript the
+// form posts to the same address and the service shows its own page.
+(function () {
+  const form = document.querySelector('[data-kp-form]');
+  if (!form || !window.fetch) return;
+  const status = form.querySelector('.kp-form-status');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    status.hidden = false;
+    status.textContent = 'Sending...';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error(response.status);
+      form.querySelectorAll('fieldset, button').forEach((el) => { el.hidden = true; });
+      status.textContent = "Thanks. You'll hear back by email once the beta places are picked.";
+    } catch (error) {
+      button.disabled = false;
+      status.textContent = 'That did not go through. Try again, or write to {{ site.author.email }}.';
+    }
+  });
+})();
+</script>

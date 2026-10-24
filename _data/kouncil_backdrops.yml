@@ -1,0 +1,15 @@
+# How many background cuts each section of the Kouncil product page has
+# (bg_<section>_<n>_w / _t.mp4). Written by Kouncil_Marketing/tools/web_loops.py.
+hero: 4
+cast: 3
+overview: 4
+codec: 3
+profiles: 2
+listen: 3
+album: 3
+report: 3
+human: 3
+science: 3
+charts: 4
+specs: 3
+get: 3

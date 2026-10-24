@@ -10,7 +10,7 @@ description: Percussion instrument that can reimagine the spectral profile of an
 
 <div class="project-header" markdown="1">
 <img src="/docs/assets/images/projects/SNURRR/SNURRR_Main.png" width="100%" alt="SNURRR main interface">
-SNURRR is a drum and percussion sound design instrument built around a simple idea. Freeze the tone of a sound, then rebuild the hit around it. A sample can become a sustained spectral texture, a playable additive voice, one layer in a hybrid drum, or the starting point for something unrecognisable.
+SNURRR is a drum and percussion sound design instrument built around a simple idea. Freeze the tone of a sound, then rebuild the hit around it. A sample can become a sustained spectral texture, a playable additive voice, one layer in a hybrid drum, or the starting point for something unrecognizable.
 </div>
 
 {% capture list_items %}
@@ -19,7 +19,7 @@ SMURRR
 Sound engines
 The Body
 Processing and routing
-Visualisation and batch work
+Visualization and batch work
 Under the hood
 {% endcapture %}
 {% include elements/list.html title="" type="toc" %}
@@ -28,13 +28,13 @@ Under the hood
 
 SNURRR runs as VST3, VST2, CLAP, AAX and AU, with a standalone version for sound design without a DAW. Its three sound sources, two distortion stages and reorderable effects chain are designed to work as one instrument rather than a collection of separate utilities.
 
-The core workflow is to separate a drum's transient from its tone, then take control of both. Keep the original attack in one sampler, turn the tail into a playable texture in the other, and add a synthesised body underneath. The same process works for tonal one-shots, risers and abstract textures.
+The core workflow is to separate a drum's transient from its tone, then take control of both. Keep the original attack in one sampler, turn the tail into a playable texture in the other, and add a synthesized body underneath. The same process works for tonal one-shots, risers and abstract textures.
 
 <img src="/docs/assets/images/projects/SNURRR/SNURRR_Main_2.png" alt="SNURRR sampler page with two samplers, Body and the processing chain">
 
 ## SMURRR
 
-SMURRR freezes the spectral character of a selected audio region. It takes an FFT across the selection, preserves the magnitude of each frequency component, randomises phase, and transforms the result back into audio. The original timing disappears while the source's frequency content remains, turning a short snare tail into a continuous tone that loops without a seam.
+SMURRR freezes the spectral character of a selected audio region. It takes an FFT across the selection, preserves the magnitude of each frequency component, randomizes phase, and transforms the result back into audio. The original timing disappears while the source's frequency content remains, turning a short snare tail into a continuous tone that loops without a seam.
 
 Selection is part of the sound design. A slice around the transient tends to produce a bright, noisy texture, while a slice from the tail captures more of the drum's resonance. Random phase can change on each run for variation, or use a fixed seed for repeatable results.
 
@@ -51,25 +51,25 @@ The spectrogram is designed specifically for percussive material. A short analys
 
 ## Sound engines
 
-Each of the two independent samplers can play an untouched recording, a SMURRR texture, or synthesised noise. That makes it possible to combine a real transient with an artificial tail, or build a hit entirely from generated components.
+Each of the two independent samplers can play an untouched recording, a SMURRR texture, or synthesized noise. That makes it possible to combine a real transient with an artificial tail, or build a hit entirely from generated components.
 
-**Sample playback** loops the frozen texture and adds a second, slightly detuned playhead for movement. Resonance shaping is derived from the sample itself, while grain randomisation changes each hit's starting point.
+**Sample playback** loops the frozen texture and adds a second, slightly detuned playhead for movement. Resonance shaping is derived from the sample itself, while grain randomization changes each hit's starting point.
 
 **Additive playback** reconstructs the texture using up to 384 sine oscillators tuned to the strongest frequencies SMURRR finds. Because the partials are independent, the sound can be reshaped beyond what a conventional filter allows. Focus, harmonic emphasis and fixed-frequency shifting can take the same source from a stable tone to an inharmonic, metallic sound.
 
-**Noise** provides five synthesised sources, from saturated sample-and-hold noise to filtered, metallic, granular and resonant noise. These engines can supply everything from a transient layer to a complete synthetic hat or percussion sound.
+**Noise** provides five synthesized sources, from saturated sample-and-hold noise to filtered, metallic, granular and resonant noise. These engines can supply everything from a transient layer to a complete synthetic hat or percussion sound.
 
 <img src="/docs/assets/images/projects/SNURRR/SNURRR_Additive.png" alt="Additive engine with its partials display">
 
 ## The Body
 
-The Body is an independent synthesiser for the weight and impact beneath the upper layers. It has three engines, each polyphonic to eight voices so fast rolls can overlap naturally.
+The Body is an independent synthesizer for the weight and impact beneath the upper layers. It has three engines, each polyphonic to eight voices so fast rolls can overlap naturally.
 
 - **Tonal** uses a struck resonator for tuned kicks and toms, with options for saturation, pitch sweep and a noise component that follows the resonator.
 - **Modal** models a drum head using ten resonant modes and a separate four-mode shell. Its modes respond differently to damping, while variation can introduce small per-hit changes in pitch and decay.
-- **Swept** recreates the pitched drop of a classic analogue drum machine oscillator, with selectable waveforms, glide, detuning and drive.
+- **Swept** recreates the pitched drop of a classic analog drum machine oscillator, with selectable waveforms, glide, detuning and drive.
 
-<img src="/docs/assets/images/projects/SNURRR/SNURRR_Body.png" alt="SNURRR Body synthesiser with its three sound engines">
+<img src="/docs/assets/images/projects/SNURRR/SNURRR_Body.png" alt="SNURRR Body synthesizer with its three sound engines">
 
 ## Processing and routing
 
@@ -95,4 +95,4 @@ SNURRR is written in C++ on iPlug2, with a shared codebase for the plugin format
 
 The audio thread avoids memory allocation, locks and file access. Parameter updates use atomics, trigger events use serial counters, and sample data is passed through atomically swapped shared pointers. Preview rendering and spectrogram analysis run on a background worker so graph interaction does not interrupt audio.
 
-The FFT, spectrogram analysis, WAV and AIFF decoding, and DSP modules are custom. The Additive engine runs up to 384 oscillators per channel per sampler using a rotation recurrence instead of per-sample sine calls. The interface is custom drawn with GPU-cached layers, four colour themes and high-DPI scaling.
+The FFT, spectrogram analysis, WAV and AIFF decoding, and DSP modules are custom. The Additive engine runs up to 384 oscillators per channel per sampler using a rotation recurrence instead of per-sample sine calls. The interface is custom drawn with GPU-cached layers, four color themes and high-DPI scaling.

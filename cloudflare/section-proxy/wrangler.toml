@@ -28,6 +28,9 @@ routes = [
   { pattern = "kaud.io/cocoabeanz/*", zone_name = "kaud.io" },
   { pattern = "kaud.io/tools/*", zone_name = "kaud.io" },
   { pattern = "kaud.io/games/*", zone_name = "kaud.io" },
+  # Short links (SHORT_LINKS in worker.js): the bare name and anything under it.
+  { pattern = "kaud.io/kouncil", zone_name = "kaud.io" },
+  { pattern = "kaud.io/kouncil/*", zone_name = "kaud.io" },
 ]
 
 [vars]

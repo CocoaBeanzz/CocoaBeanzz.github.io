@@ -6,13 +6,17 @@
 @font-face { font-family: 'Kouncil Data'; src: url('fonts/LiberationMono-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: 'Kouncil Data'; src: url('fonts/LiberationMono-Bold.ttf'); font-weight: 700; }
 @font-face { font-family: 'Kouncil Speech'; src: url('fonts/KHand-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Speech Listener'; src: url('fonts/Patrick_Hand/PatrickHand-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Speech Casual'; src: url('fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Speech Engineer'; src: url('fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Speech Robot'; src: url('fonts/Share_Tech/ShareTech-Regular.ttf'); font-weight: 400; }
 :root {
   /* Kouncil */
   --bg: #0e0e0e;
-  --panel: #1c1c1e;
+  --panel: #161618;
   --rule: #424242;
   --text: #f2f2f2;
-  --muted: #b3a6cc;
+  --muted: #ad9ed3;
   --accent: #f1ca87;
   --warn: #ea8b4d;
   --char-listener: #e39c62;
@@ -23,6 +27,10 @@
   --body: 'Kouncil Body', sans-serif;
   --data: 'Kouncil Data', monospace;
   --speech: 'Kouncil Speech', sans-serif;
+  --speech-listener: 'Kouncil Speech Listener', sans-serif;
+  --speech-casual: 'Kouncil Speech Casual', sans-serif;
+  --speech-engineer: 'Kouncil Speech Engineer', sans-serif;
+  --speech-robot: 'Kouncil Speech Robot', sans-serif;
 }
 @media print {
 :root {

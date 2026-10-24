@@ -2,7 +2,7 @@
   The manual's stylesheet: the web page, and (the @media print part at the
   end) the PDF printed from it.
 
-  No colour and no typeface is named here. They are custom properties from
+  No color and no typeface is named here. They are custom properties from
   skin.css, which tools/build_manual.py writes from the app's own skins and
   font roles: --bg --panel --rule --text --muted --accent --warn, a
   --char-<key> per character, and --head --body --data --speech. The page
@@ -12,7 +12,7 @@
     - the app's four faces in the app's roles: headings, text, numbers and
       keys, and what a character says;
     - one accent, for links and for the marks that say "look here". The
-      only other colours are the characters' own, on their inserts;
+      only other colors are the characters' own, on their inserts;
     - flat and square: no shadows, no rounded panels. A block is set apart
       by space, a tint or one rule, never by more than one of them. The one
       rounded thing is a speech bubble, which is the app's own shape.
@@ -48,7 +48,7 @@ body {
   padding: 2.5rem 1.5rem 1.5rem;
 }
 
-/* The logo, tinted by the build in its skin's title colour. */
+/* The logo, tinted by the build in its skin's title color. */
 .wordmark { width: 11rem; height: auto; }
 
 .masthead h1 {
@@ -230,8 +230,8 @@ h2, h3, .columns, .cards, .gallery { clear: both; }
 
 /* ::: says <character>  -- the same point for another audience, in that
    character's voice: their face, then the app's speech bubble (rounded,
-   outlined in their colour, a tail towards them) with their name over
-   what they say. --who is the character's colour. */
+   outlined in their color, a tail towards them) with their name over
+   what they say. --who is the character's color. */
 .says {
   display: flex;
   align-items: flex-start;
@@ -244,6 +244,12 @@ h2, h3, .columns, .cards, .gallery { clear: both; }
 .says.casual   { --who: var(--char-casual); }
 .says.engineer { --who: var(--char-engineer); }
 .says.robot    { --who: var(--char-robot); }
+/* Each character speaks in a face of their own, as in the app: anything
+   classed with their key (a `says` block, their card) sets --speech. */
+.listener { --speech: var(--speech-listener); }
+.casual   { --speech: var(--speech-casual); }
+.engineer { --speech: var(--speech-engineer); }
+.robot    { --speech: var(--speech-robot); }
 .says .face { flex: none; width: 3.5rem; height: 3.5rem; object-fit: cover; object-position: top; }
 .said {
   position: relative;

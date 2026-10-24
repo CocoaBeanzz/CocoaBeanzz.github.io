@@ -28,7 +28,7 @@ Performance
 #### Overview
 [Kouncil](/tools/projects/2610-kouncil) is a desktop mastering analyzer written in Python (NumPy, SciPy, Matplotlib, Tkinter, ffmpeg). This post lists every measurement it makes and how each one is computed. Window sizes, thresholds and formulas are the ones in the code.
 
-Thresholds that decide whether a value is flagged were set from measured masters, not from rules of thumb: 1,005 released tracks across 39 genre profiles. Where this page gives a "typical" range, that is where it comes from.
+Thresholds that decide whether a value is flagged were set from measured masters, not from rules of thumb: the reference library behind the genre profiles, 2,499 released tracks across 100 genres. Where this page gives a "typical" range, that is where it comes from.
 
 <img src="{{ img }}tab_overview.jpg" alt="Kouncil Overview tab">
 
