@@ -7,7 +7,7 @@
 @font-face { font-family: 'Kouncil Data'; src: url('fonts/LiberationMono-Bold.ttf'); font-weight: 700; }
 @font-face { font-family: 'Kouncil Speech'; src: url('fonts/KHand-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: 'Kouncil Speech Listener'; src: url('fonts/Patrick_Hand/PatrickHand-Regular.ttf'); font-weight: 400; }
-@font-face { font-family: 'Kouncil Speech Casual'; src: url('fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Speech Casual'; src: url('fonts/Coming_Soon/ComingSoon-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: 'Kouncil Speech Engineer'; src: url('fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: 'Kouncil Speech Robot'; src: url('fonts/Share_Tech/ShareTech-Regular.ttf'); font-weight: 400; }
 :root {

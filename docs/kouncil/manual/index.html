@@ -266,7 +266,7 @@ Per metric a profile stores the reference set's mean, median, trimmed mean, stan
 
 </div></div>
 
-<p>Kouncil ships with 39 profiles measured from 1,005 commercial masters, covering styles from 1930s big band swing through bebop, Motown, classic rock, punk, thrash, golden age hip hop, Detroit techno, jungle and trip hop to modern mainstream pop.</p>
+<p>Kouncil ships with 100 profiles measured from 2,499 commercial masters, covering styles from 1920s Delta blues and 1930s big band swing through bebop, Motown, classic rock, punk, thrash, golden age hip hop, Detroit techno, jungle and trip hop to modern mainstream pop and K-pop.</p>
 <p>Click the profile's name in the header for the <strong>Profile Library</strong>.</p>
 <div class="figure full">
 <p><img alt="The Profile Library" src="img/dlg_profiles.png" /></p>
@@ -328,7 +328,7 @@ White number, you're fine. Yellow, have a look. Red, fix this one.
 <div class="said">
 <p class="who">K0ndukt0r</p>
 
-The score starts at 100 and deducts: loudness error up to 25, true peak over the ceiling 5 per dB up to 15, DR under 8 or 6 costs 8 or 15, clipping 10, negative stereo correlation 5, mono bass loss over 4 dB 5, plus smaller terms for harshness, micro-dynamics, low-volume translation and the worst codec's transient fidelity. A value inside the active profile's range deducts nothing.
+The score starts at 100 and deducts: loudness error up to 25 (45 when it is 10 LU or more off target), true peak over the ceiling 5 per dB up to 20, DR under 8 or 6 costs 14 or 22, clipping 10, 25 or 40 above 250, 2,500 or 25,000 samples a minute, stereo correlation under 0.2 costs 10 and under 0 costs 40, mono bass loss over 4 dB 5 and over 12 dB 15, a tonal balance further from the profile's tracks than nearly all real releases go, in any band and either direction (too bright, dull, boomy, thin, muddy, harsh) up to 20, plus smaller terms for harshness, micro-dynamics, low-volume translation and the worst codec's transient fidelity. A value inside the active profile's range deducts nothing, and neither do the profile's most clipped tenth of releases.
 
 </div>
 </div>
@@ -1302,7 +1302,7 @@ Short version: it measures to the same standard the streaming services use, it r
 <li><strong>Python, Tkinter, NumPy / SciPy, Matplotlib and Pillow.</strong> No web stack and no framework. Windows and macOS builds bundle Python and a purpose-built, audio-only LGPL ffmpeg.</li>
 <li><strong>Standards-checked measurement.</strong> Loudness is implemented from ITU-R BS.1770 with the standard's own filter coefficients and is tested against EBU Tech 3341 reference signals and cross-checked against ffmpeg's <code>ebur128</code>. True peak is oversampled. Every algorithm is written up in <a href="ALGORITHMS.md">ALGORITHMS.md</a>.</li>
 <li><strong>Real codec round-trips.</strong> Codec figures come from an actual encode and decode, sample-aligned by cross-correlation, compared against a per-quarter-Bark masking threshold. No modeled approximations.</li>
-<li><strong>Thresholds from data.</strong> The baselines that decide what gets flagged were set from 1,005 measured commercial masters, not from rules of thumb.</li>
+<li><strong>Thresholds from data.</strong> The baselines that decide what gets flagged were set from measured commercial masters (2,499 of them across 100 genres), not from rules of thumb.</li>
 <li><strong>Playback in its own process.</strong> The audio engine runs as a separate process with its own interpreter lock, sharing decoded audio through shared memory and exchanging state through a small shared control block that neither side ever waits on, so analysis and chart drawing can't cause dropouts. Worst-case block timing under load went from 126 ms late to no underruns at a 93 ms buffer.</li>
 <li><strong>Click-free DSP in the monitor path.</strong> The audition filter glides in log frequency and crossfades between coefficient sets, with a look-ahead limiter behind it.</li>
 <li><strong>A responsive UI on a toolkit not known for it.</strong> Analysis is staged and threaded with memory-aware concurrency. Charts render ahead on worker threads and are shown in one step. Tabs are prebuilt in the background. Window resizes swap the live widgets for a snapshot until the drag settles, which took a resize step from about 2000 ms to 140 ms.</li>

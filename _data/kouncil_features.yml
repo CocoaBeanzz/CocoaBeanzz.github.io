@@ -129,4 +129,4 @@
     - { feature: "Twenty skins, and a skin editor", lite: true, full: true }
     - { feature: "Text size and app scale", lite: true, full: true }
     - { feature: "Works offline: no account, nothing uploaded", lite: true, full: true }
-    - { feature: "Windows and macOS", lite: true, full: true }
+    - { feature: "Windows", lite: true, full: true }
