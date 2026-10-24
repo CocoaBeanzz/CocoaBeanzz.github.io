@@ -20,6 +20,11 @@
 #         and CocoaBeanz as panels) and has no content of its own. Children
 #         are full departments with their own folders, navbar and address.
 #         kaud.io itself shows only departments without a parent.
+# hide_role_and_tools
+#         Optional. true keeps a project's `role` and `tools` off this
+#         department's tiles, featured rows and filters. For a storefront
+#         (Tools), where buyers don't care who built it or with what. The
+#         same project still shows both wherever it is crossposted (Dev).
 #
 # To add a department: add an entry here, three lines to the "Departments"
 # block in _config.yml, the id to the Worker's SECTIONS list, and create the
@@ -63,6 +68,7 @@
     - /docs/assets/images/projects/kouncil/product/beauty/04_t3v_spike_crane_photo.png
     - /docs/assets/images/projects/kouncil/product/beauty/05_t3v_album_turn_photo.png
   accent: "#7c4f9b"
+  hide_role_and_tools: true
 
 - id: games
   title: Games

@@ -27,6 +27,11 @@ shows its four newest releases in a row of their own with a link to the tab.
 {%- comment -%} Oldest to newest by file-name date, whatever folder each came from (_plugins/sections.rb). Shown newest first. {%- endcomment -%}
 {%- assign featured_projects = featured_projects | sort: "order" -%}
 
+{%- comment -%} A storefront department leaves out role and tools (see hide_role_and_tools in _data/sections.yml). {%- endcomment -%}
+{%- assign landing_section = site.data.sections | where: "id", page.section | first -%}
+{%- assign show_role_and_tools = true -%}
+{%- if landing_section.hide_role_and_tools -%}{%- assign show_role_and_tools = false -%}{%- endif -%}
+
 {%- if featured_projects.size > 0 -%}
 <section class="features">
     {% for project in featured_projects reversed %}
@@ -37,13 +42,17 @@ shows its four newest releases in a row of their own with a link to the tab.
             {%- endif -%}
         </div>
         <div class="feature-body">
-            <span class="eyebrow">{% if project.role %}{{ project.role }}{% elsif project.released %}{{ project.released | date_to_long_string }}{% endif %}</span>
+            {%- if project.role and show_role_and_tools %}
+            <span class="eyebrow">{{ project.role }}</span>
+            {%- elsif project.released %}
+            <span class="eyebrow">{{ project.released | date_to_long_string }}</span>
+            {%- endif %}
             <h2 class="feature-title">{{ project.name }}</h2>
             {%- if project.heading -%}
             <p class="feature-heading">{{ project.heading }}</p>
             {%- endif -%}
             <p class="feature-text">{{ project.description }}</p>
-            {%- if project.tools -%}
+            {%- if project.tools and show_role_and_tools -%}
             <p class="feature-meta">{{ project.tools | join: " / " }}</p>
             {%- endif -%}
         </div>

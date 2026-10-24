@@ -104,6 +104,9 @@ Example:
             </div>
         </div>
 
+        {%- comment -%} A storefront department has no Roles or Tools filters (see hide_role_and_tools in _data/sections.yml). {%- endcomment -%}
+        {%- assign listing_section = site.data.sections | where: "id", page.section | first -%}
+        {%- unless listing_section.hide_role_and_tools %}
         <div class="filter-group">
             <div class="eyebrow">Roles</div>
             <div class="filter-options">
@@ -145,6 +148,7 @@ Example:
                 {% endunless %}
             </div>
         </div>
+        {%- endunless %}
     </div>
 
     <p id="project-filter-summary" class="filter-summary">Showing all projects.</p>
