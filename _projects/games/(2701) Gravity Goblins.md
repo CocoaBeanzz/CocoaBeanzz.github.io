@@ -3,7 +3,7 @@ name: Gravity Goblins
 role: Composer
 tags: [Video Game]
 image: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4102030/becb5101eba66fd858ea85be59466224be567e98/header.jpg?t=1787967607
-description: A creepy-cozy cooking simulator where you befriend local wildlife and feed them their favorite snacks!
+description: A gravity-bending roguelite collectathon where you ascend an ever-shifting tower.
 also_in: [cocoabeanz]
 ---
 

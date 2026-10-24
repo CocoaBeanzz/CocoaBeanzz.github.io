@@ -1,0 +1,132 @@
+# The Kouncil product page's feature table (_projects/tools/(2610) Kouncil.html).
+# One group per area; each row is a feature and what each edition gets:
+#   true   included
+#   false  not included
+#   text   included in part, said in a few words ("2 of 8")
+# Lite is the depth-limited edition decided 2026-10-23 (Kouncil_Marketing/
+# MARKETING.md, "Editions"): every tab and every kind of result, at the level
+# of where the problem is; the full version adds the exact figures, the fixes
+# and the tools that pinpoint. Keep this file and that table in step.
+
+- group: The verdict
+  rows:
+    - { feature: "Health score out of 100, with a grade", lite: true, full: true }
+    - { feature: "Findings, worst first", lite: true, full: true }
+    - { feature: "Where each problem is", lite: true, full: true }
+    - { feature: "The exact figure and the fix for every finding", lite: false, full: true }
+    - { feature: "Every point lost traced to the finding that cost it", lite: true, full: true }
+    - { feature: "Streaming readiness: Spotify, Apple Music, YouTube, Tidal, Amazon and more", lite: true, full: true }
+    - { feature: "Render checks: dropouts, repeated buffers, glitches, cut-off endings, DC jumps", lite: true, full: true }
+
+- group: Judged against your genre
+  rows:
+    - { feature: "100 genre profiles measured from 2,499 released records", lite: true, full: true }
+    - { feature: "Every metric judged against the genre's real range, not a rule of thumb", lite: true, full: true }
+    - { feature: "Tonal shape checked band by band against the genre", lite: true, full: true }
+    - { feature: "Told which other genre your track measures like", lite: true, full: true }
+    - { feature: "Profile Library: search, tags, favorites", lite: true, full: true }
+    - { feature: "Build a profile from your own reference tracks", lite: false, full: true }
+    - { feature: "Choose the statistic: median, trimmed mean, percentiles, Tukey fences", lite: false, full: true }
+    - { feature: "Share profiles as one file", lite: false, full: true }
+
+- group: Loudness
+  rows:
+    - { feature: "Integrated loudness, BS.1770-4, tested against EBU Tech 3341", lite: true, full: true }
+    - { feature: "True peak, 4x oversampled, per channel", lite: true, full: true }
+    - { feature: "Loudness range (LRA), short-term and momentary", lite: true, full: true }
+    - { feature: "Loudness Distribution with the gates drawn", lite: true, full: true }
+    - { feature: "Short-term Loudness over time", lite: true, full: true }
+    - { feature: "RMS and Crest Factor over time", lite: false, full: true }
+    - { feature: "PLR and PSR", lite: true, full: true }
+
+- group: Tone
+  rows:
+    - { feature: "Spectrum, with fine resolution in the low end", lite: true, full: true }
+    - { feature: "Tonal Balance against your genre", lite: true, full: true }
+    - { feature: "Resonance Map: resonances found like spectral lines, over time", lite: true, full: true }
+    - { feature: "Band Energy", lite: true, full: true }
+    - { feature: "Harshness index", lite: true, full: true }
+    - { feature: "Spectral tilt", lite: true, full: true }
+    - { feature: "Spectrogram", lite: false, full: true }
+    - { feature: "Mid / Side spectrum", lite: false, full: true }
+    - { feature: "Equal-loudness (Fletcher-Munson) and LUFS-weighted views", lite: false, full: true }
+    - { feature: "Low-volume translation and perceptual DR", lite: false, full: true }
+
+- group: Stereo
+  rows:
+    - { feature: "Goniometer", lite: true, full: true }
+    - { feature: "Correlation and width", lite: true, full: true }
+    - { feature: "Stereo Width Heatmap: width per band, the whole track", lite: true, full: true }
+    - { feature: "L/R Balance per band", lite: true, full: true }
+    - { feature: "Phase Correlation by band", lite: false, full: true }
+    - { feature: "Stereo Width by frequency and over time", lite: false, full: true }
+    - { feature: "Mono compatibility: bass lost in mono, band by band", lite: false, full: true }
+
+- group: Dynamics
+  rows:
+    - { feature: "Dynamic Range (DR), crest factor", lite: true, full: true }
+    - { feature: "Dynamic Character at a glance", lite: true, full: true }
+    - { feature: "Micro-dynamics", lite: false, full: true }
+    - { feature: "Transient profile and attack slopes", lite: false, full: true }
+    - { feature: "Dynamics per band", lite: false, full: true }
+    - { feature: "Pumping, measured from the envelope's modulation", lite: false, full: true }
+    - { feature: "Section contrast and transient density", lite: false, full: true }
+
+- group: Streaming and Bluetooth codecs
+  rows:
+    - { feature: "Real encodes, decoded and measured, not estimates", lite: true, full: true }
+    - { feature: "Spotify over Bluetooth (Vorbis 160 into SBC 192)", lite: true, full: true }
+    - { feature: "Apple Music (AAC 256)", lite: true, full: true }
+    - { feature: "AAC 128, Opus 128, MP3 320, SBC 192 and AAC 256 twice over", lite: false, full: true }
+    - { feature: "Listen to every version", lite: "2 of 8", full: true }
+    - { feature: "Hear only what a codec changed (DIFFERENCE, NORMALIZE)", lite: false, full: true }
+    - { feature: "Scorecard: every codec, every measure, side by side", lite: false, full: true }
+    - { feature: "True-peak overshoot, pre-echo, transient fidelity, stereo collapse", lite: "2 of 8", full: true }
+    - { feature: "Error spectrum against the masking threshold", lite: false, full: true }
+    - { feature: "Artifact timeline, width change over time", lite: false, full: true }
+    - { feature: "Codec consistency score", lite: false, full: true }
+
+- group: Listening
+  rows:
+    - { feature: "Playback with peak meters, loudness, live goniometer and spectrum", lite: true, full: true }
+    - { feature: "Play a range, loop it", lite: true, full: true }
+    - { feature: "Solo a band from the band charts", lite: true, full: true }
+    - { feature: "Drag across any chart to hear only that range", lite: false, full: true }
+    - { feature: "A/B against a reference, level-matched, playheads in sync", lite: true, full: true }
+    - { feature: "Soloed bands held under full scale, so nothing clips", lite: true, full: true }
+
+- group: Albums
+  rows:
+    - { feature: "Compare against the library average", lite: false, full: true }
+    - { feature: "Every track side by side, outliers marked", lite: false, full: true }
+    - { feature: "The running order as one chart, the loudness step at every join", lite: false, full: true }
+    - { feature: "Drag to reorder, click a join to hear the transition", lite: false, full: true }
+    - { feature: "Radar of every track against the genre", lite: false, full: true }
+    - { feature: "Overlaid spectra and stereo width", lite: false, full: true }
+
+- group: The Kouncil
+  rows:
+    - { feature: "Four characters, from a listener to an audio scientist", lite: true, full: true }
+    - { feature: "Every chart, number and setting explained four ways", lite: true, full: true }
+    - { feature: "The Kouncil's scene: each character's take, with the chart it's about", lite: true, full: true }
+
+- group: Reports
+  rows:
+    - { feature: "Image export, laid out for you", lite: true, full: true }
+    - { feature: "Character notes on exports", lite: true, full: true }
+    - { feature: "Page editor: place, scale and style every element by hand", lite: false, full: true }
+    - { feature: "PDF report", lite: false, full: true }
+    - { feature: "Text report", lite: false, full: true }
+    - { feature: "Export presets", lite: false, full: true }
+    - { feature: "Snapshots: a whole analysis, reopened without the audio", lite: false, full: true }
+
+- group: Workflow
+  rows:
+    - { feature: "WAV, AIFF, FLAC, ALAC, MP3, AAC, Ogg Vorbis, Opus, at the file's own rate", lite: true, full: true }
+    - { feature: "Drag and drop; the last session comes back", lite: true, full: true }
+    - { feature: "Analyze a folder at once", lite: false, full: true }
+    - { feature: "Command line: analyze and build profiles without a window", lite: false, full: true }
+    - { feature: "Twenty skins, and a skin editor", lite: true, full: true }
+    - { feature: "Text size and app scale", lite: true, full: true }
+    - { feature: "Works offline: no account, nothing uploaded", lite: true, full: true }
+    - { feature: "Windows", lite: true, full: true }

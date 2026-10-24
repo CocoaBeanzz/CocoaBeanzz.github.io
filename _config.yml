@@ -24,6 +24,7 @@ nav_exclude:                                            # The following paths ar
   - pages/dev/index.md
   - pages/dev/tags.html
   - pages/dev/code_sample.md
+  - pages/tools/kouncil-beta.html                       # reached from the Kouncil page, not a tab
   - pages/music/index.html
   - pages/kpresto/index.md
   - pages/kpresto/tags.html
@@ -165,6 +166,7 @@ legacy_redirects:
   /contact/: /dev/contact/
   /shows/: /kpresto/shows/
   /dev/projects/2610-kouncil: /tools/projects/2610-kouncil   # moved to Tools when it became a product page
+  /kouncil/: https://tools.kaud.io/projects/2610-kouncil   # the address the posts give; the Worker answers first with a 301 once deployed
 
 
 ### Exclude from processing ###

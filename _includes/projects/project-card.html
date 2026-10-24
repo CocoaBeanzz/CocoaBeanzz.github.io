@@ -1,8 +1,17 @@
 {%- comment -%}
 One project as a tile: image, role, name, description. Expects `project`.
 A release (no role, has `released`) shows its release date where the role goes.
-Used by the project listing (projects/index.html). Styles: _sass/_tiles.scss.
+A department with `hide_role_and_tools` (_data/sections.yml) skips the role,
+and the eyebrow is left out entirely when there is nothing to put in it.
+Used by the project listing (projects/index.html) and the landing
+(projects/features.html). Styles: _sass/_tiles.scss.
 {%- endcomment -%}
+{%- assign card_section = site.data.sections | where: "id", page.section | first -%}
+{%- capture card_eyebrow -%}
+    {%- if project.role and card_section.hide_role_and_tools != true -%}{{ project.role }}
+    {%- elsif project.released -%}{{ project.released | date_to_long_string }}
+    {%- endif -%}
+{%- endcapture -%}
 <a class="tile" href="{{ project.external_url | default: project.url | relative_url }}"
    {%- if project.external_url and site.open_new_tab %} target="_blank"{% endif %}>
     <div class="tile-media">
@@ -10,7 +19,9 @@ Used by the project listing (projects/index.html). Styles: _sass/_tiles.scss.
         <img class="tile-image" src="{{ project.image }}" alt="" loading="lazy">
         {%- endif -%}
     </div>
-    <span class="eyebrow">{% if project.role %}{{ project.role }}{% elsif project.released %}{{ project.released | date_to_long_string }}{% endif %}</span>
+    {%- if card_eyebrow != "" %}
+    <span class="eyebrow">{{ card_eyebrow }}</span>
+    {%- endif %}
     <h3 class="tile-title">{{ project.name }}</h3>
     <p class="tile-text">{{ project.description }}</p>
 </a>

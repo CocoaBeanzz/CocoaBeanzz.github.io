@@ -20,6 +20,11 @@
 #         and CocoaBeanz as panels) and has no content of its own. Children
 #         are full departments with their own folders, navbar and address.
 #         kaud.io itself shows only departments without a parent.
+# hide_role_and_tools
+#         Optional. true keeps a project's `role` and `tools` off this
+#         department's tiles, featured rows and filters. For a storefront
+#         (Tools), where buyers don't care who built it or with what. The
+#         same project still shows both wherever it is crossposted (Dev).
 #
 # To add a department: add an entry here, three lines to the "Departments"
 # block in _config.yml, the id to the Worker's SECTIONS list, and create the
@@ -34,7 +39,7 @@
 - id: kpresto
   title: K Presto
   parent: music
-  hero:   # PLACEHOLDER hero images
+  hero:   
     - { image: /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_1.jpg, position: "center 22%" }
     - /docs/assets/images/projects/k-presto/BLiND/Chicago/BLiND_Chicago_3.jpg
     - /docs/assets/images/projects/k-presto/BLiND/Chicago/BLiND_Chicago_1.jpg
@@ -45,7 +50,7 @@
 - id: cocoabeanz
   title: CocoaBeanz
   parent: music
-  hero:   # PLACEHOLDER hero images
+  hero:   
     - /docs/assets/images/site/231103-headshot-5-square.jpg
     - /docs/assets/images/site/250122-headshot-1.jpg
     - /docs/assets/images/site/headshots/headshot-11.jpg
@@ -54,24 +59,34 @@
 
 - id: tools
   title: Tools
-  hero: /docs/assets/images/projects/nokia-2110-ableton-rack/thumb.png  # PLACEHOLDER hero image
+  hero: 
+    - /docs/assets/images/projects/kouncil/product/beauty/03_compare_raw.png
+    - /docs/assets/images/projects/kouncil/product/beauty/01_spectrum_raw.png
+    - /docs/assets/images/projects/kouncil/product/beauty/02_codec_raw.png
+    - /docs/assets/images/projects/kouncil/product/beauty/02_t3v_resonance_dive_photo.png
+    - /docs/assets/images/projects/nokia-2110-ableton-rack/thumb.png
+    - /docs/assets/images/projects/kouncil/product/beauty/04_t3v_spike_crane_photo.png
+    - /docs/assets/images/projects/kouncil/product/beauty/05_t3v_album_turn_photo.png
   accent: "#7c4f9b"
+  hide_role_and_tools: true
 
 - id: games
   title: Games
-  hero:   # PLACEHOLDER hero images
+  hero:   
+    - /docs/assets/images/projects/were-tethered-together/wtt-8.png
     - /docs/assets/images/projects/inline-out-of-time/edits/inline-5-edit.png
+    - /docs/assets/images/projects/creature-kitchen/screenshots/1.jpg
+    - /docs/assets/images/projects/gravity-goblins/screenshots/1.jpg
     - /docs/assets/images/projects/infestation/edited/InfeStation_gp_10_edit.png
     - /docs/assets/images/projects/eidolon/screenshots/eidolon-screenshot-3.jpg
-    - /docs/assets/images/projects/were-tethered-together/wtt-10.png
-    - /docs/assets/images/projects/cats-n-critters/screenshots/cats-n-critters-screenshot-4.jpg
   accent: "#7c4f9b"
 
 - id: dev
   title: Development
-  hero:   # PLACEHOLDER hero images
+  hero:   
     - /docs/assets/images/projects/moorer-reverb/moorer-1.png
+    - /docs/assets/images/projects/kouncil/product/beauty/05_t3v_album_turn_photo.png
     - /docs/assets/images/projects/toi/toi-1.png
     - /docs/assets/images/projects/wally/wally-on-5.jpg
-    - /docs/assets/images/projects/wally/wally-on-2.jpg
+    - /docs/assets/images/projects/kouncil/product/beauty/03_compare_raw.png
   accent: "#7c4f9b"

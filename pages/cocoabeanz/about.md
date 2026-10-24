@@ -31,3 +31,13 @@ I write game soundtracks of all genres and all kinds of fun experimental stuff.
 Everything is free to download on Soundcloud.
 
 *Enjoy :)*
+
+### Links
+
+<div class="link-buttons" markdown="1">
+[SoundCloud](https://www.soundcloud.com/CocoaBeanz)
+[YouTube](https://www.youtube.com/KPresto)
+</div>
+
+</div>
+</div>

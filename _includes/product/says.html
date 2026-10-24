@@ -7,9 +7,9 @@ voice   listener | casual | engineer | robot (the app's persona keys)
 text    what they say. HTML is fine.
 always  "true": shown whichever voice is picked (a closing line).
 
-The product page shows one voice at a time: the reader picks it with the
-switch at the top (.kp-voices), and assets/js/product.js puts the choice on
-the page as data-voice. The names and faces are the app's own.
+The product page shows one voice at a time: the reader picks it from the
+cast or the floating switch (.kp-voices), and assets/js/product.js puts the
+choice on the page as data-voice. The names and faces are the app's own.
 {%- endcomment -%}
 {%- assign kp_names = "listener:Taylor|casual:Vexie Hex|engineer:Kate Adagio|robot:K0ndukt0r" | split: "|" -%}
 {%- assign kp_name = "" -%}
@@ -17,7 +17,7 @@ the page as data-voice. The names and faces are the app's own.
   {%- assign parts = pair | split: ":" -%}
   {%- if parts[0] == include.voice -%}{%- assign kp_name = parts[1] -%}{%- endif -%}
 {%- endfor -%}
-<div class="kp-says kp-{{ include.voice }}{% if include.always %} kp-says-always{% endif %}" data-voice="{{ include.voice }}">
+<div class="kp-says kp-{{ include.voice }}{% if include.always %} kp-says-always{% else %} kp-voiced{% endif %}" data-voice="{{ include.voice }}">
   <img class="kp-says-face" src="{{ '/docs/assets/images/projects/kouncil/product/face_' | append: include.voice | append: '_a.png' | relative_url }}" alt="" loading="lazy">
   <p class="kp-says-bubble"><span class="kp-says-name">{{ kp_name }}</span>{{ include.text }}</p>
 </div>

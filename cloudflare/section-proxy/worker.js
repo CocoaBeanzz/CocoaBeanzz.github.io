@@ -33,6 +33,13 @@ const SHARED_PATH_PREFIXES = ["/assets/", "/docs/"];
 // page has exactly one public address. Set to false to leave both live.
 const REDIRECT_PATHS_TO_SUBDOMAINS = true;
 
+// Short links on the hub host: kaud.io/<name> (and anything under it)
+// permanently redirects to the page it names. kaud.io/kouncil is the address
+// every Kouncil post and caption gives.
+const SHORT_LINKS = {
+  kouncil: "https://tools.kaud.io/projects/2610-kouncil",
+};
+
 // Marks the Worker's own fetches to the origin so they are never redirected
 // back to a subdomain, whatever route they arrive on.
 const PROXY_MARKER_HEADER = "x-section-proxy";
@@ -146,6 +153,14 @@ export default {
 
     if (SECTIONS.includes(subdomain)) {
       return serveSection(request, url, subdomain, originBase);
+    }
+
+    // A short link: kaud.io/kouncil, kaud.io/kouncil/, kaud.io/kouncil/anything.
+    if (url.hostname === ROOT_HOST) {
+      const first = url.pathname.split("/")[1].toLowerCase();
+      if (Object.hasOwn(SHORT_LINKS, first)) {
+        return Response.redirect(`${SHORT_LINKS[first]}${url.search}`, 301);
+      }
     }
 
     // Request on the hub host for a department path: kaud.io/dev/...

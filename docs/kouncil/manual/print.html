@@ -22,7 +22,8 @@
 <p>It runs entirely on your computer. No audio, results or usage data leave the machine.</p>
 <p>This manual follows the order most sessions take. Load a track, add the ones you want to hold it against, choose a target and a profile, read the tabs, listen, ask the Kouncil, then export.</p>
 <h2 id="quick-start">Quick start</h2>
-<p>There is a lot in Kouncil, and none of it has to be learnt before it is useful. These six steps are a whole session. Everything after this chapter is detail for when you want it.</p>
+<p>There is a lot in Kouncil, and none of it has to be learned before it is useful. These six steps are a whole session. Everything after this chapter is detail for when you want it.</p>
+<p>The first time you open Kouncil, one of the characters says hello and asks for a track. Once your first track is analyzed, all four of them show you round the window in fifteen short steps, each pointing at the part it is about. Enter or the right arrow moves on, the left arrow goes back, and Esc ends the tour at any point. <strong>Settings &gt; Appearance &gt; Tour of Kouncil</strong> plays it again.</p>
 <div class="steps">
 <div class="step">
 <div class="col">
@@ -91,7 +92,7 @@ Honestly? Load your song, look at the score, read the first red thing, fix it, l
 
 <hr />
 <h2 id="1-loading-tracks">1. Loading tracks</h2>
-<p>Drop audio files on the window or press <strong>Load</strong> (Ctrl+O). WAV, FLAC, MP3, AIFF, OGG, M4A / AAC and Opus all open. The arrow beside Load lists recent files. Drop several at once and they are analysed side by side, with the number running at once held back by how much memory is free.</p>
+<p>Drop audio files on the window or press <strong>Load</strong> (Ctrl+O). WAV, FLAC, MP3, AIFF, OGG, M4A / AAC and Opus all open. The arrow beside Load lists recent files. Drop several at once and they are analyzed side by side, with the number running at once held back by how much memory is free.</p>
 <p>Analysis takes about 25 seconds a track and arrives in stages. The waveform and level figures land first, the spectral, stereo and dynamics charts follow, and the codec simulation fills in last. Each chart appears as its part of the analysis finishes, so you can start reading and playing before the track is done.</p>
 <div class="figure full">
 <p><img alt="The header" src="img-print/part_header.png" /></p>
@@ -102,8 +103,8 @@ Honestly? Load your song, look at the score, read the first red thing, fix it, l
 <p><img alt="The track list" src="img-print/dlg_track_list.png" /></p>
 <p>The track list. Drag a row by its grip to reorder.</p>
 </div>
-<p>Kouncil remembers the library between launches. The last session's tracks come back analysed, with no waiting. If an audio file has moved since, the status row offers <strong>Locate audio</strong> so playback can find it again. Analysis results never depend on the file still being there.</p>
-<p>A <code>.ksnap</code> snapshot (see <a href="#8-exporting">Exporting</a>) loads the same way as audio and opens instantly, which is how you look at a master someone else analysed or one whose audio you no longer have.</p>
+<p>Kouncil remembers the library between launches. The last session's tracks come back analyzed, with no waiting. If an audio file has moved since, the status row offers <strong>Locate audio</strong> so playback can find it again. Analysis results never depend on the file still being there.</p>
+<p>A <code>.ksnap</code> snapshot (see <a href="#8-exporting">Exporting</a>) loads the same way as audio and opens instantly, which is how you look at a master someone else analyzed or one whose audio you no longer have.</p>
 <h3 id="render-qc">Render QC</h3>
 <p>Each file is also checked for problems that have nothing to do with taste. These are faults in the render itself, and they show up in the Overview's findings and in the text report.</p>
 <div class="table"><table>
@@ -135,8 +136,8 @@ Honestly? Load your song, look at the score, read the first red thing, fix it, l
 <td>A render stopped while audio was still sounding</td>
 </tr>
 <tr>
-<td>Clicks and pops</td>
-<td>Isolated spikes from buffer underruns</td>
+<td>Render glitches</td>
+<td>A buffer of silence, a held sample or a buffer played twice, from a buffer underrun. Needs a lossless file</td>
 </tr>
 <tr>
 <td>Dropouts</td>
@@ -265,18 +266,18 @@ Per metric a profile stores the reference set's mean, median, trimmed mean, stan
 
 </div></div>
 
-<p>Kouncil ships with 39 profiles measured from 1060 commercial masters, covering styles from 1930s big band swing through bebop, Motown, classic rock, punk, thrash, golden age hip hop, Detroit techno, jungle and trip hop to modern mainstream pop.</p>
+<p>Kouncil ships with 100 profiles measured from 2,499 commercial masters, covering styles from 1920s Delta blues and 1930s big band swing through bebop, Motown, classic rock, punk, thrash, golden age hip hop, Detroit techno, jungle and trip hop to modern mainstream pop and K-pop.</p>
 <p>Click the profile's name in the header for the <strong>Profile Library</strong>.</p>
 <div class="figure full">
 <p><img alt="The Profile Library" src="img-print/dlg_profiles.png" /></p>
 <p>The Profile Library: search and tags above the list, the selected profile and its targets at the right.</p>
 </div>
 <ul>
-<li>Search by name, and filter with tag pills and a Favorites pill. Tags are grouped by category (the part before the <code>/</code>, such as <code>era/1990s</code>), and each category has a colour you can change.</li>
+<li>Search by name, and filter with tag pills and a Favorites pill. Tags are grouped by category (the part before the <code>/</code>, such as <code>era/1990s</code>), and each category has a color you can change.</li>
 <li>Select a profile to see its description, the tracks it was built from, and its targets table. The table shows the headline metrics, or every metric behind "All metrics".</li>
 <li>Edit a profile's name, description and tags, duplicate it, or delete it.</li>
 </ul>
-<p>The arrow beside the profile name lists recently used profiles. With no profile selected, Kouncil judges against general baselines that were themselves set from the same reference library.</p>
+<p>The arrow beside the profile name lists recently used profiles, and <strong>Default profile</strong> at the end goes back to the default. There is always a profile: until you pick one, the default is it, a general baseline for music of any style.</p>
 <hr />
 <h2 id="3-comparing-tracks">3. Comparing tracks</h2>
 <p>Load more than one track and <strong>Compare</strong> (header) picks what the current track is held against.</p>
@@ -285,7 +286,7 @@ Per metric a profile stores the reference set's mean, median, trimmed mean, stan
 <li><strong>Average</strong> of the whole library</li>
 <li><strong>Average of others</strong>, which is everything except the current track</li>
 </ul>
-<p>The choice shows up everywhere at once. Charts draw the compare source as an overlay in the compare colour, every table gains a CMP column, and the playback strip grows a second waveform so you can A/B by ear at the same moment in time (see <a href="#5-playback-and-listening-tools">Playback</a>).</p>
+<p>The choice shows up everywhere at once. Charts draw the compare source as an overlay in the compare color, every table gains a CMP column, and the playback strip grows a second waveform so you can A/B by ear at the same moment in time (see <a href="#5-playback-and-listening-tools">Playback</a>).</p>
 <div class="figure full">
 <p><img alt="The Loudness tab with a compare track" src="img-print/tab_loudness_compare.png" /></p>
 <p>With a compare track: an overlay on every chart, a CMP column in every table, a second waveform on the strip.</p>
@@ -295,7 +296,7 @@ Per metric a profile stores the reference set's mean, median, trimmed mean, stan
 <hr />
 <h2 id="4-the-tabs">4. The tabs</h2>
 <p>Each tab has tables on the left and charts on the right. Keys 1 to 7 switch between them. The frequency axis on every spectrum chart can be log, mel or linear (Settings &gt; Analysis).</p>
-<p>In tables, a value in plain text is in range. Yellow and red mark a problem and are the only coloured numbers, so a glance down a column finds what needs attention.</p>
+<p>In tables, a value in plain text is in range. Yellow and red mark a problem and are the only colored numbers, so a glance down a column finds what needs attention.</p>
 <div class="says listener">
 <img class="face" src="img-print/listener_a.png" alt="">
 <div class="said" markdown="1">
@@ -320,14 +321,14 @@ White number, you're fine. Yellow, have a look. Red, fix this one.
 </div>
 </div>
 <div class="col">
-<p>The left column is five headline metrics with their targets, then the conclusion. That is a <strong>health score</strong> out of 100 with a letter grade, a one-sentence summary from your chosen character, and the findings in order of severity. Each finding has a coloured bar for how serious it is and a muted line underneath saying what to do about it.</p>
+<p>The left column is five headline metrics with their targets, then the conclusion. That is a <strong>health score</strong> out of 100 with a letter grade, a one-sentence summary from your chosen character, and the findings in order of severity. Each finding has a colored bar for how serious it is and a muted line underneath saying what to do about it.</p>
 <p>Click a headline metric's name to open the rest of its group under it.</p>
 <div class="says robot">
 <img class="face" src="img-print/robot_a.png" alt="">
 <div class="said">
 <p class="who">K0ndukt0r</p>
 
-The score starts at 100 and deducts: loudness error up to 25, true peak over the ceiling 5 per dB up to 15, DR under 8 or 6 costs 8 or 15, clipping 10, negative stereo correlation 5, mono bass loss over 4 dB 5, plus smaller terms for harshness, micro-dynamics, noise floor, low-volume translation and the worst codec's transient fidelity. A value inside the active profile's range deducts nothing.
+The score starts at 100 and deducts: loudness error up to 25 (45 when it is 10 LU or more off target), true peak over the ceiling 5 per dB up to 20, DR under 8 or 6 costs 14 or 22, clipping 10, 25 or 40 above 250, 2,500 or 25,000 samples a minute, stereo correlation under 0.2 costs 10 and under 0 costs 40, mono bass loss over 4 dB 5 and over 12 dB 15, a tonal balance further from the profile's tracks than nearly all real releases go, in any band and either direction (too bright, dull, boomy, thin, muddy, harsh) up to 20, plus smaller terms for harshness, micro-dynamics, low-volume translation and the worst codec's transient fidelity. A value inside the active profile's range deducts nothing, and neither do the profile's most clipped tenth of releases.
 
 </div>
 </div>
@@ -345,7 +346,7 @@ The score starts at 100 and deducts: loudness error up to 25, true peak over the
 </div>
 <div class="figure">
 <p><img alt="Spectrum" src="img-print/chart_spectrum.png" /></p>
-<p><strong>Spectrum</strong>. The average spectrum, coloured by region from sub to air, with its tilt.</p>
+<p><strong>Spectrum</strong>. The average spectrum, colored by region from sub to air, with its tilt.</p>
 </div>
 <div class="figure">
 <p><img alt="Stereo Width by Frequency" src="img-print/chart_stereo_by_freq.png" /></p>
@@ -393,7 +394,7 @@ Read Streaming Readiness like this: +4 LU on Spotify means Spotify turns you dow
 </div>
 <div class="figure">
 <p><img alt="Short-term Loudness" src="img-print/chart_loudness_timeline.png" /></p>
-<p><strong>Short-term Loudness</strong> over time, with the target, the integrated level and both gates drawn in. Colour shows which moments counted and which were gated out.</p>
+<p><strong>Short-term Loudness</strong> over time, with the target, the integrated level and both gates drawn in. Color shows which moments counted and which were gated out.</p>
 </div>
 <div class="figure">
 <p><img alt="Loudness Gating" src="img-print/chart_loudness_gating.png" /></p>
@@ -420,7 +421,7 @@ Read Streaming Readiness like this: +4 LU on Spotify means Spotify turns you dow
 </div>
 <div class="figure">
 <p><img alt="Mid / Side Spectrum" src="img-print/chart_ms_spectrum.png" /></p>
-<p><strong>Mid / Side Spectrum</strong>. What sits in the centre and what sits at the sides.</p>
+<p><strong>Mid / Side Spectrum</strong>. What sits in the center and what sits at the sides.</p>
 </div>
 <div class="figure">
 <p><img alt="Band Energy" src="img-print/chart_band_energy.png" /></p>
@@ -519,7 +520,7 @@ If Correlation by Band dips below zero in the low bands, something down there is
 <p>The Dynamics tab.</p>
 </div>
 <ul>
-<li><strong>Dynamics Summary</strong>. DR, crest factor, micro-dynamics, transient density, section contrast, noise floor.</li>
+<li><strong>Dynamics Summary</strong>. DR, crest factor, micro-dynamics, transient density, section contrast.</li>
 </ul>
 <div class="gallery">
 <div class="figure">
@@ -568,7 +569,7 @@ Pumping is when the whole song ducks every time the kick hits, like someone ridi
 </div></div>
 
 <h3 id="codec">Codec</h3>
-<p>Kouncil does not estimate what a codec will do. It encodes and decodes the track through the real codecs with ffmpeg, aligns the result to the original to the sample, and analyses the difference.</p>
+<p>Kouncil does not estimate what a codec will do. It encodes and decodes the track through the real codecs with ffmpeg, aligns the result to the original to the sample, and analyzes the difference.</p>
 <div class="says listener">
 <img class="face" src="img-print/listener_a.png" alt="">
 <div class="said" markdown="1">
@@ -629,7 +630,7 @@ Streaming apps and Bluetooth headphones shrink your song to send it. This tab ac
 <div class="gallery">
 <div class="figure">
 <p><img alt="Codec Scorecard" src="img-print/chart_codec_scorecard.png" /></p>
-<p><strong>Scorecard</strong>. Every codec against every metric, coloured by threshold.</p>
+<p><strong>Scorecard</strong>. Every codec against every metric, colored by threshold.</p>
 </div>
 <div class="figure">
 <p><img alt="Codec Consistency" src="img-print/chart_codec_consistency.png" /></p>
@@ -656,7 +657,7 @@ Streaming apps and Bluetooth headphones shrink your song to send it. This tab ac
 <p><strong>Pre-echo</strong>. Where a codec smeared sound ahead of a hit, and by how much.</p>
 </div>
 </div>
-<p>Each codec has its own colour across the whole tab. Tooltips on the Scorecard say what moves each figure and what to do in the master about it.</p>
+<p>Each codec has its own color across the whole tab. Tooltips on the Scorecard say what moves each figure and what to do in the master about it.</p>
 <div class="says engineer">
 <img class="face" src="img-print/engineer_a.png" alt="">
 <div class="said" markdown="1">
@@ -674,7 +675,7 @@ The two figures worth acting on are true peak change and transient fidelity. If 
 <p>The Compare tab: every track in the library in one table, then on the same charts.</p>
 </div>
 <ul>
-<li><strong>Summary</strong>. One row per track, one column per metric. Track names are in each track's own colour and are the colour key for the charts beside them. Outliers are marked in the warning colours.</li>
+<li><strong>Summary</strong>. One row per track, one column per metric. Track names are in each track's own color and are the color key for the charts beside them. Outliers are marked in the warning colors.</li>
 <li><strong>Track Character</strong>. A radar chart of every track. With <strong>Normalize</strong> on, each axis is scaled to the active profile's range, so a track that sits on the profile draws a circle and deviations stick out as dents and spikes.</li>
 <li><strong>Spectrum</strong>. Every track's spectrum overlaid.</li>
 <li><strong>Stereo Width by Frequency</strong>, overlaid.</li>
@@ -691,7 +692,7 @@ On Track Character every song is a shape. Songs with the same shape sound like t
 </div></div>
 
 <p>To put an album in order, drag a track by its grip in the header's track list, drag a name up or down in the Summary, or drag a track along the Sequence chart. Click anywhere on Sequence to start playback from that point in that track, which makes auditioning the transitions quick.</p>
-<p>Tracks keep their colour when the order changes.</p>
+<p>Tracks keep their color when the order changes.</p>
 <hr />
 <h2 id="5-playback-and-listening-tools">5. Playback and listening tools</h2>
 <p>The strip along the bottom is the track's waveform with a transport on it. It is there on every tab except The Kouncil, and the waveform lines up with the time charts above it, so a moment in the track is at the same horizontal position everywhere. Every time chart carries a moving playhead.</p>
@@ -810,29 +811,29 @@ DIFFERENCE is the strangest button in the app. It plays only the bits of your so
 <h2 id="6-tooltips-and-the-four-characters">6. Tooltips and the four characters</h2>
 <p>Everything Kouncil explains, it explains four ways.</p>
 <div class="cards">
-<div class="card">
+<div class="card listener">
 <p><img alt="Taylor" src="img-print/listener_a.png" /></p>
 <h4 id="taylor">Taylor</h4>
 <p>A listener</p>
 <p>What you would notice on earbuds on the bus.</p>
 </div>
-<div class="card">
+<div class="card casual">
 <p><img alt="Vexie Hex" src="img-print/casual_a.png" /></p>
 <h4 id="vexie-hex">Vexie Hex</h4>
 <p>A musician</p>
 <p>What to reach for in your DAW.</p>
 </div>
-<div class="card">
+<div class="card engineer">
 <p><img alt="Kate Adagio" src="img-print/engineer_a.png" /></p>
 <h4 id="kate-adagio">Kate Adagio</h4>
 <p>A mastering engineer</p>
 <p>Trade terms, thresholds, and the fix.</p>
 </div>
-<div class="card">
+<div class="card robot">
 <p><img alt="K0ndukt0r" src="img-print/robot_a.png" /></p>
 <h4 id="k0ndukt0r">K0ndukt0r</h4>
 <p>An audio scientist</p>
-<p>The measurement, the standard, the maths.</p>
+<p>The measurement, the standard, the math.</p>
 </div>
 </div>
 <p>Pick who talks under <strong>Settings &gt; Appearance</strong>. The same choice writes the Overview's summary line.</p>
@@ -842,7 +843,7 @@ DIFFERENCE is the strangest button in the app. It plays only the bits of your so
 <li><strong>Values</strong> say what this particular number means for this track. "-8.2 LUFS" gets a different tooltip from "-14.1 LUFS".</li>
 <li><strong>Targets and compare cells</strong> say where the figure comes from.</li>
 <li><strong>Things inside a chart</strong> have their own tooltips. The target line, the gate, a single histogram bar, one codec's curve and a shaded zone each explain themselves, and the chart's general description shows everywhere else.</li>
-<li><strong>Settings and skin colours</strong> each say what they change.</li>
+<li><strong>Settings and skin colors</strong> each say what they change.</li>
 </ul>
 <p>Tooltips wait 0.4 seconds by default. The delay is adjustable, and they can be switched off.</p>
 <hr />
@@ -939,7 +940,7 @@ DIFFERENCE is the strangest button in the app. It plays only the bits of your so
 </tr>
 </tbody>
 </table></div>
-<p>The tab's own two tabs, <strong>Automatic layout</strong> and <strong>Advanced layout</strong>, choose between a layout fitted for you and one you place by hand. The automatic layout fits everything you selected onto the canvas by itself, and the preview beside the options follows every change. Problem charts can be outlined in the warning colour.</p>
+<p>The tab's own two tabs, <strong>Automatic layout</strong> and <strong>Advanced layout</strong>, choose between a layout fitted for you and one you place by hand. The automatic layout fits everything you selected onto the canvas by itself, and the preview beside the options follows every change. Problem charts can be outlined in the warning color.</p>
 <p>The options are grouped under headings that fold away (Scope, Output, Style, Content, Character Notes), and so are the chart groups, each with a count of how many of its charts are ticked. What is folded is remembered.</p>
 <p>Built-in <strong>presets</strong> set everything in one click. They are Instagram Story, Quick Overview: Square, Loudness Analysis, Dynamic Range Analysis, Before/After Comparison, Reference Match, Mix Notes and Batch Loudness Check. <strong>Save As</strong> adds your own. A preset works in both layouts and never switches between them: picked in the Advanced layout without a hand-placed layout of its own, it arranges the page for its charts (Ctrl+Z undoes).</p>
 <p>With the scope "All tracks (averaged)" the export gains the Compare tab's charts (Track Character, Spectrum Overlay, Stereo Width Overlay, Sequence) and a title of your choosing, such as the album's name.</p>
@@ -952,7 +953,7 @@ DIFFERENCE is the strangest button in the app. It plays only the bits of your so
 <ul>
 <li><strong>Elements</strong>. Title, health score, targets, date, verdict, section headings with their metric chips, each chart, character speech bubbles, and your own images (a logo, cover art).</li>
 <li><strong>Speech bubbles</strong>. Any chart or section can have a description or feedback bubble from any character. Each bubble chooses its character, a critical or positive expression, whether to show the name and portrait, and which individual lines to include. The portrait can be popped out as its own element, face or full figure. The bubble's tail has a handle you can drag to aim it at anything on the page.</li>
-<li><strong>Editing</strong>. Drag to move, drag a corner to scale, Shift to unlock the aspect ratio. Marquee and Shift+click select several, which can then be aligned and distributed. Snapping to page margins, centres, thirds and to other elements, each with its own toggle. Undo and redo. Arrow keys nudge.</li>
+<li><strong>Editing</strong>. Drag to move, drag a corner to scale, Shift to unlock the aspect ratio. Marquee and Shift+click select several, which can then be aligned and distributed. Snapping to page margins, centers, thirds and to other elements, each with its own toggle. Undo and redo. Arrow keys nudge.</li>
 <li><strong>Pages</strong>. Add and delete pages. Elements drag between them. Auto-arrange shares the charts out evenly as a starting point.</li>
 <li><strong>View</strong>. Zoom with the wheel, pan with the middle button or Space+drag.</li>
 <li><strong>Images</strong>. Crop by dragging a frame on the picture in its inspector.</li>
@@ -978,7 +979,7 @@ DIFFERENCE is the strangest button in the app. It plays only the bits of your so
 <h2 id="9-profiles-of-your-own">9. Profiles of your own</h2>
 <p>A profile is only as good as the tracks behind it, and the best reference set for your work is the one you chose.</p>
 <ol>
-<li>Load the reference tracks. An album you admire, your label's back catalogue, or your own best masters.</li>
+<li>Load the reference tracks. An album you admire, your label's back catalog, or your own best masters.</li>
 <li>Open <strong>Export &gt; Snapshot / Profile</strong>, tick them, and choose <strong>Master profile</strong>.</li>
 <li>Give it a name, a description and tags.</li>
 <li>Choose how the numbers are worked out.</li>
@@ -1048,11 +1049,13 @@ Mean ± σ assumes a roughly normal spread and is sensitive to outliers. Median 
 <p><strong>Appearance</strong>
 - Font size (7 to 14 pt) and app scale (0.7× to 2.0×). The whole interface follows both, charts included.
 - Tooltips on or off, their delay, and which character speaks.
-- Remember window size.</p>
+- Remember window size.
+- Tour of Kouncil: the four characters show you round the window again. Enter or the right arrow moves on, Esc stops.
+- Animate charts in. The first time you open a tab for a track, its charts draw themselves: bars grow from their base, curves rise, time charts and heatmaps fill in from left to right. Turn it off and they appear finished.</p>
 <p><strong>Analysis</strong>
 - Default target.
 - Auto-analyze on file drop.
-- Save a snapshot next to each analysed file automatically.
+- Save a snapshot next to each analyzed file automatically.
 - Level-match spectra, which can be off (file level), peak, or -14 LUFS-I. This only affects tonal and spectral figures. Loudness and peak figures are always the file's own.
 - Frequency axis scale (log, mel or linear).
 - Codec listening. One choice of Instant, Balanced or Light sets when the codec versions are prepared and what they cost in memory and disk. Custom opens up each decision separately, and a disk limit applies in every mode.
@@ -1069,7 +1072,7 @@ Mean ± σ assumes a roughly normal spread and is sensitive to outliers. Median 
 - Version, and a button that opens your data folder.</p>
 <hr />
 <h2 id="11-skins">11. Skins</h2>
-<p>A skin sets every colour in the app, charts and exports included. Twenty come built in.</p>
+<p>A skin sets every color in the app, charts and exports included. Twenty come built in.</p>
 <div class="table"><table>
 <thead>
 <tr>
@@ -1108,21 +1111,21 @@ Mean ± σ assumes a roughly normal spread and is sensitive to outliers. Median 
 </tr>
 </tbody>
 </table></div>
-<p>Some have a single strong idea. Monochrome is greys, with red only for trouble. Terminal is phosphor green. Print is greys on white, made so three lines on a chart can still be told apart on a mono laser printer.</p>
-<p>The picker in Settings &gt; Skins lists each skin in its own colours. Changing skin repaints the window at once. Drag rows to reorder the list.</p>
-<p><strong>The skin editor</strong> has a field for every colour, grouped as surfaces and text, the interface, and the graphs. A miniature of the app updates as you edit, and each field's tooltip says what it colours. <strong>Save as Custom Skin</strong> adds yours to the list.</p>
+<p>Some have a single strong idea. Monochrome is grays, with red only for trouble. Terminal is phosphor green. Print is grays on white, made so three lines on a chart can still be told apart on a mono laser printer.</p>
+<p>The picker in Settings &gt; Skins lists each skin in its own colors. Changing skin repaints the window at once. Drag rows to reorder the list.</p>
+<p><strong>The skin editor</strong> has a field for every color, grouped as surfaces and text, the interface, and the graphs. A miniature of the app updates as you edit, and each field's tooltip says what it colors. <strong>Save as Custom Skin</strong> adds yours to the list.</p>
 <p>Things a skin controls beyond the obvious.</p>
 <ul>
-<li>Interface accents and graph colours are separate sets, so a control and a chart line never share a meaning by accident.</li>
+<li>Interface accents and graph colors are separate sets, so a control and a chart line never share a meaning by accident.</li>
 <li>The chart plot area can be a different surface from the panels, even on the opposite side (dark graphs in a light interface).</li>
-<li>Heatmaps take a cool and a hot colour from the skin.</li>
-<li>Each character's colour.</li>
+<li>Heatmaps take a cool and a hot color from the skin.</li>
+<li>Each character's color.</li>
 <li>The four typefaces (headings, body, numbers, speech) can each be replaced.</li>
 </ul>
 <p>Skins are plain JSON <code>.kskin</code> files. Drop one into the <code>skins/user</code> folder in your data folder and it appears in the list. The format is documented in <code>skins/README.md</code>, is forgiving of hand-editing mistakes, and tells you why a file couldn't be read instead of skipping it silently.</p>
 <hr />
 <h2 id="12-command-line">12. Command line</h2>
-<p>Kouncil can analyse tracks and build profiles with no window, for batch work and automation. Run from the source folder with Python 3 and ffmpeg on the PATH.</p>
+<p>Kouncil can analyze tracks and build profiles with no window, for batch work and automation. Run from the source folder with Python 3 and ffmpeg on the PATH.</p>
 <div class="says listener">
 <img class="face" src="img-print/listener_a.png" alt="">
 <div class="said" markdown="1">
@@ -1140,7 +1143,7 @@ python3 kouncil.py profile TRACKS... --out FILE --name &quot;Display Name&quot;
 <p><code>TRACKS</code> can be audio files, snapshots, folders of either, or a mix.</p>
 <ul>
 <li><strong>analyze</strong> writes a <code>.ksnap</code> per track, the same file the app saves and opens. <code>--report</code> adds the text report beside each.</li>
-<li><strong>profile</strong> builds a <code>.kprofile</code> from all the tracks. <code>--snapshots FOLDER</code> keeps each track's analysis and reuses it on the next run, so adding two tracks to a reference set means analysing two tracks.</li>
+<li><strong>profile</strong> builds a <code>.kprofile</code> from all the tracks. <code>--snapshots FOLDER</code> keeps each track's analysis and reuses it on the next run, so adding two tracks to a reference set means analyzing two tracks.</li>
 </ul>
 <div class="table"><table>
 <thead>
@@ -1298,15 +1301,15 @@ Short version: it measures to the same standard the streaming services use, it r
 <ul>
 <li><strong>Python, Tkinter, NumPy / SciPy, Matplotlib and Pillow.</strong> No web stack and no framework. Windows and macOS builds bundle Python and a purpose-built, audio-only LGPL ffmpeg.</li>
 <li><strong>Standards-checked measurement.</strong> Loudness is implemented from ITU-R BS.1770 with the standard's own filter coefficients and is tested against EBU Tech 3341 reference signals and cross-checked against ffmpeg's <code>ebur128</code>. True peak is oversampled. Every algorithm is written up in <a href="ALGORITHMS.md">ALGORITHMS.md</a>.</li>
-<li><strong>Real codec round-trips.</strong> Codec figures come from an actual encode and decode, sample-aligned by cross-correlation, compared against a per-quarter-Bark masking threshold. No modelled approximations.</li>
-<li><strong>Thresholds from data.</strong> The baselines that decide what gets flagged were set from 1060 measured commercial masters, not from rules of thumb.</li>
+<li><strong>Real codec round-trips.</strong> Codec figures come from an actual encode and decode, sample-aligned by cross-correlation, compared against a per-quarter-Bark masking threshold. No modeled approximations.</li>
+<li><strong>Thresholds from data.</strong> The baselines that decide what gets flagged were set from measured commercial masters (2,499 of them across 100 genres), not from rules of thumb.</li>
 <li><strong>Playback in its own process.</strong> The audio engine runs as a separate process with its own interpreter lock, sharing decoded audio through shared memory and exchanging state through a small shared control block that neither side ever waits on, so analysis and chart drawing can't cause dropouts. Worst-case block timing under load went from 126 ms late to no underruns at a 93 ms buffer.</li>
 <li><strong>Click-free DSP in the monitor path.</strong> The audition filter glides in log frequency and crossfades between coefficient sets, with a look-ahead limiter behind it.</li>
 <li><strong>A responsive UI on a toolkit not known for it.</strong> Analysis is staged and threaded with memory-aware concurrency. Charts render ahead on worker threads and are shown in one step. Tabs are prebuilt in the background. Window resizes swap the live widgets for a snapshot until the drag settles, which took a resize step from about 2000 ms to 140 ms.</li>
 <li><strong>Resolution independence.</strong> Every dimension derives from the font size and app scale, and custom-drawn controls replace the native ones that don't scale.</li>
-<li><strong>A full theming system.</strong> Twenty skins as data files in a documented format, with separate roles for interface, graph, status and plot colours, applied live to widgets, charts and exports.</li>
+<li><strong>A full theming system.</strong> Twenty skins as data files in a documented format, with separate roles for interface, graph, status and plot colors, applied live to widgets, charts and exports.</li>
 <li><strong>A layout engine and a layout editor.</strong> Image export has both an automatic fitting engine and a hand-placement editor with snapping, multi-page support, undo and presets.</li>
-<li><strong>Written, tested content at four levels.</strong> Every chart, metric, chart zone, setting and skin colour has explanatory text for four audiences, and tests fail when one is missing.</li>
+<li><strong>Written, tested content at four levels.</strong> Every chart, metric, chart zone, setting and skin color has explanatory text for four audiences, and tests fail when one is missing.</li>
 <li><strong>A headless command line</strong> over the same analysis code, and a test suite covering the loudness standard, codec alignment, file robustness, session integrity, the audio engine and the UI's layout rules.</li>
 </ul>
   </main>

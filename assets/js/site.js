@@ -122,7 +122,7 @@
     var thumbnail = video.querySelector("img");
 
     // The markup uses the thumbnail size every video has. Swap in the HD one
-    // when it exists. For videos without it YouTube answers with a tiny grey
+    // when it exists. For videos without it YouTube answers with a tiny gray
     // placeholder instead of an error, hence the width check.
     var hdThumbnail = new Image();
     hdThumbnail.onload = function () {
