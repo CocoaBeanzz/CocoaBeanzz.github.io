@@ -65,7 +65,7 @@ Let's make something amazing together.
 
 ## Skills
 
-{% comment %} Each group is a title and a file in _data/ listing `name` and `percentage`. {% endcomment %}
+{% comment %} Each group is a title and a file in _data/ listing `name`, strongest first. {% endcomment %}
 
 <div class="skill-groups">
 {% include about/skills.html title="Languages" source=site.data.languages %}

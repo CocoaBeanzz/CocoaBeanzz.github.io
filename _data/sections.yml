@@ -4,6 +4,10 @@
 #         path prefix (kaud.io/<id>/). Must match the "Departments" block
 #         in _config.yml and SECTIONS in cloudflare/section-proxy/worker.js.
 # title   Name shown on the hub panel and in the navbar.
+# name    Who this department's pages say they are from. Ends every tab and
+#         link-preview title ("About | K Preston") and is the About
+#         portrait's alt text. Pages outside a department, and kaud.io
+#         itself, use the site title from _config.yml instead.
 # hero    Image for the hub panel and the top of the department landing.
 #         One path, or a list of them. With a list, the landing slides from
 #         one to the next every few seconds, and the hub panel uses the first.
@@ -32,12 +36,14 @@
 
 - id: music
   title: Music
+  name: K Presto
   hero: /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_1.jpg   # PLACEHOLDER hero image
   hero_position: center 22%
   accent: "#7c4f9b"
 
 - id: kpresto
   title: K Presto
+  name: K Presto
   parent: music
   hero:   
     - { image: /docs/assets/images/projects/k-presto/BLiND/Cleveland/BLiND_Cleveland_1.jpg, position: "center 22%" }
@@ -49,6 +55,7 @@
 
 - id: cocoabeanz
   title: CocoaBeanz
+  name: CocoaBeanz
   parent: music
   hero:   
     - /docs/assets/images/site/231103-headshot-5-square.jpg
@@ -59,6 +66,7 @@
 
 - id: tools
   title: Tools
+  name: KAUD.io
   hero: 
     - /docs/assets/images/projects/kouncil/product/beauty/03_compare_raw.png
     - /docs/assets/images/projects/kouncil/product/beauty/01_spectrum_raw.png
@@ -72,6 +80,7 @@
 
 - id: games
   title: Games
+  name: KAUD.io
   hero:   
     - /docs/assets/images/projects/were-tethered-together/wtt-8.png
     - /docs/assets/images/projects/inline-out-of-time/edits/inline-5-edit.png
@@ -83,6 +92,7 @@
 
 - id: dev
   title: Development
+  name: K Preston
   hero:   
     - /docs/assets/images/projects/moorer-reverb/moorer-1.png
     - /docs/assets/images/projects/kouncil/product/beauty/05_t3v_album_turn_photo.png

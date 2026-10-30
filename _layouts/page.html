@@ -28,6 +28,16 @@ of each file), because several use a logo image in place of a text title.
   </header>
   {%- endif %}
 
+  {%- comment -%}
+  A project whose header is only a logo image (Inline, TOI, ...) would have
+  no heading at all. Give it a hidden one with the project's name.
+  {%- endcomment -%}
+  {%- if page.collection == "projects" and page.name -%}
+    {%- unless content contains "<h1" %}
+  <h1 class="sr-only">{{ page.name }}</h1>
+    {%- endunless -%}
+  {%- endif %}
+
   {{ content }}
 
 {% include elements/related-posts.html %}

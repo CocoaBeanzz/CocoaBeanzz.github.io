@@ -18,6 +18,8 @@ away and the rest load lazily.
 {%- endcomment -%}
 {%- assign section = site.data.sections | where: "id", page.section | first -%}
 <header class="hero bleed">
+    {%- comment -%} The landing's only heading. Hidden because the navbar already names the department. {%- endcomment %}
+    <h1 class="sr-only">{{ section.title }}</h1>
     <div class="hero-frame{% if section.heroes.size > 1 %} hero-slides{% endif %}" data-slideshow data-slideshow-interval="3000">
         {%- for hero in section.heroes %}
         <img class="hero-image{% if forloop.first %} is-showing{% endif %}" src="{{ hero.image | relative_url }}" alt="" style="object-position: {{ hero.position }};"{% unless forloop.first %} loading="lazy"{% endunless %}>

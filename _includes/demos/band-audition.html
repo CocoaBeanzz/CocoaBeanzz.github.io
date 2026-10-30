@@ -1,0 +1,23 @@
+<div class="band-demo"
+     data-audio="{{ '/docs/assets/audio/split_sights_band_demo.mp3' | relative_url }}"
+     data-worklet="{{ '/assets/js/band-audition/worklet.js' | relative_url }}">
+  <div class="band-demo-bar">
+    <button type="button" class="band-demo-play">Play</button>
+    <label><input type="checkbox" class="band-demo-smooth" checked> Glide and crossfade</label>
+    <label><input type="checkbox" class="band-demo-guard" checked> Peak guard</label>
+    <label class="band-demo-volume-label">Volume <input type="range" class="band-demo-volume" min="-40" max="0" step="0.5" value="-12"></label>
+  </div>
+  <canvas class="band-demo-plot"></canvas>
+  <div class="band-demo-readout">Press Play, then press and drag on the spectrum</div>
+</div>
+<style>
+  .band-demo { margin: 1.5rem 0 0.5rem; }
+  .band-demo-bar { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: center; margin-bottom: 0.5rem; }
+  .band-demo-bar label { margin: 0; color: var(--text-dim); cursor: pointer; }
+  .band-demo-volume-label { display: flex; align-items: center; gap: 0.5rem; }
+  .band-demo-volume { width: 7rem; accent-color: var(--accent); }
+  .band-demo-play { background: var(--accent); color: #fff; border: 0; padding: 0.3rem 1.1rem; cursor: pointer; }
+  .band-demo-plot { display: block; width: 100%; height: 220px; background: var(--surface); touch-action: none; cursor: crosshair; }
+  .band-demo-readout { margin-top: 0.4rem; color: var(--text-dim); font-variant-numeric: tabular-nums; min-height: 1.5em; }
+</style>
+<script src="{{ '/assets/js/band-audition/demo.js' | relative_url }}" defer></script>

@@ -6,7 +6,7 @@
 // brief:	FMOD wrapper with settings management, randomization, spatialization
 // Course:  GAM200F22-B
 // 
-// Copyright © 2022 DigiPen, All rights reserved.
+// Copyright Â© 2022 DigiPen, All rights reserved.
 //------------------------------------------------------------------------------
 
 #include "AudioSource.h"

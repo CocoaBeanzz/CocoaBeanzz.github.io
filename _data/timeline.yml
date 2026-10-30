@@ -1,3 +1,55 @@
+- title: Developer (Solo)
+  from: 09/2026
+  to: Present
+  description: SNURRR <br>
+                C++, iPlug2, VST3, AU, CLAP, AAX<br>
+                - Building a percussion instrument that freezes a sound's spectrum and rebuilds the hit around it, with two samplers, an additive engine of up to 384 oscillators per channel and a modal drum body.<br>
+                - Kept the audio thread free of allocation, locks and file access, with atomics for parameters and atomically swapped shared pointers for sample data.<br>
+                - Wrote the FFT, spectrogram analysis, file decoding and DSP modules from scratch.
+
+- title: Composer
+  from: 2026
+  to: Present
+  description: Gravity Goblins <br>
+                - Composing the soundtrack for a gravity-bending roguelite collectathon.
+
+- title: Developer (Solo)
+  from: 06/2026
+  to: Present
+  description: Kouncil <br>
+                Python, NumPy, SciPy, ffmpeg<br>
+                - Built a mastering analyzer whose loudness and true peak follow ITU-R BS.1770, tested against EBU Tech 3341's reference signals.<br>
+                - Wrote a playback engine that runs in its own process, reading audio from shared memory, so no UI or analysis work can starve the audio callback.<br>
+                - Made every spectrum chart a live filter&#58; a click-free band-pass that glides and crossfades its coefficients, behind a look-ahead limiter.<br>
+                - Simulated eight streaming codecs by round-tripping each master through real encoders, aligning the decode by cross-correlation and measuring what changed.<br>
+                - Set every threshold from measurements of 2,499 commercial releases across 100 genre profiles.
+
+- title: Composer
+  from: 2025
+  to: 02/2026
+  description: Creature Kitchen <br>
+                - Composed the soundtrack for a creepy-cozy cooking simulator, released on Steam.
+
+- title: Composer
+  from: 2025
+  to: 09/2025
+  description: Eidolon&#58; Fate of Fools <br>
+                - Composed the soundtrack for an arena shooter built around Major Arcana tarot cards.
+
+- title: DSP Engineer
+  from: 10/2024
+  to: 04/2025
+  description: TOI (Thought-Obedient Instruments)<br>
+                C++, JUCE, VST3<br>
+                - Built experimental synthesizers into a VST plugin with Ian Elsbree (Biscuit Dads), including a sampler driven through an FFT/IFFT pipeline with control over window hops, windowing, FFT order and phase.
+
+- title: DSP Engineer
+  from: 01/2024
+  to: 01/2024
+  description: Moorer Reverb <br>
+                C++, JUCE<br>
+                - Built a real-time stereo reverb on Moorer's delay-based design.
+
 - title: Audio Lead, Composer, and Sound Designer
   from: 01/2024
   to: 04/2024
