@@ -3,7 +3,7 @@ title: "Kouncil: Where the Thresholds Come From"
 date: 2026-10-05
 tags: [Audio Programming, Tech, Python, Data, Tech Overview]
 project: "Kouncil"
-description: "Why every pass/fail line in Kouncil is measured from 1,005 released masters instead of written from rules of thumb."
+description: "Why every pass/fail line in Kouncil is measured from 2,499 released masters instead of written from rules of thumb."
 image: /docs/assets/images/projects/kouncil/product/dlg_profiles.jpg
 also_in: [dev]
 published: false
@@ -27,7 +27,7 @@ Every number [Kouncil](/tools/projects/2610-kouncil) shows gets judged against a
 
 So where do the ranges come from?
 For most tools, the honest answer is somebody's experience.
-For Kouncil, it's 1,005 commercially released masters, measured.
+For Kouncil, it's 2,499 commercially released masters, measured.
 
 ### **Rules of Thumb**
 Mastering has a lot of folklore. DR8 or above is healthy. Keep your PLR over 9 dB. Any clipped sample is a fault. Your noise floor should sit under −45 dBFS.
@@ -36,9 +36,9 @@ These sound reasonable, and some of them came from real listening.
 The trouble is that they describe an ideal, not what gets released.
 Measured against real records, they fall apart.
 
-- **Noise floor:** Kouncil measures it as the level of a track's quietest stretch, and in continuous music that stretch is still music. A −45 dBFS warning fires on 97% of released masters.
-- **Clipping:** "any clipped sample is a fault" flags 23% of them. It's also wildly uneven by genre: none of the modern pop tracks have a clipped sample, against 38% of 1980s thrash metal, where the 90th percentile has over 41,000. Judged per minute against each genre's own rate, Kouncil flags 5%.
-- **PLR:** a 9 dB floor flags 9%. Against the range each genre actually uses, Kouncil flags 2%.
+- **Noise floor:** Kouncil measures it as the level of a track's quietest stretch, and in continuous music that stretch is still music. A −45 dBFS warning fires on 98% of released masters.
+- **Clipping:** "any clipped sample is a fault" flags 27% of them. It's also wildly uneven by genre: none of the modern pop tracks have a clipped sample, against 38% of 1980s thrash metal, where the 90th percentile has over 43,000. Judged per minute against each genre's own rate, Kouncil flags 7%.
+- **PLR:** a 9 dB floor flags 21%. Against the range each genre actually uses, Kouncil flags 3%.
 
 A tool that flags most of the records you admire isn't telling you anything.
 And a fixed target has a second problem: it marks a metal master down for being as dense as metal masters are.
@@ -128,8 +128,8 @@ These had in-range floors of 9 and 6 dB, and for a long time the reference maste
 That turned out to be a loudness bug hiding a bad threshold.
 Kouncil averaged the two channels' power where the BS.1770 standard sums them, so every stereo loudness figure read 3.01 dB low, and every peak-to-loudness ratio read 3.01 dB high.
 On that inflated scale, almost none of the library fell under a 9 dB PLR.
-Corrected, 9% does.
-A fixed floor was the wrong tool anyway. PLR is now colored against the range each genre's own masters use, which flags 2% of them, and the "very squashed" finding needs both: under 6 dB, and lower than the genre's own records go.
+Corrected, 21% of today's library does.
+A fixed floor was the wrong tool anyway. PLR is now colored against the range each genre's own masters use, which flags 3% of them, and the "very squashed" finding needs both: under 6 dB, and lower than the genre's own records go.
 
 **HF loss.**
 The codec tab used to score how much top end each codec removed.

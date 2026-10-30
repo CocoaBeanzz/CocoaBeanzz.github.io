@@ -11,7 +11,7 @@
 - group: The verdict
   rows:
     - { feature: "Health score out of 100, with a grade", lite: true, full: true }
-    - { feature: "Findings, worst first", lite: true, full: true }
+    - { feature: "Findings, each with its fix", lite: true, full: true }
     - { feature: "Where each problem is", lite: true, full: true }
     - { feature: "The exact figure and the fix for every finding", lite: false, full: true }
     - { feature: "Every point lost traced to the finding that cost it", lite: true, full: true }
@@ -69,7 +69,7 @@
     - { feature: "Micro-dynamics", lite: false, full: true }
     - { feature: "Transient profile and attack slopes", lite: false, full: true }
     - { feature: "Dynamics per band", lite: false, full: true }
-    - { feature: "Pumping, measured from the envelope's modulation", lite: false, full: true }
+    - { feature: "How much movement the limiter left (envelope modulation)", lite: false, full: true }
     - { feature: "Section contrast and transient density", lite: false, full: true }
 
 - group: Streaming and Bluetooth codecs
