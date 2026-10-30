@@ -103,34 +103,11 @@
   padding: 0;
   list-style: none;
 
+  // Plain names packed close together: the list is scanned, not read.
   li {
-    margin-bottom: 0.9rem;
-  }
-}
-
-.skill-name {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-size: 0.95rem;
-  line-height: 1.3;
-}
-
-// A hairline track with the filled part in the accent. --level is the
-// skill's percentage, set inline by the include.
-.skill-bar {
-  position: relative;
-  display: block;
-  height: 3px;
-  background: var(--line);
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: var(--level, 0%);
-    height: 100%;
-    background: var(--accent);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
   }
 }
 

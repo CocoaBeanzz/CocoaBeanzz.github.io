@@ -12,12 +12,14 @@ The first image shows straight away. The rest load lazily, since the
 headshots are large files. Output is flush left because this is included
 from markdown, where indented HTML would be read as a code block.
 {%- endcomment -%}
+{%- assign portrait_section = site.data.sections | where: "id", page.section | first -%}
 {%- assign portrait_list = portrait_images | strip | newline_to_br | split: '<br />' -%}
 <div class="portrait" data-slideshow>
 {%- for portrait_image in portrait_list -%}
 {%- assign portrait_src = portrait_image | strip -%}
 {%- if portrait_src != "" %}
-<img src="{{ portrait_src }}" alt=""{% if forloop.first %} class="is-showing"{% else %} loading="lazy"{% endif %}>
+{%- comment -%} Only the first photo is described, with the department's `name` (K Preston on Dev, K Presto on music). The rest are the same person, so repeating it would just be noise. {%- endcomment %}
+<img src="{{ portrait_src }}" alt="{% if forloop.first %}{{ portrait_section.name | default: site.author.name }}{% endif %}"{% if forloop.first %} class="is-showing"{% else %} loading="lazy"{% endif %}>
 {%- endif -%}
 {%- endfor %}
 </div>

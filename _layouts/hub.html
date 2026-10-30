@@ -19,6 +19,8 @@ logo as a way back to kaud.io.
 {% include head.html %}
 
 <body class="hub">
+    {%- comment -%} The page's only heading. Hidden because the logo already shows it, but screen readers and search engines need one. {%- endcomment %}
+    <h1 class="sr-only">{% if page.hub_parent %}{{ site.data.sections | where: "id", page.hub_parent | map: "title" | first }}{% else %}{{ site.title }}{% endif %}</h1>
     <a class="site-logo hub-home" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}"></a>
     <main class="hub-panels">
         {% for hub_section in hub_sections %}

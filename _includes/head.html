@@ -1,12 +1,34 @@
 <head>
 
-    {% assign title = page.title | default: site.title | escape %}
+    {%- comment -%}
+    Tab and link-preview title: the page, then who it is from. "Who" is the
+    department's `name` in _data/sections.yml (K Preston on Dev, K Presto on
+    the music departments, KAUD.io on Tools), or the site title outside a
+    department.
+        page with a title          "About | K Preston"
+        project page               its `name`, same pattern
+        department landing         "Development | K Preston"
+        landing named like itself  "K Presto", not "K Presto | K Presto"
+        kaud.io itself             "KAUD.io"
+    {%- endcomment -%}
+    {%- comment -%} Guarded because `where` with a nil value matches the first department. {%- endcomment -%}
+    {%- assign head_section = nil -%}
+    {%- if page.section -%}
+        {%- assign head_section = site.data.sections | where: "id", page.section | first -%}
+    {%- endif -%}
+    {%- assign title_brand = head_section.name | default: site.title -%}
+    {%- if page.collection == 'projects' and page.name -%}
+        {%- assign title_lead = page.name -%}
+    {%- else -%}
+        {%- assign title_lead = page.title | default: head_section.title -%}
+    {%- endif -%}
+    {%- if title_lead and title_lead != title_brand -%}
+        {%- assign title = title_lead | append: " | " | append: title_brand | escape -%}
+    {%- else -%}
+        {%- assign title = title_brand | escape -%}
+    {%- endif %}
     {% assign description = page.description | default: site.description | strip_html | strip_newlines | truncate: 160 %}
     {% assign image = page.image | default: site.author.image %}
-
-    {% if page.name and page.collection == 'projects' %}
-    {% assign title = page.name | escape %}
-    {% endif %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,5 +61,17 @@
     <script>
     hljs.highlightAll();
     </script>
+
+    {%- comment -%}
+    Equations, only on pages that set `math: true` in front matter. Write them
+    in markdown as $$...$$ (inline in a sentence, or alone on a line for a
+    centered block). kramdown turns those into \( \) and \[ \], which the
+    auto-render script finds and draws with KaTeX.
+    {%- endcomment -%}
+    {%- if page.math %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+    {%- endif %}
 
 </head>

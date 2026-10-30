@@ -1,20 +1,18 @@
 {%- comment -%}
-One group of skills: a title and a list of names, each with a thin bar
-showing its level. Put several of these inside <div class="skill-groups">
-and they sit in columns.
+One group of skills: a title and a plain list of names. Put several of these
+inside <div class="skill-groups"> and they sit in columns.
 
     {% include about/skills.html title="Languages" source=site.data.languages %}
 
-`source` is a list from a file in _data/. Each entry needs:
-    name:        what is shown
-    percentage:  0 to 100, the length of the bar
-(Entries may also carry `color`. It was used by the old design and is ignored.)
+`source` is a list from a file in _data/. Each entry needs `name`. Entries
+are shown in file order, so put the strongest first.
+(`percentage` and `color` are left over from the old bar design and are ignored.)
 {%- endcomment -%}
 <section class="skill-group">
 <h3 class="eyebrow">{{ include.title }}</h3>
 <ul class="skill-list">
 {%- for skill in include.source %}
-<li><span class="skill-name">{{ skill.name }}</span><span class="skill-bar" style="--level: {{ skill.percentage }}%;" aria-hidden="true"></span></li>
+<li>{{ skill.name }}</li>
 {%- endfor %}
 </ul>
 </section>
