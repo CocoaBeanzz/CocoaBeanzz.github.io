@@ -1233,21 +1233,34 @@ body:has(.kp)::before { display: none; }
   .kp-hero-row { grid-template-columns: minmax(0, 1fr); }
   .kp-hero { --kp-above: 16rem; }
   .kp-feature, .kp-feature.kp-flip { grid-template-columns: minmax(0, 1fr); min-height: 0; margin-bottom: var(--band-gap); }
-  .kp-feature { --kp-nav: 5.6rem; }   // the navbar is 89 px here
+  .kp-feature { --kp-nav: 5.6rem; --kp-bar: 3.5rem; }   // the navbar (89 px) and the voice bar (51 px) here
   .kp-feature-copy { position: static; min-height: 0; opacity: 1; translate: none; filter: none; }
   .kp-feature .kp-says { --say: 1; }
   // One column: the picture first, its text and the character's bubble
   // under it, so the tab is in place before the reader gets to the words.
   // One block pinned mid-screen: the picture (its intro played on the way
   // up, product.js) and under it the text with the character's bubble,
-  // held while the run after it scrolls by.
+  // held while the run after it scrolls by. The block is exactly the room
+  // between the navbar and the voice bar, and the picture takes what the
+  // text leaves: with the phone's text size turned up, or a voice with
+  // more to say, the block ran off the bottom and reading the bubble
+  // scrolled the picture away (Nov 26).
   .kp-feature-pair {
     display: flex;
     gap: 1.25rem;
     position: sticky;
+    height: calc(100svh - var(--kp-nav) - var(--kp-bar));
+    min-height: 0;
+    justify-content: safe center;     // too tall even so: from the top, never pushing the picture under the navbar
   }
-  .kp-feature-media { position: static; min-height: 0; order: -1; }
-  .kp-feature-media img, .kp-feature-media video { max-height: 40vh; }   // the pair fits the screen
+  .kp-feature-copy { flex: none; }
+  // A tighter bubble, so a long line still leaves the picture room.
+  .kp-feature .kp-says { gap: 0.6rem; margin-top: 1.5rem; }
+  .kp-feature .kp-says-face { width: 2.75rem; height: 2.75rem; }
+  .kp-feature .kp-says-bubble { padding: 0.7rem 0.9rem; font-size: 1.05rem; line-height: 1.35; }
+  .kp-feature .kp-says-bubble::before { top: 0.9rem; }
+  .kp-feature-media { position: static; flex: 0 1 auto; min-height: 8rem; order: -1; }
+  .kp-feature-media img, .kp-feature-media video { max-height: min(40vh, 100%); }
   .kp-feature-run { display: block; height: 45vh; }
   // The skins the same way: heading, then the app in the skin, then the
   // picker under it (the copy's box gives way so its parts can be ordered).
