@@ -29,13 +29,22 @@
 
 html {
   scrollbar-gutter: stable; // no sideways jump between short and long pages
+  // With html's overflow set, body's own clip (below) stays on body instead
+  // of being handed to the viewport. Handed to the viewport it clipped
+  // nothing on phones: the browser widened the page to fit the overhang and
+  // zoomed it to the screen, which left sticky things (the navbar, the
+  // product page's pins) placed in a taller page than the one on screen
+  // (Nov 26). clip, not hidden: hidden makes a scroll box, and sticky then
+  // sticks to that instead of the window.
+  overflow-x: clip;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  // Full-bleed blocks are 100vw wide, which overhangs by the scrollbar's width.
+  // Full-bleed blocks are 100vw wide, which overhangs by the scrollbar's
+  // width, and anything sliding in from the side overhangs while it moves.
   overflow-x: clip;
   background: var(--bg);
   color: var(--text);

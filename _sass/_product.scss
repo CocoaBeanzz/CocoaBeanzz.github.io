@@ -588,6 +588,12 @@ body:has(.kp)::before { display: none; }
   min-height: 185vh;
   --side: 1;
   --kp-nav: 4.5rem;             // the site navbar (69 px), which a pinned box sits under
+
+  &.kp-flip {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    --side: -1;
+    .kp-feature-copy { order: 2; }
+  }
 }
 // A pinned box fills the window under the navbar and centers what it holds,
 // so the picture and its text hold in the middle of the screen whatever
@@ -597,12 +603,6 @@ body:has(.kp)::before { display: none; }
   min-height: calc(100svh - var(--kp-nav));
   flex-direction: column;
   justify-content: center;
-
-  &.kp-flip {
-    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-    --side: -1;
-    .kp-feature-copy { order: 2; }
-  }
 }
 // The text lands beside its screenshot and stays there while the screenshot
 // is pinned, then both leave together. Its entrance and exit run on the
