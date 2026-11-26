@@ -1,0 +1,21 @@
+4721 rows, 1429 verified, 881 shipped (verified with audio), 73 genres shipping
+genres with verified rows, by shipped files: under 10: 57, 10-19: 17, 20+: 14
+shipped by tier: award 306, trade_feature 325, audiophile_citation 176, community_consensus 74, popularity_fallback 0
+verified, waiting on a file: 548
+audit verdicts: never_sourced 1182, no_source 804, song_acclaim 561, grammy 459, classic_tracks 355, tas 322, makers_only 295, unconfirmed 235, praise_page 142, forum_consensus 141, audiophile_url 41, other_award 10
+set aside: unverified 1722, remastered 916, replaced 453, out_of_era 24, no_source 33, broken 9
+genres with 10+ analyzed shipped files: 12 (221 files)
+  1950s_Cool_Jazz: n=14 median LUFS-I -20.2, span -26.5 to -15.7
+  1970s_1980s_Quiet_Storm_Smooth_Soul: n=22 median LUFS-I -17.8, span -24.4 to -10.8
+  1960s_Modal_Jazz: n=15 median LUFS-I -16.5, span -21.9 to -13.8
+  1970s_Classic_Rock: n=57 median LUFS-I -16.4, span -24.8 to -10.0
+  1970s_Soft_Rock_AOR: n=10 median LUFS-I -16.3, span -19.3 to -9.8
+  1950s_1960s_Hard_Bop_Jazz: n=23 median LUFS-I -16.1, span -19.7 to -11.7
+  1980s_College_Rock_Alternative: n=13 median LUFS-I -13.4, span -18.9 to -8.2
+  Mainstream_Nashville_Country: n=19 median LUFS-I -10.9, span -13.0 to -8.6
+  2010s_Contemporary_Jazz: n=10 median LUFS-I -10.2, span -12.0 to -5.4
+  1990s_Trip_Hop: n=10 median LUFS-I -10.0, span -15.1 to -6.7
+  Alternative_Experimental_Hip_Hop: n=13 median LUFS-I -9.8, span -23.6 to -7.6
+  Dark_Pop_Art_Pop: n=15 median LUFS-I -9.6, span -13.3 to -8.0
+tonal balance: 1960s_Modal_Jazz vs Alternative_Experimental_Hip_Hop, rms gap 10.8 dB
+release years: 863 of 881 shipped rows have one, median 1984

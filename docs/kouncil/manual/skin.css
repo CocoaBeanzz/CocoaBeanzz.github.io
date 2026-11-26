@@ -1,10 +1,10 @@
 /* Written by tools/build_manual.py from the app's skins and fonts. */
 @font-face { font-family: 'Kouncil Head'; src: url('fonts/LiberationSerif-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: 'Kouncil Head'; src: url('fonts/LiberationSerif-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'Kouncil Body'; src: url('fonts/LiberationSans-Regular.ttf'); font-weight: 400; }
-@font-face { font-family: 'Kouncil Body'; src: url('fonts/LiberationSans-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'Kouncil Data'; src: url('fonts/LiberationMono-Regular.ttf'); font-weight: 400; }
-@font-face { font-family: 'Kouncil Data'; src: url('fonts/LiberationMono-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Kouncil Body'; src: url('fonts/DINish/DINish-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Body'; src: url('fonts/DINish/DINish-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Kouncil Data'; src: url('fonts/Iosevka_Term/IosevkaTerm-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Kouncil Data'; src: url('fonts/Iosevka_Term/IosevkaTerm-Bold.ttf'); font-weight: 700; }
 @font-face { font-family: 'Kouncil Speech'; src: url('fonts/KHand-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: 'Kouncil Speech Listener'; src: url('fonts/Patrick_Hand/PatrickHand-Regular.ttf'); font-weight: 400; }
 @font-face { font-family: 'Kouncil Speech Casual'; src: url('fonts/Coming_Soon/ComingSoon-Regular.ttf'); font-weight: 400; }

@@ -28,6 +28,10 @@ Performance
 #### Overview
 [Kouncil](/tools/projects/2610-kouncil) is a desktop mastering analyzer written in Python (NumPy, SciPy, Matplotlib, Tkinter, ffmpeg). This post lists every measurement it makes and how each one is computed. Window sizes, thresholds and formulas are the ones in the code.
 
+Frame sizes are given in samples at 44.1 kHz. At other sample rates a frame keeps the same length in time (4096 samples becomes 4458 at 48 kHz), so a file measures the same at any rate. With fixed sample counts, a 48 kHz copy of a master with heavy sub-bass read up to 7 points less harsh than the 44.1 kHz original, because the shorter frame leaked more bass above 80 Hz.
+
+Every figure reads both channels. Levels and envelopes take the mean power of the two channels, spectra the mean of their power spectra, and peaks the louder channel. Kouncil used to measure most things on the mono sum `(L+R)/2`, which is what a phone speaker plays, not the master. Anything out of phase between the channels cancelled before it was measured, so a wide master read up to 1.6 dB quieter, its tonal balance was off by up to 3 dB in some bands, and harshness by up to 8.5 points. I found it on one of my own tracks, which is out of phase through the low mids. The band correlation chart said 6 dB disappears there in mono, and the spectrum, measured on the sum, showed nothing missing. Mono is still measured where it's the question being asked, in mono compatibility and the correlation figures.
+
 Thresholds that decide whether a value is flagged were set from measured masters, not from rules of thumb: the reference library behind the genre profiles, 2,499 released tracks across 100 genres. Where this page gives a "typical" range, that is where it comes from.
 
 <img src="{{ img }}tab_overview.jpg" alt="Kouncil Overview tab">
@@ -56,18 +60,19 @@ Short-term values, absolute gate at −70 LUFS, relative gate 20 LU below the me
 
 ### **Peak and Level**
 
-- **RMS**: `20·log10(sqrt(mean(mono²)))`, no weighting.
+- **RMS**: `20·log10(sqrt(mean(x²)))` over both channels' samples, no weighting.
 - **Sample peak**: `20·log10(max|x|)`.
 - **True peak (dBTP)**: 4x polyphase upsampling (`scipy.signal.resample_poly`), then the maximum. Catches the inter-sample peaks that sample peak misses and that a lossy decoder will reproduce.
 - **Crest factor**: peak dBFS minus RMS dBFS.
 - **DC offset**: mean sample value as a percentage of full scale.
 - **Clipping**: count of samples at or above ±0.9999.
+- **Waveform density**: the track in 2,000 columns, each a histogram of both channels' samples over 96 levels from −1 to +1, scaled to the column's densest level and stored as `255·sqrt(count / max)`. The waveform is shaded by it, so a limited passage fills up to the ceiling while a sparse one that peaks just as high stays a bright line near zero. A setting switches back to the plain min/max outline.
 
 Every level figure is measured on the file as delivered, before any analysis normalization is applied to the spectral and stereo stages.
 
 ### **Dynamic Range**
 
-- **DR**: mean over 3 s non-overlapping chunks of each chunk's peak-to-RMS in dB.
+- **DR**: mean over 3 s non-overlapping chunks of each chunk's peak-to-RMS in dB, per channel, then averaged across the two.
 - **PLR**: true peak minus integrated loudness. A direct read of how hard the limiter works.
 - **PSR**: per 3 s block (1 s hop), peak minus short-term loudness, then the 90th percentile. This catches a single over-limited section that a whole-track PLR averages away.
 
@@ -108,7 +113,7 @@ RMS envelope at 10 ms hops, in dB, mean removed, then an FFT of the envelope its
 ### **Spectral**
 
 #### Average Spectrum
-Mono, 4096-point Hann FFT, 50% overlap, power averaged over all frames and normalized by FFT size. 10.8 Hz bins are too coarse for the low end, so below a join frequency the curve comes from a 32768-point FFT of the same signal (1.35 Hz bins instead of 10.8) and is crossfaded into the coarse one. Both are density-matched, so broadband content sits at the same level in each.
+4096-point Hann FFT of each channel, 50% overlap, power averaged over both channels and all frames and normalized by FFT size. 10.8 Hz bins are too coarse for the low end, so below a join frequency the curve comes from a 32768-point FFT of the same signal (1.35 Hz bins instead of 10.8) and is crossfaded into the coarse one. Both are density-matched, so broadband content sits at the same level in each.
 
 #### Tonal Balance
 8192-point FFT, power summed into 8 mastering bands, in dB, normalized so the Bass band (120 to 250 Hz) is 0 dB. Compared against the active profile's range for each band.
@@ -171,6 +176,7 @@ Weighted level per 3 s chunk (FFT, weighted, summed), silence dropped, P95 minus
 - **Mid/Side spectrum**: separate average spectra of M and S, with the same low-end join as the main spectrum. Where S exceeds M is filled as a warning.
 - **L/R balance by band**: `10·log10(ΣL²) − 10·log10(ΣR²)` per tonal band, on a fixed ±6 dB axis so a 0.1 dB difference doesn't look like a hard pan.
 - **Phase correlation by band**: `Σ Re(L·conj(R)) / sqrt(Σ|L|²·Σ|R|²)`, the frequency-domain Pearson correlation per band.
+- **Band correlation over time**: the same sum per band, accumulated over the non-overlapping 4096-point frames of each 1 s window (longer windows for long tracks, at most 400). A band with almost no energy in a window (under 10⁻⁶ of its loudest window, or 10⁻⁷ of the loudest band) is left empty, not read as mono. I added it because broadband correlation is weighted by energy, so the kick and bass decide it, and wide synths over a mono low end barely moved it.
 - **M/S level**: RMS of M and of S in dBFS and their difference.
 - **Goniometer**: about 6,000 points of `S` against `M` (both scaled by 0.7071).
 
@@ -248,7 +254,7 @@ A few of these came from other fields where the problem turned out to be the sam
 
 ### **Performance**
 
-- **Shared intermediates**: the K-weighted signal, mono mixdown, 50 ms RMS envelope, spectral flux and the 4096 and 8192-point average spectra are each computed once and passed to everything that needs them.
+- **Shared intermediates**: the K-weighted signal, 50 ms RMS envelope, spectral flux and the 4096 and 8192-point average spectra are each computed once and passed to everything that needs them.
 - **Vectorized STFT**: frames come from a strided index matrix and one `rfft(axis=1)` call, not a loop.
 
   ```python

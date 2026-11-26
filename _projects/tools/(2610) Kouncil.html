@@ -8,7 +8,7 @@ tags: [Audio, Analysis, Tool, Highlight]
 also_in: [dev]
 image: /docs/assets/images/projects/kouncil/product/tab_overview_playing.jpg
 description: A mastering analyzer that tells you if your master is ready, and explains why four ways, from first-time producer to audio scientist.
-platforms: Windows             # macOS once a Mac build has been run (MARKETING.md)
+platforms: Windows and Mac (Apple silicon)   # the Mac build is in beta since 2026-11-08: always "Mac (Apple silicon)", never plain macOS or Intel (MARKETING.md)
 price_full: "$79"
 price_launch: "$49"             # shown with the full price struck out; remove after launch
 beta_url: /tools/kouncil-beta/  # the closed beta's application: "Join the closed beta" in the hero, the plans and the closing section; remove at launch
@@ -72,7 +72,7 @@ assets/js/product.js):
     <img class="kp-hero-peek kp-peek-2" src="{{ img }}figure_robot_a.png" alt="">
   </div>
   <div class="kp-hero-row kp-col">
-    <p class="kp-lede">Loudness, tone, stereo, dynamics and real codec tests, judged against 2,499 commercial masters and explained four ways, from "it sounds a bit loud" to the BS.1770 math.</p>
+    <p class="kp-lede">Loudness, tone, stereo, dynamics and real codec tests, judged against 3,020 acclaimed masters and explained four ways, from "it sounds a bit loud" to the BS.1770 math.</p>
     {%- assign welcome = "listener|Taylor|Hi! Drop a song you've finished on me and I'll tell you if it's ready to put out. No jargon, promise.;casual|Vexie Hex|Got a bounce? Drop it here. I'll tell you what's off and which knob to turn.;engineer|Kate Adagio|Load a master. Loudness, true peak, tone, stereo, dynamics and eight codec paths, judged against your genre's references.;robot|K0ndukt0r|Supply one finished stereo master. I will return about forty measurements, each with its derivation." | split: ";" %}
     <div class="kp-welcome" data-cycle>
       {%- for line in welcome -%}
@@ -88,8 +88,8 @@ assets/js/product.js):
 
 <!-- ═══ Numbers ════════════════════════════════════════════════════════ -->
 <section class="kp-stats" aria-label="Kouncil in numbers">
-  <div class="kp-stat kp-reveal"><b data-count="2499">2,499</b><span>commercial masters behind every judgment</span></div>
-  <div class="kp-stat kp-reveal"><b data-count="100">100</b><span>genre profiles, from 1920s Delta blues to modern K-pop</span></div>
+  <div class="kp-stat kp-reveal"><b data-count="3020">3,020</b><span>acclaimed masters behind every judgment</span></div>
+  <div class="kp-stat kp-reveal"><b data-count="85">85</b><span>genre profiles, from 1930s big band to modern K-pop</span></div>
   <div class="kp-stat kp-reveal"><b data-count="8">8</b><span>real codec and Bluetooth paths, encoded and played back</span></div>
   <div class="kp-stat kp-reveal"><b data-count="4">4</b><span>characters who explain it all at your level</span></div>
 </section>
@@ -140,7 +140,7 @@ assets/js/product.js):
     {% include product/says.html voice="listener" text="You get a number out of 100 and a short list of what's wrong, biggest problem first. No degree needed." %}
     {% include product/says.html voice="casual" text="Load the bounce, read the score, fix the first red line. Every finding says what to turn and roughly how far." %}
     {% include product/says.html voice="engineer" text="Five headline metrics against target, a health score and prioritized findings with fixes. Profile-aware, so a dense genre isn't punished for being dense." %}
-    {% include product/says.html voice="robot" text="Health = 100 &minus; &Sigma; deductions over loudness error, true-peak excess, DR, clipping, correlation, mono loss, harshness and more. Zero deduction inside the active profile's range." %}
+    {% include product/says.html voice="robot" text="Health = 100 &minus; &Sigma; deductions over loudness error, true-peak excess, DR, clipping, correlation, mono loss, harshness and more. None inside the active profile's range, then more the further past it a figure sits. A polish term adds each figure's distance, in the genre's standard deviations, from where a great master of the genre sits. Rounded once, at the end." %}
   </div>
   <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_overview_left.jpg" alt="Headline metrics with their gauges, the health score and the findings" loading="lazy"></figure>
 </section>
@@ -151,7 +151,7 @@ assets/js/product.js):
     <h2>Point at a problem and hear it.</h2>
     {% include product/says.html voice="listener" text="Drag across any spectrum and you hear just those frequencies. Click any timeline graph to jump to that spot." %}
     {% include product/says.html voice="casual" text="Find the harsh frequency by ear, read the number, put your EQ cut there. A/B against your reference, level-matched so louder doesn't win. Click any timeline to jump to that moment." %}
-    {% include product/says.html voice="engineer" text="Band audition on every spectrum, level-matched A/B with synced playheads, range and loop, a dim switch, live goniometer, spectrum and loudness meter. Click any frequency graph to solo a region, click any time graph to jump that section." %}
+    {% include product/says.html voice="engineer" text="Band audition on every spectrum, level-matched A/B with synced playheads, range and loop, a dim switch, live goniometer, spectrum and loudness meter, and a choice of output device. Click any frequency graph to solo a region, click any time graph to jump that section." %}
     {% include product/says.html voice="robot" text="A log-frequency band-pass that glides with coefficient crossfades and a look-ahead limiter behind it. Playback runs in its own process over shared memory, so analysis never causes a dropout." %}
   </div>
   <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_loudness.jpg" alt="The Loudness tab against a compare track, playing, with both waveforms" loading="lazy"></figure>
@@ -162,8 +162,8 @@ assets/js/product.js):
     <p class="kp-kicker">Profiles</p>
     <h2>Profiles built from the greats.</h2>
     {% include product/says.html voice="listener" text="A metal song and a jazz song shouldn't be graded the same. Pick your style and Kouncil stops nagging about what's normal for it." %}
-    {% include product/says.html voice="casual" text="100 genre profiles built from real releases. Pick the closest, or build your own from the records you're chasing." %}
-    {% include product/says.html voice="engineer" text="Per-metric reference ranges and an average spectrum from 2,499 commercial masters. Build a profile from your own references and share it as one file." %}
+    {% include product/says.html voice="casual" text="85 genre profiles built from records people rave about. Kouncil names the one your track sits closest to. Switch in one click, or build your own from the records you're chasing." %}
+    {% include product/says.html voice="engineer" text="Per-metric reference ranges and an average spectrum from 3,020 acclaimed masters. Best Match names the closest genre by tonal fit. Build a profile from your own references and share it as one file." %}
     {% include product/says.html voice="robot" text="Each profile stores mean, median, trimmed mean, &sigma;, quartiles and percentiles per metric. Target and range methods are chosen after the fact, without rebuilding." %}
   </div>
   <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}dlg_profiles.jpg" alt="The Profile Library" loading="lazy"></figure>
@@ -220,7 +220,7 @@ assets/js/product.js):
       <p class="kp-human-lede">No machine learning, no generated text, no robot between you and your master. Every number comes from a formula I documented, and I wrote every word the characters say before you ever pressed Load.</p>
       <dl class="kp-human-list">
         <div><dt>Formulas, not a black box</dt><dd>Ask why a track scored 87 and there's an exact answer, no fuzzy logic.</dd></div>
-        <div><dt>References with names</dt><dd>I spent weeks researching and evaluating historically reknowned masters, from Van Gelder's jazz to Grammy-winning pop.</dd></div>
+        <div><dt>References with names</dt><dd>Every reference was praised for its mix or master by critics or engineers, from Van Gelder's jazz to Grammy-winning pop, and measured from the original release, not a remaster.</dd></div>
         <div><dt>Ranges from real masters</dt><dd>Every range was measured from the highest quality cuts of each reference track.</dd></div>
         <div><dt>A script, not improvisation</dt><dd>Each line is written for one situation and only said when the measurement calls for it. No LLM is generating text on the fly.</dd></div>
         <div><dt>No flattery</dt><dd>A character only notes what the tables mark as a problem. No compliments padded in to keep you happy.</dd></div>
@@ -260,7 +260,7 @@ assets/js/product.js):
     <h2>Thirty-two charts. Every one explains itself.</h2>
     <p>Hover anything in Kouncil, a line, a band, a single bar, and your character says what it means for your track.</p>
   </div>
-  {%- assign charts = "spectrum:Spectrum;loudness_timeline:Short-term loudness;goniometer:Goniometer;codec_artifacts:Codec artifacts;tonal_balance:Tonal balance;width_heatmap:Width heatmap;crest_timeline:Crest factor;codec_error_spectrum:Codec error spectrum;phase_corr_band:Correlation by band;resonances:Resonances and tilt;stereo_by_freq:Width by frequency;loudness_overview:Loudness distribution;attack_slope:Attack slope;modulation:Envelope modulation;band_dynamics:Dynamics by band;codec_scorecard:Codec scorecard" | split: ";" %}
+  {%- assign charts = "spectrum:Spectrum;loudness_timeline:Short-term loudness;goniometer:Goniometer;codec_artifacts:Codec artifacts;tonal_balance:Tonal balance;width_heatmap:Width heatmap;crest_timeline:Crest factor;codec_error_spectrum:Codec error spectrum;stereo_by_time:Band correlation;resonances:Resonances and tilt;stereo_by_freq:Width by frequency;loudness_overview:Loudness distribution;attack_slope:Attack slope;modulation:Envelope modulation;band_dynamics:Dynamics by band;codec_scorecard:Codec scorecard" | split: ";" %}
   <div class="kp-chart-wall" data-scroll="through">
     {%- assign drifts = "-70|30|-30|60" | split: "|" -%}
     {%- for column in (0..3) %}
@@ -279,14 +279,14 @@ assets/js/product.js):
 
 <!-- ═══ Skins ══════════════════════════════════════════════════════════ -->
 <!-- The skin picker as the app draws it (each name in its own skin's
-     colors, in the app's order) beside a stack of the app in all twenty, which fans out as it
+     colors, in the app's order) beside a stack of the app in all twenty-one, which fans out as it
      comes into view. Pointing at a name brings its skin to the front. -->
 <section class="kp-skins" data-dim="0.85">
-  {%- assign skins = "kouncil|Kouncil|#0e0e0e|#f2f2f2|#f1ca87;midnight|Midnight|#12141b|#e6edf3|#00d4aa;slate|Slate|#1c2026|#d8dee9|#88c0d0;deep-space|Deep Space|#07080f|#c8d0ea|#6f8cff;monochrome|Monochrome|#0a0a0a|#e6e6e6|#ffffff;toolbox|Toolbox|#2e2e2e|#f0f0f0|#8cff5a;logical|Logical|#28282d|#ebebf0|#64d2ff;fabricator|Fabricator|#12131c|#e6e6f2|#ffd24a;candlelight|Candlelight|#120e0c|#f5e6c8|#ffb347;sunset|Sunset|#1b0d10|#f6e3da|#ff8a8d;matcha|Matcha|#0e1410|#e0ecd6|#a8d672;ultraviolet|Ultraviolet|#090a1c|#e2e0fa|#a87bff;synthwave|Synthwave|#12021f|#ffe3ff|#ff2bd6;bubblegum|Bubblegum|#ffffff|#e1409c|#ff7ab8;terminal|Terminal|#050805|#33e633|#8dff8d;lamplight|Lamplight|#cfbd94|#241a10|#123f78;cream|Cream|#f6efe0|#2e2a24|#2b6a4d;print|Print|#ffffff|#000000|#000000;high-contrast|High Contrast|#000000|#ffffff|#ffe94a;high-contrast-light|High Contrast Light|#ffffff|#000000|#0050b3" | split: ";" %}
+  {%- assign skins = "kouncil|Kouncil|#0e0e0e|#f2f2f2|#f1ca87;midnight|Midnight|#12141b|#e6edf3|#00d4aa;slate|Slate|#1c2026|#d8dee9|#88c0d0;deep-space|Deep Space|#07080f|#c8d0ea|#6f8cff;monochrome|Monochrome|#0a0a0a|#e6e6e6|#ffffff;toolbox|Toolbox|#2e2e2e|#f0f0f0|#8cff5a;logical|Logical|#28282d|#ebebf0|#64d2ff;fabricator|Fabricator|#12131c|#e6e6f2|#ffd24a;candlelight|Candlelight|#120e0c|#f5e6c8|#ffb347;sunset|Sunset|#1b0d10|#f6e3da|#ff8a8d;matcha|Matcha|#0e1410|#e0ecd6|#a8d672;ultraviolet|Ultraviolet|#090a1c|#e2e0fa|#a87bff;synthwave|Synthwave|#12021f|#ffe3ff|#ff2bd6;bubblegum|Bubblegum|#ffffff|#e1409c|#ff7ab8;terminal|Terminal|#050805|#33e633|#8dff8d;lamplight|Lamplight|#cfbd94|#241a10|#123f78;cream|Cream|#f6efe0|#2e2a24|#2b6a4d;print|Print|#ffffff|#000000|#000000;high-contrast|High Contrast|#000000|#ffffff|#ffe94a;high-contrast-light|High Contrast Light|#ffffff|#000000|#0050b3;color-safe|Color Safe|#0e0e0e|#f2f2f2|#e69f00" | split: ";" %}
   <div class="kp-skins-copy kp-reveal">
     <p class="kp-kicker">Skins</p>
-    <h2>Twenty skins. Or make your own.</h2>
-    <p>From high-contrast light to phosphor green. Every color, chart and export follows, and a built-in editor saves yours.</p>
+    <h2>Twenty-one skins. Or make your own.</h2>
+    <p>From high-contrast light to phosphor green, and one built for red-green color blindness. Every color, chart and export follows, and a built-in editor saves yours.</p>
     <ul class="kp-skin-list">
       {%- for skin in skins -%}
       {%- assign s = skin | split: "|" %}
@@ -311,7 +311,7 @@ assets/js/product.js):
   <dl class="kp-hood-list kp-reveal">
     <div><dt>Standards-checked loudness</dt><dd>ITU-R BS.1770 with the standard's own filters, tested against EBU Tech 3341 and cross-checked with ffmpeg's <code>ebur128</code>. Oversampled true peak.</dd></div>
     <div><dt>Real codecs, not models</dt><dd>Every codec figure comes from an actual encode and decode, aligned to the original to the sample.</dd></div>
-    <div><dt>Thresholds from data</dt><dd>What gets flagged was set from measured commercial masters, not rules of thumb: 2,499 of them, across 100 genres.</dd></div>
+    <div><dt>Thresholds from data</dt><dd>What gets flagged was set from measured commercial masters, not rules of thumb: 3,020 of them, across 85 genres.</dd></div>
     <div><dt>Glitch-free playback</dt><dd>The audio engine runs in a process of its own, so a heavy analysis never stutters what you hear.</dd></div>
     <div><dt>Batch it</dt><dd>A command line analyzes folders of tracks and builds profiles without opening a window.</dd></div>
     <div><dt>Yours, offline</dt><dd>No account, no upload, no network connections. Your audio never leaves your computer.</dd></div>
@@ -338,7 +338,7 @@ so more memory makes a batch faster, not possible.
       <h3>Audio files</h3>
       <dl>
         <div><dt>Formats</dt><dd>WAV, AIFF, FLAC, ALAC, AAC, MP3, Ogg Vorbis, Opus. Lossless masters give the full picture</dd></div>
-        <div><dt>Channels</dt><dd>Stereo and mono. Surround files are mixed down to stereo</dd></div>
+        <div><dt>Channels</dt><dd>Stereo and mono, with both channels measured, not just their sum. Surround files are mixed down to stereo</dd></div>
         <div><dt>Sample rate</dt><dd>Any, measured at the file's own rate</dd></div>
         <div><dt>Bit depth</dt><dd>Any, including 24-bit and 32-bit float, at full resolution</dd></div>
       </dl>
@@ -349,7 +349,7 @@ so more memory makes a batch faster, not possible.
         <div><dt>Loudness</dt><dd>ITU-R BS.1770-4 / EBU R128: integrated, short-term, momentary, loudness range. Tested against EBU Tech 3341</dd></div>
         <div><dt>True peak</dt><dd>4&times; oversampled, per channel</dd></div>
         <div><dt>Codecs</dt><dd>AAC 128 and 256, Vorbis 160, Opus 128, MP3 320, SBC 192, and two chains: Vorbis into SBC, AAC into AAC. Real encodes, at the sample rate each service sends</dd></div>
-        <div><dt>Reference ranges</dt><dd>100 genre profiles measured from released records, or your own built from references</dd></div>
+        <div><dt>Reference ranges</dt><dd>85 genre profiles and 2 benchmarks measured from released records, or your own built from references</dd></div>
       </dl>
     </div>
     <div class="kp-spec-group">
@@ -365,6 +365,7 @@ so more memory makes a batch faster, not possible.
         <thead><tr><th scope="col"></th><th scope="col">Minimum</th><th scope="col">Recommended</th></tr></thead>
         <tbody>
           <tr><th scope="row">Windows</th><td>Windows 10, 64-bit</td><td>Windows 11</td></tr>
+          <tr><th scope="row">Mac (beta)</th><td>Apple silicon (M1 or later)</td><td>Tested on macOS 14 Sonoma</td></tr>
           <tr><th scope="row">Processor</th><td>64-bit, 4 cores</td><td>8 cores or more: tracks analyzed side by side</td></tr>
           <tr><th scope="row">Memory</th><td>8 GB</td><td>16 GB: several tracks analyzed at once</td></tr>
           <tr><th scope="row">Disk</th><td>200 MB</td><td>Up to 1 GB more to keep codec versions ready to play (adjustable, or off)</td></tr>

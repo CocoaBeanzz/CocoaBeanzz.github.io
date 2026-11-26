@@ -4,7 +4,7 @@
 // The site's own rules hold (dark canvas, sharp corners, a hairline before a
 // box), and the page looks like the app: flat (no gradients, glows or drop
 // shadows; a hairline or a panel tint is the only containment), set in the
-// app's own faces (Liberation Serif headings, Sans text, Mono numbers, each
+// app's own faces (Liberation Serif headings, DINish text, Iosevka numbers, each
 // character in their own hand) at a moderate scale, near-white on near-black
 // with gold only for what is clicked. What the Kouncil page adds, each from
 // the product itself:
@@ -22,15 +22,15 @@
 //      to the screen; the masthead over it uses the header grammar of the
 //      app and of kaud.io (a wordmark, a rule, two lines beside it).
 
-// The app's faces (fontlib.py): the manual already serves the Liberation
-// files and three of the characters' hands; Vexie's is under assets.
+// The app's faces (fontlib.py): the manual already serves them and three of
+// the characters' hands; Vexie's is under assets.
 $kp-fonts: "/docs/kouncil/manual/fonts/";
 @font-face { font-family: "Kouncil Serif"; src: url("#{$kp-fonts}LiberationSerif-Bold.ttf"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Kouncil Serif"; src: url("#{$kp-fonts}LiberationSerif-Regular.ttf"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Kouncil Sans"; src: url("#{$kp-fonts}LiberationSans-Regular.ttf"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Kouncil Sans"; src: url("#{$kp-fonts}LiberationSans-Bold.ttf"); font-weight: 700; font-display: swap; }
-@font-face { font-family: "Kouncil Mono"; src: url("#{$kp-fonts}LiberationMono-Regular.ttf"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Kouncil Mono"; src: url("#{$kp-fonts}LiberationMono-Bold.ttf"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Kouncil Sans"; src: url("#{$kp-fonts}DINish/DINish-Regular.ttf"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Kouncil Sans"; src: url("#{$kp-fonts}DINish/DINish-Bold.ttf"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Kouncil Mono"; src: url("#{$kp-fonts}Iosevka_Term/IosevkaTerm-Regular.ttf"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Kouncil Mono"; src: url("#{$kp-fonts}Iosevka_Term/IosevkaTerm-Bold.ttf"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Kouncil Taylor"; src: url("#{$kp-fonts}Patrick_Hand/PatrickHand-Regular.ttf"); font-display: swap; }
 @font-face { font-family: "Kouncil Vexie"; src: url("/docs/assets/fonts/Coming_Soon/ComingSoon-Regular.ttf"); font-display: swap; }
 @font-face { font-family: "Kouncil Kate"; src: url("#{$kp-fonts}Architects_Daughter/ArchitectsDaughter-Regular.ttf"); font-display: swap; }
@@ -688,9 +688,10 @@ body:has(.kp)::before { display: none; }
   z-index: calc(40 - var(--i));
   filter: brightness(0.6);
   transform-origin: left center;
-  // Twenty deep: each one a step up, right and back from the one before.
+  // Twenty-one deep: each one a step up, right and back from the one before.
+  // Steps sized so the last card ends where the twentieth used to.
   transform:
-    translate3d(calc(var(--i) * var(--spread) * 2.3%), calc(var(--i) * var(--spread) * -3.4%),
+    translate3d(calc(var(--i) * var(--spread) * 2.2%), calc(var(--i) * var(--spread) * -3.25%),
                 calc(var(--i) * var(--spread) * -30px + var(--lift)))
     rotateY(-24deg) rotateX(4deg);
   // Also smooths the scroll-driven fan a little.
