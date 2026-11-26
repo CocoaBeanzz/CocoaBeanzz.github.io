@@ -51,7 +51,7 @@ assets/js/product.js):
      (the wordmark, a rule, two lines) with the one thing to do. Under it the
      four characters take turns saying the app's welcome lines (the first
      thing the app itself says), whoever the reader has picked. -->
-<section class="kp-hero kp-bleed" data-bg="hero" data-dim="0.45">
+<section class="kp-hero kp-bleed" data-bg="hero" data-dim="0.45" data-scroll="leave">
   <div class="kp-hero-top kp-col">
     <div class="kp-masthead">
       <div class="kp-logo" role="img" aria-label="Kouncil" style="--logo: url('{{ img }}logo.png')"></div>
@@ -66,8 +66,11 @@ assets/js/product.js):
       {%- endif %}
     </div>
   </div>
-  <div class="kp-hero-stage" data-scroll="leave">
-    <img class="kp-hero-shot" src="{{ img }}tab_overview_playing.jpg" width="1880" height="1050" alt="Kouncil's Overview while a track plays against a compare track: headline metrics, the health score, three charts, live meters and both waveforms">
+  <div class="kp-hero-stage">
+    <div class="kp-hero-tilt">
+      <video class="kp-hero-shot" data-clip="load" src="{{ img }}tab_overview_playing.mp4" poster="{{ img }}tab_overview_playing_start.jpg" data-still="{{ img }}tab_overview_playing.jpg" width="1920" height="1080" muted playsinline autoplay preload="auto" role="img" aria-label="Kouncil's Overview coming up and playing: headline metrics, the health score, three charts, live meters and the waveform"></video>
+      <span class="kp-hero-playhead" aria-hidden="true"></span>
+    </div>
     <img class="kp-hero-peek kp-peek-1" src="{{ img }}figure_casual_a.png" alt="">
     <img class="kp-hero-peek kp-peek-2" src="{{ img }}figure_robot_a.png" alt="">
   </div>
@@ -117,7 +120,7 @@ assets/js/product.js):
       {%- endfor %}
     </div>
   </div>
-  <img class="kp-cast-scene kp-reveal" src="{{ img }}fb_kouncil.jpg" alt="The Kouncil tab: the four characters, each with their take on the track" loading="lazy">
+  <video class="kp-cast-scene kp-reveal" data-scrub="10 55" data-start="{{ img }}fb_kouncil_start.jpg" src="{{ img }}fb_kouncil.mp4" poster="{{ img }}fb_kouncil.jpg" muted playsinline preload="none" role="img" aria-label="The Kouncil tab: the four characters, each with their take on the track"></video>
 </section>
 
 <!-- ═══ Voice switch ═══════════════════════════════════════════════════ -->
@@ -133,7 +136,7 @@ assets/js/product.js):
 
 <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
 <!-- Each feature plays its own loop behind it: the 3D render of the thing it describes. -->
-<section class="kp-feature" data-bg="overview" data-dim="0.6">
+<section class="kp-feature" data-bg="overview" data-dim="0.6" data-scroll="through">
   <div class="kp-feature-copy kp-reveal">
     <p class="kp-kicker">Overview</p>
     <h2>Simple, actionable feedback, with all the numbers to back it up.</h2>
@@ -142,10 +145,11 @@ assets/js/product.js):
     {% include product/says.html voice="engineer" text="Five headline metrics against target, a health score and prioritized findings with fixes. Profile-aware, so a dense genre isn't punished for being dense." %}
     {% include product/says.html voice="robot" text="Health = 100 &minus; &Sigma; deductions over loudness error, true-peak excess, DR, clipping, correlation, mono loss, harshness and more. None inside the active profile's range, then more the further past it a figure sits. A polish term adds each figure's distance, in the genre's standard deviations, from where a great master of the genre sits. Rounded once, at the end." %}
   </div>
-  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_overview_left.jpg" alt="Headline metrics with their gauges, the health score and the findings" loading="lazy"></figure>
+  <figure class="kp-feature-media"><video data-scrub="4 34" data-start="{{ img }}fb_overview_left_start.jpg" src="{{ img }}fb_overview_left.mp4" poster="{{ img }}fb_overview_left.jpg" muted playsinline preload="none" role="img" aria-label="Headline metrics with their gauges, the health score and the findings"></video></figure>
+  <div class="kp-feature-run" aria-hidden="true"></div>
 </section>
 
-<section class="kp-feature kp-flip" data-bg="listen" data-dim="0.6">
+<section class="kp-feature kp-flip" data-bg="listen" data-dim="0.6" data-scroll="through">
   <div class="kp-feature-copy kp-reveal">
     <p class="kp-kicker">Listening</p>
     <h2>Point at a problem and hear it.</h2>
@@ -154,10 +158,11 @@ assets/js/product.js):
     {% include product/says.html voice="engineer" text="Band audition on every spectrum, level-matched A/B with synced playheads, range and loop, a dim switch, live goniometer, spectrum and loudness meter, and a choice of output device. Click any frequency graph to solo a region, click any time graph to jump that section." %}
     {% include product/says.html voice="robot" text="A log-frequency band-pass that glides with coefficient crossfades and a look-ahead limiter behind it. Playback runs in its own process over shared memory, so analysis never causes a dropout." %}
   </div>
-  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_loudness.jpg" alt="The Loudness tab against a compare track, playing, with both waveforms" loading="lazy"></figure>
+  <figure class="kp-feature-media"><video data-scrub="4 34" data-start="{{ img }}fb_loudness_start.jpg" src="{{ img }}fb_loudness.mp4" poster="{{ img }}fb_loudness.jpg" muted playsinline preload="none" role="img" aria-label="The Loudness tab coming up and playing"></video></figure>
+  <div class="kp-feature-run" aria-hidden="true"></div>
 </section>
 
-<section class="kp-feature" data-bg="profiles" data-dim="0.6">
+<section class="kp-feature" data-bg="profiles" data-dim="0.6" data-scroll="through">
   <div class="kp-feature-copy kp-reveal">
     <p class="kp-kicker">Profiles</p>
     <h2>Profiles built from the greats.</h2>
@@ -166,10 +171,10 @@ assets/js/product.js):
     {% include product/says.html voice="engineer" text="Per-metric reference ranges and an average spectrum from 3,020 acclaimed masters. Best Match names the closest genre by tonal fit. Build a profile from your own references and share it as one file." %}
     {% include product/says.html voice="robot" text="Each profile stores mean, median, trimmed mean, &sigma;, quartiles and percentiles per metric. Target and range methods are chosen after the fact, without rebuilding." %}
   </div>
-  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}dlg_profiles.jpg" alt="The Profile Library" loading="lazy"></figure>
+  <figure class="kp-feature-media"><img src="{{ img }}dlg_profiles.jpg" alt="The Profile Library" loading="lazy"></figure>
 </section>
 
-<section class="kp-feature" data-bg="album" data-dim="0.6">
+<section class="kp-feature" data-bg="album" data-dim="0.6" data-scroll="through">
   <div class="kp-feature-copy kp-reveal">
     <p class="kp-kicker">Albums</p>
     <h2>Glue an album together.</h2>
@@ -178,10 +183,11 @@ assets/js/product.js):
     {% include product/says.html voice="engineer" text="Every track's metrics side by side with outliers flagged, overlaid spectra and width, and the loudness step at every join of the running order." %}
     {% include product/says.html voice="robot" text="Outliers by &sigma; against the album mean, per metric. Radar axes normalized to the profile's range, so a conforming track draws a circle." %}
   </div>
-  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_compare.jpg" alt="The Compare tab with a thirteen-track album" loading="lazy"></figure>
+  <figure class="kp-feature-media"><video data-scrub="4 34" data-start="{{ img }}fb_compare_start.jpg" src="{{ img }}fb_compare.mp4" poster="{{ img }}fb_compare.jpg" muted playsinline preload="none" role="img" aria-label="The Compare tab with a thirteen-track album"></video></figure>
+  <div class="kp-feature-run" aria-hidden="true"></div>
 </section>
 
-<section class="kp-feature kp-flip" data-bg="codec" data-dim="0.6">
+<section class="kp-feature kp-flip" data-bg="codec" data-dim="0.6" data-scroll="through">
   <div class="kp-feature-copy kp-reveal">
     <p class="kp-kicker">Codecs</p>
     <h2>See and hear what streams.</h2>
@@ -190,10 +196,11 @@ assets/js/product.js):
     {% include product/says.html voice="engineer" text="Eight real encode and decode paths, Bluetooth chains included. True-peak overshoot, transient fidelity, stereo collapse and pre-echo per codec, and you can listen to each." %}
     {% include product/says.html voice="robot" text="ffmpeg round-trips aligned to the sample by cross-correlation. Error spectra against a quarter-Bark masking threshold; artifacts scored against each codec's own baseline." %}
   </div>
-  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}fb_codec.jpg" alt="The Codec tab: summary, scorecard, error spectrum, artifact timeline and the Listen rows" loading="lazy"></figure>
+  <figure class="kp-feature-media"><video data-scrub="4 34" data-start="{{ img }}fb_codec_start.jpg" src="{{ img }}fb_codec.mp4" poster="{{ img }}fb_codec.jpg" muted playsinline preload="none" role="img" aria-label="The Codec tab: summary, scorecard, error spectrum, artifact timeline and the Listen rows"></video></figure>
+  <div class="kp-feature-run" aria-hidden="true"></div>
 </section>
 
-<section class="kp-feature kp-flip" data-bg="report" data-dim="0.6">
+<section class="kp-feature kp-flip" data-bg="report" data-dim="0.6" data-scroll="through">
   <div class="kp-feature-copy kp-reveal">
     <p class="kp-kicker">Reports</p>
     <h2>Deliver.</h2>
@@ -202,7 +209,7 @@ assets/js/product.js):
     {% include product/says.html voice="engineer" text="Text, image and PDF reports that name the target and profile, snapshots and profiles as single files, and a page editor for layouts you place by hand." %}
     {% include product/says.html voice="robot" text="Quick, automatic text, image, and PDF layouts and a multi-page editor for custom showcases." %}
   </div>
-  <figure class="kp-feature-media" data-scroll="through"><img src="{{ img }}dlg_export_advanced.jpg" alt="The export page editor" loading="lazy"></figure>
+  <figure class="kp-feature-media"><img src="{{ img }}dlg_export_advanced.jpg" alt="The export page editor" loading="lazy"></figure>
 </section>
 
 <!-- ═══ Made by a human ════════════════════════════════════════════════ -->
@@ -269,7 +276,8 @@ assets/js/product.js):
       {%- assign place = forloop.index0 | modulo: 4 -%}
       {%- if place == column -%}
       {%- assign c = chart | split: ":" %}
-      <figure class="kp-chart"><img src="{{ img }}chart_{{ c[0] }}.jpg" alt="{{ c[1] }}" loading="lazy"><figcaption>{{ c[1] }}</figcaption></figure>
+      {%- assign from = forloop.index0 | divided_by: 4 | times: 15 | plus: 4 | plus: column | plus: column | plus: column %}
+      <figure class="kp-chart" style="--i: {{ forloop.index0 | divided_by: 4 }}"><video data-scrub="{{ from }} {{ from | plus: 22 }}" data-start="{{ img }}chart_{{ c[0] }}_start.jpg" src="{{ img }}chart_{{ c[0] }}.mp4" poster="{{ img }}chart_{{ c[0] }}.jpg" muted playsinline preload="none" role="img" aria-label="{{ c[1] }}"></video><figcaption>{{ c[1] }}</figcaption></figure>
       {%- endif -%}
       {%- endfor %}
     </div>

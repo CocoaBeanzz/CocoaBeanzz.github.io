@@ -32,9 +32,9 @@ Frame sizes are given in samples at 44.1 kHz. At other sample rates a frame keep
 
 Every figure reads both channels. Levels and envelopes take the mean power of the two channels, spectra the mean of their power spectra, and peaks the louder channel. Kouncil used to measure most things on the mono sum `(L+R)/2`, which is what a phone speaker plays, not the master. Anything out of phase between the channels cancelled before it was measured, so a wide master read up to 1.6 dB quieter, its tonal balance was off by up to 3 dB in some bands, and harshness by up to 8.5 points. I found it on one of my own tracks, which is out of phase through the low mids. The band correlation chart said 6 dB disappears there in mono, and the spectrum, measured on the sum, showed nothing missing. Mono is still measured where it's the question being asked, in mono compatibility and the correlation figures.
 
-Thresholds that decide whether a value is flagged were set from measured masters, not from rules of thumb: the reference library behind the genre profiles, 2,499 released tracks across 100 genres. Where this page gives a "typical" range, that is where it comes from.
+Thresholds that decide whether a value is flagged were set from measured masters, not from rules of thumb: the reference library behind the genre profiles, 3,020 released tracks across 85 genres. Where this page gives a "typical" range, that is where it comes from.
 
-<img src="{{ img }}tab_overview.jpg" alt="Kouncil Overview tab">
+<img src="{{ img }}tab_overview_playing.jpg" alt="Kouncil Overview tab">
 
 ### **Loudness**
 
@@ -188,6 +188,7 @@ Weighted level per 3 s chunk (FFT, weighted, summed), silence dropped, P95 minus
 <img src="{{ img }}chart_phase_corr_band.jpg" alt="Phase correlation by band">
 </div>
 </div>
+<img src="{{ img }}chart_stereo_by_time.jpg" alt="Band correlation over time">
 
 ### **Codec Simulation**
 

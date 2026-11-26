@@ -63,7 +63,7 @@ $kp-fonts: "/docs/kouncil/manual/fonts/";
 
   h1, h2, h3 { font-family: var(--kp-serif); color: #fff; font-weight: 700; letter-spacing: 0; }
   h2 { font-size: clamp(1.5rem, 2.2vw, 1.9rem); line-height: 1.15; margin: 0 0 1rem; }
-  img { max-width: 100%; height: auto; }
+  img, video { max-width: 100%; height: auto; }
 }
 
 .kp-listener { --kp-speech: "Kouncil Taylor", cursive; --who: var(--kp-listener); }
@@ -204,11 +204,11 @@ body:has(.kp)::before { display: none; }
 
 .kp-hero-meta { color: var(--kp-muted); font-size: 0.9rem; }
 
-// As it scrolls away it leans back and sinks a little (--p, "leave": 0 on
-// arrival, so the first view is the app flat and whole).
+// Whole and in front on arrival; as the reader scrolls on to the text under
+// it, it settles back and shrinks toward that text (--p, the hero's "leave").
 .kp-hero-stage {
   position: relative;
-  width: min(1240px, 92vw, calc((100svh - var(--kp-above)) * 1880 / 1050));
+  width: min(1240px, 92vw, calc((100svh - var(--kp-above)) * 1920 / 1080));
   margin: 1.25rem auto 0;
   perspective: 1600px;
 }
@@ -217,8 +217,38 @@ body:has(.kp)::before { display: none; }
   display: block;
   width: 100%;
   border: 1px solid var(--kp-line);
-  transform-origin: 50% 0;
-  transform: rotateX(calc(var(--p, 0) * 22deg)) scale(calc(1 - var(--p, 0) * 0.06));
+}
+
+// On a wrapper, so the playhead over the picture moves with it.
+.kp-hero-tilt {
+  position: relative;
+  transform-origin: 50% 100%;
+  transform: rotateX(calc(var(--p, 0) * 12deg)) scale(calc(1 - var(--p, 0) * 0.22));
+}
+
+// After the clip the picture is its last frame, the app playing: the line
+// carries the playhead on across the strip's waveform (the bottom 12%) from
+// where the clip left it (84.1% of the picture) to the track's end (97.6%),
+// at the clip's pace (0.31% a second), and stops there.
+.kp-hero-playhead {
+  position: absolute;
+  top: 88.2%;
+  bottom: 0.6%;
+  left: 84.1%;
+  width: 2px;
+  margin-left: -1px;
+  background: #f2f2f2;
+  box-shadow: 0 0 6px rgba(242, 202, 135, 0.8);
+  display: none;
+}
+// Once the clip has played: the picture is the clip's last frame, and the
+// line carries on from where the clip's playhead stopped.
+.is-live .kp-hero-playhead {
+  display: block;
+  animation: kp-playhead 43s linear forwards;
+}
+@keyframes kp-playhead {
+  to { left: 97.6%; }
 }
 
 // Two of the characters lean in from behind the screen's edges.
@@ -227,7 +257,30 @@ body:has(.kp)::before { display: none; }
   z-index: 3;
   width: clamp(80px, 9vw, 140px);
   bottom: -2%;
-  transform: translateY(calc(var(--p, 0) * 50%));
+  // They duck down behind the screen as it settles back.
+  transform: translateY(calc(var(--p, 0) * 60%));
+}
+// On load they pop up once the app's charts are in (`translate` adds to
+// the scroll's transform instead of replacing it).
+.kp-js .kp-hero-peek { animation: kp-peek-in 650ms cubic-bezier(0.3, 1.6, 0.5, 1) both; }
+.kp-js .kp-peek-1 { animation-delay: 1.7s; }
+.kp-js .kp-peek-2 { animation-delay: 2s; }
+@keyframes kp-peek-in {
+  from { translate: 0 70%; opacity: 0; }
+}
+
+// The masthead comes in as the page opens, line by line, ahead of the app.
+.kp-js {
+  .kp-logo, .kp-title, .kp-title span, .kp-actions {
+    animation: kp-open 700ms var(--kp-ease) both;
+  }
+  .kp-title { animation-delay: 120ms; }
+  .kp-title span { animation-delay: 320ms; }
+  .kp-actions { animation-delay: 450ms; }
+}
+@keyframes kp-open {
+  from { opacity: 0; translate: 0 0.6em; clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 -20% 0); }
 }
 .kp-peek-1 { left: -9%; }
 .kp-peek-2 { right: -9%; }
@@ -528,36 +581,73 @@ body:has(.kp)::before { display: none; }
 
 .kp-feature {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
   gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: center;
-  min-height: min(80vh, 760px);     // long enough for its background to be seen
-  margin-bottom: var(--band-gap);
+  // Tall, so the screenshot pins while its text scrolls past it.
+  align-items: start;
+  min-height: 170vh;
   --side: 1;
 
   &.kp-flip {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
     --side: -1;
     .kp-feature-copy { order: 2; }
   }
 }
+// The text lands beside its screenshot and stays there while the screenshot
+// is pinned, then both leave together. Its entrance and exit run on the
+// section's --p, not on a view timeline: a sticky box's place in the window
+// isn't something every browser's view timelines agree on. The character
+// speaks up once the text has landed.
+.kp-feature-run { display: none; }      // the phone layout's hold, below
 
-// The screenshot slides in from its own side as it enters and drifts a
-// little against the text while it crosses the window (--p, "through").
+.kp-feature-copy {
+  position: sticky;
+  top: 24vh;
+  margin-top: 30vh;
+  --land: clamp(0, (var(--p, 1) - 0.2) * 7, 1);
+  --gone: clamp(0, (var(--p, 0) - 0.76) * 8, 1);
+  opacity: calc(var(--land) - var(--gone));
+  translate: 0 calc((1 - var(--land)) * 60px - var(--gone) * 40px);
+  filter: blur(calc((1 - var(--land)) * 6px));
+}
+.kp-feature .kp-says {
+  --say: clamp(0, (var(--p, 1) - 0.42) * 12, 1);
+  animation: none;
+  .kp-says-face { opacity: var(--say); scale: calc(0.4 + var(--say) * 0.6); }
+  .kp-says-bubble {
+    transform-origin: 0 1.3rem;
+    opacity: var(--say);
+    scale: calc(0.3 + var(--say) * 0.7);
+    rotate: calc((1 - var(--say)) * -6deg);
+  }
+}
+
+// The screenshot pins in the window beside its text. --p is the section's
+// run through the window ("through"): it pins at about 0.33 and lets go at
+// about 0.67. It rises out of a lean as it arrives, and only once it has let
+// go and is on its way out does it sink back a little.
 .kp-feature-media {
+  position: sticky;
+  top: 12vh;
   margin: 0;
-  opacity: calc(var(--p, 1) * 5);
-  transform:
-    translateX(calc(max(0, 0.3 - var(--p, 0.5)) * var(--side) * 220px))
-    translateY(calc((0.5 - var(--p, 0.5)) * 60px));
+  perspective: 1400px;
+
+  > img, > video {
+    transform-origin: 50% 0;
+    transform:
+      rotateX(calc(max(0, 0.33 - var(--p, 0.5)) * 70deg))
+      scale(calc(1 - max(0, var(--p, 0.5) - 0.68) * 0.4));
+    filter: brightness(calc(1 - max(0, var(--p, 0.5) - 0.68) * 1.5));
+  }
 
   // Capped in height: a portrait screenshot (the Overview's column) would
   // otherwise fill the whole window.
-  img {
+  img, video {
     display: block;
     width: auto;
     max-width: 100%;
-    max-height: min(80vh, 720px);
+    max-height: 76vh;
     margin: 0 auto;
     border: 1px solid var(--kp-line);
   }
@@ -596,8 +686,13 @@ body:has(.kp)::before { display: none; }
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--kp-line);
+  // Rises into place as its row comes up the window (--i is the row, about
+  // a sixth of the wall's run, --p); then its clip plays the app's own intro.
+  --in: clamp(0, (var(--p, 1) - var(--i, 0) * 0.15) * 7, 1);
+  opacity: var(--in);
+  transform: translateY(calc((1 - var(--in)) * 40px)) scale(calc(0.94 + var(--in) * 0.06));
 
-  img { display: block; width: 100%; }
+  img, video { display: block; width: 100%; height: auto; }
 
   figcaption {
     position: absolute;
@@ -965,13 +1060,174 @@ body:has(.kp)::before { display: none; }
   &.is-in { opacity: 1; transform: none; }
 }
 
+// ── Scroll-driven entrances ─────────────────────────────────────────────
+// Driven by the browser's own scroll timelines (animation-timeline: view()):
+// each thing runs on its own pass through the window, so they move as fast
+// as the reader scrolls and play backwards on the way up. Where a browser
+// has no scroll timelines the time-based .kp-reveal above does the job.
+// `translate` / `rotate` / `scale` are used, not `transform`, so these add
+// to the --p transforms some of the same elements have.
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .kp-js .kp-reveal { opacity: 1; translate: none; transform: none; transition: none; }
+
+    // Every block of text rises and sharpens in, and drifts up and fades as
+    // it leaves under the navbar.
+    .kp-section-head, .kp-human-copy > *, .kp-plan-for, .kp-get-inner > * {
+      animation: kp-scroll-in linear both, kp-scroll-out linear both;
+      animation-timeline: view(), view();
+      animation-range: entry 0% cover 30%, exit 55% exit 100%;
+    }
+
+    // Headings, a word at a time (product.js splits them; --w is the word).
+    .kp-word {
+      display: inline-block;
+      animation: kp-word-in linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--w) * 7%) cover calc(22% + var(--w) * 3%);
+    }
+
+    // Speech bubbles grow out of their tails, the face first.
+    .kp-says:not(.kp-welcome-one *, .kp-feature *) {
+      animation: none;
+      .kp-says-face {
+        animation: kp-face-in linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 30%;
+      }
+      .kp-says-bubble {
+        transform-origin: 0 1.3rem;
+        animation: kp-bubble-in linear both;
+        animation-timeline: view();
+        animation-range: entry 20% cover 40%;
+      }
+    }
+
+    // The lists come in from alternate sides, one item at a time.
+    .kp-hood-list > div, .kp-human-list > div {
+      animation: kp-from-left linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+      &:nth-child(even) { animation-name: kp-from-right; }
+    }
+
+    // The cast stand up out of the floor in turn.
+    .kp-member {
+      transform-origin: 50% 100%;
+      animation: kp-stand linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+      @for $n from 2 through 4 {
+        &:nth-child(#{$n}) { animation-range: entry #{($n - 1) * 8%} cover #{35% + ($n - 1) * 6%}; }
+      }
+    }
+
+    // The numbers swell into place.
+    .kp-stat b {
+      transform-origin: 0 100%;
+      animation: kp-swell linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+
+    // The two plans swing in from either side, toward each other.
+    .kp-plans { perspective: 1200px; }
+    .kp-plan {
+      animation: kp-swing-left linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+      &.kp-plan-full { animation-name: kp-swing-right; }
+    }
+
+    // K's photo settles like a print dropped on the desk, and the
+    // handwritten arrow draws as it does.
+    .kp-human-photo > img {
+      animation: kp-print linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+    .kp-human-note path {
+      stroke-dasharray: 1;
+      animation: kp-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 40% cover 60%;
+    }
+
+    // The chart wall's rise is these timelines too (the --p one stands down).
+    .kp-chart {
+      opacity: 1;
+      transform: none;
+      animation: kp-chart-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}
+
+@keyframes kp-scroll-in {
+  from { opacity: 0; translate: 0 48px; filter: blur(6px); }
+}
+@keyframes kp-scroll-out {
+  to { opacity: 0; translate: 0 -40px; filter: blur(4px); }
+}
+@keyframes kp-word-in {
+  from { opacity: 0; translate: 0 0.7em; rotate: 8deg; filter: blur(4px); }
+}
+@keyframes kp-face-in {
+  from { opacity: 0; scale: 0.4; rotate: -20deg; }
+  70% { scale: 1.08; }
+}
+@keyframes kp-bubble-in {
+  from { opacity: 0; scale: 0.3; rotate: -6deg; }
+  70% { opacity: 1; scale: 1.04; rotate: 1deg; }
+}
+@keyframes kp-from-left {
+  from { opacity: 0; translate: -80px 0; }
+}
+@keyframes kp-from-right {
+  from { opacity: 0; translate: 80px 0; }
+}
+@keyframes kp-stand {
+  from { opacity: 0; translate: 0 120px; rotate: -8deg; }
+  70% { rotate: 2deg; }
+}
+@keyframes kp-swell {
+  from { opacity: 0; scale: 0.5; filter: blur(8px); }
+  75% { scale: 1.12; }
+}
+@keyframes kp-swing-left {
+  from { opacity: 0; transform: translateX(-12%) rotateY(35deg); }
+}
+@keyframes kp-swing-right {
+  from { opacity: 0; transform: translateX(12%) rotateY(-35deg); }
+}
+@keyframes kp-print {
+  from { opacity: 0; translate: 30% 25%; rotate: 18deg; scale: 1.15; }
+  70% { rotate: -3deg; scale: 1; }
+}
+@keyframes kp-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes kp-chart-in {
+  from { opacity: 0; translate: 0 60px; scale: 0.9; }
+}
+
 // ── Narrow screens ──────────────────────────────────────────────────────
 
 @media (max-width: 900px) {
   .kp-hero-row { grid-template-columns: minmax(0, 1fr); }
   .kp-hero { --kp-above: 16rem; }
-  .kp-feature, .kp-feature.kp-flip { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .kp-feature, .kp-feature.kp-flip { grid-template-columns: minmax(0, 1fr); min-height: 0; margin-bottom: var(--band-gap); }
+  .kp-feature-copy { position: static; margin-top: 0; opacity: 1; translate: none; filter: none; }
+  .kp-feature .kp-says { --say: 1; }
+  .kp-feature-media { position: static; }
   .kp-feature.kp-flip .kp-feature-copy { order: 0; }
+  // A tab's screenshot pins under the navbar for half a screen (the empty
+  // run after it), long enough for its intro to be seen at a thumb's pace.
+  .kp-feature-media:has(+ .kp-feature-run) { position: sticky; top: 4.5rem; z-index: 1; }
+  .kp-feature-run { display: block; height: 55vh; }
   .kp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kp-stat:nth-child(3) { border-left: 0; }
   .kp-stat:nth-child(n + 3) { border-top: 1px solid var(--kp-line); }
@@ -1014,6 +1270,13 @@ body:has(.kp)::before { display: none; }
   .kp-says { animation: none; }
   [data-cycle] > * { transition: none; }
   .kp-js .kp-reveal { opacity: 1; transform: none; transition: none; }
+  .kp-hero-tilt { transform: none; }
+  .kp-feature-copy { opacity: 1; translate: none; filter: none; }
+  .kp-feature .kp-says { --say: 1; }
+  .kp-hero-playhead { display: none; }
+  .kp-feature-media > img { transform: none; filter: none; }
+  .kp-chart { opacity: 1; transform: none; }
+  .kp-js .kp-hero-peek, .kp-js .kp-logo, .kp-js .kp-title, .kp-js .kp-title span, .kp-js .kp-actions { animation: none; }
   .kp-stage-clip, .kp-stage-dim, .kp-voices { transition: none; }
 }
 

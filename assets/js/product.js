@@ -13,6 +13,15 @@
 //   Turns      The four take turns in each [data-cycle] (the hero's welcome,
 //              the closing line).
 //   Skins      Pointing at a skin's name brings its picture to the front.
+//   Clips      Videos of the app filmed coming up: a tab's charts playing in,
+//              its numbers counting up. [data-clip="load"] plays once as the
+//              page opens (the hero). [data-scrub="A B"] is played by the
+//              scroll: its time follows the --p of the [data-scroll] round it
+//              (or its own run through the window), start to end as that goes
+//              from A% to B%. Each ends on the frame its poster shows, so with
+//              reduced motion, save-data or no script the still is all there is.
+//   Words      Headings are split into words for the stylesheet's scroll-driven
+//              entrances (each word's --w is its place).
 //   Counters   The numbers count up the first time they are seen.
 //   Reveals    .kp-reveal elements rise into place as they come into view.
 //
@@ -142,8 +151,10 @@
       var p = mode === 'enter' ? (height - box.top) / (height * 0.8)
         : mode === 'leave' ? -box.top / (box.height * 0.9)
         : (height - box.top) / (height + box.height);
-      el.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(3));
+      el._p = Math.max(0, Math.min(1, p));
+      el.style.setProperty('--p', el._p.toFixed(3));
     });
+    scrubAll(height);
   }
 
   var queued = false;
@@ -185,13 +196,146 @@
   var skinShots = page.querySelectorAll('.kp-skin');
   function bringForward(index) {
     skinNames.forEach(function (b, i) { b.setAttribute('aria-pressed', String(i === index)); });
-    skinShots.forEach(function (img, i) { img.classList.toggle('is-front', i === index); });
+    var reorder = function () {
+      skinShots.forEach(function (img, i) { img.classList.toggle('is-front', i === index); });
+    };
+    // The browser cross-fades the old stack into the new where it can.
+    if (!still && document.startViewTransition && !skinShots[index].classList.contains('is-front')) {
+      document.startViewTransition(reorder);
+    } else {
+      reorder();
+    }
   }
   skinNames.forEach(function (b, i) {
     ['click', 'mouseenter', 'focus'].forEach(function (type) {
       b.addEventListener(type, function () { bringForward(i); });
     });
   });
+
+  // ── Clips ──
+  var openingClips = page.querySelectorAll('video[data-clip="load"]');
+  // Back to the still for good: the hero's poster is its first frame, so it
+  // gets its last one (data-still) instead.
+  function toStill(video) {
+    var last = video.getAttribute('data-still');
+    if (last) video.poster = last;
+    video.removeAttribute('autoplay');
+    video.removeAttribute('src');
+    video.load();
+  }
+  // Loaded ahead of time, whole, as a blob: a server that doesn't say it
+  // takes range requests (Python's http.server) leaves a streamed video
+  // unseekable, and these are a megabyte or two. Once it has data the
+  // scroll sets its frame (a seek also takes the poster down).
+  function arm(video) {
+    if (video._armed) return;
+    video._armed = true;
+    fetch(video.currentSrc || video.src).then(function (response) {
+      return response.blob();
+    }).then(function (blob) {
+      video.addEventListener('loadeddata', request, { once: true });
+      video.preload = 'auto';
+      video.src = URL.createObjectURL(blob);
+    }).catch(function () { /* the poster stays */ });
+  }
+  // A seek is asked for only once the one before has landed, and then for
+  // wherever the scroll is by then, so fast scrolling doesn't queue seeks up.
+  function seekTo(video, time) {
+    video._want = time;
+    if (video.seeking || Math.abs(video.currentTime - time) < 0.02) return;
+    video.currentTime = time;
+  }
+  function scrubAll(height) {
+    if (!scrubs) return;                 // the first frame runs before the clips are found
+    scrubs.forEach(function (video) {
+      if (!video._armed || video.readyState < 2 || !video.duration) return;
+      // One column (the stylesheet's narrow layout): a screenshot sits below
+      // its text, so the section's run would finish the clip before it is on
+      // screen. A feature's screenshot pins under the navbar instead while
+      // the empty .kp-feature-run after it scrolls by (p: 0 as it pins, 1 as
+      // it lets go, below 0 on the way up), and the clip plays on the way up,
+      // from about when it is all in view to the moment it pins, as on wide
+      // screens. Anything else goes by its own run through the window.
+      var host = narrow.matches ? null : video._host;
+      var run = narrow.matches && video._run;
+      var p, from, to;
+      if (run && run.offsetHeight) {
+        var figure = video.parentNode.getBoundingClientRect();
+        var hold = run.getBoundingClientRect();
+        var pinnedAt = parseFloat(getComputedStyle(video.parentNode).top) || 0;
+        p = (pinnedAt + figure.height - hold.top) / hold.height;
+        from = -1.3; to = 0;
+      } else if (host) {
+        if (host._p === undefined) return;
+        p = host._p;
+      } else {
+        var box = video.getBoundingClientRect();
+        p = Math.max(0, Math.min(1, (height - box.top) / (height + box.height)));
+      }
+      if (from === undefined) {
+        from = host ? video._from : 0.1;
+        to = host ? video._to : 0.5;
+      }
+      var t = Math.max(0, Math.min(1, (p - from) / (to - from)));
+      // Squared: the app's intros ease out, most of their movement in the
+      // clip's first sixth, which straight on went by in a flick.
+      seekTo(video, Math.min(t * t * video.duration, video.duration - 0.01));
+    });
+  }
+  var scrubs = page.querySelectorAll('video[data-scrub]');
+  var narrow = window.matchMedia('(max-width: 900px)');
+  scrubs.forEach(function (video) {
+    var range = video.getAttribute('data-scrub').split(' ');
+    video._from = range[0] / 100;
+    video._to = range[1] / 100;
+    video._host = video.parentNode.closest('[data-scroll]');
+    var next = video.parentNode.nextElementSibling;
+    video._run = next && next.classList.contains('kp-feature-run') ? next : null;
+    // Its first frame until the clip has loaded and the scroll takes over:
+    // the poster in the page is the finished still, for when nothing plays.
+    if (!light) video.poster = video.getAttribute('data-start');
+    video.addEventListener('seeked', function () { seekTo(video, video._want); });
+  });
+  function playClip(video) {
+    var started = video.play();
+    if (started && started.catch) started.catch(function () { toStill(video); });
+  }
+  openingClips.forEach(function (video) {
+    if (light) { toStill(video); return; }
+    var stage = video.closest('.kp-hero-stage');
+    video.addEventListener('ended', function () { if (stage) stage.classList.add('is-live'); });
+    playClip(video);
+  });
+  if (!light && 'IntersectionObserver' in window) {
+    var near = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { arm(entry.target); near.unobserve(entry.target); }
+      });
+    }, { rootMargin: '100% 0px' });
+    scrubs.forEach(function (video) { near.observe(video); });
+  }
+
+  // ── Words ──
+  if (!still) {
+    page.querySelectorAll('h2').forEach(function (heading) {
+      var n = 0;
+      Array.prototype.slice.call(heading.childNodes).forEach(function (node) {
+        if (node.nodeType !== 3) return;               // a <br> stays as it is
+        var parts = node.textContent.split(/(\s+)/);
+        var run = document.createDocumentFragment();
+        parts.forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { run.appendChild(document.createTextNode(part)); return; }
+          var word = document.createElement('span');
+          word.className = 'kp-word';
+          word.style.setProperty('--w', n++);
+          word.textContent = part;
+          run.appendChild(word);
+        });
+        heading.replaceChild(run, node);
+      });
+    });
+  }
 
   // ── Counters and reveals ──
   function countUp(el) {
