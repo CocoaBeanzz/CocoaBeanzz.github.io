@@ -585,8 +585,18 @@ body:has(.kp)::before { display: none; }
   gap: clamp(1.5rem, 4vw, 3.5rem);
   // Tall, so the screenshot pins while its text scrolls past it.
   align-items: start;
-  min-height: 170vh;
+  min-height: 185vh;
   --side: 1;
+  --kp-nav: 4.5rem;             // the site navbar (69 px), which a pinned box sits under
+}
+// A pinned box fills the window under the navbar and centers what it holds,
+// so the picture and its text hold in the middle of the screen whatever
+// their height.
+.kp-feature-copy, .kp-feature-media, .kp-feature-pair {
+  top: var(--kp-nav);
+  min-height: calc(100svh - var(--kp-nav));
+  flex-direction: column;
+  justify-content: center;
 
   &.kp-flip {
     grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
@@ -599,12 +609,15 @@ body:has(.kp)::before { display: none; }
 // section's --p, not on a view timeline: a sticky box's place in the window
 // isn't something every browser's view timelines agree on. The character
 // speaks up once the text has landed.
-.kp-feature-run { display: none; }      // the phone layout's hold, below
+// The picture and its text are one block on phones (pinned together,
+// below); side by side they are the grid's two cells. The run is the empty
+// stretch the phone pin holds for.
+.kp-feature-pair { display: contents; }
+.kp-feature-run { display: none; }
 
 .kp-feature-copy {
   position: sticky;
-  top: 24vh;
-  margin-top: 30vh;
+  display: flex;
   --land: clamp(0, (var(--p, 1) - 0.2) * 7, 1);
   --gone: clamp(0, (var(--p, 0) - 0.76) * 8, 1);
   opacity: calc(var(--land) - var(--gone));
@@ -625,11 +638,11 @@ body:has(.kp)::before { display: none; }
 
 // The screenshot pins in the window beside its text. --p is the section's
 // run through the window ("through"): it pins at about 0.33 and lets go at
-// about 0.67. It rises out of a lean as it arrives, and only once it has let
+// about 0.65. It rises out of a lean as it arrives, and only once it has let
 // go and is on its way out does it sink back a little.
 .kp-feature-media {
   position: sticky;
-  top: 12vh;
+  display: flex;
   margin: 0;
   perspective: 1400px;
 
@@ -1220,14 +1233,28 @@ body:has(.kp)::before { display: none; }
   .kp-hero-row { grid-template-columns: minmax(0, 1fr); }
   .kp-hero { --kp-above: 16rem; }
   .kp-feature, .kp-feature.kp-flip { grid-template-columns: minmax(0, 1fr); min-height: 0; margin-bottom: var(--band-gap); }
-  .kp-feature-copy { position: static; margin-top: 0; opacity: 1; translate: none; filter: none; }
+  .kp-feature { --kp-nav: 5.6rem; }   // the navbar is 89 px here
+  .kp-feature-copy { position: static; min-height: 0; opacity: 1; translate: none; filter: none; }
   .kp-feature .kp-says { --say: 1; }
-  .kp-feature-media { position: static; }
-  .kp-feature.kp-flip .kp-feature-copy { order: 0; }
-  // A tab's screenshot pins under the navbar for half a screen (the empty
-  // run after it), long enough for its intro to be seen at a thumb's pace.
-  .kp-feature-media:has(+ .kp-feature-run) { position: sticky; top: 4.5rem; z-index: 1; }
-  .kp-feature-run { display: block; height: 55vh; }
+  // One column: the picture first, its text and the character's bubble
+  // under it, so the tab is in place before the reader gets to the words.
+  // One block pinned mid-screen: the picture (its intro played on the way
+  // up, product.js) and under it the text with the character's bubble,
+  // held while the run after it scrolls by.
+  .kp-feature-pair {
+    display: flex;
+    gap: 1.25rem;
+    position: sticky;
+  }
+  .kp-feature-media { position: static; min-height: 0; order: -1; }
+  .kp-feature-media img, .kp-feature-media video { max-height: 40vh; }   // the pair fits the screen
+  .kp-feature-run { display: block; height: 45vh; }
+  // The skins the same way: heading, then the app in the skin, then the
+  // picker under it (the copy's box gives way so its parts can be ordered).
+  .kp-skins { row-gap: 0.75rem; }
+  .kp-skins-copy { display: contents; }
+  .kp-skin-stack { order: 1; margin: 1rem 0; }
+  .kp-skin-list { order: 2; }
   .kp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kp-stat:nth-child(3) { border-left: 0; }
   .kp-stat:nth-child(n + 3) { border-top: 1px solid var(--kp-line); }

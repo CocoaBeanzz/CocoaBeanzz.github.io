@@ -15,11 +15,10 @@
 //   Skins      Pointing at a skin's name brings its picture to the front.
 //   Clips      Videos of the app filmed coming up: a tab's charts playing in,
 //              its numbers counting up. [data-clip="load"] plays once as the
-//              page opens (the hero). [data-scrub="A B"] is played by the
-//              scroll: its time follows the --p of the [data-scroll] round it
-//              (or its own run through the window), start to end as that goes
-//              from A% to B%. Each ends on the frame its poster shows, so with
-//              reduced motion, save-data or no script the still is all there is.
+//              page opens (the hero). [data-scrub] is played by the scroll as
+//              it comes into place (scrubAll). Each ends on the frame its
+//              poster shows, so with reduced motion, save-data or no script
+//              the still is all there is.
 //   Words      Headings are split into words for the stylesheet's scroll-driven
 //              entrances (each word's --w is its place).
 //   Counters   The numbers count up the first time they are seen.
@@ -245,52 +244,34 @@
     if (video.seeking || Math.abs(video.currentTime - time) < 0.02) return;
     video.currentTime = time;
   }
+  // A clip runs from its top edge entering the bottom of the window to the
+  // moment it pins (a feature's picture, or on phones the picture-and-text
+  // block it heads: whichever is sticky), so the intro is done as it lands
+  // with its text (beside it side by side, under it on phones). One that doesn't pin (the chart wall) is done once it
+  // is all in view, its bottom at 85% of the window. Played by where the
+  // whole section was, the intros ran while the reader was moving on.
   function scrubAll(height) {
     if (!scrubs) return;                 // the first frame runs before the clips are found
     scrubs.forEach(function (video) {
       if (!video._armed || video.readyState < 2 || !video.duration) return;
-      // One column (the stylesheet's narrow layout): a screenshot sits below
-      // its text, so the section's run would finish the clip before it is on
-      // screen. A feature's screenshot pins under the navbar instead while
-      // the empty .kp-feature-run after it scrolls by (p: 0 as it pins, 1 as
-      // it lets go, below 0 on the way up), and the clip plays on the way up,
-      // from about when it is all in view to the moment it pins, as on wide
-      // screens. Anything else goes by its own run through the window.
-      var host = narrow.matches ? null : video._host;
-      var run = narrow.matches && video._run;
-      var p, from, to;
-      if (run && run.offsetHeight) {
-        var figure = video.parentNode.getBoundingClientRect();
-        var hold = run.getBoundingClientRect();
-        var pinnedAt = parseFloat(getComputedStyle(video.parentNode).top) || 0;
-        p = (pinnedAt + figure.height - hold.top) / hold.height;
-        from = -1.3; to = 0;
-      } else if (host) {
-        if (host._p === undefined) return;
-        p = host._p;
-      } else {
-        var box = video.getBoundingClientRect();
-        p = Math.max(0, Math.min(1, (height - box.top) / (height + box.height)));
+      var box = video.getBoundingClientRect();
+      var doneAt = height * 0.85 - box.height;
+      for (var holder = video.parentNode, i = 0; i < 2; holder = holder.parentNode, i++) {
+        var style = getComputedStyle(holder);
+        if (style.position === 'sticky') {
+          // Where the video's top is once its holder has pinned.
+          doneAt = (parseFloat(style.top) || 0) + (box.top - holder.getBoundingClientRect().top);
+          break;
+        }
       }
-      if (from === undefined) {
-        from = host ? video._from : 0.1;
-        to = host ? video._to : 0.5;
-      }
-      var t = Math.max(0, Math.min(1, (p - from) / (to - from)));
+      var t = Math.max(0, Math.min(1, (height - box.top) / Math.max(1, height - doneAt)));
       // Squared: the app's intros ease out, most of their movement in the
       // clip's first sixth, which straight on went by in a flick.
       seekTo(video, Math.min(t * t * video.duration, video.duration - 0.01));
     });
   }
   var scrubs = page.querySelectorAll('video[data-scrub]');
-  var narrow = window.matchMedia('(max-width: 900px)');
   scrubs.forEach(function (video) {
-    var range = video.getAttribute('data-scrub').split(' ');
-    video._from = range[0] / 100;
-    video._to = range[1] / 100;
-    video._host = video.parentNode.closest('[data-scroll]');
-    var next = video.parentNode.nextElementSibling;
-    video._run = next && next.classList.contains('kp-feature-run') ? next : null;
     // Its first frame until the clip has loaded and the scroll takes over:
     // the poster in the page is the finished still, for when nothing plays.
     if (!light) video.poster = video.getAttribute('data-start');
