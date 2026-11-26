@@ -222,20 +222,42 @@
     video.removeAttribute('src');
     video.load();
   }
-  // Loaded ahead of time, whole, as a blob: a server that doesn't say it
+  // Fetched ahead of time, whole, as a blob: a server that doesn't say it
   // takes range requests (Python's http.server) leaves a streamed video
-  // unseekable, and these are a megabyte or two. Once it has data the
-  // scroll sets its frame (a seek also takes the poster down).
-  function arm(video) {
-    if (video._armed) return;
-    video._armed = true;
-    fetch(video.currentSrc || video.src).then(function (response) {
+  // unseekable, and these are a megabyte or two.
+  function fetchClip(video) {
+    if (video._fetching) return;
+    video._fetching = true;
+    fetch(video.getAttribute('src')).then(function (response) {
       return response.blob();
     }).then(function (blob) {
-      video.addEventListener('loadeddata', request, { once: true });
-      video.preload = 'auto';
-      video.src = URL.createObjectURL(blob);
+      video._blob = URL.createObjectURL(blob);
+      video.removeAttribute('src');      // nothing decodes until it is live
+      video.load();
+      request();
     }).catch(function () { /* the poster stays */ });
+  }
+  // A clip holds a decoder only while its intro is running. Phones have a
+  // handful of decoders for the whole page, and with every clip on the
+  // page loaded, the chart wall's sat on their first frame or blank (Nov
+  // 26). Before its intro a clip shows its first frame as the poster, after
+  // it the finished still: the same pictures the video would show.
+  function setLive(video, live, done, time) {
+    if (live === !!video._live) return;
+    video._live = live;
+    if (live) {
+      video.preload = 'auto';
+      video.addEventListener('loadeddata', request, { once: true });
+      video.src = video._blob;
+      // Coming back to it (scrolling back up), it opens on the frame
+      // the scroll is at, not on its empty first frame.
+      if (time > 0) video.currentTime = video._want = time;
+    } else {
+      video._length = video.duration || video._length;
+      video.poster = done ? video._still : video.getAttribute('data-start');
+      video.removeAttribute('src');
+      video.load();
+    }
   }
   // A seek is asked for only once the one before has landed, and then for
   // wherever the scroll is by then, so fast scrolling doesn't queue seeks up.
@@ -251,9 +273,9 @@
   // is all in view, its bottom at 85% of the window. Played by where the
   // whole section was, the intros ran while the reader was moving on.
   function scrubAll(height) {
-    if (!scrubs) return;                 // the first frame runs before the clips are found
+    if (!scrubs || light) return;        // the first frame runs before the clips are found
     scrubs.forEach(function (video) {
-      if (!video._armed || video.readyState < 2 || !video.duration) return;
+      if (!video._blob) return;
       var box = video.getBoundingClientRect();
       var doneAt = height * 0.85 - box.height;
       for (var holder = video.parentNode, i = 0; i < 2; holder = holder.parentNode, i++) {
@@ -264,16 +286,24 @@
           break;
         }
       }
-      var t = Math.max(0, Math.min(1, (height - box.top) / Math.max(1, height - doneAt)));
+      var run = (height - box.top) / Math.max(1, height - doneAt);
+      var t = Math.max(0, Math.min(1, run));
+      // Live from a little before its top edge comes into the window (time
+      // to load) until its intro is done.
       // Squared: the app's intros ease out, most of their movement in the
       // clip's first sixth, which straight on went by in a flick.
-      seekTo(video, Math.min(t * t * video.duration, video.duration - 0.01));
+      var length = video.duration || video._length;
+      var time = length ? Math.min(t * t * length, length - 0.01) : 0;
+      setLive(video, run > -0.25 && run < 1, run >= 1, time);
+      if (!video._live || video.readyState < 2) return;
+      seekTo(video, time);
     });
   }
   var scrubs = page.querySelectorAll('video[data-scrub]');
   scrubs.forEach(function (video) {
     // Its first frame until the clip has loaded and the scroll takes over:
     // the poster in the page is the finished still, for when nothing plays.
+    video._still = video.getAttribute('poster');
     if (!light) video.poster = video.getAttribute('data-start');
     video.addEventListener('seeked', function () { seekTo(video, video._want); });
   });
@@ -284,13 +314,18 @@
   openingClips.forEach(function (video) {
     if (light) { toStill(video); return; }
     var stage = video.closest('.kp-hero-stage');
-    video.addEventListener('ended', function () { if (stage) stage.classList.add('is-live'); });
+    // Once it has played it is its last frame for good: the still, which
+    // frees its decoder for the clips further down.
+    video.addEventListener('ended', function () {
+      if (stage) stage.classList.add('is-live');
+      toStill(video);
+    });
     playClip(video);
   });
   if (!light && 'IntersectionObserver' in window) {
     var near = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) { arm(entry.target); near.unobserve(entry.target); }
+        if (entry.isIntersecting) { fetchClip(entry.target); near.unobserve(entry.target); }
       });
     }, { rootMargin: '100% 0px' });
     scrubs.forEach(function (video) { near.observe(video); });
