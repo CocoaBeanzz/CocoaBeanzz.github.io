@@ -1,0 +1,20 @@
+{%- comment -%}
+The reference library's shipped tracks, one collapsed table per genre, from
+_data/kouncil_library.csv (written by Kouncil's
+tools/blog_figures/library_evidence.py). Collapsed because the full list is
+over a thousand rows and a reader looks up one genre at a time.
+{%- endcomment -%}
+{%- assign genres = site.data.kouncil_library | group_by: "genre" -%}
+{%- for genre in genres -%}
+<details class="kouncil-library">
+<summary>{{ genre.name }} <span class="kouncil-library-count">{{ genre.size }}</span></summary>
+<table>
+<thead><tr><th>Track</th><th>Year</th><th>Why it's in</th></tr></thead>
+<tbody>
+{%- for row in genre.items %}
+<tr><td>{{ row.artist }} - {{ row.track }}</td><td>{{ row.year }}</td><td>{{ row.evidence }}</td></tr>
+{%- endfor %}
+</tbody>
+</table>
+</details>
+{%- endfor -%}

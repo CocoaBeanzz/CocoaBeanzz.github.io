@@ -10,20 +10,21 @@
 
 - group: The verdict
   rows:
-    - { feature: "Health score out of 100, with a grade", lite: true, full: true }
-    - { feature: "Findings, each with its fix", lite: true, full: true }
+    - { feature: "Health score out of 100, graded for release readiness", lite: true, full: true }
+    - { feature: "Findings: every problem the analysis turns up", lite: true, full: true }
     - { feature: "Where each problem is", lite: true, full: true }
-    - { feature: "The exact figure and the fix for every finding", lite: false, full: true }
+    - { feature: "The fix for every finding", lite: false, full: true }
     - { feature: "Every point lost traced to the finding that cost it", lite: true, full: true }
     - { feature: "Streaming readiness: Spotify, Apple Music, YouTube, Tidal, Amazon and more", lite: true, full: true }
     - { feature: "Render checks: dropouts, repeated buffers, glitches, cut-off endings, DC jumps", lite: true, full: true }
 
 - group: Judged against your genre
   rows:
-    - { feature: "100 genre profiles measured from 2,499 released records", lite: true, full: true }
+    - { feature: "85 genre profiles measured from 3,020 acclaimed records", lite: true, full: true }
     - { feature: "Every metric judged against the genre's real range, not a rule of thumb", lite: true, full: true }
     - { feature: "Tonal shape checked band by band against the genre", lite: true, full: true }
-    - { feature: "Told which other genre your track measures like", lite: true, full: true }
+    - { feature: "Best Match: the header names the genre your track measures closest to, one click to switch", lite: true, full: true }
+    - { feature: "Scoring target: the genre's own best, or two benchmark profiles of reference records, modern and all-time", lite: true, full: true }
     - { feature: "Profile Library: search, tags, favorites", lite: true, full: true }
     - { feature: "Build a profile from your own reference tracks", lite: false, full: true }
     - { feature: "Choose the statistic: median, trimmed mean, percentiles, Tukey fences", lite: false, full: true }
@@ -36,7 +37,7 @@
     - { feature: "Loudness range (LRA), short-term and momentary", lite: true, full: true }
     - { feature: "Loudness Distribution with the gates drawn", lite: true, full: true }
     - { feature: "Short-term Loudness over time", lite: true, full: true }
-    - { feature: "RMS and Crest Factor over time", lite: false, full: true }
+    - { feature: "RMS and Crest Factor over time", lite: true, full: true }
     - { feature: "PLR and PSR", lite: true, full: true }
 
 - group: Tone
@@ -50,27 +51,27 @@
     - { feature: "Spectrogram", lite: false, full: true }
     - { feature: "Mid / Side spectrum", lite: false, full: true }
     - { feature: "Equal-loudness (Fletcher-Munson) and LUFS-weighted views", lite: false, full: true }
-    - { feature: "Low-volume translation and perceptual DR", lite: false, full: true }
+    - { feature: "Low Volume Tilt and perceptual DR", lite: true, full: true }
 
 - group: Stereo
   rows:
     - { feature: "Goniometer", lite: true, full: true }
     - { feature: "Correlation and width", lite: true, full: true }
     - { feature: "Stereo Width Heatmap: width per band, the whole track", lite: true, full: true }
-    - { feature: "L/R Balance per band", lite: true, full: true }
+    - { feature: "L/R Balance per band", lite: false, full: true }
     - { feature: "Phase Correlation by band", lite: false, full: true }
-    - { feature: "Stereo Width by frequency and over time", lite: false, full: true }
+    - { feature: "Width by frequency, and Band Correlation: each band's correlation over time", lite: true, full: true }
     - { feature: "Mono compatibility: bass lost in mono, band by band", lite: false, full: true }
 
 - group: Dynamics
   rows:
     - { feature: "Dynamic Range (DR), crest factor", lite: true, full: true }
     - { feature: "Dynamic Character at a glance", lite: true, full: true }
-    - { feature: "Micro-dynamics", lite: false, full: true }
+    - { feature: "Microdynamics", lite: false, full: true }
     - { feature: "Transient profile and attack slopes", lite: false, full: true }
-    - { feature: "Dynamics per band", lite: false, full: true }
+    - { feature: "Dynamics per band", lite: true, full: true }
     - { feature: "How much movement the limiter left (envelope modulation)", lite: false, full: true }
-    - { feature: "Section contrast and transient density", lite: false, full: true }
+    - { feature: "Section contrast and transient density", lite: true, full: true }
 
 - group: Streaming and Bluetooth codecs
   rows:
@@ -90,6 +91,8 @@
   rows:
     - { feature: "Playback with peak meters, loudness, live goniometer and spectrum", lite: true, full: true }
     - { feature: "Play a range, loop it", lite: true, full: true }
+    - { feature: "Waveforms shaded by where the samples sit, so a squashed passage looks squashed", lite: true, full: true }
+    - { feature: "Pick the output device; follows your headphones when they're plugged in", lite: true, full: true }
     - { feature: "Solo a band from the band charts", lite: true, full: true }
     - { feature: "Drag across any chart to hear only that range", lite: false, full: true }
     - { feature: "A/B against a reference, level-matched, playheads in sync", lite: true, full: true }
@@ -112,7 +115,7 @@
 
 - group: Reports
   rows:
-    - { feature: "Image export, laid out for you", lite: true, full: true }
+    - { feature: "Image export, laid out for you, with presets for social posts and stories", lite: true, full: true }
     - { feature: "Character notes on exports", lite: true, full: true }
     - { feature: "Page editor: place, scale and style every element by hand", lite: false, full: true }
     - { feature: "PDF report", lite: false, full: true }
@@ -126,7 +129,9 @@
     - { feature: "Drag and drop; the last session comes back", lite: true, full: true }
     - { feature: "Analyze a folder at once", lite: false, full: true }
     - { feature: "Command line: analyze and build profiles without a window", lite: false, full: true }
-    - { feature: "Twenty skins, and a skin editor", lite: true, full: true }
+    - { feature: "Twenty-one skins, one for red-green color blindness, and a skin editor", lite: true, full: true }
     - { feature: "Text size and app scale", lite: true, full: true }
     - { feature: "Works offline: no account, nothing uploaded", lite: true, full: true }
+    - { feature: "Enlarge any chart, go full screen, copy any table into a spreadsheet", lite: true, full: true }
     - { feature: "Windows", lite: true, full: true }
+    - { feature: "Mac (Apple silicon), in beta", lite: true, full: true }
